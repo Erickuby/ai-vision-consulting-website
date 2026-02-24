@@ -24,6 +24,12 @@ const socials = [
   { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/aivisionconsulting' },
 ];
 
+const legalLinks = [
+  { label: 'Privacy Policy', href: '#/privacy-policy' },
+  { label: 'Terms of Service', href: '#/terms-of-service' },
+  { label: 'Cookie Policy', href: '#/cookie-policy' },
+];
+
 export function Footer() {
   const [email, setEmail] = useState('');
   const [done, setDone] = useState(false);
@@ -220,10 +226,10 @@ export function Footer() {
             © 2026 AI Vision Consulting Ltd. Registered in England & Wales. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '20px' }}>
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map(item => (
+            {legalLinks.map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item.label}
+                href={item.href}
                 style={{
                   fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#5A6A7A',
                   textDecoration: 'none', transition: 'color 0.2s ease'
@@ -231,7 +237,7 @@ export function Footer() {
                 onMouseEnter={e => { e.currentTarget.style.color = '#8899AA'; }}
                 onMouseLeave={e => { e.currentTarget.style.color = '#5A6A7A'; }}
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NeuralCanvas3D } from './components/NeuralCanvas3D';
 import { Nav } from './components/Nav';
 import { PageLoader } from './components/PageLoader';
@@ -15,9 +15,41 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { StickyCTA } from './components/StickyCTA';
 import { CustomCursor } from './components/CustomCursor';
+import { LegalPage, type LegalPageType } from './components/LegalPages';
+
+type AppRoute = 'home' | LegalPageType;
+
+function getRouteFromHash(hash: string): AppRoute {
+  const route = hash.replace(/^#\/?/, '').toLowerCase();
+  if (route === 'privacy-policy') return 'privacy-policy';
+  if (route === 'terms-of-service') return 'terms-of-service';
+  if (route === 'cookie-policy') return 'cookie-policy';
+  return 'home';
+}
 
 export function App() {
-  const [loaded, setLoaded] = useState(false);
+  const [route, setRoute] = useState<AppRoute>(() =>
+    typeof window === 'undefined' ? 'home' : getRouteFromHash(window.location.hash),
+  );
+  const [loaded, setLoaded] = useState(route !== 'home');
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const nextRoute = getRouteFromHash(window.location.hash);
+      setRoute(nextRoute);
+      if (nextRoute !== 'home') {
+        setLoaded(true);
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      }
+    };
+
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  if (route !== 'home') {
+    return <LegalPage page={route} />;
+  }
 
   return (
     <>
