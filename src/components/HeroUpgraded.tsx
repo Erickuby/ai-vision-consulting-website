@@ -47,10 +47,10 @@ export function HeroUpgraded() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 relative z-10"
+      className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 relative z-10"
     >
       {/* Deep gradient overlay */}
-      <div 
+      <div
         className="absolute inset-0 -z-10 pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,40,80,0.8) 0%, rgba(5,13,26,0.4) 70%)',
@@ -63,7 +63,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-center mb-6"
+          className="flex justify-center mb-7"
         >
           <span className="badge badge-cyan">
             <Sparkles size={12} />
@@ -76,7 +76,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-5"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6"
           style={{ color: '#F0F4FF' }}
         >
           Unlock AI Skills for{' '}
@@ -89,7 +89,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto mb-9"
+          className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto mb-10"
         >
           From job hunting to AI consulting: practical training that gets real results.
           Based in Newcastle, serving jobseekers, small businesses, and communities across the UK.
@@ -100,7 +100,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex gap-4 justify-center flex-wrap mb-12"
+          className="flex gap-4 justify-center flex-wrap mb-9"
         >
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
@@ -129,7 +129,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex gap-6 justify-center flex-wrap mb-18"
+          className="flex gap-6 justify-center flex-wrap mb-10"
         >
           {trustSignals.map((t, i) => (
             <motion.div
@@ -150,7 +150,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-3xl mt-18"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-3xl"
           style={{
             background: 'rgba(10,20,40,0.6)',
             backdropFilter: 'blur(16px)',
