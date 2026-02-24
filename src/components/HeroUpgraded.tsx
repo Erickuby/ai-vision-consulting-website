@@ -58,19 +58,6 @@ export function HeroUpgraded() {
       />
 
       <div className="max-w-4xl w-full text-center">
-        {/* Pre-badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          style={{ display: 'flex', justifyContent: 'center', marginBottom: '28px' }}
-        >
-          <span className="badge badge-cyan">
-            <Sparkles size={12} />
-            Newcastle upon Tyne, UK · Practical AI Training
-          </span>
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
