@@ -62,10 +62,10 @@ export function AboutUpgraded() {
                     }}
                   >
                     <div className="font-display text-lg font-bold text-[#F0F4FF]">
-                      AI Vision Consulting Ltd
+                      Eric Nwankwo
                     </div>
                     <div className="text-[13px] text-[#00D4FF]" style={{ marginTop: '4px' }}>
-                      Newcastle upon Tyne, UK
+                      Digital Portfolio Manager & AI Specialist
                     </div>
                   </div>
                 </motion.div>
