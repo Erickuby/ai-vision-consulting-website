@@ -47,7 +47,8 @@ export function HeroUpgraded() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 relative z-10"
+      className="min-h-screen flex flex-col items-center justify-center relative z-10"
+      style={{ paddingTop: '96px', paddingBottom: '64px', paddingLeft: '24px', paddingRight: '24px' }}
     >
       {/* Deep gradient overlay */}
       <div
