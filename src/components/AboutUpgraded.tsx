@@ -13,7 +13,7 @@ const credentials = [
 
 export function AboutUpgraded() {
   return (
-    <section id="about" className="section-wrapper py-24 px-6">
+    <section id="about" className="section-wrapper" style={{ padding: '96px 24px' }}>
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left: Image + particles */}
@@ -54,15 +54,17 @@ export function AboutUpgraded() {
                     loading="lazy"
                   />
                   <div
-                    className="absolute bottom-0 left-0 right-0 p-6 pt-8"
+                    className="absolute bottom-0 left-0 right-0"
                     style={{
+                      padding: '24px',
+                      paddingTop: '32px',
                       background: 'linear-gradient(transparent, rgba(5,13,26,0.95))',
                     }}
                   >
                     <div className="font-display text-lg font-bold text-[#F0F4FF]">
                       AI Vision Consulting Ltd
                     </div>
-                    <div className="text-[13px] text-[#00D4FF] mt-1">
+                    <div className="text-[13px] text-[#00D4FF]" style={{ marginTop: '4px' }}>
                       Newcastle upon Tyne, UK
                     </div>
                   </div>
@@ -73,8 +75,9 @@ export function AboutUpgraded() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="absolute top-5 -right-5 z-20 rounded-xl p-3"
+                  className="absolute top-5 -right-5 z-20 rounded-xl"
                   style={{
+                    padding: '12px',
                     background: 'rgba(10,20,40,0.9)',
                     backdropFilter: 'blur(12px)',
                     border: '1px solid rgba(0,212,255,0.25)',
@@ -90,18 +93,18 @@ export function AboutUpgraded() {
           {/* Right: Story */}
           <div>
             <Reveal>
-              <span className="badge badge-cyan mb-4 inline-block">Our Story</span>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0F4FF] tracking-tight mb-6 leading-tight">
+              <span className="badge badge-cyan" style={{ marginBottom: '16px', display: 'inline-block' }}>Our Story</span>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0F4FF] tracking-tight leading-tight" style={{ marginBottom: '24px' }}>
                 No one left behind in the{' '}
                 <span className="gradient-text-cyan">AI revolution.</span>
               </h2>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="text-base text-[#8899AA] leading-relaxed mb-5">
+              <p className="text-base text-[#8899AA] leading-relaxed" style={{ marginBottom: '20px' }}>
                 AI Vision Consulting Ltd was founded right here in Newcastle upon Tyne with a single, clear mission: to make practical AI skills accessible to everyone — not just those in tech. Whether you're a jobseeker wanting to stand out, a small business owner looking to work smarter, or someone who's never touched AI before, we meet you where you are.
               </p>
-              <p className="text-base text-[#8899AA] leading-relaxed mb-8">
+              <p className="text-base text-[#8899AA] leading-relaxed" style={{ marginBottom: '32px' }}>
                 As a Portfolio Manager and AI specialist, our founder bridges the gap between cutting-edge AI capability and real, community-level impact. From church hall seminars to Jobcentre Plus partnerships, we've trained over 100 professionals and helped secure 50+ jobs — with measurable outcomes that go far beyond the classroom.
               </p>
             </Reveal>
@@ -120,8 +123,9 @@ export function AboutUpgraded() {
                       borderColor: 'rgba(0,212,255,0.35)',
                       backgroundColor: 'rgba(0,212,255,0.06)',
                     }}
-                    className="flex items-center gap-2.5 p-3 rounded-lg transition-colors"
+                    className="flex items-center gap-2.5 rounded-lg transition-colors"
                     style={{
+                      padding: '12px',
                       background: 'rgba(10,20,40,0.6)',
                       border: '1px solid rgba(0,212,255,0.1)',
                     }}

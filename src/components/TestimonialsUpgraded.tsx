@@ -38,11 +38,11 @@ export function TestimonialsUpgraded() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="py-20 px-6 relative z-10" aria-label="Testimonials">
+    <section className="relative z-10" style={{ padding: '80px 24px' }} aria-label="Testimonials">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <Reveal className="text-center mb-14">
-          <span className="badge badge-cyan mb-4 inline-block">Real Results</span>
+        <Reveal style={{ textAlign: 'center', marginBottom: '56px' }}>
+          <span className="badge badge-cyan" style={{ marginBottom: '16px', display: 'inline-block' }}>Real Results</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0F4FF] tracking-tight">
             People whose lives have <span className="gradient-text-cyan">changed</span>
           </h2>
@@ -60,21 +60,23 @@ export function TestimonialsUpgraded() {
               {testimonials.map((t, index) => (
                 <div
                   key={index}
-                  className="flex-[0_0_100%] min-w-0 px-2"
+                  className="flex-[0_0_100%] min-w-0"
+                  style={{ paddingLeft: '8px', paddingRight: '8px' }}
                   role="group"
                   aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
                 >
                   <div
-                    className="rounded-3xl p-8 sm:p-12 md:p-14 max-w-4xl mx-auto"
+                    className="rounded-3xl max-w-4xl mx-auto"
                     style={{
+                      padding: 'clamp(32px, 5vw, 56px)',
                       background: 'rgba(10,20,40,0.7)',
                       backdropFilter: 'blur(16px)',
                       border: '1px solid rgba(0,212,255,0.12)',
                     }}
                   >
-                    <Quote size={40} color="rgba(0,212,255,0.15)" className="mb-6" />
+                    <Quote size={40} color="rgba(0,212,255,0.15)" style={{ marginBottom: '24px', display: 'block' }} />
 
-                    <p className="text-base sm:text-lg text-[#C8D8E8] leading-relaxed mb-8 italic min-h-[100px]">
+                    <p className="text-base sm:text-lg text-[#C8D8E8] leading-relaxed italic min-h-[100px]" style={{ marginBottom: '32px' }}>
                       "{t.quote}"
                     </p>
 
@@ -99,7 +101,7 @@ export function TestimonialsUpgraded() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between mt-8 max-w-4xl mx-auto px-2">
+          <div className="flex items-center justify-between max-w-4xl mx-auto" style={{ marginTop: '32px', paddingLeft: '8px', paddingRight: '8px' }}>
             {/* Dots */}
             <div className="flex gap-2" role="tablist" aria-label="Testimonial navigation">
               {testimonials.map((_, i) => (
