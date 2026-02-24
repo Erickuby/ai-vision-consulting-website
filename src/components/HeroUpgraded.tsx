@@ -63,7 +63,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-center mb-7"
+          style={{ display: 'flex', justifyContent: 'center', marginBottom: '28px' }}
         >
           <span className="badge badge-cyan">
             <Sparkles size={12} />
@@ -76,8 +76,8 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6"
-          style={{ color: '#F0F4FF' }}
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
+          style={{ color: '#F0F4FF', marginBottom: '24px' }}
         >
           Unlock AI Skills for{' '}
           <span className="gradient-text-gold">Financial Freedom</span>{' '}
@@ -89,7 +89,8 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto mb-10"
+          className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto"
+          style={{ marginBottom: '40px' }}
         >
           From job hunting to AI consulting: practical training that gets real results.
           Based in Newcastle, serving jobseekers, small businesses, and communities across the UK.
@@ -100,7 +101,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex gap-4 justify-center flex-wrap mb-9"
+          style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}
         >
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
@@ -129,7 +130,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex gap-6 justify-center flex-wrap mb-10"
+          style={{ display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '44px' }}
         >
           {trustSignals.map((t, i) => (
             <motion.div
@@ -137,7 +138,7 @@ export function HeroUpgraded() {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-              className="flex items-center gap-2"
+              style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
             >
               <CheckCircle size={14} color="#00D4FF" />
               <span className="text-xs sm:text-sm text-[#8899AA] font-medium">{t}</span>
@@ -150,8 +151,11 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-3xl"
+          className="grid grid-cols-2 md:grid-cols-4"
           style={{
+            gap: '24px',
+            padding: '32px',
+            borderRadius: '24px',
             background: 'rgba(10,20,40,0.6)',
             backdropFilter: 'blur(16px)',
             border: '1px solid rgba(0,212,255,0.12)',
@@ -168,7 +172,7 @@ export function HeroUpgraded() {
               <div className="stat-number">
                 <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} />
               </div>
-              <div className="text-xs sm:text-sm text-[#8899AA] mt-1.5 font-medium">
+              <div className="text-xs sm:text-sm text-[#8899AA] font-medium" style={{ marginTop: '6px' }}>
                 {stat.label}
               </div>
             </motion.div>
