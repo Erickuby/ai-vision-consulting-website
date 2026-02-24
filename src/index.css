@@ -17,6 +17,9 @@
   padding: 0;
 }
 
+/* Restore mx-auto centering — class specificity (0,1,0) beats universal reset (0,0,0) */
+.mx-auto { margin-left: auto; margin-right: auto; }
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
