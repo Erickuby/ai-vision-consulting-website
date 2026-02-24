@@ -102,10 +102,10 @@ export function AboutUpgraded() {
 
             <Reveal delay={0.1}>
               <p className="text-base text-[#8899AA] leading-relaxed" style={{ marginBottom: '20px' }}>
-                AI Vision Consulting Ltd was founded right here in Newcastle upon Tyne with a single, clear mission: to make practical AI skills accessible to everyone — not just those in tech. Whether you're a jobseeker wanting to stand out, a small business owner looking to work smarter, or someone who's never touched AI before, we meet you where you are.
+                AI Vision Consulting Ltd was founded right here in Newcastle upon Tyne with a single, clear mission: to make practical AI skills accessible to everyone, not just those in tech. Whether you're a jobseeker wanting to stand out, a small business owner looking to work smarter, or someone who's never touched AI before, we meet you where you are.
               </p>
               <p className="text-base text-[#8899AA] leading-relaxed" style={{ marginBottom: '32px' }}>
-                As a Portfolio Manager and AI specialist, our founder bridges the gap between cutting-edge AI capability and real, community-level impact. From church hall seminars to Jobcentre Plus partnerships, we've trained over 100 professionals and helped secure 50+ jobs — with measurable outcomes that go far beyond the classroom.
+                As a Portfolio Manager and AI specialist, our founder bridges the gap between cutting-edge AI capability and real, community-level impact. From church hall seminars to Jobcentre Plus partnerships, we've trained over 100 professionals and helped secure 50+ jobs, with measurable outcomes that go far beyond the classroom.
               </p>
             </Reveal>
 
