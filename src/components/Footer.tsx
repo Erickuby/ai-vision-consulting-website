@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Brain, Linkedin, Youtube, Instagram, ArrowRight, Mail } from 'lucide-react';
+import { Linkedin, Youtube, Instagram, ArrowRight, Mail } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: 'home' },
@@ -61,15 +61,13 @@ export function Footer() {
           {/* Brand */}
           <div style={{ gridColumn: 'span 1' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-              <div style={{
-                width: 36, height: 36,
-                background: 'linear-gradient(135deg, #00D4FF, #0066AA)',
-                borderRadius: 10,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 0 16px rgba(0,212,255,0.3)'
-              }}>
-                <Brain size={20} color="#050D1A" />
-              </div>
+              <img
+                src="/logo.svg"
+                width={36}
+                height={36}
+                alt="AI Vision Consulting logo"
+                style={{ filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.35))' }}
+              />
               <div>
                 <div style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: '15px', color: '#F0F4FF', lineHeight: 1 }}>
                   AI Vision

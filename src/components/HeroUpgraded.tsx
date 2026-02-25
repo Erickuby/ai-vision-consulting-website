@@ -70,7 +70,7 @@ export function HeroUpgraded() {
         >
           Unlock AI Skills for{' '}
           <span className="gradient-text-gold">Financial Freedom</span>{' '}
-          — Starting Today
+          Starting Today
         </motion.h1>
 
         {/* Subheadline */}

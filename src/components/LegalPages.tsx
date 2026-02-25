@@ -7,6 +7,7 @@ interface LegalSection {
 
 interface LegalDocument {
   title: string;
+  badge: string;
   summary: string;
   lastUpdated: string;
   sections: LegalSection[];
@@ -15,6 +16,7 @@ interface LegalDocument {
 const legalDocs: Record<LegalPageType, LegalDocument> = {
   'privacy-policy': {
     title: 'Privacy Policy',
+    badge: 'Your Data',
     summary:
       'This policy explains what personal data we collect, how we use it, and your rights under applicable data protection law.',
     lastUpdated: '24 February 2026',
@@ -70,6 +72,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
   },
   'terms-of-service': {
     title: 'Terms of Service',
+    badge: 'Legal Agreement',
     summary:
       'These terms govern your use of this website and related services provided by AI Vision Consulting Ltd.',
     lastUpdated: '24 February 2026',
@@ -124,6 +127,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
   },
   'cookie-policy': {
     title: 'Cookie Policy',
+    badge: 'Tracking & Storage',
     summary:
       'This policy explains how cookies and similar technologies are used on this website.',
     lastUpdated: '24 February 2026',
@@ -173,68 +177,167 @@ export function LegalPage({ page }: { page: LegalPageType }) {
   const doc = legalDocs[page];
 
   return (
-    <div className="bg-[#050D1A] min-h-screen text-[#F0F4FF] px-6 py-8 md:py-12">
-      <div className="max-w-4xl mx-auto">
-        <header
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '16px',
-            flexWrap: 'wrap',
-            marginBottom: '24px',
-          }}
-        >
-          <a
-            href="#"
-            style={{
-              textDecoration: 'none',
-              fontFamily: 'Space Grotesk',
-              fontWeight: 700,
-              fontSize: '20px',
-              color: '#F0F4FF',
-              letterSpacing: '-0.01em',
-            }}
-            aria-label="Back to home page"
-          >
-            AI Vision Consulting
-          </a>
-          <a
-            href="#"
-            className="btn-secondary"
-            style={{ padding: '8px 14px', fontSize: '13px' }}
-          >
-            Back to Home
-          </a>
-        </header>
+    <div
+      style={{
+        minHeight: '100vh',
+        background: '#050D1A',
+        color: '#F0F4FF',
+        fontFamily: 'Plus Jakarta Sans, sans-serif',
+      }}
+    >
+      {/* Ambient background */}
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 0,
+          background:
+            'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,40,80,0.6) 0%, transparent 65%)',
+        }}
+      />
 
-        <article
-          className="glass-card"
+      {/* Nav bar */}
+      <header
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 50,
+          background: 'rgba(5,13,26,0.9)',
+          backdropFilter: 'blur(16px)',
+          borderBottom: '1px solid rgba(0,212,255,0.08)',
+          padding: '0 24px',
+        }}
+      >
+        <div
           style={{
-            padding: '28px',
-            borderRadius: '18px',
+            maxWidth: '900px',
+            margin: '0 auto',
+            height: '64px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '16px',
           }}
         >
-          <p
+          {/* Logo + wordmark */}
+          <a
+            href="#"
             style={{
-              fontFamily: 'Space Grotesk',
-              fontSize: '12px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              textDecoration: 'none',
+            }}
+            aria-label="Back to home"
+          >
+            <img
+              src="/logo.svg"
+              width={36}
+              height={36}
+              alt="AI Vision Consulting logo"
+              style={{ filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.4))' }}
+            />
+            <div>
+              <div
+                style={{
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '15px',
+                  color: '#F0F4FF',
+                  lineHeight: 1,
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                AI Vision
+              </div>
+              <div
+                style={{
+                  fontFamily: 'Space Grotesk, sans-serif',
+                  fontWeight: 400,
+                  fontSize: '9px',
+                  color: '#00D4FF',
+                  letterSpacing: '0.1em',
+                  lineHeight: 1,
+                  marginTop: '2px',
+                }}
+              >
+                CONSULTING LTD
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="#"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px 16px',
+              borderRadius: '8px',
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontSize: '13px',
+              fontWeight: 600,
               color: '#00D4FF',
-              marginBottom: '10px',
+              background: 'rgba(0,212,255,0.08)',
+              border: '1px solid rgba(0,212,255,0.25)',
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'rgba(0,212,255,0.15)';
+              e.currentTarget.style.borderColor = 'rgba(0,212,255,0.45)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'rgba(0,212,255,0.08)';
+              e.currentTarget.style.borderColor = 'rgba(0,212,255,0.25)';
             }}
           >
-            Legal
-          </p>
+            ← Back to Home
+          </a>
+        </div>
+      </header>
+
+      {/* Content */}
+      <main
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: '900px',
+          margin: '0 auto',
+          padding: '48px 24px 80px',
+        }}
+      >
+        {/* Document hero */}
+        <div style={{ marginBottom: '40px' }}>
+          <span
+            style={{
+              display: 'inline-block',
+              padding: '4px 12px',
+              borderRadius: '100px',
+              fontSize: '11px',
+              fontWeight: 700,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              fontFamily: 'Space Grotesk, sans-serif',
+              background: 'rgba(0,212,255,0.1)',
+              border: '1px solid rgba(0,212,255,0.25)',
+              color: '#00D4FF',
+              marginBottom: '16px',
+            }}
+          >
+            {doc.badge}
+          </span>
 
           <h1
             style={{
-              fontFamily: 'Space Grotesk',
-              fontSize: 'clamp(1.8rem, 4vw, 2.4rem)',
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontSize: 'clamp(2rem, 5vw, 2.75rem)',
               fontWeight: 700,
-              letterSpacing: '-0.02em',
-              marginBottom: '10px',
+              letterSpacing: '-0.025em',
+              color: '#F0F4FF',
+              lineHeight: 1.15,
+              marginBottom: '16px',
             }}
           >
             {doc.title}
@@ -242,93 +345,199 @@ export function LegalPage({ page }: { page: LegalPageType }) {
 
           <p
             style={{
-              fontFamily: 'Plus Jakarta Sans',
+              fontSize: '16px',
               color: '#8899AA',
               lineHeight: 1.75,
-              marginBottom: '6px',
+              maxWidth: '620px',
+              marginBottom: '12px',
             }}
           >
             {doc.summary}
           </p>
-          <p
+
+          <div
             style={{
-              fontFamily: 'Plus Jakarta Sans',
-              fontSize: '13px',
-              color: '#5A6A7A',
-              marginBottom: '24px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 12px',
+              borderRadius: '8px',
+              background: 'rgba(10,20,40,0.7)',
+              border: '1px solid rgba(0,212,255,0.1)',
             }}
           >
-            Last updated: {doc.lastUpdated}
-          </p>
+            <div
+              style={{
+                width: '6px',
+                height: '6px',
+                borderRadius: '50%',
+                background: '#00D4FF',
+                flexShrink: 0,
+              }}
+            />
+            <span
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                fontSize: '12px',
+                color: '#5A6A7A',
+              }}
+            >
+              Last updated: {doc.lastUpdated}
+            </span>
+          </div>
+        </div>
 
-          <div style={{ display: 'grid', gap: '20px' }}>
-            {doc.sections.map((section) => (
-              <section key={section.title}>
+        {/* Divider */}
+        <div
+          style={{
+            height: '1px',
+            background: 'linear-gradient(90deg, rgba(0,212,255,0.2), transparent)',
+            marginBottom: '40px',
+          }}
+        />
+
+        {/* Sections */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {doc.sections.map((section, i) => (
+            <div
+              key={section.title}
+              style={{
+                padding: '28px 32px',
+                borderRadius: '16px',
+                background: i % 2 === 0 ? 'rgba(10,20,40,0.5)' : 'transparent',
+                border: i % 2 === 0 ? '1px solid rgba(0,212,255,0.07)' : '1px solid transparent',
+                marginBottom: '4px',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  marginBottom: '14px',
+                }}
+              >
+                <div
+                  style={{
+                    width: '3px',
+                    height: '20px',
+                    borderRadius: '2px',
+                    background: 'linear-gradient(180deg, #00D4FF, rgba(0,212,255,0.2))',
+                    flexShrink: 0,
+                  }}
+                />
                 <h2
                   style={{
-                    fontFamily: 'Space Grotesk',
-                    fontSize: '18px',
+                    fontFamily: 'Space Grotesk, sans-serif',
+                    fontSize: '17px',
                     fontWeight: 700,
-                    marginBottom: '8px',
+                    color: '#E0EEFF',
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   {section.title}
                 </h2>
+              </div>
+              <div style={{ paddingLeft: '15px' }}>
                 {section.paragraphs.map((paragraph) => (
                   <p
                     key={paragraph}
                     style={{
-                      fontFamily: 'Plus Jakarta Sans',
-                      color: '#A9B6C5',
-                      lineHeight: 1.75,
+                      fontSize: '14.5px',
+                      color: '#8899AA',
+                      lineHeight: 1.8,
                       marginBottom: '10px',
                     }}
                   >
                     {paragraph}
                   </p>
                 ))}
-              </section>
-            ))}
-          </div>
-        </article>
+              </div>
+            </div>
+          ))}
+        </div>
 
-        <footer
+        {/* Other legal documents */}
+        <div
           style={{
-            marginTop: '20px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '12px',
+            marginTop: '56px',
+            padding: '32px',
+            borderRadius: '18px',
+            background: 'rgba(10,20,40,0.6)',
+            border: '1px solid rgba(0,212,255,0.1)',
           }}
         >
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            {legalLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                style={{
-                  fontFamily: 'Plus Jakarta Sans',
-                  fontSize: '13px',
-                  color: '#8899AA',
-                  textDecoration: 'none',
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <span
+          <p
             style={{
-              fontFamily: 'Plus Jakarta Sans',
+              fontFamily: 'Space Grotesk, sans-serif',
               fontSize: '12px',
+              fontWeight: 700,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
               color: '#5A6A7A',
+              marginBottom: '16px',
             }}
           >
-            Informational content only, not legal advice.
-          </span>
-        </footer>
-      </div>
+            Other Legal Documents
+          </p>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            {legalLinks.map((link) => {
+              const isActive = link.href === `#/${page}`;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  style={{
+                    padding: '8px 16px',
+                    borderRadius: '8px',
+                    fontFamily: 'Space Grotesk, sans-serif',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    background: isActive
+                      ? 'rgba(0,212,255,0.15)'
+                      : 'rgba(0,212,255,0.05)',
+                    border: isActive
+                      ? '1px solid rgba(0,212,255,0.4)'
+                      : '1px solid rgba(0,212,255,0.12)',
+                    color: isActive ? '#00D4FF' : '#8899AA',
+                    pointerEvents: isActive ? 'none' : 'auto',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={e => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = 'rgba(0,212,255,0.3)';
+                      e.currentTarget.style.color = '#C8D8E8';
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!isActive) {
+                      e.currentTarget.style.borderColor = 'rgba(0,212,255,0.12)';
+                      e.currentTarget.style.color = '#8899AA';
+                    }
+                  }}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bottom disclaimer */}
+        <p
+          style={{
+            marginTop: '32px',
+            fontSize: '12px',
+            color: '#3A4A5A',
+            textAlign: 'center',
+            lineHeight: 1.7,
+          }}
+        >
+          © 2026 AI Vision Consulting Ltd. Registered in England &amp; Wales.
+          Informational content only. Not legal advice.
+        </p>
+      </main>
     </div>
   );
 }

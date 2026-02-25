@@ -55,7 +55,7 @@ export function Contact() {
             Your AI journey starts with a <span className="gradient-text-gold">conversation</span>
           </h2>
           <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '17px', color: '#8899AA', maxWidth: '520px', margin: '0 auto' }}>
-            Book your free 15-minute AI assessment or send us a message. No hard sell — just honest advice on where AI can help you most.
+            Book your free 15-minute AI assessment or send us a message. No hard sell, just honest advice on where AI can help you most.
           </p>
         </Reveal>
 
@@ -91,7 +91,7 @@ export function Contact() {
                   </div>
                 </div>
                 <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA', marginBottom: '20px', lineHeight: 1.7 }}>
-                  Spend 15 minutes with our AI specialist. We'll identify your biggest opportunity and map out your next step — whether that's a course, consulting, or a community programme.
+                  Spend 15 minutes with our AI specialist. We'll identify your biggest opportunity and map out your next step: a course, consulting, or a community programme.
                 </p>
                 <motion.a
                   whileHover={{ scale: 1.02 }}

@@ -174,7 +174,7 @@ export function CoursesUpgraded() {
             Courses built for <span className="gradient-text-cyan">real-world outcomes</span>
           </h2>
           <p className="text-base sm:text-lg text-[#8899AA] max-w-xl mx-auto">
-            Every programme is practical, outcome-focused, and taught by a working AI practitioner — not a classroom theorist.
+            Every programme is practical, outcome-focused, and taught by a working AI practitioner, not a classroom theorist.
           </p>
         </Reveal>
 

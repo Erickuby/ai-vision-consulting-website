@@ -3,7 +3,7 @@ export const testimonialsData = [
     name: 'Marcus T.',
     role: 'Former Warehouse Operative → AI Support Analyst',
     location: 'Newcastle',
-    quote: "I was made redundant after 12 years. I joined the AI Job Hunting course with no tech background — 8 weeks later I had interviews at three companies. I accepted a role paying £8k more than my previous job. This course changed my life.",
+    quote: "I was made redundant after 12 years. I joined the AI Job Hunting course with no tech background. Eight weeks later I had interviews at three companies. I accepted a role paying £8k more than my previous job. This course changed my life.",
     rating: 5,
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
   },

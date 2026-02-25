@@ -47,7 +47,7 @@ export function AboutUpgraded() {
                 >
                   <img
                     src="/src/assets/founder.png"
-                    alt="AI Vision Consulting Founder — Newcastle AI Trainer"
+                    alt="AI Vision Consulting Founder, Newcastle AI Trainer"
                     className="w-full block"
                     loading="lazy"
                   />

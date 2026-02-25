@@ -10,7 +10,7 @@ export const articlesData = [
   },
   {
     title: '5 AI Prompts Every Jobseeker Needs Right Now',
-    excerpt: "Stop submitting generic CVs. These five prompts will help you tailor your application, write a punchy cover letter, prepare for competency interviews, and negotiate a better salary — all in under an hour.",
+    excerpt: "Stop submitting generic CVs. These five prompts will help you tailor your application, write a punchy cover letter, prepare for competency interviews, and negotiate a better salary, all in under an hour.",
     image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=480&h=260&fit=crop',
     category: 'Practical Guide',
     categoryColor: '#FFD700',

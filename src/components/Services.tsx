@@ -7,8 +7,8 @@ const services = [
     icon: GraduationCap,
     color: '#00D4FF',
     title: 'AI Training Programmes',
-    description: 'Structured courses for jobseekers, career changers, and business owners. From beginner to practitioner — all levels welcome. Delivered online, in-person, or hybrid across Newcastle and the UK.',
-    points: ['6–10 week structured courses', 'Cohort and self-paced options', 'Funded places available for eligible learners'],
+    description: 'Structured courses for jobseekers, career changers, and business owners. From beginner to practitioner. All levels welcome. Delivered online, in-person, or hybrid across Newcastle and the UK.',
+    points: ['6–10 week structured courses', 'Cohort and self-paced options', 'Online, in-person, or hybrid delivery'],
     cta: 'Browse Courses',
     ctaHref: 'courses',
   },
@@ -16,7 +16,7 @@ const services = [
     icon: Cpu,
     color: '#FFD700',
     title: '1:1 Consulting',
-    description: "Work directly with our AI specialist to solve your specific challenges. Whether it's a career pivot, a business automation project, or building an AI side income — we map a clear path forward.",
+    description: "Work directly with our AI specialist to solve your specific challenges. Whether it's a career pivot, a business automation project, or building an AI side income. We map a clear path forward.",
     points: ['90-minute strategy sessions', 'Custom AI roadmap for your goals', 'Ongoing support available'],
     cta: 'Book a Call',
     ctaHref: 'contact',
@@ -25,7 +25,7 @@ const services = [
     icon: Presentation,
     color: '#A78BFA',
     title: 'Corporate Workshops',
-    description: 'Half-day to full-day AI literacy and strategy sessions for teams and leadership. We make AI tangible, practical, and immediately useful — no fluff, no jargon.',
+    description: 'Half-day to full-day AI literacy and strategy sessions for teams and leadership. We make AI tangible, practical, and immediately useful. No fluff, no jargon.',
     points: ['Executive AI briefings', 'Team upskilling workshops', 'AI policy and readiness audits'],
     cta: 'Enquire Now',
     ctaHref: 'contact',
@@ -34,8 +34,8 @@ const services = [
     icon: HandshakeIcon,
     color: '#00FF88',
     title: 'Community Partnerships',
-    description: 'We partner with Jobcentres, churches, community organisations, and local councils to bring free or subsidised AI training to those who need it most. Accessibility is non-negotiable.',
-    points: ['DWP / Jobcentre Plus aligned', 'Church and faith group seminars', 'Grant-funded cohorts available'],
+    description: 'We partner with community organisations, local groups, and employment partners to bring practical AI training to those who need it most. Accessibility is non-negotiable.',
+    points: ['BlackTech North East training partner', 'Community seminars & workshops', 'Working with local employment partners'],
     cta: 'Partner With Us',
     ctaHref: 'contact',
   },
@@ -66,7 +66,7 @@ export function Services() {
             Services built for <span className="gradient-text-gold">real-world outcomes</span>
           </h2>
           <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '17px', color: '#8899AA', maxWidth: '520px', margin: '0 auto' }}>
-            Whether you're an individual, a business, or a community organisation — there's a path designed for you.
+            Whether you're an individual, a business, or a community organisation, there's a path designed for you.
           </p>
         </Reveal>
 
