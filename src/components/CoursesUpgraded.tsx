@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Users, Star, ArrowRight, Play, CheckCircle } from 'lucide-react';
+import { Clock, ArrowRight, Play, CheckCircle } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { allCourses, courseFilters as filters } from '../data/courses';
 
@@ -99,16 +99,6 @@ function CourseCard({ course, index }: { course: typeof allCourses[0]; index: nu
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Clock size={12} color="#8899AA" />
               <span style={{ fontSize: '12px', color: '#8899AA' }}>{course.duration}</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <Users size={12} color="#8899AA" />
-              <span style={{ fontSize: '12px', color: '#8899AA' }}>{course.students} enrolled</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginLeft: 'auto' }}>
-              <Star size={12} color="#FFD700" fill="#FFD700" />
-              <span style={{ fontSize: '12px', color: '#FFD700', fontWeight: 600, fontFamily: 'Space Grotesk, sans-serif' }}>
-                {course.rating}
-              </span>
             </div>
           </div>
 
