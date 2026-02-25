@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Brain } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -62,14 +62,13 @@ export function Nav() {
             className="flex items-center gap-2.5 no-underline flex-shrink-0"
             aria-label="AI Vision Consulting Ltd - Home"
           >
-            <div className="w-9 h-9 rounded-[10px] flex items-center justify-center"
-              style={{
-                background: 'linear-gradient(135deg, #00D4FF, #0066AA)',
-                boxShadow: '0 0 16px rgba(0,212,255,0.4)',
-              }}
-            >
-              <Brain size={20} color="#050D1A" />
-            </div>
+            <img
+              src="/logo.svg"
+              alt="AI Vision Consulting logo"
+              width={40}
+              height={40}
+              style={{ display: 'block', filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.45))' }}
+            />
             <div>
               <div className="font-display font-bold text-[15px] text-[#F0F4FF] tracking-tight leading-none">
                 AI Vision
