@@ -7,8 +7,6 @@ const items = [
   '✦ 20+ Jobs / Career Changes Supported',
   '✦ 5★ Average Rating',
   '✦ Working with local employment partners',
-  '✦ Church & Faith Group Seminars',
-  '✦ Free Funded Places Available',
 ];
 
 // Double for seamless loop
