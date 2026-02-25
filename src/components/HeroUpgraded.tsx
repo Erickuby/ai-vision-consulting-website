@@ -27,15 +27,15 @@ function Counter({ end, prefix = '', suffix = '' }: CounterProps) {
 }
 
 const trustSignals = [
-  'CPD Accredited Provider',
-  'Partnered with Jobcentre Plus',
+  'CPD Accreditation in progress',
+  'Working with local employment partners',
   '100+ Professionals Trained',
 ];
 
 const stats = [
-  { end: 50, suffix: '+', label: 'Jobs Secured', prefix: '' },
-  { end: 50, suffix: 'k+', label: 'in Side Income Generated', prefix: '£' },
-  { end: 100, suffix: '+', label: 'People Trained', prefix: '' },
+  { end: 20, suffix: '+', label: 'Jobs & Promotions Secured', prefix: '' },
+  { end: 20, suffix: 'k+', label: 'in Income Generated', prefix: '£' },
+  { end: 100, suffix: '+', label: 'Professionals Trained', prefix: '' },
   { end: 12, suffix: '', label: 'Community Workshops', prefix: '' },
 ];
 
