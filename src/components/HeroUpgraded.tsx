@@ -27,16 +27,17 @@ function Counter({ end, prefix = '', suffix = '' }: CounterProps) {
 }
 
 const trustSignals = [
+  'Newcastle-based AI trainer',
   'CPD Accreditation in progress',
-  'Working with local employment partners',
-  '100+ Professionals Trained',
+  'Community partnerships across the North East',
+  '100+ people trained',
+  'BlackTech North East training partner',
 ];
 
 const stats = [
-  { end: 20, suffix: '+', label: 'Jobs & Promotions Secured', prefix: '' },
-  { end: 20, suffix: 'k+', label: 'in Income Generated', prefix: '£' },
+  { end: 20, suffix: '+', label: 'Jobs / Career Changes Supported', prefix: '' },
   { end: 100, suffix: '+', label: 'Professionals Trained', prefix: '' },
-  { end: 12, suffix: '', label: 'Community Workshops', prefix: '' },
+  { end: 1, suffix: '', label: 'Community Partnership (BlackTech NE)', prefix: '' },
 ];
 
 export function HeroUpgraded() {
@@ -139,7 +140,7 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4"
+          className="grid grid-cols-1 md:grid-cols-3"
           style={{
             gap: '24px',
             padding: '32px',
