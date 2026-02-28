@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Globe, Target, User } from 'lucide-react';
+import { Award, BookOpen, Globe, Target } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const credentials = [
@@ -45,15 +45,18 @@ export function AboutUpgraded() {
                     boxShadow: '0 0 40px rgba(0,212,255,0.1)',
                   }}
                 >
-                  <div className="w-full bg-[#050D1A] flex items-center justify-center pt-28 pb-16">
-                    <User size={120} color="rgba(0,212,255,0.4)" strokeWidth={1} style={{ opacity: 0.5 }} />
-                  </div>
+                  <img
+                    src="/profile.png"
+                    alt="Eric Nwankwo"
+                    className="w-full h-auto object-cover"
+                    style={{ aspectRatio: '1/1' }}
+                  />
                   <div
-                    className="absolute bottom-0 left-0 right-0"
+                    className="absolute bottom-0 left-0 right-0 flex flex-col justify-end"
                     style={{
                       padding: '24px',
-                      paddingTop: '32px',
-                      background: 'linear-gradient(transparent, rgba(5,13,26,0.95))',
+                      paddingTop: '64px',
+                      background: 'linear-gradient(to top, rgba(5,13,26,0.95) 20%, transparent)',
                     }}
                   >
                     <div className="font-display text-lg font-bold text-[#F0F4FF]">
