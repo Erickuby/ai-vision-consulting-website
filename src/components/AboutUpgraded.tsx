@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Globe, Target } from 'lucide-react';
+import { Award, BookOpen, Globe, Target, User } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const credentials = [
@@ -34,7 +34,7 @@ export function AboutUpgraded() {
                     background: 'radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%)',
                   }}
                 />
-                
+
                 {/* Image */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
@@ -45,12 +45,9 @@ export function AboutUpgraded() {
                     boxShadow: '0 0 40px rgba(0,212,255,0.1)',
                   }}
                 >
-                  <img
-                    src="/src/assets/founder.png"
-                    alt="AI Vision Consulting Founder, Newcastle AI Trainer"
-                    className="w-full block"
-                    loading="lazy"
-                  />
+                  <div className="w-full bg-[#050D1A] flex items-center justify-center pt-28 pb-16">
+                    <User size={120} color="rgba(0,212,255,0.4)" strokeWidth={1} style={{ opacity: 0.5 }} />
+                  </div>
                   <div
                     className="absolute bottom-0 left-0 right-0"
                     style={{
@@ -99,11 +96,8 @@ export function AboutUpgraded() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="text-base text-[#8899AA] leading-relaxed" style={{ marginBottom: '20px' }}>
-                AI Vision Consulting Ltd was founded right here in Newcastle upon Tyne with a single, clear mission: to make practical AI skills accessible to everyone, not just those in tech. Whether you're a jobseeker wanting to stand out, a small business owner looking to work smarter, or someone who's never touched AI before, we meet you where you are.
-              </p>
               <p className="text-base text-[#8899AA] leading-relaxed" style={{ marginBottom: '32px' }}>
-                As a Portfolio Manager and AI specialist, our founder bridges the gap between cutting-edge AI capability and real, community-level impact. From community seminars to local employment partnerships, we've trained over 100 professionals and supported 20+ jobs and career changes, with measurable outcomes that go far beyond the classroom.
+                AI Vision Consulting was founded to make artificial intelligence practical, accessible and profitable for everyone — from jobseekers in Newcastle to businesses across the UK. We believe AI is not just for Silicon Valley. It is for you, right here, right now.
               </p>
             </Reveal>
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, ArrowRight, Play, CheckCircle } from 'lucide-react';
 import { Reveal } from './Reveal';
-import { allCourses, courseFilters as filters } from '../data/courses';
+import { allCourses } from '../data/courses';
 
 function CourseCard({ course, index }: { course: typeof allCourses[0]; index: number }) {
   const scrollTo = (href: string) => {
@@ -139,11 +139,13 @@ function CourseCard({ course, index }: { course: typeof allCourses[0]; index: nu
 }
 
 export function CoursesUpgraded() {
-  const [filter, setFilter] = useState('all');
+  const [activeTab, setActiveTab] = useState('individuals');
 
-  const filtered = filter === 'all'
-    ? allCourses
-    : allCourses.filter(c => c.category === filter || (filter === 'funded' && c.funded));
+  const scrollTo = (href: string) => {
+    document.getElementById(href)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const individualCourses = allCourses.filter(c => [1, 2, 3].includes(c.id));
 
   return (
     <section
@@ -178,7 +180,7 @@ export function CoursesUpgraded() {
           </p>
         </Reveal>
 
-        {/* Filters */}
+        {/* Tabs */}
         <Reveal
           delay={0.1}
           style={{
@@ -187,38 +189,119 @@ export function CoursesUpgraded() {
             marginBottom: '48px',
           }}
         >
-          {filters.map(f => (
+          {[
+            { id: 'individuals', label: 'For Individuals' },
+            { id: 'businesses', label: 'For Businesses' },
+            { id: 'funded', label: 'Funded Programmes' }
+          ].map(t => (
             <motion.button
-              key={f.key}
+              key={t.id}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setFilter(f.key)}
-              className={`filter-btn ${filter === f.key ? 'active' : ''}`}
-              aria-pressed={filter === f.key}
+              onClick={() => setActiveTab(t.id)}
+              className={`filter-btn ${activeTab === t.id ? 'active' : ''}`}
             >
-              {f.label}
+              {t.label}
             </motion.button>
           ))}
         </Reveal>
 
-        {/* Card grid — flex + justify-center so partial rows centre-align */}
-        <motion.div
-          layout
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '24px',
-            justifyContent: 'center',
-          }}
-        >
-          {filtered.map((course, i) => (
+        {/* Content Area */}
+        <motion.div layout>
+          {activeTab === 'individuals' && (
             <div
-              key={course.id}
-              style={{ flex: '1 1 280px', maxWidth: '360px', minWidth: '280px' }}
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '24px',
+                justifyContent: 'center',
+              }}
             >
-              <CourseCard course={course} index={i} />
+              {individualCourses.map((course, i) => (
+                <div
+                  key={course.id}
+                  style={{ flex: '1 1 280px', maxWidth: '360px', minWidth: '280px' }}
+                >
+                  <CourseCard course={course} index={i} />
+                </div>
+              ))}
             </div>
-          ))}
+          )}
+
+          {activeTab === 'businesses' && (
+            <Reveal>
+              <div className="glass-panel p-8 md:p-12 text-center" style={{ maxWidth: '800px', margin: '0 auto', borderRadius: '24px', border: '1px solid rgba(0,212,255,0.2)' }}>
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-[#F0F4FF] mb-4">
+                  Bespoke Corporate AI Training
+                </h3>
+                <p className="text-[#8899AA] text-lg mb-8 leading-relaxed">
+                  Tailored AI training workshops and staff development programmes for teams of all sizes. Half-day, full-day, and multi-week programmes available. CPD-structured delivery.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto mb-10">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle size={18} className="text-[#00D4FF]" />
+                    <span className="text-[#8899AA]">Tailored to your industry and team size</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle size={18} className="text-[#00D4FF]" />
+                    <span className="text-[#8899AA]">Delivered online, on-site or hybrid</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle size={18} className="text-[#00D4FF]" />
+                    <span className="text-[#8899AA]">Includes team workbooks and resources</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle size={18} className="text-[#00D4FF]" />
+                    <span className="text-[#8899AA]">Post-training support available</span>
+                  </div>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => scrollTo('contact')}
+                  className="btn-primary glow-cyan mx-auto flex items-center justify-center p-3 rounded"
+                >
+                  Request a Corporate Quote <ArrowRight className="ml-2" size={16} />
+                </motion.button>
+              </div>
+            </Reveal>
+          )}
+
+          {activeTab === 'funded' && (
+            <Reveal>
+              <div className="glass-panel p-8 md:p-12 text-center" style={{ maxWidth: '800px', margin: '0 auto', borderRadius: '24px', border: '1px solid rgba(0,255,136,0.2)' }}>
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-[#F0F4FF] mb-4">
+                  Jobcentre and Community Funded Training
+                </h3>
+                <p className="text-[#8899AA] text-lg mb-8 leading-relaxed">
+                  Partnering with Jobcentres, local authorities and community organisations to deliver AI skills training for jobseekers and underrepresented communities.
+                </p>
+                <div className="grid grid-cols-1 gap-4 text-left max-w-lg mx-auto mb-10">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle size={18} className="text-[#00FF88]" />
+                    <span className="text-[#8899AA]">AI skills for employment and career change</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle size={18} className="text-[#00FF88]" />
+                    <span className="text-[#8899AA]">Delivered in partnership with local organisations</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle size={18} className="text-[#00FF88]" />
+                    <span className="text-[#8899AA]">Suitable for Jobcentre referrals and DWP contracts</span>
+                  </div>
+                </div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => scrollTo('contact')}
+                  className="btn-primary mx-auto flex items-center justify-center p-3 rounded"
+                  style={{ background: 'linear-gradient(135deg, #00FF88, #00CC6A)', color: '#050D1A' }}
+                >
+                  Enquire About Partnership <ArrowRight className="ml-2" size={16} />
+                </motion.button>
+              </div>
+            </Reveal>
+          )}
         </motion.div>
       </div>
     </section>

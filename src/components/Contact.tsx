@@ -235,10 +235,11 @@ export function Contact() {
                       aria-required="true"
                     >
                       <option value="" disabled>Select your situation</option>
-                      <option value="jobseeker">Jobseeker / Career Changer</option>
-                      <option value="business">Business Owner / Self-Employed</option>
-                      <option value="partner">Partner Enquiry (Jobcentre / Organisation)</option>
-                      <option value="corporate">Corporate / Team Training</option>
+                      <option value="jobseeker">Jobseeker</option>
+                      <option value="professional">Professional looking to upskill</option>
+                      <option value="business">Small business owner</option>
+                      <option value="corporate">Corporate / HR enquiry</option>
+                      <option value="partner">Community or Jobcentre partner</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
@@ -306,6 +307,23 @@ export function Contact() {
                   <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#5A6A7A', textAlign: 'center', marginTop: '12px' }}>
                     By submitting, you agree to our <a href="#" style={{ color: '#8899AA' }}>Privacy Policy</a>. We never share your data.
                   </p>
+
+                  <div style={{ marginTop: '24px', textAlign: 'center', borderTop: '1px solid rgba(0,212,255,0.1)', paddingTop: '24px' }}>
+                    <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA', marginBottom: '16px' }}>
+                      Or book a free 15-minute AI assessment call directly &rarr;
+                    </p>
+                    <motion.a
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      href="https://calendly.com/aivisionconsulting"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-secondary"
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px' }}
+                    >
+                      <Calendar size={16} /> Book on Calendly
+                    </motion.a>
+                  </div>
                 </form>
               )}
             </div>

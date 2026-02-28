@@ -11,9 +11,9 @@ interface CounterProps {
 function Counter({ end, prefix = '', suffix = '' }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  
+
   const spring = useSpring(0, { damping: 50, stiffness: 100 });
-  const display = useTransform(spring, (value) => 
+  const display = useTransform(spring, (value) =>
     `${prefix}${Math.floor(value).toLocaleString()}${suffix}`
   );
 
@@ -27,17 +27,14 @@ function Counter({ end, prefix = '', suffix = '' }: CounterProps) {
 }
 
 const trustSignals = [
-  'Newcastle-based AI trainer',
-  'CPD Accreditation in progress',
-  'Community partnerships across the North East',
-  '100+ people trained',
-  'BlackTech North East training partner',
+  'Newcastle-based AI Trainer',
+  'BlackTech North East Partner',
 ];
 
 const stats = [
-  { end: 20, suffix: '+', label: 'Jobs / Career Changes Supported', prefix: '' },
+  { end: 20, suffix: '+', label: 'AI Career Changes Supported', prefix: '' },
   { end: 100, suffix: '+', label: 'Professionals Trained', prefix: '' },
-  { end: 1, suffix: '', label: 'Community Partnership (BlackTech NE)', prefix: '' },
+  { end: 1, suffix: '', label: 'Community Partnership BlackTech North East', prefix: '' },
 ];
 
 export function HeroUpgraded() {
@@ -81,8 +78,7 @@ export function HeroUpgraded() {
           className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto"
           style={{ marginBottom: '40px' }}
         >
-          From job hunting to AI consulting: practical training that gets real results.
-          Based in Newcastle, serving jobseekers, small businesses, and communities across the UK.
+          Practical AI training delivering real results for jobseekers, small businesses and communities across the UK.
         </motion.p>
 
         {/* CTAs */}

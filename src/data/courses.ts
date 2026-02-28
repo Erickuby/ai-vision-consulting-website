@@ -35,7 +35,7 @@ export const allCourses = [
     tag: 'High Earner',
     title: 'Build Your AI Consulting Side Hustle',
     subtitle: 'From Zero to £5k/Month',
-    price: '£497',
+    price: '£997',
     funded: false,
     duration: '8 weeks',
     students: '18',

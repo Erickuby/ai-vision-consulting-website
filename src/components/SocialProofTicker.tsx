@@ -1,12 +1,10 @@
 const items = [
-  '✦ Newcastle-based AI trainer',
-  '✦ CPD Accreditation in progress',
-  '✦ Community partnerships across the North East',
-  '✦ 100+ people trained',
-  '✦ BlackTech North East training partner',
-  '✦ 20+ Jobs / Career Changes Supported',
-  '✦ 5★ Average Rating',
-  '✦ Working with local employment partners',
+  '✦ BlackTech North East Training Partner',
+  '✦ AI & Portfolio Management Specialist',
+  '✦ Practical Hands-On Training',
+  '✦ Beginner to Expert Level Programmes',
+  '✦ YouTube AI Education Channel',
+  '✦ Community-Led AI Training',
 ];
 
 // Double for seamless loop
@@ -21,7 +19,7 @@ export function SocialProofTicker() {
         zIndex: 10,
         overflow: 'hidden',
         padding: '14px 0',
-        borderTop:    '1px solid rgba(0,212,255,0.08)',
+        borderTop: '1px solid rgba(0,212,255,0.08)',
         borderBottom: '1px solid rgba(0,212,255,0.08)',
         background: 'rgba(5,10,20,0.6)',
         backdropFilter: 'blur(10px)',

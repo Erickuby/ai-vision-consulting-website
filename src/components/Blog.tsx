@@ -5,40 +5,34 @@ import { Reveal } from './Reveal';
 
 const articles = [
   {
-    title: 'How AI Got Me My Dream Job in 6 Weeks',
-    excerpt: "Marcus had never written a prompt in his life. Eight weeks after joining our AI Job Hunting course, he had a £38k offer on the table. Here's exactly how he used AI to transform his job search.",
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=480&h=260&fit=crop',
-    category: 'Success Story',
+    title: 'What is AI? The Simplest Explanation You Will Ever Read',
+    excerpt: "Everything you need to know about Artificial Intelligence without the technical jargon or Silicon Valley hype.",
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=480&h=260&fit=crop',
+    category: 'Fundamentals',
     categoryColor: '#00D4FF',
     readTime: '5 min read',
-    date: '12 Jan 2026',
+    date: 'Coming Soon',
+    comingSoon: true,
   },
   {
     title: '5 AI Prompts Every Jobseeker Needs Right Now',
-    excerpt: "Stop submitting generic CVs. These five prompts will help you tailor your application, write a punchy cover letter, prepare for competency interviews, and negotiate a better salary, all in under an hour.",
+    excerpt: "Stop submitting generic CVs. Learn how to use AI to tailor your application, write a punchy cover letter, and prep for interviews.",
     image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=480&h=260&fit=crop',
     category: 'Practical Guide',
     categoryColor: '#FFD700',
     readTime: '4 min read',
-    date: '3 Feb 2026',
+    date: 'Coming Soon',
+    comingSoon: true,
   },
   {
-    title: 'Start Your AI Side Hustle in 30 Days',
-    excerpt: "You don't need a degree in computer science. You need a process, a niche, and a few paying clients. This is the exact roadmap our students use to go from zero to their first £1,000 in consulting fees.",
+    title: 'How to Start an AI Side Hustle From Scratch in 2026',
+    excerpt: "You don't need a degree in computer science. You need a process, a niche, and a few paying clients. Here is the exact roadmap.",
     image: 'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=480&h=260&fit=crop',
     category: 'Business',
     categoryColor: '#00FF88',
     readTime: '7 min read',
-    date: '18 Feb 2026',
-  },
-  {
-    title: 'AI for Small Business: Where to Start in 2026',
-    excerpt: "Most small business owners are overwhelmed by AI hype. Here's a no-nonsense breakdown of the tools that actually save time, what they cost, and how to implement them without a technical team.",
-    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=480&h=260&fit=crop',
-    category: 'Business',
-    categoryColor: '#00FF88',
-    readTime: '6 min read',
-    date: '5 Mar 2026',
+    date: 'Coming Soon',
+    comingSoon: true,
   },
 ];
 
@@ -75,6 +69,20 @@ function ArticleCard({ article, index }: { article: typeof articles[0]; index: n
               {article.category}
             </span>
           </div>
+          {article.comingSoon && (
+            <div style={{
+              position: 'absolute', top: '12px', right: '12px',
+              padding: '6px 12px',
+              background: 'rgba(5, 13, 26, 0.8)',
+              backdropFilter: 'blur(8px)',
+              border: `1px solid ${article.categoryColor}40`,
+              color: '#F0F4FF',
+              borderRadius: '100px', fontSize: '11px', fontWeight: 600,
+              fontFamily: 'Space Grotesk', letterSpacing: '0.05em'
+            }}>
+              Coming Soon
+            </div>
+          )}
         </div>
 
         <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>

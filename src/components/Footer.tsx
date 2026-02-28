@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Linkedin, Youtube, Instagram, ArrowRight, Mail } from 'lucide-react';
+import { Linkedin, Youtube, ArrowRight, Mail } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: 'home' },
@@ -21,7 +21,6 @@ const courses = [
 const socials = [
   { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/aivisionconsulting' },
   { icon: Youtube, label: 'YouTube', href: 'https://youtube.com/@aivisionconsulting' },
-  { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/aivisionconsulting' },
 ];
 
 const legalLinks = [
@@ -78,7 +77,7 @@ export function Footer() {
               </div>
             </div>
             <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13.5px', color: '#8899AA', lineHeight: 1.7, marginBottom: '20px', maxWidth: '220px' }}>
-              AI Skills for Jobs, Business and Financial Freedom. Based in Newcastle upon Tyne, serving the UK.
+              Making AI Accessible for Everyone.
             </p>
             {/* Socials */}
             <div style={{ display: 'flex', gap: '10px' }}>
@@ -221,7 +220,7 @@ export function Footer() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px'
         }}>
           <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#5A6A7A' }}>
-            © 2026 AI Vision Consulting Ltd. Registered in England & Wales. All rights reserved.
+            © 2026 AI Vision Consulting. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '20px' }}>
             {legalLinks.map((item) => (
