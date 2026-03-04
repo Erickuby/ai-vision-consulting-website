@@ -96,7 +96,7 @@ export function Contact() {
                 <motion.a
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  href="https://calendly.com/aivisionconsulting"
+                  href="https://calendly.com/ericcnwankwo/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
@@ -315,7 +315,7 @@ export function Contact() {
                     <motion.a
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      href="https://calendly.com/aivisionconsulting"
+                      href="https://calendly.com/ericcnwankwo/30min"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-secondary"
