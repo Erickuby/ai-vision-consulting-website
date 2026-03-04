@@ -2,6 +2,7 @@ import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { TikTokIcon } from './TikTokIcon';
 import { Reveal } from './Reveal';
 
 export function Contact() {
@@ -152,6 +153,7 @@ export function Contact() {
                     { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
                     { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/aivisionconsulting/' },
                     { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@EricExplainsAI' },
+                    { icon: TikTokIcon, label: 'TikTok', href: 'https://www.tiktok.com/@aivisionconsultingltd' },
                   ].map(({ icon: Icon, label, href }) => (
                     <a
                       key={label}

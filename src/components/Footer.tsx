@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Linkedin, Youtube, Instagram, ArrowRight, Mail } from 'lucide-react';
+import { TikTokIcon } from './TikTokIcon';
 
 const navLinks = [
   { label: 'Home', href: 'home' },
@@ -22,6 +23,7 @@ const socials = [
   { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
   { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/aivisionconsulting/' },
   { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@EricExplainsAI' },
+  { icon: TikTokIcon, label: 'TikTok', href: 'https://www.tiktok.com/@aivisionconsultingltd' },
 ];
 
 const legalLinks = [
