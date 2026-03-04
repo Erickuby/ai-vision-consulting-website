@@ -21,7 +21,7 @@ const courses = [
 const socials = [
   { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
   { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/aivisionconsulting/' },
-  { icon: Youtube, label: 'YouTube', href: 'https://youtube.com/@aivisionconsulting' },
+  { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@EricExplainsAI' },
 ];
 
 const legalLinks = [

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle, Linkedin, Instagram, Youtube } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 export function Contact() {
@@ -136,6 +136,52 @@ export function Contact() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Social Follow */}
+              <div style={{
+                background: 'rgba(10,20,40,0.6)', backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(0,212,255,0.1)',
+                borderRadius: '20px', padding: '24px', marginTop: '16px',
+              }}>
+                <h3 style={{ fontFamily: 'Space Grotesk', fontSize: '14px', fontWeight: 700, color: '#F0F4FF', marginBottom: '14px' }}>
+                  Follow Us
+                </h3>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  {[
+                    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
+                    { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/aivisionconsulting/' },
+                    { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@EricExplainsAI' },
+                  ].map(({ icon: Icon, label, href }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      style={{
+                        width: 40, height: 40, borderRadius: '10px',
+                        background: 'rgba(0,212,255,0.08)',
+                        border: '1px solid rgba(0,212,255,0.15)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        color: '#8899AA', textDecoration: 'none',
+                        transition: 'all 0.2s ease',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.borderColor = '#00D4FF';
+                        e.currentTarget.style.color = '#00D4FF';
+                        e.currentTarget.style.background = 'rgba(0,212,255,0.15)';
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.borderColor = 'rgba(0,212,255,0.15)';
+                        e.currentTarget.style.color = '#8899AA';
+                        e.currentTarget.style.background = 'rgba(0,212,255,0.08)';
+                      }}
+                    >
+                      <Icon size={18} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </Reveal>

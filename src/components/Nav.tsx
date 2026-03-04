@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Linkedin, Instagram, Youtube } from 'lucide-react';
+
+const socials = [
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
+  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/aivisionconsulting/' },
+  { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@EricExplainsAI' },
+];
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -95,6 +101,32 @@ export function Nav() {
           </div>
 
           <div className="ml-auto flex items-center gap-3">
+            {/* Social Icons — desktop only */}
+            <div className="hidden md:flex items-center gap-1.5">
+              {socials.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex items-center justify-center w-8 h-8 rounded-lg text-[#8899AA] transition-all duration-200"
+                  style={{ background: 'rgba(0,212,255,0.06)', border: '1px solid rgba(0,212,255,0.1)' }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = '#00D4FF';
+                    e.currentTarget.style.color = '#00D4FF';
+                    e.currentTarget.style.background = 'rgba(0,212,255,0.15)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(0,212,255,0.1)';
+                    e.currentTarget.style.color = '#8899AA';
+                    e.currentTarget.style.background = 'rgba(0,212,255,0.06)';
+                  }}
+                >
+                  <Icon size={14} />
+                </a>
+              ))}
+            </div>
             <a
               href="#contact"
               onClick={e => { e.preventDefault(); scrollTo('#contact'); }}
@@ -166,6 +198,38 @@ export function Nav() {
             >
               Book Free Assessment
             </motion.a>
+
+            {/* Social Icons — mobile menu */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: (navItems.length + 1) * 0.06 }}
+              className="flex items-center gap-3 mt-4"
+            >
+              {socials.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex items-center justify-center w-10 h-10 rounded-lg text-[#8899AA] transition-all duration-200"
+                  style={{ background: 'rgba(0,212,255,0.08)', border: '1px solid rgba(0,212,255,0.15)' }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = '#00D4FF';
+                    e.currentTarget.style.color = '#00D4FF';
+                    e.currentTarget.style.background = 'rgba(0,212,255,0.15)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(0,212,255,0.15)';
+                    e.currentTarget.style.color = '#8899AA';
+                    e.currentTarget.style.background = 'rgba(0,212,255,0.08)';
+                  }}
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
