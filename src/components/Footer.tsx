@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Linkedin, Youtube, ArrowRight, Mail } from 'lucide-react';
+import { Linkedin, Youtube, Instagram, ArrowRight, Mail } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: 'home' },
@@ -19,7 +19,8 @@ const courses = [
 ];
 
 const socials = [
-  { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/aivisionconsulting' },
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
+  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/aivisionconsulting/' },
   { icon: Youtube, label: 'YouTube', href: 'https://youtube.com/@aivisionconsulting' },
 ];
 
