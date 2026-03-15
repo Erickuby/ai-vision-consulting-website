@@ -27,7 +27,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
         whileHover={{ y: -6, scale: 1.01 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         className="course-card"
-        style={{ overflow: 'hidden', height: '100%' }}
+        style={{ overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}
       >
         {/* Image */}
         <div style={{ position: 'relative', overflow: 'hidden', height: '176px' }}>
@@ -78,22 +78,48 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
         </div>
 
         {/* Content */}
-        <div style={{ padding: '20px' }}>
+        <div
+          style={{
+            padding: '20px',
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 1,
+          }}
+        >
           <h3
             className="font-display"
             style={{
               fontSize: '17px', fontWeight: 700, color: '#F0F4FF',
               letterSpacing: '-0.01em', marginBottom: '4px',
+              minHeight: '44px',
+              lineHeight: 1.25,
             }}
           >
             {course.title}
           </h3>
-          <p style={{ fontSize: '13px', color: '#8899AA', marginBottom: '16px' }}>
+          <p
+            style={{
+              fontSize: '13px',
+              color: '#8899AA',
+              marginBottom: '16px',
+              minHeight: '38px',
+              lineHeight: 1.5,
+            }}
+          >
             {course.subtitle}
           </p>
 
           {/* Outcomes */}
-          <ul style={{ listStyle: 'none', marginBottom: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <ul
+            style={{
+              listStyle: 'none',
+              marginBottom: '16px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px',
+              minHeight: '108px',
+            }}
+          >
             {course.outcomes.slice(0, 3).map(o => (
               <li key={o} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                 <CheckCircle size={13} color={course.color} style={{ flexShrink: 0, marginTop: '2px' }} />
@@ -115,7 +141,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
           </div>
 
           {/* Price + CTA */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto' }}>
             <span
               className="font-display"
               style={{
