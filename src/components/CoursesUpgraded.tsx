@@ -2,11 +2,23 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, ArrowRight, Play, CheckCircle } from 'lucide-react';
 import { Reveal } from './Reveal';
-import { allCourses } from '../data/courses';
+import { allCourses, type Course } from '../data/courses';
 
-function CourseCard({ course, index }: { course: typeof allCourses[0]; index: number }) {
+function CourseCard({ course, index }: { course: Course; index: number }) {
   const scrollTo = (href: string) => {
     document.getElementById(href)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleCtaClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === '#') {
+      event.preventDefault();
+      return;
+    }
+
+    if (href.startsWith('#')) {
+      event.preventDefault();
+      scrollTo(href.slice(1));
+    }
   };
 
   return (
@@ -114,10 +126,11 @@ function CourseCard({ course, index }: { course: typeof allCourses[0]; index: nu
               {course.price}
             </span>
 
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollTo('contact')}
+              href={course.ctaHref}
+              onClick={event => handleCtaClick(event, course.ctaHref)}
               className="font-display"
               style={{
                 display: 'flex', alignItems: 'center', gap: '6px',
@@ -126,11 +139,12 @@ function CourseCard({ course, index }: { course: typeof allCourses[0]; index: nu
                 background: 'linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,212,255,0.05))',
                 border: '1px solid rgba(0,212,255,0.35)',
                 cursor: 'pointer',
+                textDecoration: 'none',
               }}
               aria-label={`Enrol in ${course.title}`}
             >
               Enrol Now <ArrowRight size={13} />
-            </motion.button>
+            </motion.a>
           </div>
         </div>
       </motion.div>
@@ -145,7 +159,7 @@ export function CoursesUpgraded() {
     document.getElementById(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const individualCourses = allCourses.filter(c => [1, 2, 3].includes(c.id));
+  const individualCourses = allCourses.filter(c => [1, 7, 2, 3].includes(c.id));
 
   return (
     <section

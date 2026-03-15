@@ -1,4 +1,21 @@
-export const allCourses = [
+export interface CourseItem {
+  id: number;
+  category: string;
+  tag: string;
+  title: string;
+  subtitle: string;
+  price: string;
+  funded: boolean;
+  duration: string;
+  students: string;
+  rating: number;
+  outcomes: string[];
+  image: string;
+  color: string;
+  ctaHref: string;
+}
+
+export const allCourses: CourseItem[] = [
   {
     id: 1,
     category: 'jobseekers',
@@ -13,6 +30,27 @@ export const allCourses = [
     outcomes: ['AI-optimised CV & cover letters', 'LinkedIn profile that gets calls', 'Mock interview coaching with AI', 'Salary negotiation scripts'],
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=220&fit=crop',
     color: '#00D4FF',
+    ctaHref: '#contact',
+  },
+  {
+    id: 7,
+    category: 'jobseekers',
+    tag: 'New',
+    title: 'AI on the Job',
+    subtitle: 'Perform, Learn & Stand Out in Your New Role',
+    price: '£147',
+    funded: false,
+    duration: '4 weeks',
+    students: '0',
+    rating: 5.0,
+    outcomes: [
+      'Use AI to get up to speed in a new job fast',
+      'Learn how to research, draft and present work using AI',
+      'Build a reputation as the person who "gets" AI at work',
+    ],
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=220&fit=crop',
+    color: '#00D4FF',
+    ctaHref: '#',
   },
   {
     id: 2,
@@ -28,6 +66,7 @@ export const allCourses = [
     outcomes: ['Automate customer service with AI', 'Generate content in minutes', 'Build AI-powered workflows', 'Cut admin time by 70%'],
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=220&fit=crop',
     color: '#FFD700',
+    ctaHref: '#contact',
   },
   {
     id: 3,
@@ -43,6 +82,7 @@ export const allCourses = [
     outcomes: ['Position yourself as an AI consultant', 'Land your first 3 clients', 'Build recurring revenue streams', 'Proposal + pricing templates'],
     image: 'https://images.unsplash.com/photo-1553484771-371a605b060b?w=400&h=220&fit=crop',
     color: '#00FF88',
+    ctaHref: '#contact',
   },
   {
     id: 4,
@@ -58,6 +98,7 @@ export const allCourses = [
     outcomes: ['Identify AI-adjacent roles for your skills', 'Build a portfolio in weeks', 'Direct employer introductions', 'Confidence coaching included'],
     image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=220&fit=crop',
     color: '#FF6B6B',
+    ctaHref: '#contact',
   },
   {
     id: 5,
@@ -73,6 +114,7 @@ export const allCourses = [
     outcomes: ['Understand what AI can do for you', 'Use ChatGPT safely and effectively', 'Spot AI opportunities in daily life', 'No jargon, no overwhelm'],
     image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=220&fit=crop',
     color: '#A78BFA',
+    ctaHref: '#contact',
   },
   {
     id: 6,
@@ -88,6 +130,7 @@ export const allCourses = [
     outcomes: ['AI readiness audit for your business', 'Identify quick wins in 30 days', 'AI policy and risk frameworks', 'Competitive positioning'],
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=220&fit=crop',
     color: '#00D4FF',
+    ctaHref: '#contact',
   },
 ];
 
@@ -98,4 +141,4 @@ export const courseFilters = [
   { key: 'funded', label: 'Funded / Free' },
 ];
 
-export type Course = typeof allCourses[0];
+export type Course = CourseItem;
