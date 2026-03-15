@@ -8,6 +8,7 @@ import { SocialProofTicker } from './components/SocialProofTicker';
 import { FlagshipCourses } from './components/FlagshipCourses';
 import { AnnouncementBanner } from './components/AnnouncementBanner';
 import { WhatsAppCommunity } from './components/WhatsAppCommunity';
+import { AIJourney } from './components/AIJourney';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
 import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
 import { AboutUpgraded } from './components/AboutUpgraded';
@@ -90,6 +91,9 @@ export function App() {
 
           {/* WhatsApp community */}
           <WhatsAppCommunity />
+
+          {/* Your AI journey */}
+          <AIJourney />
 
           {/* Section separator */}
           <div className="max-w-6xl mx-auto px-6">
