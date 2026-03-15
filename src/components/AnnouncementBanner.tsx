@@ -26,7 +26,9 @@ export function AnnouncementBanner() {
           <motion.a
             whileHover={{ y: -1, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            href="#whatsapp"
+            href="https://www.youtube.com/channel/UCOsqoBrQO05NpmokYX5Cshw?sub_confirmation=1"
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-display inline-flex items-center gap-2 rounded-full border border-[rgba(4,17,29,0.16)] bg-[rgba(4,17,29,0.92)] px-4 py-2 text-sm font-bold text-[#FFD76C] no-underline transition-colors duration-200 hover:bg-[#04111D]"
           >
             Join Free <ArrowRight size={16} />
