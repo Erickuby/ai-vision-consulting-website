@@ -28,13 +28,13 @@ function Counter({ end, prefix = '', suffix = '' }: CounterProps) {
 
 const trustSignals = [
   'Newcastle-based AI Trainer',
-  'BlackTech North East Partner',
+  'BlackTech North East Training Partner',
 ];
 
 const stats = [
   { end: 20, suffix: '+', label: 'AI Career Changes Supported', prefix: '' },
   { end: 100, suffix: '+', label: 'Professionals Trained', prefix: '' },
-  { end: 1, suffix: '', label: 'Community Partnership BlackTech North East', prefix: '' },
+  { label: 'Training Partner', prefix: '', suffix: '', valueText: 'BlackTech North East' },
 ];
 
 export function HeroUpgraded() {
@@ -154,9 +154,18 @@ export function HeroUpgraded() {
               transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
               className="text-center"
             >
-              <div className="stat-number">
-                <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} />
-              </div>
+              {'valueText' in stat ? (
+                <div
+                  className="font-display text-lg sm:text-xl md:text-2xl font-bold text-[#00D4FF]"
+                  style={{ lineHeight: 1.2 }}
+                >
+                  {stat.valueText}
+                </div>
+              ) : (
+                <div className="stat-number">
+                  <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} />
+                </div>
+              )}
               <div className="text-xs sm:text-sm text-[#8899AA] font-medium" style={{ marginTop: '6px' }}>
                 {stat.label}
               </div>

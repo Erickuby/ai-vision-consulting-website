@@ -15,8 +15,7 @@ const courses = [
   'AI-Powered Job Hunting',
   'AI for Small Business',
   'AI Consulting Bootcamp',
-  'AI for Career Changers',
-  'AI Essentials (Free)',
+  'AI on the Job',
 ];
 
 const socials = [
@@ -173,7 +172,7 @@ export function Footer() {
               Weekly AI Tips
             </h4>
             <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13.5px', color: '#8899AA', lineHeight: 1.7, marginBottom: '16px' }}>
-              Free practical tips for jobseekers and business owners. Join 500+ readers.
+              Free practical tips for jobseekers and business owners. Be among the first to join.
             </p>
             {done ? (
               <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#00D4FF', fontWeight: 600 }}>
