@@ -223,19 +223,9 @@ export function CoursesUpgraded() {
         {/* Content Area */}
         <motion.div layout>
           {activeTab === 'individuals' && (
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '24px',
-                justifyContent: 'center',
-              }}
-            >
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
               {individualCourses.map((course, i) => (
-                <div
-                  key={course.id}
-                  style={{ flex: '1 1 280px', maxWidth: '360px', minWidth: '280px' }}
-                >
+                <div key={course.id} style={{ minWidth: 0 }}>
                   <CourseCard course={course} index={i} />
                 </div>
               ))}
