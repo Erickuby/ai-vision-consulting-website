@@ -6,6 +6,7 @@ import { ScrollProgress } from './components/ScrollProgress';
 import { HeroUpgraded } from './components/HeroUpgraded';
 import { SocialProofTicker } from './components/SocialProofTicker';
 import { FlagshipCourses } from './components/FlagshipCourses';
+import { WhatsAppCommunity } from './components/WhatsAppCommunity';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
 import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
 import { AboutUpgraded } from './components/AboutUpgraded';
@@ -82,6 +83,9 @@ export function App() {
 
           {/* Flagship course cards — below fold on home */}
           <FlagshipCourses />
+
+          {/* WhatsApp community */}
+          <WhatsAppCommunity />
 
           {/* Section separator */}
           <div className="max-w-6xl mx-auto px-6">
