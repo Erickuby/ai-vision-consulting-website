@@ -6,6 +6,7 @@ import { ScrollProgress } from './components/ScrollProgress';
 import { HeroUpgraded } from './components/HeroUpgraded';
 import { SocialProofTicker } from './components/SocialProofTicker';
 import { FlagshipCourses } from './components/FlagshipCourses';
+import { AnnouncementBanner } from './components/AnnouncementBanner';
 import { WhatsAppCommunity } from './components/WhatsAppCommunity';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
 import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
@@ -72,6 +73,9 @@ export function App() {
 
         {/* Navigation */}
         <Nav />
+
+        {/* Announcement banner */}
+        <AnnouncementBanner />
 
         {/* Main content */}
         <main>
