@@ -12,6 +12,7 @@ import { AIJourney } from './components/AIJourney';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
 import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
 import { AboutUpgraded } from './components/AboutUpgraded';
+import { WhoThisIsFor } from './components/WhoThisIsFor';
 import { Services } from './components/Services';
 import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
@@ -113,6 +114,9 @@ export function App() {
 
           {/* About */}
           <AboutUpgraded />
+
+          {/* Who this is for */}
+          <WhoThisIsFor />
 
           {/* Services */}
           <Services />
