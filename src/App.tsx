@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { NeuralCanvas3D } from './components/NeuralCanvas3D';
 import { Nav } from './components/Nav';
 import { PageLoader } from './components/PageLoader';
@@ -15,122 +15,162 @@ import { AboutUpgraded } from './components/AboutUpgraded';
 import { WhoThisIsFor } from './components/WhoThisIsFor';
 import { Services } from './components/Services';
 import { Blog } from './components/Blog';
+import { BlogPostPage } from './components/BlogPostPage';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { StickyCTA } from './components/StickyCTA';
 import { CustomCursor } from './components/CustomCursor';
 import { LegalPage, type LegalPageType } from './components/LegalPages';
+import { getBlogPostBySlug } from './data/blog';
 
-type AppRoute = 'home' | LegalPageType;
+type AppRoute =
+  | { type: 'home' }
+  | { type: 'legal'; page: LegalPageType }
+  | { type: 'blog'; slug: string };
 
-function getRouteFromHash(hash: string): AppRoute {
+function getHashRoute(hash: string): AppRoute | null {
+  if (!hash.startsWith('#/')) {
+    return null;
+  }
+
   const route = hash.replace(/^#\/?/, '').toLowerCase();
-  if (route === 'privacy-policy') return 'privacy-policy';
-  if (route === 'terms-of-service') return 'terms-of-service';
-  if (route === 'cookie-policy') return 'cookie-policy';
-  return 'home';
+
+  if (route === 'privacy-policy') return { type: 'legal', page: 'privacy-policy' };
+  if (route === 'terms-of-service') return { type: 'legal', page: 'terms-of-service' };
+  if (route === 'cookie-policy') return { type: 'legal', page: 'cookie-policy' };
+  if (route.startsWith('blog/')) return { type: 'blog', slug: route.slice('blog/'.length) };
+
+  return { type: 'home' };
+}
+
+function normalizePathname(pathname: string) {
+  const normalized = pathname.toLowerCase().replace(/\/+$/, '');
+  return normalized || '/';
+}
+
+function getRouteFromLocation(location: Location): AppRoute {
+  const hashRoute = getHashRoute(location.hash);
+  if (hashRoute) {
+    return hashRoute;
+  }
+
+  const pathname = normalizePathname(location.pathname);
+
+  if (pathname === '/' || pathname === '/index.html') return { type: 'home' };
+  if (pathname === '/privacy-policy') return { type: 'legal', page: 'privacy-policy' };
+  if (pathname === '/terms-of-service') return { type: 'legal', page: 'terms-of-service' };
+  if (pathname === '/cookie-policy') return { type: 'legal', page: 'cookie-policy' };
+  if (pathname.startsWith('/blog/')) return { type: 'blog', slug: pathname.slice('/blog/'.length) };
+
+  return { type: 'home' };
+}
+
+function SiteBackground({ children }: { children: ReactNode }) {
+  return (
+    <div className="bg-[#050D1A] min-h-screen overflow-x-hidden">
+      <ScrollProgress />
+      <NeuralCanvas3D />
+      <CustomCursor />
+      {children}
+    </div>
+  );
 }
 
 export function App() {
   const [route, setRoute] = useState<AppRoute>(() =>
-    typeof window === 'undefined' ? 'home' : getRouteFromHash(window.location.hash),
+    typeof window === 'undefined' ? { type: 'home' } : getRouteFromLocation(window.location),
   );
-  const [loaded, setLoaded] = useState(route !== 'home');
+  const [loaded, setLoaded] = useState(route.type !== 'home');
 
   useEffect(() => {
-    const onHashChange = () => {
-      const nextRoute = getRouteFromHash(window.location.hash);
+    const syncRoute = () => {
+      const nextRoute = getRouteFromLocation(window.location);
       setRoute(nextRoute);
-      if (nextRoute !== 'home') {
+
+      if (nextRoute.type !== 'home') {
         setLoaded(true);
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
       }
     };
 
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
+    window.addEventListener('popstate', syncRoute);
+    window.addEventListener('hashchange', syncRoute);
+    return () => {
+      window.removeEventListener('popstate', syncRoute);
+      window.removeEventListener('hashchange', syncRoute);
+    };
   }, []);
 
-  if (route !== 'home') {
-    return <LegalPage page={route} />;
+  useEffect(() => {
+    if (route.type !== 'home') {
+      return;
+    }
+
+    const hash = window.location.hash;
+    if (!hash || hash.startsWith('#/')) {
+      return;
+    }
+
+    const targetId = hash.replace(/^#/, '');
+    const timeout = window.setTimeout(() => {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: 'auto' });
+    }, loaded ? 0 : 2500);
+
+    return () => window.clearTimeout(timeout);
+  }, [route, loaded]);
+
+  if (route.type === 'legal') {
+    return <LegalPage page={route.page} />;
+  }
+
+  if (route.type === 'blog') {
+    const post = getBlogPostBySlug(route.slug);
+
+    return (
+      <SiteBackground>
+        <Nav isHomePage={false} />
+        <BlogPostPage post={post} />
+        <Footer isHomePage={false} />
+      </SiteBackground>
+    );
   }
 
   return (
     <>
-      {/* Branded page loader */}
       {!loaded && <PageLoader onDone={() => setLoaded(true)} />}
 
-      <div className="bg-[#050D1A] min-h-screen overflow-x-hidden">
-        {/* Scroll progress bar */}
-        <ScrollProgress />
-
-        {/* Fixed 3D neural network background */}
-        <NeuralCanvas3D />
-
-        {/* Custom cursor */}
-        <CustomCursor />
-
-        {/* Sticky floating CTA */}
+      <SiteBackground>
         <StickyCTA />
-
-        {/* Navigation */}
         <Nav />
-
-        {/* Announcement banner */}
         <AnnouncementBanner />
 
-        {/* Main content */}
         <main>
-          {/* Hero */}
           <HeroUpgraded />
-
-          {/* Social proof ticker */}
           <SocialProofTicker />
-
-          {/* Flagship course cards — below fold on home */}
           <FlagshipCourses />
-
-          {/* WhatsApp community */}
           <WhatsAppCommunity />
-
-          {/* Your AI journey */}
           <AIJourney />
 
-          {/* Section separator */}
           <div className="max-w-6xl mx-auto px-6">
             <div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" />
           </div>
 
-          {/* All Courses */}
           <CoursesUpgraded />
-
-          {/* Testimonials */}
           <TestimonialsUpgraded />
 
-          {/* Section separator */}
           <div className="max-w-6xl mx-auto px-6">
             <div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" />
           </div>
 
-          {/* About */}
           <AboutUpgraded />
-
-          {/* Who this is for */}
           <WhoThisIsFor />
-
-          {/* Services */}
           <Services />
-
-          {/* Blog */}
           <Blog />
-
-          {/* Contact */}
           <Contact />
         </main>
 
-        {/* Footer */}
         <Footer />
-      </div>
+      </SiteBackground>
     </>
   );
 }

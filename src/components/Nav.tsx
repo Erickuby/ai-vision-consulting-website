@@ -19,12 +19,22 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export function Nav() {
+function getPageHref(href: string, isHomePage: boolean) {
+  return isHomePage ? href : `/${href}`;
+}
+
+export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState('home');
+  const [active, setActive] = useState(isHomePage ? 'home' : 'blog');
 
   useEffect(() => {
+    if (!isHomePage) {
+      setScrolled(true);
+      setActive('blog');
+      return;
+    }
+
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
       const sections = navItems.map(n => n.href.replace('#', ''));
@@ -38,7 +48,7 @@ export function Nav() {
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [isHomePage]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -65,8 +75,16 @@ export function Nav() {
         <div className="max-w-[1200px] mx-auto flex items-center h-[70px] gap-10">
           {/* Logo */}
           <a
-            href="#home"
-            onClick={e => { e.preventDefault(); scrollTo('#home'); }}
+            href={isHomePage ? '#home' : '/'}
+            onClick={e => {
+              if (!isHomePage) {
+                setMenuOpen(false);
+                return;
+              }
+
+              e.preventDefault();
+              scrollTo('#home');
+            }}
             className="flex items-center gap-2.5 no-underline flex-shrink-0"
             aria-label="AI Vision Consulting Ltd - Home"
           >
@@ -92,8 +110,16 @@ export function Nav() {
             {navItems.map(item => (
               <a
                 key={item.label}
-                href={item.href}
-                onClick={e => { e.preventDefault(); scrollTo(item.href); }}
+                href={getPageHref(item.href, isHomePage)}
+                onClick={e => {
+                  if (!isHomePage) {
+                    setMenuOpen(false);
+                    return;
+                  }
+
+                  e.preventDefault();
+                  scrollTo(item.href);
+                }}
                 className={`nav-link ${active === item.href.replace('#', '') ? 'active' : ''}`}
                 aria-current={active === item.href.replace('#', '') ? 'page' : undefined}
               >
@@ -130,8 +156,16 @@ export function Nav() {
               ))}
             </div>
             <a
-              href="#contact"
-              onClick={e => { e.preventDefault(); scrollTo('#contact'); }}
+              href={getPageHref('#contact', isHomePage)}
+              onClick={e => {
+                if (!isHomePage) {
+                  setMenuOpen(false);
+                  return;
+                }
+
+                e.preventDefault();
+                scrollTo('#contact');
+              }}
               className="btn-primary hidden sm:inline-flex"
               style={{ padding: '10px 20px', fontSize: '13px' }}
             >
@@ -182,8 +216,16 @@ export function Nav() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06 }}
-                href={item.href}
-                onClick={e => { e.preventDefault(); scrollTo(item.href); }}
+                href={getPageHref(item.href, isHomePage)}
+                onClick={e => {
+                  if (!isHomePage) {
+                    setMenuOpen(false);
+                    return;
+                  }
+
+                  e.preventDefault();
+                  scrollTo(item.href);
+                }}
                 className="nav-link text-[22px] font-semibold text-[#F0F4FF]"
               >
                 {item.label}
@@ -194,8 +236,16 @@ export function Nav() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: navItems.length * 0.06 }}
-              href="#contact"
-              onClick={e => { e.preventDefault(); scrollTo('#contact'); }}
+              href={getPageHref('#contact', isHomePage)}
+              onClick={e => {
+                if (!isHomePage) {
+                  setMenuOpen(false);
+                  return;
+                }
+
+                e.preventDefault();
+                scrollTo('#contact');
+              }}
               className="btn-primary mt-3"
             >
               Book Free Assessment

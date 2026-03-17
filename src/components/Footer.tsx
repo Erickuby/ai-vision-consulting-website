@@ -26,17 +26,22 @@ const socials = [
 ];
 
 const legalLinks = [
-  { label: 'Privacy Policy', href: '#/privacy-policy' },
-  { label: 'Terms of Service', href: '#/terms-of-service' },
-  { label: 'Cookie Policy', href: '#/cookie-policy' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms of Service', href: '/terms-of-service' },
+  { label: 'Cookie Policy', href: '/cookie-policy' },
 ];
 
-export function Footer() {
+export function Footer({ isHomePage = true }: { isHomePage?: boolean }) {
   const [email, setEmail] = useState('');
   const [done, setDone] = useState(false);
 
-  const scrollTo = (href: string) => {
-    document.getElementById(href)?.scrollIntoView({ behavior: 'smooth' });
+  const navigateTo = (href: string) => {
+    if (isHomePage) {
+      document.getElementById(href)?.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    window.location.assign(`/#${href}`);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -124,7 +129,7 @@ export function Footer() {
               {navLinks.map(link => (
                 <li key={link.label}>
                   <button
-                    onClick={() => scrollTo(link.href)}
+                    onClick={() => navigateTo(link.href)}
                     style={{
                       background: 'none', border: 'none', cursor: 'pointer',
                       fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA',
@@ -150,7 +155,7 @@ export function Footer() {
               {courses.map(course => (
                 <li key={course}>
                   <button
-                    onClick={() => scrollTo('courses')}
+                    onClick={() => navigateTo('courses')}
                     style={{
                       background: 'none', border: 'none', cursor: 'pointer',
                       fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA',
