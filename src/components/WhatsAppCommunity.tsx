@@ -156,13 +156,6 @@ export function WhatsAppCommunity() {
                   >
                     Join the WhatsApp Community <ArrowRight size={18} />
                   </motion.a>
-
-                  <p
-                    className="text-center text-sm text-[#7C8898]"
-                    style={{ marginTop: '14px' }}
-                  >
-                    Already 30+ members and growing
-                  </p>
                 </div>
               </div>
             </div>
