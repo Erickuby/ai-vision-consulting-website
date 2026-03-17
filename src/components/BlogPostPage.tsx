@@ -578,6 +578,64 @@ export function BlogPostPage({ post }: { post?: BlogPost }) {
                     ))}
                   </ul>
                 )}
+
+                {section.promptText && (
+                  <div
+                    style={{
+                      marginTop: '24px',
+                      borderRadius: '20px',
+                      border: '1px solid rgba(255,215,0,0.22)',
+                      background: 'linear-gradient(180deg, rgba(255,215,0,0.09), rgba(8,16,30,0.92))',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <div
+                      style={{
+                        padding: '12px 18px',
+                        borderBottom: '1px solid rgba(255,215,0,0.16)',
+                        fontFamily: 'Space Grotesk',
+                        fontSize: '13px',
+                        fontWeight: 700,
+                        letterSpacing: '0.05em',
+                        color: '#FFD700',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {section.promptLabel ?? 'Prompt'}
+                    </div>
+                    <pre
+                      style={{
+                        margin: 0,
+                        padding: '18px',
+                        whiteSpace: 'pre-wrap',
+                        wordBreak: 'break-word',
+                        color: '#E9F0F8',
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontSize: '14px',
+                        lineHeight: 1.85,
+                      }}
+                    >
+                      {section.promptText}
+                    </pre>
+                  </div>
+                )}
+
+                {section.note && (
+                  <p
+                    style={{
+                      marginTop: '18px',
+                      padding: '14px 16px',
+                      borderRadius: '16px',
+                      background: 'rgba(0,212,255,0.08)',
+                      border: '1px solid rgba(0,212,255,0.14)',
+                      color: '#D9E6F4',
+                      fontSize: '14px',
+                      lineHeight: 1.8,
+                    }}
+                  >
+                    {section.note}
+                  </p>
+                )}
               </section>
             </Reveal>
           ))}
