@@ -1,19 +1,7 @@
 <?php
 declare(strict_types=1);
 
-$status = $_GET['status'] ?? '';
-$message = trim((string) ($_GET['message'] ?? ''));
-
-if ($status === 'success' && $message === '') {
-    $message = 'Thanks for your message. We will be in touch soon.';
-}
-
-if ($status === 'error' && $message === '') {
-    $message = 'We could not send your message right now. Please try again.';
-}
-
-$safeStatus = $status === 'success' ? 'success' : ($status === 'error' ? 'error' : '');
-$safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
+$formspreeEndpoint = 'https://formspree.io/f/mpqyoypl';
 ?>
 <!doctype html>
 <html lang="en">
@@ -179,6 +167,10 @@ $safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
         line-height: 1.7;
       }
 
+      .note[hidden] {
+        display: none;
+      }
+
       .note.success {
         background: rgba(0, 200, 100, 0.12);
         border: 1px solid rgba(0, 200, 100, 0.24);
@@ -278,6 +270,11 @@ $safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
         cursor: pointer;
       }
 
+      .button:disabled {
+        opacity: 0.72;
+        cursor: wait;
+      }
+
       .meta {
         margin-top: 8px;
         color: var(--muted);
@@ -358,14 +355,11 @@ $safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
         <div class="card">
           <h2>Send us a message</h2>
 
-          <?php if ($safeStatus !== ''): ?>
-            <div class="note <?php echo $safeStatus; ?>">
-              <?php echo $safeMessage; ?>
-            </div>
-          <?php endif; ?>
+          <div class="note" id="form-status" hidden></div>
 
-          <form action="/contact.php" method="post">
-            <input type="hidden" name="redirect" value="/contact-direct.php" />
+          <form id="contact-form" action="<?php echo htmlspecialchars($formspreeEndpoint, ENT_QUOTES, 'UTF-8'); ?>" method="post">
+            <input type="hidden" name="subject" id="subject" value="Website enquiry: General Enquiry" />
+            <input type="hidden" name="source" value="Direct contact page" />
 
             <div class="honeypot" aria-hidden="true">
               <label for="website">Website</label>
@@ -401,7 +395,7 @@ $safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
               <textarea id="message" name="message" required placeholder="Tell us a little about what you need help with."></textarea>
             </div>
 
-            <button class="button" type="submit">Send Message</button>
+            <button class="button" id="submit-button" type="submit">Send Message</button>
           </form>
 
           <p class="meta">
@@ -410,5 +404,82 @@ $safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
         </div>
       </section>
     </main>
+    <script>
+      const contactForm = document.getElementById('contact-form');
+      const statusBox = document.getElementById('form-status');
+      const submitButton = document.getElementById('submit-button');
+      const enquiryType = document.getElementById('enquiryType');
+      const subjectField = document.getElementById('subject');
+
+      const enquiryLabels = {
+        jobseeker: 'Jobseeker',
+        professional: 'Professional Upskilling',
+        business: 'Small Business',
+        corporate: 'Corporate / HR',
+        partner: 'Community Partner',
+        other: 'General Enquiry',
+      };
+
+      function getSubject(value) {
+        return 'Website enquiry: ' + (enquiryLabels[value] || 'General Enquiry');
+      }
+
+      function showStatus(type, message) {
+        statusBox.hidden = false;
+        statusBox.className = 'note ' + type;
+        statusBox.textContent = message;
+      }
+
+      function syncSubject() {
+        subjectField.value = getSubject(enquiryType.value);
+      }
+
+      enquiryType.addEventListener('change', syncSubject);
+      syncSubject();
+
+      contactForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        syncSubject();
+        statusBox.hidden = true;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          const result = await response.json().catch(function () {
+            return null;
+          });
+
+          if (!response.ok) {
+            const message = Array.isArray(result && result.errors)
+              ? result.errors.map(function (item) { return item && item.message; }).filter(Boolean).join(' ')
+              : '';
+
+            throw new Error(message || 'We could not send your message right now. Please email us or use WhatsApp instead.');
+          }
+
+          contactForm.reset();
+          syncSubject();
+          showStatus('success', 'Thanks for your message. We will be in touch soon.');
+        } catch (error) {
+          showStatus(
+            'error',
+            error instanceof Error && error.message
+              ? error.message
+              : 'We could not send your message right now. Please email us or use WhatsApp instead.'
+          );
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
+        }
+      });
+    </script>
   </body>
 </html>

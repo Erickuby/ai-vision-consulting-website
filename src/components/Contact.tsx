@@ -4,6 +4,22 @@ import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle, Linkedin
 import { TikTokIcon } from './TikTokIcon';
 import { Reveal } from './Reveal';
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqyoypl';
+
+const ENQUIRY_LABELS: Record<string, string> = {
+  jobseeker: 'Jobseeker',
+  professional: 'Professional Upskilling',
+  business: 'Small Business',
+  corporate: 'Corporate / HR',
+  partner: 'Community Partner',
+  other: 'General Enquiry',
+};
+
+function getEnquirySubject(enquiryType: string) {
+  const label = ENQUIRY_LABELS[enquiryType] || 'General Enquiry';
+  return `Website enquiry: ${label}`;
+}
+
 export function Contact() {
   const [form, setForm] = useState({
     name: '', email: '', enquiryType: '', message: '', website: ''
@@ -23,26 +39,33 @@ export function Contact() {
     setError('');
 
     try {
-      const payload = new URLSearchParams({
-        name: form.name.trim(),
-        email: form.email.trim(),
-        enquiryType: form.enquiryType,
-        message: form.message.trim(),
-        website: form.website.trim(),
-      });
+      const payload = new FormData();
+      payload.append('name', form.name.trim());
+      payload.append('email', form.email.trim());
+      payload.append('enquiryType', form.enquiryType);
+      payload.append('message', form.message.trim());
+      payload.append('website', form.website.trim());
+      payload.append('subject', getEnquirySubject(form.enquiryType));
+      payload.append('source', 'Homepage contact form');
 
-      const response = await fetch('/contact.php', {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          Accept: 'application/json',
         },
-        body: payload.toString(),
+        body: payload,
       });
 
       const result = await response.json().catch(() => null);
 
-      if (!response.ok || !result?.ok) {
-        throw new Error(result?.message || 'Something went wrong.');
+      if (!response.ok) {
+        const formspreeMessage = Array.isArray(result?.errors)
+          ? result.errors.map((item: { message?: string }) => item.message).filter(Boolean).join(' ')
+          : '';
+
+        throw new Error(
+          formspreeMessage || 'We could not send your message right now. Please email us or use WhatsApp instead.'
+        );
       }
 
       setSubmitted(true);
