@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle, Linkedin, Instagram, Youtube } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
@@ -7,7 +6,7 @@ import { Reveal } from './Reveal';
 
 export function Contact() {
   const [form, setForm] = useState({
-    name: '', email: '', enquiryType: '', message: ''
+    name: '', email: '', enquiryType: '', message: '', website: ''
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -23,29 +22,31 @@ export function Contact() {
     setLoading(true);
     setError('');
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setError('The contact form is not configured yet. Please email us directly at eric@aivisionconsulting.co.uk');
-      setLoading(false);
-      return;
-    }
-
     try {
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          enquiry_type: form.enquiryType,
-          message: form.message,
+      const payload = new URLSearchParams({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        enquiryType: form.enquiryType,
+        message: form.message.trim(),
+        website: form.website.trim(),
+      });
+
+      const response = await fetch('/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         },
-        publicKey,
-      );
+        body: payload.toString(),
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.message || 'Something went wrong.');
+      }
+
       setSubmitted(true);
+      setForm({ name: '', email: '', enquiryType: '', message: '', website: '' });
     } catch {
       setError('Something went wrong. Please try emailing us directly at eric@aivisionconsulting.co.uk');
     } finally {
@@ -240,6 +241,28 @@ export function Contact() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate>
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      position: 'absolute',
+                      left: '-9999px',
+                      width: '1px',
+                      height: '1px',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <label htmlFor="website">Website</label>
+                    <input
+                      id="website"
+                      name="website"
+                      type="text"
+                      value={form.website}
+                      onChange={handleChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   <h3 style={{ fontFamily: 'Space Grotesk', fontSize: '20px', fontWeight: 700, color: '#F0F4FF', marginBottom: '24px' }}>
                     Send us a message
                   </h3>
