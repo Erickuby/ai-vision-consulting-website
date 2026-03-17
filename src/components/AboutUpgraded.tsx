@@ -93,14 +93,14 @@ export function AboutUpgraded() {
             <Reveal>
               <span className="badge badge-cyan" style={{ marginBottom: '16px', display: 'inline-block' }}>Our Story</span>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0F4FF] tracking-tight leading-tight" style={{ marginBottom: '24px' }}>
-                No one left behind in the{' '}
-                <span className="gradient-text-cyan">AI revolution.</span>
+                Making AI useful for{' '}
+                <span className="gradient-text-cyan">more people.</span>
               </h2>
             </Reveal>
 
             <Reveal delay={0.1}>
               <p className="text-base text-[#8899AA] leading-relaxed" style={{ marginBottom: '32px' }}>
-                AI Vision Consulting was founded to make artificial intelligence practical, accessible and profitable for everyone — from jobseekers in Newcastle to businesses across the UK. We believe AI is not just for Silicon Valley. It is for you, right here, right now.
+                AI Vision Consulting was founded to make artificial intelligence practical, accessible and useful for people in Newcastle and across the UK. We help jobseekers, professionals and businesses use AI in ways that fit real work, real goals and everyday life.
               </p>
             </Reveal>
 

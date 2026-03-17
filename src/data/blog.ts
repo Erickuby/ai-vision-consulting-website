@@ -244,7 +244,7 @@ export const blogPosts: BlogPost[] = [
     content: {
       introduction: [
         'A lot of job seekers use AI in the wrong order. They open ChatGPT, ask it to write a CV from scratch, and end up with something that sounds polished but generic. That is why so many AI-assisted applications feel empty, repetitive, or obviously written by a bot.',
-        'A better approach is to use AI as a career strategy assistant, not just a writing machine. That means starting with job matching, then pulling out the right keywords, then rewriting bullet points truthfully, then testing for ATS issues, and only at the end generating a tailored CV for a specific role.',
+        'A better approach is to use AI as a career strategy assistant instead of a writing machine. That means starting with job matching, then pulling out the right keywords, then rewriting bullet points truthfully, then testing for ATS issues, and only at the end generating a tailored CV for a specific role.',
         'The eight prompts below are designed to follow that logic. They help career changers, job seekers, and professionals moving into a new role use AI more intelligently. If you use them in order, you can move from confusion to a targeted, evidence-based application that reads clearly and reflects your real experience.',
       ],
       keyTakeaways: [
@@ -311,7 +311,7 @@ export const blogPosts: BlogPost[] = [
             'Act as an elite CV writer specialising in career transitions. Here are my current CV bullet points: [PASTE BULLETS]. I am applying for this role: [PASTE JOB DESCRIPTION]. Rewrite each bullet using the XYZ formula: Accomplished X as measured by Y by doing Z. Naturally include these keywords from the job description: [PASTE TOP 5 KEYWORDS FROM YOUR DAY 2 MATCH]. Do not invent experience. Reframe what I genuinely did in the most impactful and ATS-friendly way. For any bullet where a metric is unclear, suggest a realistic estimate I can verify and adjust.',
         },
         {
-          heading: 'Prompt 3: Upgrade your full experience section, not just one role',
+          heading: 'Prompt 3: Upgrade your full experience section across every role',
           paragraphs: [
             'A common mistake is improving one recent role and leaving the rest of the CV weak. Recruiters do not read in isolation. They scan the whole document to see whether your career story holds together. That is why your full experience section needs consistency.',
             'This prompt expands the previous step by applying the same logic to every role on your CV. It is especially useful when your older jobs still contain proof of planning, communication, reporting, or leadership, but the wording is too passive to help you.',
@@ -363,7 +363,7 @@ export const blogPosts: BlogPost[] = [
           paragraphs: [
             'One of the biggest reasons applications fail is that the candidate never really understood the job description. They read it quickly, pull out a few obvious phrases, and miss the deeper themes that shape the hiring decision.',
             'This prompt helps you slow down and read the role properly. It asks AI to list the core responsibilities in plain language, identify the most important keywords, group them into themes, and explain what kind of person the employer is really looking for.',
-            'That last part is key. Great job applications do not just mirror keywords. They show that you understand the shape of the role and can present yourself accordingly.',
+            'That last part is key. Great job applications do more than repeat keywords. They show that you understand the shape of the role and can present yourself accordingly.',
           ],
           bullets: [
             'Best for: understanding what the employer actually values before tailoring your CV.',
@@ -551,9 +551,9 @@ export const blogPosts: BlogPost[] = [
         {
           heading: 'Step 1: Pick a niche with a real pain point',
           paragraphs: [
-            'This is where most people either win or waste time. A niche is not just an industry label. It is the combination of who you help, what problem you solve, and what outcome they care about. "AI for everyone" is too broad. "Helping recruitment agencies use AI to speed up candidate summaries" is much more useful.',
+            'This is where most people either win or waste time. A niche is more than an industry label. It is the combination of who you help, what problem you solve, and what outcome they care about. "AI for everyone" is too broad. "Helping recruitment agencies use AI to speed up candidate summaries" is much more useful.',
             'The best niches are often close to your current experience. If you have worked in admin, HR, operations, education, customer service, project support, marketing, or community organisations, you probably already understand a set of recurring problems. That knowledge gives you a strong starting advantage.',
-            'Do not worry about choosing the perfect niche on day one. Choose a niche that is specific enough to test and familiar enough that you can speak the client’s language.',
+            'Do not worry about choosing the perfect niche on day one. Choose a niche that is specific enough to test and familiar enough that you can speak the client\'s language.',
           ],
           bullets: [
             'Who exactly do I want to help?',
@@ -618,7 +618,7 @@ export const blogPosts: BlogPost[] = [
           ],
         },
         {
-          heading: 'Step 6: Price for results and learning, not just hours',
+          heading: 'Step 6: Price for results and learning, not by hours alone',
           paragraphs: [
             'Pricing is where a lot of new side hustlers get nervous. They either charge too little because they are new, or they create big expensive offers without proof. A balanced approach is to price around scope, outcome, and learning stage.',
             'In the beginning, your goal is often to get experience, proof, and testimonials, but that does not mean working for free forever. You can start with a smaller package that is clearly defined and easier to deliver. For example, a one-off AI workflow review, a CV optimisation session, a content starter pack, or a basic team training workshop.',
@@ -755,7 +755,7 @@ export const blogPosts: BlogPost[] = [
     ],
     content: {
       introduction: [
-        'A lot of people still think AI means asking a chatbot a question and getting back a clever answer. That version of AI is useful, but it is only part of the story. The next shift is agentic AI: systems that can not only respond, but also plan, use tools, take actions, work across multiple steps, and help move a task from idea to outcome.',
+        'A lot of people still think AI means asking a chatbot a question and getting back a clever answer. That version of AI is useful, but it is only part of the story. The next shift is agentic AI: systems that can respond, plan, use tools, take actions, work across multiple steps, and help move a task from idea to outcome.',
         'That matters because modern work is full of bottlenecks. Businesses are overloaded with admin, research, reporting, follow-up, content, and operations. Professionals are under pressure to deliver more with less time. Individuals are trying to manage careers, households, side projects, finances, and learning all at once. Agentic AI and automation create a new layer of leverage by helping us move from manual effort to orchestrated execution.',
         'This guide explains what agentic AI actually is, how it overlaps with automation, and how it can help scale what we do across business, work, career development, and daily life. It also highlights a few leading examples, including Claude Code, Perplexity, and OpenClaw, to show what this shift looks like in practice.',
       ],
@@ -831,7 +831,7 @@ export const blogPosts: BlogPost[] = [
           heading: 'How agentic AI can help scale your professional career',
           paragraphs: [
             'Professionally, agentic AI can act like a force multiplier. It can help you prepare better, execute faster, and learn continuously. That matters whether you are trying to stand out in your current role, move into leadership, or reposition yourself for better opportunities.',
-            'For example, an agentic workflow can help gather background research before a meeting, extract action points from notes, draft follow-up emails, summarise dense reports, compare options, build first-pass presentations, or help structure a project plan. In that sense, agentic AI is not just about speed. It is about reducing friction around high-value work.',
+            'For example, an agentic workflow can help gather background research before a meeting, extract action points from notes, draft follow-up emails, summarise dense reports, compare options, build first-pass presentations, or help structure a project plan. In practice, agentic AI helps with speed, but the bigger benefit is reducing friction around high-value work.',
             'The professionals who benefit most are not necessarily the most technical. They are the ones who learn how to define clear goals, review outputs critically, and integrate AI into the way they work. That can make them more organised, more strategic, and more visible as someone who gets results.',
           ],
           bullets: [
@@ -846,7 +846,7 @@ export const blogPosts: BlogPost[] = [
           paragraphs: [
             'In day-to-day work, agentic AI is especially powerful when used around recurring tasks that still require thinking. That might include building recurring reports, turning messy notes into structured output, chasing information across tools, creating action lists, drafting customer responses, or checking work for completeness.',
             'This is where the line between productivity and burnout becomes important. Many people are not slow because they lack skill. They are slow because their day is fragmented by too many small, context-switching tasks. Agentic AI helps by reducing the mental tax of that fragmentation.',
-            'When it is used well, the result is not just more output. It is better focus. People get more room to think, prioritise, and operate at a higher level because the AI is handling more of the coordination load around the edges.',
+            'Used well, it gives people more output and better focus. People get more room to think, prioritise, and operate at a higher level because the AI is handling more of the coordination load around the edges.',
           ],
           bullets: [
             'Turn scattered information into clean summaries and action plans.',
@@ -896,13 +896,13 @@ export const blogPosts: BlogPost[] = [
             'Document what works and turn it into a repeatable system.',
           ],
           note:
-            'Agentic AI is most valuable when it becomes part of a process you trust, not just a one-off experiment.',
+            'Agentic AI is most valuable when it becomes part of a process you trust instead of a one-off experiment.',
         },
         {
           heading: 'The real opportunity',
           paragraphs: [
             'The real opportunity with agentic AI and automation is not simply doing more. It is creating more leverage. Businesses can operate more intelligently. Professionals can become more effective. Teams can reduce operational drag. Individuals can manage complexity with less friction.',
-            'This is why agentic AI matters. It gives us a new layer between intention and execution. The people who learn how to use that layer well will not just be more productive. They will be better positioned to adapt, build, and grow in a world where execution speed increasingly shapes opportunity.',
+            'This is why agentic AI matters. It gives us a new layer between intention and execution. The people who learn how to use that layer well will be more productive and better positioned to adapt, build, and grow in a world where execution speed increasingly shapes opportunity.',
             'Used thoughtfully, agentic AI can help us scale not only our businesses, but also our careers, our work quality, and the way we navigate life itself.',
           ],
         },
@@ -956,3 +956,4 @@ export function getBlogPostHref(post: BlogPost) {
 export function isLiveBlogPost(post: BlogPost) {
   return !post.comingSoon && Boolean(post.content);
 }
+

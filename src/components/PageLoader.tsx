@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Brain } from 'lucide-react';
 
 const MESSAGES = [
-  'Initialising AI…',
-  'Loading neural network…',
-  'Connecting nodes…',
-  'Almost there…',
+  'Loading site...',
+  'Preparing content...',
+  'Connecting pages...',
+  'Almost ready...',
 ];
 
 export function PageLoader({ onDone }: { onDone: () => void }) {

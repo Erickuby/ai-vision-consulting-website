@@ -8,7 +8,7 @@ const services = [
     color: '#00D4FF',
     title: 'AI Training Programmes',
     description: 'Beginner to expert level AI courses and live bootcamps for individuals.',
-    points: ['6–10 week structured courses', 'Cohort and self-paced options', 'Online, in-person, or hybrid delivery'],
+    points: ['6-10 week structured courses', 'Cohort and self-paced options', 'Online, in-person, or hybrid delivery'],
     cta: 'Learn More',
     ctaHref: 'courses',
   },

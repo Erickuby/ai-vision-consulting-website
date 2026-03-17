@@ -20,7 +20,7 @@ export function AnnouncementBanner() {
             className="font-display text-sm font-bold tracking-tight text-[#04111D] sm:text-[15px]"
             style={{ lineHeight: 1.3 }}
           >
-            🚀 30-Day AI Job Challenge is LIVE — Free to join. Land your next job using AI.
+            🚀 30-Day AI Job Challenge is live. Free to join. Land your next job using AI.
           </p>
 
           <motion.a

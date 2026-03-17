@@ -48,7 +48,7 @@ export function WhoThisIsFor() {
             Who AI Vision Consulting Is For
           </h2>
           <p className="text-base sm:text-lg text-[#8899AA] max-w-3xl mx-auto">
-            We built this for people who are ready to use AI to get ahead, not just talk about it.
+            We built this for people who want to use AI in practical ways to move forward.
           </p>
         </Reveal>
 

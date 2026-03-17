@@ -210,10 +210,10 @@ export function Blog() {
                 marginBottom: '12px',
               }}
             >
-              Practical AI. <span className="gradient-text-cyan">No hype.</span>
+              Practical AI, <span className="gradient-text-cyan">clearly explained.</span>
             </h2>
             <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '16px', color: '#8899AA', maxWidth: '420px' }}>
-              Real guides, success stories, and tools you can use today, written for humans, not AI researchers.
+              Real guides, success stories, and tools you can use today, written in plain English for real people.
             </p>
           </div>
 
@@ -244,7 +244,7 @@ export function Blog() {
                 animate={{ opacity: 1, y: 0 }}
                 style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#00D4FF', fontWeight: 600 }}
               >
-                Thanks. You are in.
+                Thanks, you're in.
               </motion.p>
             ) : (
               <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', gap: '8px' }}>

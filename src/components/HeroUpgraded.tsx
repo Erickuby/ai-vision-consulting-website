@@ -65,7 +65,7 @@ export function HeroUpgraded() {
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
           style={{ color: '#F0F4FF', marginBottom: '24px' }}
         >
-          Unlock AI Skills for{' '}
+          Build AI Skills for{' '}
           <span className="gradient-text-gold">Financial Freedom</span>{' '}
           Starting Today
         </motion.h1>

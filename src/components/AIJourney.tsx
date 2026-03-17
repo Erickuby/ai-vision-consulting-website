@@ -66,7 +66,7 @@ export function AIJourney() {
             className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0F4FF] tracking-tight"
             style={{ marginBottom: '16px' }}
           >
-            Your AI Journey — From Job Seeker to AI Leader
+            Your AI Journey: From Job Seeker to AI Leader
           </h2>
           <p className="text-base sm:text-lg text-[#8899AA] max-w-2xl mx-auto">
             Wherever you're starting, there's a clear path forward.
