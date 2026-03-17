@@ -1,15 +1,67 @@
 <?php
 declare(strict_types=1);
 
-header('Content-Type: application/json');
+function send_json(int $statusCode, array $payload): never
+{
+    http_response_code($statusCode);
+    header('Content-Type: application/json');
+    echo json_encode($payload);
+    exit;
+}
+
+function safe_redirect_path(mixed $value): ?string
+{
+    $path = trim((string) $value);
+
+    if ($path === '') {
+        return null;
+    }
+
+    $parts = parse_url($path);
+
+    if ($parts === false || isset($parts['scheme']) || isset($parts['host'])) {
+        return null;
+    }
+
+    $cleanPath = $parts['path'] ?? '';
+    $allowedPaths = ['/contact-direct.php'];
+
+    if ($cleanPath === '' || !in_array($cleanPath, $allowedPaths, true)) {
+        return null;
+    }
+
+    return $cleanPath;
+}
+
+function send_redirect(string $path, string $status, string $message = ''): never
+{
+    $params = ['status' => $status];
+
+    if ($message !== '') {
+        $params['message'] = $message;
+    }
+
+    header('Location: ' . $path . '?' . http_build_query($params));
+    exit;
+}
+
+function respond(bool $ok, string $message, int $statusCode, ?string $redirectPath): never
+{
+    if ($redirectPath !== null) {
+        send_redirect($redirectPath, $ok ? 'success' : 'error', $message);
+    }
+
+    send_json($statusCode, [
+        'ok' => $ok,
+        'message' => $message,
+    ]);
+}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode([
+    send_json(405, [
         'ok' => false,
         'message' => 'Method not allowed.',
     ]);
-    exit;
 }
 
 $rawInput = file_get_contents('php://input');
@@ -19,6 +71,7 @@ if (!is_array($data)) {
     $data = $_POST;
 }
 
+$redirectPath = safe_redirect_path($data['redirect'] ?? null);
 $name = trim((string) ($data['name'] ?? ''));
 $email = trim((string) ($data['email'] ?? ''));
 $enquiryType = trim((string) ($data['enquiryType'] ?? ''));
@@ -26,37 +79,19 @@ $message = trim((string) ($data['message'] ?? ''));
 $honeypot = trim((string) ($data['website'] ?? ''));
 
 if ($honeypot !== '') {
-    echo json_encode([
-        'ok' => true,
-    ]);
-    exit;
+    respond(true, 'Thanks for your message.', 200, $redirectPath);
 }
 
 if ($name === '' || $email === '' || $enquiryType === '' || $message === '') {
-    http_response_code(400);
-    echo json_encode([
-        'ok' => false,
-        'message' => 'Please complete all fields before sending your message.',
-    ]);
-    exit;
+    respond(false, 'Please complete all fields before sending your message.', 400, $redirectPath);
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode([
-        'ok' => false,
-        'message' => 'Please enter a valid email address.',
-    ]);
-    exit;
+    respond(false, 'Please enter a valid email address.', 400, $redirectPath);
 }
 
 if (strlen($message) < 10) {
-    http_response_code(400);
-    echo json_encode([
-        'ok' => false,
-        'message' => 'Please include a little more detail in your message.',
-    ]);
-    exit;
+    respond(false, 'Please include a little more detail in your message.', 400, $redirectPath);
 }
 
 $safeName = preg_replace("/[\r\n]+/", ' ', $name) ?: $name;
@@ -87,14 +122,7 @@ $headers = implode("\r\n", [
 $sent = mail($to, $subject, $body, $headers);
 
 if (!$sent) {
-    http_response_code(500);
-    echo json_encode([
-        'ok' => false,
-        'message' => 'We could not send your message right now. Please try again or email us directly.',
-    ]);
-    exit;
+    respond(false, 'We could not send your message right now. Please try again or email us directly.', 500, $redirectPath);
 }
 
-echo json_encode([
-    'ok' => true,
-]);
+respond(true, 'Thanks for your message. We will be in touch soon.', 200, $redirectPath);

@@ -47,8 +47,12 @@ export function Contact() {
 
       setSubmitted(true);
       setForm({ name: '', email: '', enquiryType: '', message: '', website: '' });
-    } catch {
-      setError('Something went wrong. Please try emailing us directly at eric@aivisionconsulting.co.uk');
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Something went wrong. Please try emailing us directly at eric@aivisionconsulting.co.uk'
+      );
     } finally {
       setLoading(false);
     }
@@ -341,6 +345,83 @@ export function Contact() {
                       style={{ resize: 'vertical' }}
                       aria-required="true"
                     />
+                  </div>
+
+                  <div
+                    style={{
+                      display: 'grid',
+                      gap: '10px',
+                      marginBottom: '20px',
+                      padding: '16px',
+                      borderRadius: '16px',
+                      background: 'rgba(0,212,255,0.05)',
+                      border: '1px solid rgba(0,212,255,0.1)',
+                    }}
+                  >
+                    <p style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 700, color: '#F0F4FF', margin: 0 }}>
+                      Backup contact options
+                    </p>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
+                        gap: '10px',
+                      }}
+                    >
+                      <a
+                        href="mailto:eric@aivisionconsulting.co.uk?subject=Website%20Enquiry"
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '12px',
+                          border: '1px solid rgba(0,212,255,0.14)',
+                          background: 'rgba(7,15,30,0.82)',
+                          color: '#D9E6F4',
+                          textDecoration: 'none',
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontSize: '13px',
+                          fontWeight: 600,
+                          textAlign: 'center',
+                        }}
+                      >
+                        Email Us Directly
+                      </a>
+                      <a
+                        href="https://wa.me/447341183915?text=Hi%20Eric%2C%20I%20would%20like%20to%20ask%20about%20AI%20training%20or%20consulting."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '12px',
+                          border: '1px solid rgba(0,255,136,0.14)',
+                          background: 'rgba(7,15,30,0.82)',
+                          color: '#D9E6F4',
+                          textDecoration: 'none',
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontSize: '13px',
+                          fontWeight: 600,
+                          textAlign: 'center',
+                        }}
+                      >
+                        WhatsApp Us
+                      </a>
+                      <a
+                        href="/contact-direct.php"
+                        style={{
+                          padding: '12px 14px',
+                          borderRadius: '12px',
+                          border: '1px solid rgba(255,215,0,0.18)',
+                          background: 'rgba(7,15,30,0.82)',
+                          color: '#D9E6F4',
+                          textDecoration: 'none',
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontSize: '13px',
+                          fontWeight: 600,
+                          textAlign: 'center',
+                        }}
+                      >
+                        Open Direct Contact Page
+                      </a>
+                    </div>
                   </div>
 
                   {error && (
