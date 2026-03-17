@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CalendarDays, CheckCircle2, Clock3, Tag } from 'lucide-react';
 import { Reveal } from './Reveal';
 import type { BlogPost } from '../data/blog';
+import { navigateToPath, shouldHandleClientNavigation } from '../lib/navigation';
 
 const siteUrl = 'https://aivisionconsulting.co.uk';
 
@@ -238,7 +239,17 @@ export function BlogPostPage({ post }: { post?: BlogPost }) {
               This post is not live yet, but you can head back to the homepage and browse the latest AI resources and
               training options.
             </p>
-            <a href="/#blog" className="btn-secondary">
+            <a
+              href="/#blog"
+              className="btn-secondary"
+              onClick={(event) => {
+                if (!shouldHandleClientNavigation(event)) {
+                  return;
+                }
+                event.preventDefault();
+                navigateToPath('/#blog');
+              }}
+            >
               <ArrowLeft size={16} />
               Back to insights
             </a>
@@ -268,6 +279,13 @@ export function BlogPostPage({ post }: { post?: BlogPost }) {
         <Reveal>
           <a
             href="/#blog"
+            onClick={(event) => {
+              if (!shouldHandleClientNavigation(event)) {
+                return;
+              }
+              event.preventDefault();
+              navigateToPath('/#blog');
+            }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -306,11 +324,31 @@ export function BlogPostPage({ post }: { post?: BlogPost }) {
                 marginBottom: '18px',
               }}
             >
-              <a href="/" style={{ color: '#8899AA', textDecoration: 'none' }}>
+              <a
+                href="/"
+                style={{ color: '#8899AA', textDecoration: 'none' }}
+                onClick={(event) => {
+                  if (!shouldHandleClientNavigation(event)) {
+                    return;
+                  }
+                  event.preventDefault();
+                  navigateToPath('/');
+                }}
+              >
                 Home
               </a>
               <span>/</span>
-              <a href="/#blog" style={{ color: '#8899AA', textDecoration: 'none' }}>
+              <a
+                href="/#blog"
+                style={{ color: '#8899AA', textDecoration: 'none' }}
+                onClick={(event) => {
+                  if (!shouldHandleClientNavigation(event)) {
+                    return;
+                  }
+                  event.preventDefault();
+                  navigateToPath('/#blog');
+                }}
+              >
                 Resources & Insights
               </a>
               <span>/</span>
@@ -618,11 +656,33 @@ export function BlogPostPage({ post }: { post?: BlogPost }) {
               {post.content.ctaText}
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
-              <motion.a whileHover={{ y: -2 }} href={post.content.ctaPrimaryHref} className="btn-primary">
+              <motion.a
+                whileHover={{ y: -2 }}
+                href={post.content.ctaPrimaryHref}
+                className="btn-primary"
+                onClick={(event) => {
+                  if (!shouldHandleClientNavigation(event)) {
+                    return;
+                  }
+                  event.preventDefault();
+                  navigateToPath(post.content?.ctaPrimaryHref ?? '/#contact');
+                }}
+              >
                 {post.content.ctaPrimaryLabel}
                 <ArrowRight size={16} />
               </motion.a>
-              <motion.a whileHover={{ y: -2 }} href={post.content.ctaSecondaryHref} className="btn-secondary">
+              <motion.a
+                whileHover={{ y: -2 }}
+                href={post.content.ctaSecondaryHref}
+                className="btn-secondary"
+                onClick={(event) => {
+                  if (!shouldHandleClientNavigation(event)) {
+                    return;
+                  }
+                  event.preventDefault();
+                  navigateToPath(post.content?.ctaSecondaryHref ?? '/#courses');
+                }}
+              >
                 {post.content.ctaSecondaryLabel}
               </motion.a>
             </div>

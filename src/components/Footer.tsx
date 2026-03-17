@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Linkedin, Youtube, Instagram, ArrowRight, Mail } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
+import { navigateToPath } from '../lib/navigation';
 
 const navLinks = [
   { label: 'Home', href: 'home' },
@@ -41,7 +42,7 @@ export function Footer({ isHomePage = true }: { isHomePage?: boolean }) {
       return;
     }
 
-    window.location.assign(`/#${href}`);
+    navigateToPath(`/#${href}`);
   };
 
   const handleSubmit = (e: React.FormEvent) => {

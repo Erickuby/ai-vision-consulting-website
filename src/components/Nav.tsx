@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Linkedin, Instagram, Youtube } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
+import { navigateToPath, shouldHandleClientNavigation } from '../lib/navigation';
 
 const socials = [
   { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
@@ -78,6 +79,11 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
             href={isHomePage ? '#home' : '/'}
             onClick={e => {
               if (!isHomePage) {
+                if (!shouldHandleClientNavigation(e)) {
+                  return;
+                }
+                e.preventDefault();
+                navigateToPath('/');
                 setMenuOpen(false);
                 return;
               }
@@ -113,6 +119,11 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
                 href={getPageHref(item.href, isHomePage)}
                 onClick={e => {
                   if (!isHomePage) {
+                    if (!shouldHandleClientNavigation(e)) {
+                      return;
+                    }
+                    e.preventDefault();
+                    navigateToPath(getPageHref(item.href, false));
                     setMenuOpen(false);
                     return;
                   }
@@ -159,6 +170,11 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
               href={getPageHref('#contact', isHomePage)}
               onClick={e => {
                 if (!isHomePage) {
+                  if (!shouldHandleClientNavigation(e)) {
+                    return;
+                  }
+                  e.preventDefault();
+                  navigateToPath(getPageHref('#contact', false));
                   setMenuOpen(false);
                   return;
                 }
@@ -219,6 +235,11 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
                 href={getPageHref(item.href, isHomePage)}
                 onClick={e => {
                   if (!isHomePage) {
+                    if (!shouldHandleClientNavigation(e)) {
+                      return;
+                    }
+                    e.preventDefault();
+                    navigateToPath(getPageHref(item.href, false));
                     setMenuOpen(false);
                     return;
                   }
@@ -239,6 +260,11 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
               href={getPageHref('#contact', isHomePage)}
               onClick={e => {
                 if (!isHomePage) {
+                  if (!shouldHandleClientNavigation(e)) {
+                    return;
+                  }
+                  e.preventDefault();
+                  navigateToPath(getPageHref('#contact', false));
                   setMenuOpen(false);
                   return;
                 }

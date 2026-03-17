@@ -3,17 +3,24 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Clock, Tag, Mail } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { blogPosts, getBlogPostHref, isLiveBlogPost, type BlogPost } from '../data/blog';
+import { navigateToPath, shouldHandleClientNavigation } from '../lib/navigation';
 
 function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
   const isLive = isLiveBlogPost(article);
   const articleHref = isLive ? getBlogPostHref(article) : '#contact';
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (isLive) {
+    if (!shouldHandleClientNavigation(event)) {
       return;
     }
 
     event.preventDefault();
+
+    if (isLive) {
+      navigateToPath(articleHref);
+      return;
+    }
+
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
