@@ -134,7 +134,9 @@ export function WhatsAppCommunity() {
                   <motion.a
                     whileHover={{ y: -2, scale: 1.01 }}
                     whileTap={{ scale: 0.98 }}
-                    href="#whatsapp"
+                    href="https://chat.whatsapp.com/BEGyAx68Y55Ik6d4BDxhxr"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-display"
                     style={{
                       width: '100%',
