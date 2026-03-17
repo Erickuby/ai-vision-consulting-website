@@ -66,7 +66,7 @@ export function Contact() {
             Your AI journey starts with a <span className="gradient-text-gold">conversation</span>
           </h2>
           <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '17px', color: '#8899AA', maxWidth: '520px', margin: '0 auto' }}>
-            Book your free 15-minute AI assessment or send us a message. No hard sell, just honest advice on where AI can help you most.
+            Book your free 30-minute AI assessment or send us a message. No hard sell, just honest advice on where AI can help you most.
           </p>
         </Reveal>
 
@@ -94,7 +94,7 @@ export function Contact() {
                   </div>
                   <div>
                     <div style={{ fontFamily: 'Space Grotesk', fontSize: '16px', fontWeight: 700, color: '#F0F4FF' }}>
-                      Free 15-Min AI Assessment
+                      Free 30-Min AI Assessment
                     </div>
                     <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#8899AA' }}>
                       Calendly booking · No commitment
@@ -102,12 +102,12 @@ export function Contact() {
                   </div>
                 </div>
                 <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA', marginBottom: '20px', lineHeight: 1.7 }}>
-                  Spend 15 minutes with our AI specialist. We'll identify your biggest opportunity and map out your next step: a course, consulting, or a community programme.
+                  Spend 30 minutes with our AI specialist. We'll identify your biggest opportunity and map out your next step: a course, consulting, or a community programme.
                 </p>
                 <motion.a
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  href="https://calendly.com/ericcnwankwo/15min"
+                  href="https://calendly.com/ericcnwankwo/30min?month=2026-03"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
@@ -368,12 +368,12 @@ export function Contact() {
 
                   <div style={{ marginTop: '24px', textAlign: 'center', borderTop: '1px solid rgba(0,212,255,0.1)', paddingTop: '24px' }}>
                     <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA', marginBottom: '16px' }}>
-                      Or book a free 15-minute AI assessment call directly &rarr;
+                      Or book a free 30-minute AI assessment call directly &rarr;
                     </p>
                     <motion.a
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      href="https://calendly.com/ericcnwankwo/15min"
+                      href="https://calendly.com/ericcnwankwo/30min?month=2026-03"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-secondary"
