@@ -25,7 +25,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
         title: '1. Who We Are',
         paragraphs: [
           'AI Vision Consulting Ltd is responsible for processing your personal data when you use this website, contact us, or engage our services.',
-          'If you have any privacy questions, contact us at hello@aivisionconsulting.co.uk.',
+          'If you have any privacy questions, contact us at eric@aivisionconsulting.co.uk.',
         ],
       },
       {

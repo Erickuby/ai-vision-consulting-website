@@ -23,21 +23,31 @@ export function Contact() {
     setLoading(true);
     setError('');
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError('The contact form is not configured yet. Please email us directly at eric@aivisionconsulting.co.uk');
+      setLoading(false);
+      return;
+    }
+
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID ?? 'YOUR_SERVICE_ID',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? 'YOUR_TEMPLATE_ID',
+        serviceId,
+        templateId,
         {
           from_name: form.name,
           from_email: form.email,
           enquiry_type: form.enquiryType,
           message: form.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY ?? 'YOUR_PUBLIC_KEY',
+        publicKey,
       );
       setSubmitted(true);
     } catch {
-      setError('Something went wrong. Please try emailing us directly at hello@aivisionconsulting.co.uk');
+      setError('Something went wrong. Please try emailing us directly at eric@aivisionconsulting.co.uk');
     } finally {
       setLoading(false);
     }
@@ -120,8 +130,8 @@ export function Contact() {
                 </h3>
                 {[
                   { icon: MapPin, label: 'Newcastle upon Tyne, UK', sub: 'Serving the UK · Remote & In-Person' },
-                  { icon: Mail, label: 'hello@aivisionconsulting.co.uk', sub: 'We respond within 24 hours' },
-                  { icon: Phone, label: '+44 (0)191 000 0000', sub: 'Mon–Fri, 9am–6pm' },
+                  { icon: Mail, label: 'eric@aivisionconsulting.co.uk', sub: 'We respond within 24 hours' },
+                  { icon: Phone, label: '+447341183915', sub: 'Mon–Fri, 9am–6pm' },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div key={label} style={{ display: 'flex', gap: '14px', marginBottom: '16px', alignItems: 'flex-start' }}>
                     <div style={{
@@ -353,7 +363,7 @@ export function Contact() {
                   </motion.button>
 
                   <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#5A6A7A', textAlign: 'center', marginTop: '12px' }}>
-                    By submitting, you agree to our <a href="#" style={{ color: '#8899AA' }}>Privacy Policy</a>. We never share your data.
+                    By submitting, you agree to our <a href="#/privacy-policy" style={{ color: '#8899AA' }}>Privacy Policy</a>. We never share your data.
                   </p>
 
                   <div style={{ marginTop: '24px', textAlign: 'center', borderTop: '1px solid rgba(0,212,255,0.1)', paddingTop: '24px' }}>
