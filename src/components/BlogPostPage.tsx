@@ -449,7 +449,7 @@ export function BlogPostPage({ post }: { post?: BlogPost }) {
                 fontSize: '13px',
               }}
             >
-              Practical AI explained for beginners, job seekers, and business owners.
+              Featured insight: {post.title}
             </figcaption>
           </figure>
         </Reveal>
