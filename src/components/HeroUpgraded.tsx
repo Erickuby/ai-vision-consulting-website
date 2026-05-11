@@ -68,7 +68,7 @@ const trustSignals = [
 const stats = [
   { end: 20, suffix: '+', label: 'AI Career Changes Supported', prefix: '' },
   { end: 100, suffix: '+', label: 'Professionals Trained', prefix: '' },
-  { label: 'Training Partner', prefix: '', suffix: '', valueText: 'BlackTech North East' },
+  { end: 12, suffix: ' weeks', label: 'Complete AI Training · Beginner to Expert', prefix: '' },
 ];
 
 function TiltCard({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {
@@ -228,18 +228,9 @@ export function HeroUpgraded() {
               transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
               className="text-center"
             >
-              {'valueText' in stat ? (
-                <div
-                  className="font-display text-lg sm:text-xl md:text-2xl font-bold text-[#00D4FF]"
-                  style={{ lineHeight: 1.2 }}
-                >
-                  {stat.valueText}
-                </div>
-              ) : (
-                <div className="stat-number">
-                  <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} startDelay={700 + i * 120} />
-                </div>
-              )}
+              <div className="stat-number">
+                <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} startDelay={700 + i * 120} />
+              </div>
               <div className="text-xs sm:text-sm text-[#8899AA] font-medium" style={{ marginTop: '6px' }}>
                 {stat.label}
               </div>

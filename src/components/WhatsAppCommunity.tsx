@@ -4,8 +4,8 @@ import { Reveal } from './Reveal';
 
 const communityHighlights = [
   'Free to join, no commitment',
-  'Daily AI tips and prompts',
-  'Exclusive 30-Day AI Job Challenge',
+  'Live workshop every Sunday',
+  '12 weeks · Beginner to expert',
 ];
 
 export function WhatsAppCommunity() {
@@ -59,23 +59,21 @@ export function WhatsAppCommunity() {
                   className="badge badge-green"
                   style={{ marginBottom: '18px', display: 'inline-flex' }}
                 >
-                  Free AI Community
+                  12-Week AI Training · Free
                 </span>
 
                 <h2
                   className="font-display text-3xl sm:text-4xl md:text-[2.7rem] font-bold tracking-tight text-[#F0F4FF]"
                   style={{ marginBottom: '16px', lineHeight: 1.05 }}
                 >
-                  Join Our Free AI Community on WhatsApp
+                  Join the Free 12-Week AI Training on WhatsApp
                 </h2>
 
                 <p
                   className="text-base sm:text-lg text-[#A9B4C3]"
                   style={{ maxWidth: '720px', lineHeight: 1.75, marginBottom: '26px' }}
                 >
-                  Daily AI tips, live challenges, and resources for job seekers and business builders
-                  {' '}
-                  completely free.
+                  Live workshop every Sunday across 12 weeks — beginner to expert. Daily prompts, resources, and Q&amp;A inside the group between sessions. Completely free.
                 </p>
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -123,10 +121,10 @@ export function WhatsAppCommunity() {
                         className="font-display text-lg font-bold text-[#F0F4FF]"
                         style={{ marginBottom: '4px' }}
                       >
-                        Practical AI support
+                        Sundays · live workshop
                       </p>
                       <p className="text-sm text-[#8899AA]" style={{ lineHeight: 1.6 }}>
-                        Learn alongside other job seekers, creators, and business builders every day.
+                        12-week roadmap from beginner to expert — practical AI for jobs, work, and side income.
                       </p>
                     </div>
                   </div>
@@ -154,7 +152,7 @@ export function WhatsAppCommunity() {
                       boxShadow: '0 18px 40px rgba(0,200,100,0.28)',
                     }}
                   >
-                    Join the WhatsApp Community <ArrowRight size={18} />
+                    Join the 12-Week Training <ArrowRight size={18} />
                   </motion.a>
                 </div>
               </div>

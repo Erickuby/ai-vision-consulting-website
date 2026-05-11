@@ -159,7 +159,7 @@ export function Contact() {
                 {[
                   { icon: MapPin, label: 'Newcastle upon Tyne, UK', sub: 'Serving the UK · Remote & In-Person' },
                   { icon: Mail, label: 'eric@aivisionconsulting.co.uk', sub: 'We respond within 24 hours' },
-                  { icon: Phone, label: '+447341183915', sub: 'Mon-Fri, 9am-6pm' },
+                  { icon: Phone, label: '+447341183915', sub: 'Mon-Fri 5pm-10pm · Sat-Sun 12pm-5pm' },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div key={label} style={{ display: 'flex', gap: '14px', marginBottom: '16px', alignItems: 'flex-start' }}>
                     <div style={{
