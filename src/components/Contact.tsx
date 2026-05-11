@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle, Linkedin, Instagram, Facebook, Youtube } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
 import { Reveal } from './Reveal';
 
@@ -190,6 +190,7 @@ export function Contact() {
                   {[
                     { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
                     { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/aivisionconsulting/' },
+                    { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61585002446584' },
                     { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@EricExplainsAI' },
                     { icon: TikTokIcon, label: 'TikTok', href: 'https://www.tiktok.com/@aivisionconsultingltd' },
                   ].map(({ icon: Icon, label, href }) => (

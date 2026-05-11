@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { Menu, X, Linkedin, Instagram, Facebook, Youtube } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
 import { navigateToPath, shouldHandleClientNavigation } from '../lib/navigation';
 
 const socials = [
   { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
   { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/aivisionconsulting/' },
+  { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61585002446584' },
   { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/@EricExplainsAI' },
   { icon: TikTokIcon, label: 'TikTok', href: 'https://www.tiktok.com/@aivisionconsultingltd' },
 ];
