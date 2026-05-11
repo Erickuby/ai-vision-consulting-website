@@ -73,16 +73,20 @@ export function AboutUpgraded() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5 }}
+                  whileHover={{ y: -3 }}
                   className="absolute top-5 -right-5 z-20 rounded-xl"
                   style={{
-                    padding: '12px',
+                    padding: '12px 14px',
                     background: 'rgba(10,20,40,0.9)',
                     backdropFilter: 'blur(12px)',
                     border: '1px solid rgba(0,212,255,0.25)',
+                    boxShadow: '0 12px 30px rgba(0,212,255,0.12)',
                   }}
                 >
-                  <div className="font-display text-2xl font-bold text-[#00D4FF]">5★</div>
-                  <div className="text-[11px] text-[#8899AA]">Client Rating</div>
+                  <div className="font-display text-base font-bold text-[#00D4FF]" style={{ lineHeight: 1.1 }}>
+                    BlackTech NE
+                  </div>
+                  <div className="text-[11px] text-[#8899AA]" style={{ marginTop: '2px' }}>Training Partner</div>
                 </motion.div>
               </div>
             </div>

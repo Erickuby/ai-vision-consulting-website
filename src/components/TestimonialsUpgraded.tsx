@@ -6,18 +6,21 @@ const testimonials = [
   {
     name: 'Amaka Eze',
     role: 'Job Seeker, Newcastle',
+    source: 'BlackTech NE Workshop',
     quote:
       'At the Black Tech session, AI finally stopped feeling like a buzzword. I used the prompts from that evening to rewrite my CV, tighten my LinkedIn, and send applications that actually sounded like me.',
   },
   {
     name: 'Tariq Mensah',
     role: 'Career Switcher, Gateshead',
+    source: 'Career Change Cohort',
     quote:
       'What stood out was how practical everything felt. I learned how to turn rough thoughts into polished work, research faster, and walk into interviews with examples that made me sound prepared instead of overwhelmed.',
   },
   {
     name: 'Lena Okoro',
     role: 'Small Business Founder, Sunderland',
+    source: 'Business Automation Cohort',
     quote:
       'I expected another motivational talk. Instead, I left with a working system. AI now helps me plan client updates, draft workshop notes, and clear admin faster, which means I can spend more time actually growing the business.',
   },
@@ -78,13 +81,30 @@ export function TestimonialsUpgraded() {
                   <span
                     className="font-display"
                     style={{
-                      fontSize: '13px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '11px',
                       fontWeight: 700,
                       letterSpacing: '0.08em',
-                      color: '#FFD700',
+                      textTransform: 'uppercase',
+                      color: '#00D4FF',
+                      background: 'rgba(0,212,255,0.08)',
+                      border: '1px solid rgba(0,212,255,0.18)',
+                      padding: '5px 10px',
+                      borderRadius: '999px',
                     }}
                   >
-                    ★★★★★
+                    <span
+                      style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '999px',
+                        background: '#00D4FF',
+                        boxShadow: '0 0 10px rgba(0,212,255,0.6)',
+                      }}
+                    />
+                    Verified · {testimonial.source}
                   </span>
                   <div
                     style={{

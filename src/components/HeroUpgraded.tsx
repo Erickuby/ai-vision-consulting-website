@@ -1,29 +1,63 @@
-import { motion, useSpring, useTransform, useInView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { motion, useSpring, useTransform, useMotionValue } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Sparkles, CheckCircle } from 'lucide-react';
 
 interface CounterProps {
   end: number;
   prefix?: string;
   suffix?: string;
+  startDelay?: number;
 }
 
-function Counter({ end, prefix = '', suffix = '' }: CounterProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  const spring = useSpring(0, { damping: 50, stiffness: 100 });
+function Counter({ end, prefix = '', suffix = '', startDelay = 0 }: CounterProps) {
+  const spring = useSpring(0, { damping: 30, stiffness: 70, restDelta: 0.5 });
   const display = useTransform(spring, (value) =>
     `${prefix}${Math.floor(value).toLocaleString()}${suffix}`
   );
 
   useEffect(() => {
-    if (isInView) {
-      spring.set(end);
-    }
-  }, [isInView, end, spring]);
+    const timer = window.setTimeout(() => spring.set(end), startDelay);
+    return () => window.clearTimeout(timer);
+  }, [end, spring, startDelay]);
 
-  return <motion.span ref={ref}>{display}</motion.span>;
+  return <motion.span>{display}</motion.span>;
+}
+
+function MagneticButton({ children, onClick, className, ariaLabel }: {
+  children: React.ReactNode;
+  onClick: () => void;
+  className: string;
+  ariaLabel: string;
+}) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  const handleMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    setPos({ x: x * 0.18, y: y * 0.28 });
+  };
+
+  const reset = () => setPos({ x: 0, y: 0 });
+
+  return (
+    <motion.button
+      ref={ref}
+      onMouseMove={handleMove}
+      onMouseLeave={reset}
+      animate={{ x: pos.x, y: pos.y }}
+      transition={{ type: 'spring', stiffness: 200, damping: 18, mass: 0.4 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
+      className={className}
+      aria-label={ariaLabel}
+    >
+      {children}
+    </motion.button>
+  );
 }
 
 const trustSignals = [
@@ -36,6 +70,47 @@ const stats = [
   { end: 100, suffix: '+', label: 'Professionals Trained', prefix: '' },
   { label: 'Training Partner', prefix: '', suffix: '', valueText: 'BlackTech North East' },
 ];
+
+function TiltCard({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+  const springX = useSpring(rotateX, { stiffness: 140, damping: 18, mass: 0.5 });
+  const springY = useSpring(rotateY, { stiffness: 140, damping: 18, mass: 0.5 });
+
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    rotateY.set(px * 8);
+    rotateX.set(-py * 6);
+  };
+
+  const reset = () => {
+    rotateX.set(0);
+    rotateY.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMove}
+      onMouseLeave={reset}
+      style={{
+        ...style,
+        rotateX: springX,
+        rotateY: springY,
+        transformPerspective: 1200,
+        transformStyle: 'preserve-3d',
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export function HeroUpgraded() {
   const scrollTo = (href: string) => {
@@ -66,7 +141,7 @@ export function HeroUpgraded() {
           style={{ color: '#F0F4FF', marginBottom: '24px' }}
         >
           Build AI Skills for{' '}
-          <span className="gradient-text-gold">Financial Freedom</span>{' '}
+          <span className="gradient-text-gold-shimmer">Financial Freedom</span>{' '}
           Starting Today
         </motion.h1>
 
@@ -78,7 +153,7 @@ export function HeroUpgraded() {
           className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto"
           style={{ marginBottom: '40px' }}
         >
-          Practical AI training delivering real results for jobseekers, small businesses and communities across the UK.
+          Practical AI training that turns into interviews, income and time back — for jobseekers, small businesses, and community partners across the UK.
         </motion.p>
 
         {/* CTAs */}
@@ -88,26 +163,22 @@ export function HeroUpgraded() {
           transition={{ duration: 0.6, delay: 0.3 }}
           style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}
         >
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+          <MagneticButton
             onClick={() => scrollTo('contact')}
             className="btn-primary glow-gold"
-            aria-label="Book your free AI assessment"
+            ariaLabel="Book your free AI assessment"
           >
             <Sparkles size={16} />
             Book Free AI Assessment
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+          </MagneticButton>
+          <MagneticButton
             onClick={() => scrollTo('courses')}
             className="btn-secondary"
-            aria-label="Browse our courses"
+            ariaLabel="Browse our courses"
           >
             Browse Courses
             <ArrowRight size={16} />
-          </motion.button>
+          </MagneticButton>
         </motion.div>
 
         {/* Trust signals */}
@@ -136,6 +207,8 @@ export function HeroUpgraded() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
+        >
+        <TiltCard
           className="grid grid-cols-1 md:grid-cols-3"
           style={{
             gap: '24px',
@@ -144,6 +217,7 @@ export function HeroUpgraded() {
             background: 'rgba(10,20,40,0.6)',
             backdropFilter: 'blur(16px)',
             border: '1px solid rgba(0,212,255,0.12)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.35)',
           }}
         >
           {stats.map((stat, i) => (
@@ -163,7 +237,7 @@ export function HeroUpgraded() {
                 </div>
               ) : (
                 <div className="stat-number">
-                  <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} />
+                  <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} startDelay={700 + i * 120} />
                 </div>
               )}
               <div className="text-xs sm:text-sm text-[#8899AA] font-medium" style={{ marginTop: '6px' }}>
@@ -171,6 +245,7 @@ export function HeroUpgraded() {
               </div>
             </motion.div>
           ))}
+        </TiltCard>
         </motion.div>
       </div>
 

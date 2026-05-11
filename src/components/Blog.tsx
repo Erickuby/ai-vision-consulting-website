@@ -280,9 +280,11 @@ export function Blog() {
             gap: '24px',
           }}
         >
-          {blogPosts.map((article, index) => (
-            <ArticleCard key={article.slug} article={article} index={index} />
-          ))}
+          {[...blogPosts]
+            .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+            .map((article, index) => (
+              <ArticleCard key={article.slug} article={article} index={index} />
+            ))}
         </div>
       </div>
     </section>
