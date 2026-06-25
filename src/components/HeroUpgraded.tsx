@@ -68,7 +68,7 @@ const trustSignals = [
 const stats = [
   { end: 20, suffix: '+', label: 'AI Career Changes Supported', prefix: '' },
   { end: 100, suffix: '+', label: 'Professionals Trained', prefix: '' },
-  { end: 12, suffix: ' weeks', label: 'Complete AI Training · Beginner to Expert', prefix: '' },
+  { end: 12, suffix: ' weeks', label: 'Free · Complete AI Training, Beginner to Expert', prefix: '' },
 ];
 
 function TiltCard({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {

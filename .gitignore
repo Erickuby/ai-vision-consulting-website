@@ -24,3 +24,8 @@ Thumbs.db
 
 # Claude Code session files
 .claude/
+
+# Local deployment artefacts (never commit build zips / backups)
+*.zip
+profile.old.png
+profile.old.*

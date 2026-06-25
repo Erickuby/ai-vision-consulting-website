@@ -3,6 +3,10 @@ import { Linkedin, Youtube, Instagram, Facebook, ArrowRight, Mail } from 'lucide
 import { TikTokIcon } from './TikTokIcon';
 import { navigateToPath } from '../lib/navigation';
 
+// Formspree endpoint (same account as the contact form). Newsletter
+// signups are tagged with a distinct subject so they're easy to filter.
+const NEWSLETTER_ENDPOINT = 'https://formspree.io/f/mpqyoypl';
+
 const navLinks = [
   { label: 'Home', href: 'home' },
   { label: 'Courses', href: 'courses' },
@@ -36,6 +40,8 @@ const legalLinks = [
 export function Footer({ isHomePage = true }: { isHomePage?: boolean }) {
   const [email, setEmail] = useState('');
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const navigateTo = (href: string) => {
     if (isHomePage) {
@@ -46,9 +52,35 @@ export function Footer({ isHomePage = true }: { isHomePage?: boolean }) {
     navigateToPath(`/#${href}`);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) { setDone(true); setEmail(''); }
+    if (!email) return;
+    setLoading(true);
+    setError('');
+
+    try {
+      const payload = new FormData();
+      payload.append('email', email.trim());
+      payload.append('source', 'Footer newsletter signup');
+      payload.append('subject', 'Newsletter subscription');
+
+      const response = await fetch(NEWSLETTER_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: payload,
+      });
+
+      if (!response.ok) {
+        throw new Error('Subscription failed');
+      }
+
+      setDone(true);
+      setEmail('');
+    } catch {
+      setError('Could not subscribe right now. Please try again or email us.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -185,6 +217,10 @@ export function Footer({ isHomePage = true }: { isHomePage?: boolean }) {
               <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#00D4FF', fontWeight: 600 }}>
                 ✓ Subscribed! Welcome aboard.
               </p>
+            ) : error ? (
+              <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#FF6B6B', fontWeight: 500 }}>
+                {error}
+              </p>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(10,20,40,0.8)', border: '1.5px solid rgba(0,212,255,0.15)', borderRadius: '8px', padding: '4px 4px 4px 12px' }}>
@@ -204,15 +240,17 @@ export function Footer({ isHomePage = true }: { isHomePage?: boolean }) {
                   <button
                     type="submit"
                     aria-label="Subscribe"
+                    disabled={loading}
                     style={{
                       width: 32, height: 32, borderRadius: '6px',
                       background: 'linear-gradient(135deg, #FFD700, #FFA500)',
-                      border: 'none', cursor: 'pointer',
+                      border: 'none', cursor: loading ? 'wait' : 'pointer',
+                      opacity: loading ? 0.6 : 1,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       transition: 'opacity 0.2s ease',
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
-                    onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+                    onMouseEnter={e => { if (!loading) e.currentTarget.style.opacity = '0.85'; }}
+                    onMouseLeave={e => { if (!loading) e.currentTarget.style.opacity = '1'; }}
                   >
                     <ArrowRight size={14} color="#050D1A" />
                   </button>
