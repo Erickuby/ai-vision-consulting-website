@@ -4,6 +4,7 @@ import { ArrowRight, Clock, Tag, Mail } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { blogPosts, getBlogPostHref, isLiveBlogPost, type BlogPost } from '../data/blog';
 import { navigateToPath, shouldHandleClientNavigation } from '../lib/navigation';
+import { submitWebsiteLead, trackConversion } from '../lib/leadCapture';
 
 function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
   const isLive = isLiveBlogPost(article);
@@ -162,12 +163,27 @@ function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
 export function Blog() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [newsletterError, setNewsletterError] = useState('');
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
 
-  const handleNewsletterSubmit = (event: React.FormEvent) => {
+  const handleNewsletterSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (email) {
+    if (!email || newsletterLoading) return;
+    setNewsletterLoading(true);
+    setNewsletterError('');
+    try {
+      await submitWebsiteLead({
+        lead_type: 'newsletter',
+        email: email.trim(),
+        source: 'Resources newsletter signup',
+      });
+      trackConversion('Newsletter Signup', { placement: 'resources' });
       setSubmitted(true);
       setEmail('');
+    } catch {
+      setNewsletterError('Could not subscribe right now. Please try again.');
+    } finally {
+      setNewsletterLoading(false);
     }
   };
 
@@ -247,28 +263,36 @@ export function Blog() {
                 Thanks, you're in.
               </motion.p>
             ) : (
-              <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', gap: '8px' }}>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder="Your email"
-                  required
-                  className="form-input"
-                  style={{ flex: 1, fontSize: '13px', padding: '10px 12px' }}
-                  aria-label="Email for newsletter"
-                />
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  type="submit"
-                  className="btn-primary"
-                  style={{ padding: '10px 14px', fontSize: '13px', flexShrink: 0 }}
-                  aria-label="Subscribe to newsletter"
-                >
-                  Join
-                </motion.button>
-              </form>
+              <div>
+                <form onSubmit={handleNewsletterSubmit} style={{ display: 'flex', gap: '8px' }}>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    placeholder="Your email"
+                    required
+                    className="form-input"
+                    style={{ flex: 1, fontSize: '13px', padding: '10px 12px' }}
+                    aria-label="Email for newsletter"
+                  />
+                  <motion.button
+                    whileHover={{ scale: newsletterLoading ? 1 : 1.05 }}
+                    whileTap={{ scale: newsletterLoading ? 1 : 0.95 }}
+                    type="submit"
+                    disabled={newsletterLoading}
+                    className="btn-primary"
+                    style={{ padding: '10px 14px', fontSize: '13px', flexShrink: 0, opacity: newsletterLoading ? 0.65 : 1 }}
+                    aria-label="Subscribe to newsletter"
+                  >
+                    {newsletterLoading ? 'Joining…' : 'Join'}
+                  </motion.button>
+                </form>
+                {newsletterError && (
+                  <p role="alert" style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#FF6B6B', marginTop: '8px' }}>
+                    {newsletterError}
+                  </p>
+                )}
+              </div>
             )}
           </div>
         </Reveal>

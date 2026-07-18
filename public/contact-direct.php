@@ -331,12 +331,12 @@ $formspreeEndpoint = 'https://formspree.io/f/mpqyoypl';
                 </div>
                 <span>Open WhatsApp</span>
               </a>
-              <a class="option-link" href="https://calendly.com/ericcnwankwo/30min?month=2026-03" target="_blank" rel="noopener noreferrer">
+              <a class="option-link" href="https://cal.com/eric-nwankwo/ai-discovery-call" target="_blank" rel="noopener noreferrer">
                 <div>
-                  <strong>Book an assessment</strong>
-                  <span>Free 15-minute AI assessment</span>
+                  <strong>Book a discovery call</strong>
+                  <span>Free 20-minute AI discovery call</span>
                 </div>
-                <span>Open Calendly</span>
+                <span>Open Cal.com</span>
               </a>
             </div>
           </div>

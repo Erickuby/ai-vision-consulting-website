@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { Linkedin, Youtube, Instagram, Facebook, ArrowRight, Mail } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
 import { navigateToPath } from '../lib/navigation';
-
-// Formspree endpoint (same account as the contact form). Newsletter
-// signups are tagged with a distinct subject so they're easy to filter.
-const NEWSLETTER_ENDPOINT = 'https://formspree.io/f/mpqyoypl';
+import { submitWebsiteLead, trackConversion } from '../lib/leadCapture';
 
 const navLinks = [
   { label: 'Home', href: 'home' },
@@ -59,20 +56,12 @@ export function Footer({ isHomePage = true }: { isHomePage?: boolean }) {
     setError('');
 
     try {
-      const payload = new FormData();
-      payload.append('email', email.trim());
-      payload.append('source', 'Footer newsletter signup');
-      payload.append('subject', 'Newsletter subscription');
-
-      const response = await fetch(NEWSLETTER_ENDPOINT, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: payload,
+      await submitWebsiteLead({
+        lead_type: 'newsletter',
+        email: email.trim(),
+        source: 'Footer newsletter signup',
       });
-
-      if (!response.ok) {
-        throw new Error('Subscription failed');
-      }
+      trackConversion('Newsletter Signup', { placement: 'footer' });
 
       setDone(true);
       setEmail('');

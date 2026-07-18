@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle, Linkedin, Instagram, Facebook, Youtube } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
 import { Reveal } from './Reveal';
-
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqyoypl';
+import { submitWebsiteLead, trackConversion } from '../lib/leadCapture';
 
 const ENQUIRY_LABELS: Record<string, string> = {
   jobseeker: 'Jobseeker',
@@ -14,11 +13,6 @@ const ENQUIRY_LABELS: Record<string, string> = {
   partner: 'Community Partner',
   other: 'General Enquiry',
 };
-
-function getEnquirySubject(enquiryType: string) {
-  const label = ENQUIRY_LABELS[enquiryType] || 'General Enquiry';
-  return `Website enquiry: ${label}`;
-}
 
 export function Contact() {
   const [form, setForm] = useState({
@@ -39,34 +33,19 @@ export function Contact() {
     setError('');
 
     try {
-      const payload = new FormData();
-      payload.append('name', form.name.trim());
-      payload.append('email', form.email.trim());
-      payload.append('enquiryType', form.enquiryType);
-      payload.append('message', form.message.trim());
-      payload.append('website', form.website.trim());
-      payload.append('subject', getEnquirySubject(form.enquiryType));
-      payload.append('source', 'Homepage contact form');
-
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: payload,
+      await submitWebsiteLead({
+        lead_type: 'contact',
+        name: form.name.trim(),
+        email: form.email.trim(),
+        enquiryType: ENQUIRY_LABELS[form.enquiryType] || 'General Enquiry',
+        message: form.message.trim(),
+        website: form.website.trim(),
+        source: 'Homepage contact form',
       });
 
-      const result = await response.json().catch(() => null);
-
-      if (!response.ok) {
-        const formspreeMessage = Array.isArray(result?.errors)
-          ? result.errors.map((item: { message?: string }) => item.message).filter(Boolean).join(' ')
-          : '';
-
-        throw new Error(
-          formspreeMessage || 'We could not send your message right now. Please email us or use WhatsApp instead.'
-        );
-      }
+      trackConversion('Contact Form Submitted', {
+        enquiry_type: ENQUIRY_LABELS[form.enquiryType] || 'General Enquiry',
+      });
 
       setSubmitted(true);
       setForm({ name: '', email: '', enquiryType: '', message: '', website: '' });
@@ -94,7 +73,7 @@ export function Contact() {
             Your AI journey starts with a <span className="gradient-text-gold">conversation</span>
           </h2>
           <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '17px', color: '#8899AA', maxWidth: '520px', margin: '0 auto' }}>
-            Book your free 15-minute AI assessment or send us a message. No hard sell, just honest advice on where AI can help you most.
+            Book your free 20-minute AI discovery call or send us a message. No hard sell, just honest advice on where AI can help you most.
           </p>
         </Reveal>
 
@@ -102,7 +81,7 @@ export function Contact() {
           {/* Left: Info */}
           <Reveal>
             <div>
-              {/* Calendly CTA */}
+              {/* Cal.com CTA */}
               <motion.div
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.2 }}
@@ -122,28 +101,28 @@ export function Contact() {
                   </div>
                   <div>
                     <div style={{ fontFamily: 'Space Grotesk', fontSize: '16px', fontWeight: 700, color: '#F0F4FF' }}>
-                      Free 15-Min AI Assessment
+                      Free 20-Min AI Discovery Call
                     </div>
                     <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#8899AA' }}>
-                      Calendly booking · No commitment
+                      Cal.com booking · No commitment
                     </div>
                   </div>
                 </div>
                 <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA', marginBottom: '20px', lineHeight: 1.7 }}>
-                  Spend 15 minutes with our AI specialist. We'll identify your biggest opportunity and map out your next step: a course, consulting, or a community programme.
+                  Spend 20 focused minutes with our AI specialist. We'll identify your biggest opportunity and map out the most practical next step.
                 </p>
                 <motion.a
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  href="https://calendly.com/ericcnwankwo/30min?month=2026-03"
+                  href="https://cal.com/eric-nwankwo/ai-discovery-call"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
                   style={{ width: '100%', justifyContent: 'center' }}
-                  aria-label="Book free AI assessment via Calendly"
+                  aria-label="Book a free AI discovery call via Cal.com"
                 >
                   <Calendar size={16} />
-                  Book on Calendly
+                  Book on Cal.com
                 </motion.a>
               </motion.div>
 
@@ -496,18 +475,18 @@ export function Contact() {
 
                   <div style={{ marginTop: '24px', textAlign: 'center', borderTop: '1px solid rgba(0,212,255,0.1)', paddingTop: '24px' }}>
                     <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA', marginBottom: '16px' }}>
-                      Or book a free 15-minute AI assessment call directly &rarr;
+                      Or book a free 20-minute AI discovery call directly &rarr;
                     </p>
                     <motion.a
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      href="https://calendly.com/ericcnwankwo/30min?month=2026-03"
+                      href="https://cal.com/eric-nwankwo/ai-discovery-call"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-secondary"
                       style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px' }}
                     >
-                      <Calendar size={16} /> Book on Calendly
+                      <Calendar size={16} /> Book on Cal.com
                     </motion.a>
                   </div>
                 </form>

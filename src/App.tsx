@@ -22,6 +22,7 @@ import { StickyCTA } from './components/StickyCTA';
 import { CustomCursor } from './components/CustomCursor';
 import { LegalPage, type LegalPageType } from './components/LegalPages';
 import { getBlogPostBySlug } from './data/blog';
+import { trackOutboundEnquiryLink } from './lib/leadCapture';
 
 type AppRoute =
   | { type: 'home' }
@@ -99,6 +100,29 @@ export function App() {
       window.removeEventListener('popstate', syncRoute);
       window.removeEventListener('hashchange', syncRoute);
     };
+  }, []);
+
+  useEffect(() => {
+    const trackCommercialLink = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return;
+
+      const link = event.target.closest<HTMLAnchorElement>('a[href]');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      const placement =
+        link.dataset.conversionPlacement ||
+        link.getAttribute('aria-label') ||
+        link.textContent?.replace(/\s+/g, ' ').trim().slice(0, 80) ||
+        'website';
+
+      trackOutboundEnquiryLink(href, placement);
+    };
+
+    document.addEventListener('click', trackCommercialLink, { capture: true });
+    return () => document.removeEventListener('click', trackCommercialLink, { capture: true });
   }, []);
 
   useEffect(() => {
