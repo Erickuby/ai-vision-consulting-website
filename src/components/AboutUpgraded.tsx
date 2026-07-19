@@ -72,26 +72,6 @@ export function AboutUpgraded() {
                   </div>
                 </motion.div>
 
-                {/* Floating badge */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 }}
-                  whileHover={{ y: -3 }}
-                  className="absolute top-5 -right-5 z-20 rounded-xl"
-                  style={{
-                    padding: '12px 14px',
-                    background: 'rgba(10,20,40,0.9)',
-                    backdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(0,212,255,0.25)',
-                    boxShadow: '0 12px 30px rgba(0,212,255,0.12)',
-                  }}
-                >
-                  <div className="font-display text-base font-bold text-[#00D4FF]" style={{ lineHeight: 1.1 }}>
-                    Newcastle upon Tyne
-                  </div>
-                  <div className="text-[11px] text-[#8899AA]" style={{ marginTop: '2px' }}>Serving organisations across the UK</div>
-                </motion.div>
               </div>
             </div>
           </Reveal>
