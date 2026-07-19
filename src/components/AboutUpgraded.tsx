@@ -48,6 +48,10 @@ export function AboutUpgraded() {
                   <img
                     src="/profile.png"
                     alt="Eric Nwankwo"
+                    width={397}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto object-cover"
                     style={{ aspectRatio: '1/1' }}
                   />

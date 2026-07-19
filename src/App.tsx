@@ -1,5 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
-import { NeuralCanvas3D } from './components/NeuralCanvas3D';
+import { useEffect, useState, type ComponentType, type ReactNode } from 'react';
 import { Nav } from './components/Nav';
 import { ScrollProgress } from './components/ScrollProgress';
 import { HeroUpgraded } from './components/HeroUpgraded';
@@ -24,11 +23,45 @@ import { getSiteRoute, normalizeRoutePath } from './data/routes';
 import { trackOutboundEnquiryLink } from './lib/leadCapture';
 
 function ClientDecoration() {
-  const [mounted, setMounted] = useState(false);
+  const [Decoration, setDecoration] = useState<ComponentType | null>(null);
+
   useEffect(() => {
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setMounted(true);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const desktopPointer = window.matchMedia('(min-width: 900px) and (hover: hover) and (pointer: fine)').matches;
+    const hardwareThreads = navigator.hardwareConcurrency ?? 8;
+    const deviceMemory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 8;
+
+    if (reducedMotion || !desktopPointer || hardwareThreads <= 4 || deviceMemory < 4) return;
+
+    let cancelled = false;
+    const loadDecoration = () => {
+      void import('./components/NeuralCanvas3D')
+        .then(({ NeuralCanvas3D }) => {
+          if (!cancelled) setDecoration(() => NeuralCanvas3D);
+        })
+        .catch(() => {
+          // The canvas is decorative, so a failed optional chunk should not affect the page.
+        });
+    };
+
+    const idleWindow = window as typeof window & {
+      requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+    const usedIdleCallback = typeof idleWindow.requestIdleCallback === 'function'
+      && typeof idleWindow.cancelIdleCallback === 'function';
+    const handle = usedIdleCallback
+      ? idleWindow.requestIdleCallback!(loadDecoration, { timeout: 1500 })
+      : window.setTimeout(loadDecoration, 800);
+
+    return () => {
+      cancelled = true;
+      if (usedIdleCallback) idleWindow.cancelIdleCallback!(handle);
+      else window.clearTimeout(handle);
+    };
   }, []);
-  return mounted ? <NeuralCanvas3D /> : null;
+
+  return Decoration ? <Decoration /> : null;
 }
 
 function SiteBackground({ children }: { children: ReactNode }) {

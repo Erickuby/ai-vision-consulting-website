@@ -92,7 +92,6 @@ export function FlagshipCourses() {
                   el.style.borderColor = item.color + '25';
                   el.style.boxShadow = 'none';
                 }}
-                aria-label={`Learn more about ${item.title}`}
               >
                 <div style={{
                   width: 52, height: 52,

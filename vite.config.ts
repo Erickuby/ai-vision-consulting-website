@@ -17,14 +17,5 @@ export default defineConfig(({ isSsrBuild }) => ({
   },
   build: {
     emptyOutDir: !isSsrBuild,
-    rollupOptions: isSsrBuild ? undefined : {
-      output: {
-        manualChunks: {
-          "three-vendor": ["three", "@react-three/fiber", "@react-three/drei"],
-          "motion": ["framer-motion"],
-          "react-vendor": ["react", "react-dom"],
-        },
-      },
-    },
   },
 }));

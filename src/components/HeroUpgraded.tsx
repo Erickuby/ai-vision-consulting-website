@@ -146,7 +146,7 @@ export function HeroUpgraded() {
           <MagneticButton
             onClick={() => scrollTo('contact')}
             className="btn-primary glow-gold"
-            ariaLabel="Book your free AI assessment"
+            ariaLabel="Book Free AI Assessment"
           >
             <Sparkles size={16} />
             Book Free AI Assessment
@@ -154,7 +154,7 @@ export function HeroUpgraded() {
           <MagneticButton
             onClick={() => scrollTo('courses')}
             className="btn-secondary"
-            ariaLabel="Browse our courses"
+            ariaLabel="Browse Courses"
           >
             Browse Courses
             <ArrowRight size={16} />

@@ -82,8 +82,8 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
     <>
       <nav className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6" aria-label="Main navigation" style={{ background: scrolled ? 'rgba(5,13,26,0.95)' : 'transparent', backdropFilter: scrolled ? 'blur(20px)' : 'none', borderBottom: scrolled ? '1px solid rgba(0,212,255,0.08)' : '1px solid transparent' }}>
         <div className="max-w-[1200px] mx-auto flex items-center h-[70px] gap-8">
-          <a href={homeHref} onClick={handleHomeClick} className="flex items-center gap-2.5 no-underline flex-shrink-0" aria-label="AI Vision Consulting Ltd - Home">
-            <img src="/logo.svg" alt="AI Vision Consulting logo" width={40} height={40} style={{ display: 'block', filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.45))' }} />
+          <a href={homeHref} onClick={handleHomeClick} className="flex items-center gap-2.5 no-underline flex-shrink-0">
+            <img src="/logo.svg" alt="" width={40} height={40} style={{ display: 'block', filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.45))' }} />
             <div><div className="font-display font-bold text-[15px] text-[#F0F4FF] tracking-tight leading-none">AI Vision</div><div className="font-display text-[11px] text-[#00D4FF] tracking-[0.08em] leading-none mt-0.5">CONSULTING LTD</div></div>
           </a>
           <div className="hidden lg:flex items-center gap-5 flex-1">

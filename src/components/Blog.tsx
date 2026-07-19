@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Clock, Tag, Mail } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { blogPosts, getBlogPostHref, isLiveBlogPost, type BlogPost } from '../data/blog';
-import { navigateToPath, shouldHandleClientNavigation } from '../lib/navigation';
+import { shouldHandleClientNavigation } from '../lib/navigation';
 import { submitWebsiteLead, trackConversion } from '../lib/leadCapture';
 
 function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
@@ -11,17 +11,13 @@ function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
   const articleHref = isLive ? getBlogPostHref(article) : '#contact';
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!shouldHandleClientNavigation(event)) {
+    // Live posts are standalone, prerendered documents rather than React routes.
+    // Let the browser load them normally instead of routing the SPA to a 404.
+    if (isLive || !shouldHandleClientNavigation(event)) {
       return;
     }
 
     event.preventDefault();
-
-    if (isLive) {
-      navigateToPath(articleHref);
-      return;
-    }
-
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -102,12 +98,12 @@ function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
                 gap: '5px',
                 fontFamily: 'Plus Jakarta Sans',
                 fontSize: '12px',
-                color: '#5A6A7A',
+                color: '#8899AA',
               }}
             >
               <Clock size={11} /> {article.readTime}
             </span>
-            <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#5A6A7A' }}>{article.date}</span>
+            <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#8899AA' }}>{article.date}</span>
           </div>
 
           <h3
@@ -282,7 +278,6 @@ export function Blog() {
                     disabled={newsletterLoading}
                     className="btn-primary"
                     style={{ padding: '10px 14px', fontSize: '13px', flexShrink: 0, opacity: newsletterLoading ? 0.65 : 1 }}
-                    aria-label="Subscribe to newsletter"
                   >
                     {newsletterLoading ? 'Joining…' : 'Join'}
                   </motion.button>

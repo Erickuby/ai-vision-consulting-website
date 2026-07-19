@@ -1602,7 +1602,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-base {
   border-top: 1px solid var(--border-subtle);
   padding: var(--sp-3) 0 var(--sp-4);
-  color: var(--text-400);
+  color: var(--text-300);
   font-size: var(--body-sm);
   display: flex;
   align-items: center;

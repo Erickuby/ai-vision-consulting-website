@@ -129,7 +129,7 @@ export function Contact({ source = 'Homepage contact form' }: { source?: string 
                   rel="noopener noreferrer"
                   className="btn-primary"
                   style={{ width: '100%', justifyContent: 'center' }}
-                  aria-label="Book a free AI discovery call via Cal.com"
+                  aria-label="Book on Cal.com: free AI discovery call"
                 >
                   <Calendar size={16} />
                   Book on Cal.com

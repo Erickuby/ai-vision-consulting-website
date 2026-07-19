@@ -9,7 +9,7 @@ const services = [
     title: 'AI Training Programmes',
     description: 'Practical AI training for individuals, teams and community audiences.',
     points: ['Structured sessions and workshops', 'Content scoped around the audience', 'Online, in-person, or hybrid delivery'],
-    cta: 'Learn More',
+    cta: 'Explore AI Training Topics',
     ctaHref: '/pricing/#catalogue-heading',
   },
   {
@@ -36,8 +36,8 @@ const services = [
     title: 'Community Partnerships',
     description: 'Accessible AI skills sessions for employability providers and community organisations.',
     points: ['Employability-focused AI skills', 'Community seminars and workshops', 'Delivery scoped with each partner'],
-    cta: 'Learn More',
-    ctaHref: '#contact',
+    cta: 'Discuss Community Training',
+    ctaHref: '/contact/',
   },
 ];
 

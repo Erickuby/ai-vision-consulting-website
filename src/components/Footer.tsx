@@ -135,9 +135,9 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 700, color: '#F0F4FF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
+            <h2 style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 700, color: '#F0F4FF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
               Navigation
-            </h4>
+            </h2>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {navLinks.map(link => (
                 <li key={link.label}>
@@ -159,9 +159,9 @@ export function Footer() {
 
           {/* Courses */}
           <div>
-            <h4 style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 700, color: '#F0F4FF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
+            <h2 style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 700, color: '#F0F4FF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
               Training Options
-            </h4>
+            </h2>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {trainingLinks.map(link => (
                 <li key={link.label}>
@@ -183,9 +183,9 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 700, color: '#F0F4FF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
+            <h2 style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 700, color: '#F0F4FF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
               Weekly AI Tips
-            </h4>
+            </h2>
             <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13.5px', color: '#8899AA', lineHeight: 1.7, marginBottom: '16px' }}>
               Free practical tips for jobseekers and business owners. Be among the first to join.
             </p>
@@ -247,7 +247,7 @@ export function Footer() {
                   </div>
                 </form>
                 <p style={{ color: '#8899AA', fontFamily: 'Plus Jakarta Sans', fontSize: '11px', lineHeight: 1.5, marginTop: '8px' }}>
-                  By subscribing, you agree to receive practical AI updates by email. You can unsubscribe at any time. See our <a href="/privacy-policy/" style={{ color: '#A9B9C9' }}>Privacy Policy</a>.
+                  By subscribing, you agree to receive practical AI updates by email. You can unsubscribe at any time. See our <a href="/privacy-policy/" style={{ color: '#A9B9C9', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Privacy Policy</a>.
                 </p>
               </>
             )}
@@ -260,7 +260,7 @@ export function Footer() {
           paddingTop: '28px',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px'
         }}>
-          <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#5A6A7A' }}>
+          <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#8899AA' }}>
             © AI Vision Consulting Ltd. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '20px' }}>
@@ -269,11 +269,11 @@ export function Footer() {
                 key={item.label}
                 href={item.href}
                 style={{
-                  fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#5A6A7A',
+                  fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#8899AA',
                   textDecoration: 'none', transition: 'color 0.2s ease'
                 }}
-                onMouseEnter={e => { e.currentTarget.style.color = '#8899AA'; }}
-                onMouseLeave={e => { e.currentTarget.style.color = '#5A6A7A'; }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#F0F4FF'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#8899AA'; }}
               >
                 {item.label}
               </a>

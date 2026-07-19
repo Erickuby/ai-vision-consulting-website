@@ -154,7 +154,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
                 cursor: 'pointer',
                 textDecoration: 'none',
               }}
-              aria-label={`View ${course.title} training package`}
+              aria-label={`View Package: ${course.title} training`}
             >
               View Package <ArrowRight size={13} />
             </motion.a>
