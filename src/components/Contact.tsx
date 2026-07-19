@@ -14,7 +14,7 @@ const ENQUIRY_LABELS: Record<string, string> = {
   other: 'General Enquiry',
 };
 
-export function Contact() {
+export function Contact({ source = 'Homepage contact form' }: { source?: string }) {
   const [form, setForm] = useState({
     name: '', email: '', enquiryType: '', message: '', website: ''
   });
@@ -29,18 +29,28 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
+
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!name || !validEmail || !form.enquiryType || !message) {
+      setError('Please complete every required field and enter a valid email address.');
+      return;
+    }
+
+    setLoading(true);
 
     try {
       await submitWebsiteLead({
         lead_type: 'contact',
-        name: form.name.trim(),
-        email: form.email.trim(),
+        name,
+        email,
         enquiryType: ENQUIRY_LABELS[form.enquiryType] || 'General Enquiry',
-        message: form.message.trim(),
+        message,
         website: form.website.trim(),
-        source: 'Homepage contact form',
+        source,
       });
 
       trackConversion('Contact Form Submitted', {
@@ -77,7 +87,7 @@ export function Contact() {
           </p>
         </Reveal>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', alignItems: 'start' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '40px', alignItems: 'start' }}>
           {/* Left: Info */}
           <Reveal>
             <div>
@@ -137,8 +147,8 @@ export function Contact() {
                 </h3>
                 {[
                   { icon: MapPin, label: 'Newcastle upon Tyne, UK', sub: 'Serving the UK · Remote & In-Person' },
-                  { icon: Mail, label: 'eric@aivisionconsulting.co.uk', sub: 'We respond within 24 hours' },
-                  { icon: Phone, label: '+447341183915', sub: 'Mon-Fri 5pm-10pm · Sat-Sun 12pm-5pm' },
+                  { icon: Mail, label: 'eric@aivisionconsulting.co.uk', sub: 'Email for training and consulting enquiries' },
+                  { icon: Phone, label: '+447341183915', sub: 'Call or WhatsApp' },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div key={label} style={{ display: 'flex', gap: '14px', marginBottom: '16px', alignItems: 'flex-start' }}>
                     <div style={{
@@ -217,6 +227,9 @@ export function Contact() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
+                  role="status"
+                  aria-live="polite"
+                  tabIndex={-1}
                   style={{ textAlign: 'center', padding: '40px 0' }}
                 >
                   <motion.div
@@ -236,7 +249,7 @@ export function Contact() {
                     Message Received!
                   </h3>
                   <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '15px', color: '#8899AA' }}>
-                    We'll be in touch within 24 hours. In the meantime, why not browse our courses?
+                    Your enquiry has been received. In the meantime, you can browse our training and consulting services.
                   </p>
                   <button
                     onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
@@ -247,7 +260,10 @@ export function Contact() {
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} noValidate>
+                <form onSubmit={handleSubmit} action="/contact.php" method="post">
+                  <input type="hidden" name="lead_type" value="contact" />
+                  <input type="hidden" name="source" value={source} />
+                  <input type="hidden" name="redirect" value="/contact-direct.php" />
                   <div
                     aria-hidden="true"
                     style={{
@@ -274,7 +290,7 @@ export function Contact() {
                     Send us a message
                   </h3>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+                  <div className="contact-name-email-grid" style={{ display: 'grid', gap: '16px', marginBottom: '16px' }}>
                     <div>
                       <label style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 600, color: '#8899AA', display: 'block', marginBottom: '6px' }} htmlFor="name">
                         Full Name *
@@ -367,7 +383,7 @@ export function Contact() {
                     <div
                       style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 170px), 1fr))',
                         gap: '10px',
                       }}
                     >
@@ -431,6 +447,8 @@ export function Contact() {
                     <motion.div
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
+                      role="alert"
+                      aria-live="assertive"
                       style={{
                         display: 'flex', alignItems: 'flex-start', gap: '10px',
                         background: 'rgba(255,80,80,0.08)', border: '1px solid rgba(255,80,80,0.25)',
@@ -469,8 +487,8 @@ export function Contact() {
                     )}
                   </motion.button>
 
-                  <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#5A6A7A', textAlign: 'center', marginTop: '12px' }}>
-                    By submitting, you agree to our <a href="#/privacy-policy" style={{ color: '#8899AA' }}>Privacy Policy</a>. We never share your data.
+                  <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: '#8899AA', textAlign: 'center', marginTop: '12px' }}>
+                    By submitting, you agree to our <a href="/privacy-policy/" style={{ color: '#8899AA' }}>Privacy Policy</a>. We use your details to respond to your enquiry.
                   </p>
 
                   <div style={{ marginTop: '24px', textAlign: 'center', borderTop: '1px solid rgba(0,212,255,0.1)', paddingTop: '24px' }}>

@@ -1,27 +1,7 @@
-import { motion, useSpring, useTransform, useMotionValue } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
+import { useRef, useState } from 'react';
 import { ArrowRight, Sparkles, CheckCircle } from 'lucide-react';
 
-interface CounterProps {
-  end: number;
-  prefix?: string;
-  suffix?: string;
-  startDelay?: number;
-}
-
-function Counter({ end, prefix = '', suffix = '', startDelay = 0 }: CounterProps) {
-  const spring = useSpring(0, { damping: 30, stiffness: 70, restDelta: 0.5 });
-  const display = useTransform(spring, (value) =>
-    `${prefix}${Math.floor(value).toLocaleString()}${suffix}`
-  );
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => spring.set(end), startDelay);
-    return () => window.clearTimeout(timer);
-  }, [end, spring, startDelay]);
-
-  return <motion.span>{display}</motion.span>;
-}
 
 function MagneticButton({ children, onClick, className, ariaLabel }: {
   children: React.ReactNode;
@@ -61,14 +41,14 @@ function MagneticButton({ children, onClick, className, ariaLabel }: {
 }
 
 const trustSignals = [
-  'Newcastle-based AI Trainer',
-  'BlackTech North East Training Partner',
+  'Newcastle-based AI training',
+  'Remote support for UK organisations',
 ];
 
 const stats = [
-  { end: 20, suffix: '+', label: 'AI Career Changes Supported', prefix: '' },
-  { end: 100, suffix: '+', label: 'Professionals Trained', prefix: '' },
-  { end: 12, suffix: ' weeks', label: 'Free · Complete AI Training, Beginner to Expert', prefix: '' },
+  { value: 'Practical', label: 'Training built around real work' },
+  { value: 'Measured', label: 'Automation scoped before implementation' },
+  { value: 'Responsible', label: 'Human review and safe AI use' },
 ];
 
 function TiltCard({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {
@@ -134,31 +114,31 @@ export function HeroUpgraded() {
       <div className="max-w-4xl w-full text-center">
         {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
           style={{ color: '#F0F4FF', marginBottom: '24px' }}
         >
-          Build AI Skills for{' '}
-          <span className="gradient-text-gold-shimmer">Financial Freedom</span>{' '}
-          Starting Today
+          Practical AI Training and{' '}
+          <span className="gradient-text-gold-shimmer">Automation</span>{' '}
+          for Newcastle and UK Organisations
         </motion.h1>
 
         {/* Subheadline */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto"
           style={{ marginBottom: '40px' }}
         >
-          Practical AI training that turns into interviews, income and time back — for jobseekers, small businesses, and community partners across the UK.
+          Build useful AI capability and improve real workflows through practical training and measured automation support — for Newcastle organisations, UK businesses, professionals, jobseekers and community partners.
         </motion.p>
 
         {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}
@@ -183,7 +163,7 @@ export function HeroUpgraded() {
 
         {/* Trust signals */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           style={{ display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '44px' }}
@@ -191,7 +171,7 @@ export function HeroUpgraded() {
           {trustSignals.map((t, i) => (
             <motion.div
               key={t}
-              initial={{ opacity: 0, x: -10 }}
+              initial={false}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
               style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
@@ -204,7 +184,7 @@ export function HeroUpgraded() {
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={false}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
@@ -223,13 +203,13 @@ export function HeroUpgraded() {
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
               className="text-center"
             >
               <div className="stat-number">
-                <Counter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} startDelay={700 + i * 120} />
+                {stat.value}
               </div>
               <div className="text-xs sm:text-sm text-[#8899AA] font-medium" style={{ marginTop: '6px' }}>
                 {stat.label}
@@ -242,10 +222,10 @@ export function HeroUpgraded() {
 
       {/* Scroll indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="motion-decorative absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <div
           className="w-6 h-9 border-2 rounded-xl flex justify-center p-1"

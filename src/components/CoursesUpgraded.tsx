@@ -232,7 +232,7 @@ export function CoursesUpgraded() {
           {[
             { id: 'individuals', label: 'For Individuals' },
             { id: 'businesses', label: 'For Businesses' },
-            { id: 'funded', label: 'Funded Programmes' }
+            { id: 'funded', label: 'Community Programmes' }
           ].map(t => (
             <motion.button
               key={t.id}
@@ -265,7 +265,7 @@ export function CoursesUpgraded() {
                   Bespoke Corporate AI Training
                 </h3>
                 <p className="text-[#8899AA] text-lg mb-8 leading-relaxed">
-                  Tailored AI training workshops and staff development programmes for teams of all sizes. Half-day, full-day, and multi-week programmes available. CPD-structured delivery.
+                  Tailored AI training workshops and staff development programmes scoped around the team's work, audience and objectives. Delivery can be online, on-site or hybrid.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto mb-10">
                   <div className="flex items-center gap-3">
@@ -301,10 +301,10 @@ export function CoursesUpgraded() {
             <Reveal>
               <div className="glass-panel p-8 md:p-12 text-center" style={{ maxWidth: '800px', margin: '0 auto', borderRadius: '24px', border: '1px solid rgba(0,255,136,0.2)' }}>
                 <h3 className="font-display text-2xl md:text-3xl font-bold text-[#F0F4FF] mb-4">
-                  Jobcentre and Community Funded Training
+                  Community and Employability AI Training
                 </h3>
                 <p className="text-[#8899AA] text-lg mb-8 leading-relaxed">
-                  Partnering with Jobcentres, local authorities and community organisations to deliver AI skills training for jobseekers and underrepresented communities.
+                  Practical AI skills sessions can be shaped for charities, employability providers, community organisations and public-service partners.
                 </p>
                 <div className="grid grid-cols-1 gap-4 text-left max-w-lg mx-auto mb-10">
                   <div className="flex items-center gap-3">
@@ -317,7 +317,7 @@ export function CoursesUpgraded() {
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle size={18} className="text-[#00FF88]" />
-                    <span className="text-[#8899AA]">Suitable for Jobcentre referrals and DWP contracts</span>
+                    <span className="text-[#8899AA]">Formats and funding requirements agreed with each partner</span>
                   </div>
                 </div>
                 <motion.button

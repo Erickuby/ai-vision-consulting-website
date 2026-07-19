@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Linkedin, Instagram, Facebook, Youtube } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Facebook, Instagram, Linkedin, Menu, X, Youtube } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
-import { navigateToPath, shouldHandleClientNavigation } from '../lib/navigation';
 
 const socials = [
   { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-nwankwo/' },
@@ -12,303 +11,101 @@ const socials = [
   { icon: TikTokIcon, label: 'TikTok', href: 'https://www.tiktok.com/@aivisionconsultingltd' },
 ];
 
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Courses', href: '#courses' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
+const primaryLinks = [
+  { label: 'Training', href: '/ai-training-newcastle/' },
+  { label: 'Automation', href: '/ai-automation-consultant-newcastle/' },
+  { label: 'About', href: '/about-eric-nwankwo/' },
+  { label: 'Case Studies', href: '/case-studies/' },
+  { label: 'Pricing', href: '/pricing/' },
 ];
 
-function getPageHref(href: string, isHomePage: boolean) {
-  return isHomePage ? href : `/${href}`;
-}
-
 export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(!isHomePage);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState(isHomePage ? 'home' : 'blog');
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileDialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isHomePage) {
-      setScrolled(true);
-      setActive('blog');
-      return;
-    }
-
-    const onScroll = () => {
-      setScrolled(window.scrollY > 30);
-      const sections = navItems.map(n => n.href.replace('#', ''));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActive(sections[i]);
-          break;
-        }
-      }
-    };
+    const onScroll = () => setScrolled(window.scrollY > 30 || !isHomePage);
+    onScroll();
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, [isHomePage]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const scrollTo = (href: string) => {
-    const id = href.replace('#', '');
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    if (!menuOpen) return;
+    const dialog = mobileDialogRef.current;
+    const focusable = () => Array.from(dialog?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') ?? []);
+    focusable()[0]?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMenuOpen(false);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const items = focusable();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      menuButtonRef.current?.focus();
+    };
+  }, [menuOpen]);
+
+  const homeHref = isHomePage ? '#home' : '/';
+  const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isHomePage) return;
+    event.preventDefault();
+    document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
   };
 
   return (
     <>
-      <nav
-        className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6"
-        style={{
-          background: scrolled ? 'rgba(5,13,26,0.95)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(0,212,255,0.08)' : '1px solid transparent',
-        }}
-      >
-        <div className="max-w-[1200px] mx-auto flex items-center h-[70px] gap-10">
-          {/* Logo */}
-          <a
-            href={isHomePage ? '#home' : '/'}
-            onClick={e => {
-              if (!isHomePage) {
-                if (!shouldHandleClientNavigation(e)) {
-                  return;
-                }
-                e.preventDefault();
-                navigateToPath('/');
-                setMenuOpen(false);
-                return;
-              }
-
-              e.preventDefault();
-              scrollTo('#home');
-            }}
-            className="flex items-center gap-2.5 no-underline flex-shrink-0"
-            aria-label="AI Vision Consulting Ltd - Home"
-          >
-            <img
-              src="/logo.svg"
-              alt="AI Vision Consulting logo"
-              width={40}
-              height={40}
-              style={{ display: 'block', filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.45))' }}
-            />
-            <div>
-              <div className="font-display font-bold text-[15px] text-[#F0F4FF] tracking-tight leading-none">
-                AI Vision
-              </div>
-              <div className="font-display font-normal text-[11px] text-[#00D4FF] tracking-[0.08em] leading-none mt-0.5">
-                CONSULTING LTD
-              </div>
-            </div>
+      <nav className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6" aria-label="Main navigation" style={{ background: scrolled ? 'rgba(5,13,26,0.95)' : 'transparent', backdropFilter: scrolled ? 'blur(20px)' : 'none', borderBottom: scrolled ? '1px solid rgba(0,212,255,0.08)' : '1px solid transparent' }}>
+        <div className="max-w-[1200px] mx-auto flex items-center h-[70px] gap-8">
+          <a href={homeHref} onClick={handleHomeClick} className="flex items-center gap-2.5 no-underline flex-shrink-0" aria-label="AI Vision Consulting Ltd - Home">
+            <img src="/logo.svg" alt="AI Vision Consulting logo" width={40} height={40} style={{ display: 'block', filter: 'drop-shadow(0 0 6px rgba(0,212,255,0.45))' }} />
+            <div><div className="font-display font-bold text-[15px] text-[#F0F4FF] tracking-tight leading-none">AI Vision</div><div className="font-display text-[11px] text-[#00D4FF] tracking-[0.08em] leading-none mt-0.5">CONSULTING LTD</div></div>
           </a>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8 flex-1">
-            {navItems.map(item => (
-              <a
-                key={item.label}
-                href={getPageHref(item.href, isHomePage)}
-                onClick={e => {
-                  if (!isHomePage) {
-                    if (!shouldHandleClientNavigation(e)) {
-                      return;
-                    }
-                    e.preventDefault();
-                    navigateToPath(getPageHref(item.href, false));
-                    setMenuOpen(false);
-                    return;
-                  }
-
-                  e.preventDefault();
-                  scrollTo(item.href);
-                }}
-                className={`nav-link ${active === item.href.replace('#', '') ? 'active' : ''}`}
-                aria-current={active === item.href.replace('#', '') ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            ))}
+          <div className="hidden lg:flex items-center gap-5 flex-1">
+            {primaryLinks.map((item) => <a key={item.href} href={item.href} className="nav-link">{item.label}</a>)}
           </div>
-
           <div className="ml-auto flex items-center gap-3">
-            {/* Social Icons — desktop only */}
-            <div className="hidden md:flex items-center gap-1.5">
-              {socials.map(({ icon: Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="flex items-center justify-center w-8 h-8 rounded-lg text-[#8899AA] transition-all duration-200"
-                  style={{ background: 'rgba(0,212,255,0.06)', border: '1px solid rgba(0,212,255,0.1)' }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = '#00D4FF';
-                    e.currentTarget.style.color = '#00D4FF';
-                    e.currentTarget.style.background = 'rgba(0,212,255,0.15)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = 'rgba(0,212,255,0.1)';
-                    e.currentTarget.style.color = '#8899AA';
-                    e.currentTarget.style.background = 'rgba(0,212,255,0.06)';
-                  }}
-                >
-                  <Icon size={14} />
-                </a>
-              ))}
+            <div className="hidden xl:flex items-center gap-1.5">
+              {socials.map(({ icon: Icon, label, href }) => <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="flex items-center justify-center w-8 h-8 rounded-lg text-[#8899AA]" style={{ background: 'rgba(0,212,255,0.06)', border: '1px solid rgba(0,212,255,0.1)' }}><Icon size={14} /></a>)}
             </div>
-            <a
-              href={getPageHref('#contact', isHomePage)}
-              onClick={e => {
-                if (!isHomePage) {
-                  if (!shouldHandleClientNavigation(e)) {
-                    return;
-                  }
-                  e.preventDefault();
-                  navigateToPath(getPageHref('#contact', false));
-                  setMenuOpen(false);
-                  return;
-                }
-
-                e.preventDefault();
-                scrollTo('#contact');
-              }}
-              className="btn-primary hidden sm:inline-flex"
-              style={{ padding: '10px 20px', fontSize: '13px' }}
-            >
-              Book Free Assessment
-            </a>
-            {/* Hamburger — mobile only */}
-            <button
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-[#00D4FF]"
-              style={{ border: '1.5px solid rgba(0,212,255,0.3)' }}
-            >
-              <Menu size={20} />
-            </button>
+            <a href="/contact/" className="btn-primary hidden sm:inline-flex" style={{ padding: '10px 18px', fontSize: '13px' }}>Book Free Assessment</a>
+            <button ref={menuButtonRef} onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label="Open menu" className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg text-[#00D4FF]" style={{ border: '1.5px solid rgba(0,212,255,0.3)' }}><Menu size={20} /></button>
           </div>
         </div>
       </nav>
-
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-10"
-            style={{ background: 'rgba(5,13,26,0.97)', backdropFilter: 'blur(20px)' }}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Navigation menu"
-          >
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              onClick={() => setMenuOpen(false)}
-              aria-label="Close menu"
-              className="absolute top-5 right-6 flex items-center justify-center w-10 h-10 rounded-lg text-[#00D4FF]"
-              style={{ border: '1.5px solid rgba(0,212,255,0.3)' }}
-            >
-              <X size={20} />
-            </motion.button>
-
-            {navItems.map((item, i) => (
-              <motion.a
-                key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06 }}
-                href={getPageHref(item.href, isHomePage)}
-                onClick={e => {
-                  if (!isHomePage) {
-                    if (!shouldHandleClientNavigation(e)) {
-                      return;
-                    }
-                    e.preventDefault();
-                    navigateToPath(getPageHref(item.href, false));
-                    setMenuOpen(false);
-                    return;
-                  }
-
-                  e.preventDefault();
-                  scrollTo(item.href);
-                }}
-                className="nav-link text-[22px] font-semibold text-[#F0F4FF]"
-              >
-                {item.label}
-              </motion.a>
-            ))}
-
-            <motion.a
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navItems.length * 0.06 }}
-              href={getPageHref('#contact', isHomePage)}
-              onClick={e => {
-                if (!isHomePage) {
-                  if (!shouldHandleClientNavigation(e)) {
-                    return;
-                  }
-                  e.preventDefault();
-                  navigateToPath(getPageHref('#contact', false));
-                  setMenuOpen(false);
-                  return;
-                }
-
-                e.preventDefault();
-                scrollTo('#contact');
-              }}
-              className="btn-primary mt-3"
-            >
-              Book Free Assessment
-            </motion.a>
-
-            {/* Social Icons — mobile menu */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (navItems.length + 1) * 0.06 }}
-              className="flex items-center gap-3 mt-4"
-            >
-              {socials.map(({ icon: Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="flex items-center justify-center w-10 h-10 rounded-lg text-[#8899AA] transition-all duration-200"
-                  style={{ background: 'rgba(0,212,255,0.08)', border: '1px solid rgba(0,212,255,0.15)' }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = '#00D4FF';
-                    e.currentTarget.style.color = '#00D4FF';
-                    e.currentTarget.style.background = 'rgba(0,212,255,0.15)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = 'rgba(0,212,255,0.15)';
-                    e.currentTarget.style.color = '#8899AA';
-                    e.currentTarget.style.background = 'rgba(0,212,255,0.08)';
-                  }}
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
-            </motion.div>
+          <motion.div ref={mobileDialogRef} id="mobile-navigation" key="mobile-menu" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[999] flex flex-col items-center justify-start gap-7 overflow-y-auto px-6 py-24" style={{ background: 'rgba(5,13,26,0.98)', backdropFilter: 'blur(20px)' }} role="dialog" aria-modal="true" aria-label="Navigation menu">
+            <button onClick={() => setMenuOpen(false)} aria-label="Close menu" className="absolute top-5 right-6 flex items-center justify-center w-10 h-10 rounded-lg text-[#00D4FF]" style={{ border: '1.5px solid rgba(0,212,255,0.3)' }}><X size={20} /></button>
+            <a href={homeHref} onClick={handleHomeClick} className="nav-link text-[21px] font-semibold text-[#F0F4FF]">Home</a>
+            {primaryLinks.map((item) => <a key={item.href} href={item.href} className="nav-link text-[21px] font-semibold text-[#F0F4FF]">{item.label}</a>)}
+            <a href="/contact/" className="btn-primary mt-2">Contact</a>
+            <div className="flex items-center gap-3 mt-2">{socials.map(({ icon: Icon, label, href }) => <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="flex items-center justify-center w-10 h-10 rounded-lg text-[#8899AA]" style={{ background: 'rgba(0,212,255,0.08)', border: '1px solid rgba(0,212,255,0.15)' }}><Icon size={18} /></a>)}</div>
           </motion.div>
         )}
       </AnimatePresence>

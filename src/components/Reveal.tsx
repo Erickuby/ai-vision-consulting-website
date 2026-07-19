@@ -1,5 +1,4 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef, ReactNode, CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 interface RevealProps {
   children: ReactNode;
@@ -10,24 +9,12 @@ interface RevealProps {
   style?: CSSProperties;
 }
 
-export function Reveal({ children, delay = 0, duration = 0.6, y = 30, className = '', style }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1],
-      }}
-      className={className}
-      style={style}
-    >
-      {children}
-    </motion.div>
-  );
+/**
+ * Progressive-enhancement wrapper.
+ *
+ * Content remains visible in server-rendered HTML and when JavaScript is
+ * unavailable. Decorative motion must never control access to page content.
+ */
+export function Reveal({ children, className = '', style }: RevealProps) {
+  return <div className={className} style={style}>{children}</div>;
 }

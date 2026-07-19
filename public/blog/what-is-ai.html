@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is AI? A Simple Explanation for Beginners, Job Seekers and Business Owners | AI Vision Consulting</title>
+    <meta name="description" content="Learn what AI is in plain English, how it works, where it shows up in daily life, and how job seekers and business owners can start using it today.">
+    <meta name="keywords" content="what is AI, artificial intelligence explained simply, AI for beginners, how AI works, AI for job seekers, AI for business owners">
+    <meta name="author" content="Eric Nwankwo">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#0D1B2A">
+
+    <link rel="canonical" href="https://aivisionconsulting.co.uk/blog/what-is-ai">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D1B2A'/%3E%3Cpath d='M9 22 L16 8 L23 22 M11.5 17 H20.5' stroke='%232EC4C7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/logo.png">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Vision Consulting Ltd">
+    <meta property="og:title" content="What Is AI? A Simple Explanation for Beginners, Job Seekers and Business Owners | AI Vision Consulting">
+    <meta property="og:description" content="Learn what AI is in plain English, how it works, where it shows up in daily life, and how job seekers and business owners can start using it today.">
+    <meta property="og:url" content="https://aivisionconsulting.co.uk/blog/what-is-ai">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&amp;h=900&amp;fit=crop">
+    <meta property="og:locale" content="en_GB">
+    <meta property="article:published_time" content="2026-03-17">
+    <meta property="article:modified_time" content="2026-03-17">
+    <meta property="article:author" content="Eric Nwankwo">
+    <meta property="article:section" content="Fundamentals">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is AI? A Simple Explanation for Beginners, Job Seekers and Business Owners | AI Vision Consulting">
+    <meta name="twitter:description" content="Learn what AI is in plain English, how it works, where it shows up in daily life, and how job seekers and business owners can start using it today.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&amp;h=900&amp;fit=crop">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      .article-hero { max-width: var(--container-narrow); margin-inline: auto; }
+      .article-hero h1 { font-size: var(--h1); margin-bottom: var(--sp-3); }
+      .article-hero .lede { color: var(--text-200); font-size: var(--body-lg); line-height: 1.7; margin-bottom: var(--sp-4); }
+      .article-byline { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; color: var(--text-300); font-size: var(--body-sm); margin-bottom: var(--sp-4); }
+      .article-byline strong { color: var(--text-100); font-family: 'Space Grotesk', sans-serif; }
+      .breadcrumb { display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: var(--label); color: var(--text-400); margin-bottom: var(--sp-3); }
+      .breadcrumb a { color: var(--text-300); text-decoration: none; }
+      .breadcrumb a:hover { color: var(--brand-cyan); }
+      .article-figure { max-width: var(--container-narrow); margin: var(--sp-5) auto; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-md); }
+      .article-figure img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+      .article-body-wrap { max-width: var(--container-narrow); margin-inline: auto; display: grid; gap: var(--sp-5); }
+      .article-summary { display: grid; gap: var(--sp-4); }
+      @media (min-width: 800px) { .article-summary { grid-template-columns: 1fr 1fr; } }
+      .article-summary .card h2 { font-size: var(--h4); margin-bottom: var(--sp-3); }
+      .article-summary .card p { margin-bottom: var(--sp-2); line-height: 1.75; }
+      .takeaway-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-2); }
+      .takeaway-list li { display: flex; gap: 0.6rem; align-items: flex-start; color: var(--text-200); font-size: var(--body-sm); line-height: 1.7; }
+      .takeaway-list li::before { content: '✓'; color: var(--brand-cyan); font-weight: 700; flex-shrink: 0; }
+      .article-section h2 { font-size: var(--h3); margin-bottom: var(--sp-3); }
+      .article-section p { color: var(--text-200); line-height: 1.85; margin-bottom: var(--sp-3); }
+      .article-bullets { list-style: none; padding: 0; margin: 0 0 var(--sp-3); display: grid; gap: var(--sp-2); }
+      .article-bullets li { position: relative; padding-left: 1.4rem; color: var(--text-200); line-height: 1.75; }
+      .article-bullets li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 8px; height: 8px; border-radius: 999px; background: var(--brand-cyan); box-shadow: 0 0 12px var(--accent-glow); }
+      .prompt-box { border: 1px solid rgba(244, 180, 0, 0.28); border-radius: var(--radius-md); overflow: hidden; background: linear-gradient(180deg, rgba(244,180,0,0.07), rgba(7,16,28,0.9)); margin-bottom: var(--sp-3); }
+      .prompt-box__label { padding: 0.6rem 1rem; border-bottom: 1px solid rgba(244,180,0,0.2); font-family: 'Space Grotesk', sans-serif; font-size: var(--label); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand-gold-2); }
+      .prompt-box pre { margin: 0; padding: 1rem; white-space: pre-wrap; word-break: break-word; color: var(--text-100); font-family: 'Inter', sans-serif; font-size: var(--body-sm); line-height: 1.8; }
+      .article-note { padding: 0.9rem 1rem; border-radius: var(--radius-sm); background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--text-200); font-size: var(--body-sm); line-height: 1.75; }
+      .faq-item { border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-900); padding: var(--sp-4); }
+      .faq-item h3 { font-size: var(--h4); margin-bottom: var(--sp-2); }
+      .faq-item p { color: var(--text-300); line-height: 1.75; margin: 0; }
+      .faq-grid { display: grid; gap: var(--sp-3); }
+      .article-cta { border: 1px solid var(--accent-border); border-radius: var(--radius-lg); padding: var(--sp-5); background: linear-gradient(135deg, var(--accent-dim), var(--bg-900)); }
+      .article-cta h2 { font-size: var(--h3); margin-bottom: var(--sp-2); }
+      .article-cta p { color: var(--text-200); line-height: 1.75; max-width: 60ch; margin-bottom: var(--sp-4); }
+      .cta-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+      .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--sp-3); }
+      .tag-chip { padding: 0.35rem 0.75rem; border-radius: var(--radius-pill); background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--text-200); font-size: var(--micro); font-weight: 600; }
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://aivisionconsulting.co.uk/blog/what-is-ai#article",
+      "headline": "What is AI? The Simplest Explanation You Will Ever Read",
+      "description": "Learn what AI is in plain English, how it works, where it shows up in daily life, and how job seekers and business owners can start using it today.",
+      "image": [
+        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&h=900&fit=crop"
+      ],
+      "datePublished": "2026-03-17",
+      "dateModified": "2026-03-17",
+      "mainEntityOfPage": "https://aivisionconsulting.co.uk/blog/what-is-ai",
+      "inLanguage": "en-GB",
+      "author": {
+        "@type": "Person",
+        "name": "Eric Nwankwo",
+        "jobTitle": "Founder, AI Vision Consulting"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AI Vision Consulting Ltd",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aivisionconsulting.co.uk/logo.png"
+        }
+      },
+      "keywords": "what is AI, artificial intelligence explained simply, AI for beginners, how AI works, AI for job seekers, AI for business owners",
+      "articleSection": "Fundamentals",
+      "url": "https://aivisionconsulting.co.uk/blog/what-is-ai"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aivisionconsulting.co.uk/blog/what-is-ai#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is AI the same as ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. ChatGPT is one example of generative AI, but AI is a wider category that also includes recommendation systems, image recognition, forecasting tools, spam filters, and automation systems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to know how to code before I use AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Many of the most useful AI tools for job seekers, professionals, and small businesses are designed for non-technical users. The more important skill is learning how to ask clear questions and review the output properly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will AI replace jobs completely?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI will change jobs more often than it removes them entirely. In many roles, the people who learn how to use AI well become more productive and more valuable than those who ignore it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI give wrong answers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. AI can be inaccurate, incomplete, biased, or overconfident. That is why it should support your work, not replace checking, critical thinking, or professional judgment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best first step for a beginner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with one useful use case, like improving your CV, planning content, or summarising notes. Use the same tool for a week, refine your prompts, and review what saved you time or improved quality."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aivisionconsulting.co.uk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog & Resources",
+          "item": "https://aivisionconsulting.co.uk/resources.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What is AI? The Simplest Explanation You Will Ever Read",
+          "item": "https://aivisionconsulting.co.uk/blog/what-is-ai"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.indoorgrowguides.com/js/pa-2aFU32hPmuxinXrEZIhIv.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  </head>
+  <body>
+    <!-- Cinematic background video + guide lines + headline noise filter -->
+    <div class="bg-video" aria-hidden="true">
+      <video muted loop playsinline autoplay
+        src="/bg-video.mp4"
+        poster="/bg-poster.jpg"></video>
+    </div>
+    <div class="guide-line guide-line--left" aria-hidden="true"></div>
+    <div class="guide-line guide-line--right" aria-hidden="true"></div>
+    <svg class="noise-defs" width="0" height="0" aria-hidden="true">
+      <filter id="avc-noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0" />
+        <feComposite in2="SourceGraphic" operator="in" result="noise" />
+        <feBlend in="SourceGraphic" in2="noise" mode="multiply" />
+      </filter>
+    </svg>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div data-drawer-backdrop class="mobile-drawer__backdrop" aria-hidden="true"></div>
+    <nav class="mobile-drawer" data-mobile-drawer aria-label="Mobile navigation">
+      <button class="drawer-close" data-drawer-close aria-label="Close menu">
+        <i data-lucide="x"></i>
+      </button>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#courses">Courses</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#blog" class="active">Resources</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <a href="/#contact" class="btn btn-primary drawer-cta">Book Free AI Assessment</a>
+    </nav>
+
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand" href="/" aria-label="AI Vision Consulting Ltd home">
+          AI Vision Consulting Ltd
+          <small>Newcastle upon Tyne, UK</small>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#courses">Courses</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#blog" class="active">Resources</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="/#contact" class="btn btn-primary header-cta">Book Free AI Assessment</a>
+        <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="container">
+        <article>
+          <div class="article-hero">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="/">Home</a>
+              <span>/</span>
+              <a href="/#blog">Blog &amp; Resources</a>
+              <span>/</span>
+              <span>Fundamentals</span>
+            </nav>
+            <span class="badge ">Fundamentals</span>
+            <h1>What is AI? The Simplest Explanation You Will Ever Read</h1>
+            <p class="lede">Everything you need to know about Artificial Intelligence without the technical jargon or Silicon Valley hype.</p>
+            <div class="article-byline">
+              <strong>Eric Nwankwo</strong>
+              <span>Founder, AI Vision Consulting</span>
+              <span>17 Mar 2026</span>
+              <span>8 min read</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-chip">#Artificial Intelligence</span>
+              <span class="tag-chip">#AI Explained</span>
+              <span class="tag-chip">#AI for Beginners</span>
+              <span class="tag-chip">#Job Seekers</span>
+              <span class="tag-chip">#Small Business</span>
+            </div>
+          </div>
+
+          <figure class="article-figure reveal">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600&amp;h=900&amp;fit=crop" alt="A small humanoid robot sitting at a desk, representing artificial intelligence explained in a simple way." width="1600" height="900" loading="eager" decoding="async">
+          </figure>
+
+          <div class="article-body-wrap">
+            <div class="article-summary reveal">
+              <div class="card">
+                <h2>In simple terms</h2>
+                <p>Artificial Intelligence, usually shortened to AI, is one of those terms people hear everywhere but often struggle to define clearly. Some people imagine robots taking over offices. Others think it is just ChatGPT. The truth is much simpler and much more useful.</p>
+                <p>In plain English, AI is software that learns patterns from data and uses those patterns to make predictions, generate content, or help people make decisions faster. It is not magic. It is not all-knowing. It is a tool that can be powerful when you understand what it does well and where it still needs human judgment.</p>
+                <p>If you are a job seeker, a working professional, or a business owner, AI matters because it can help you save time, improve the quality of your work, and open up new ways to earn. Once you stop treating it like science fiction, it becomes much easier to use it practically.</p>
+              </div>
+              <div class="card">
+                <h2>Key takeaways</h2>
+                <ul class="takeaway-list">
+                  <li>AI is software that spots patterns and turns them into useful outputs like predictions, summaries, recommendations, or drafts.</li>
+                  <li>Most AI tools people use today are narrow tools built for specific tasks, not human-level intelligence.</li>
+                  <li>AI can speed up research, writing, planning, and analysis, but it still needs a human to check for mistakes and context.</li>
+                  <li>You do not need to learn coding before you start using AI for your career or your business.</li>
+                </ul>
+              </div>
+            </div>
+
+        <section class="article-section reveal">
+          <h2>What AI actually means</h2>
+          <p>The easiest way to understand AI is to think of it as pattern-recognition software. A traditional computer program follows fixed instructions. AI systems go further by learning from examples and using that learning to produce new answers.</p>
+          <p>For example, if you show an AI system thousands of strong CVs, job descriptions, interview answers, or customer messages, it can begin to recognise common structures and useful patterns. That is why AI can help draft a cover letter, summarise notes, suggest ideas, or organise information quickly.</p>
+          <p>So when someone asks, "What is AI?", a practical answer is this: AI is technology that helps machines perform tasks that normally need human judgment, language, or decision-making.</p>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>How AI works in plain English</h2>
+          <p>You do not need a computer science degree to understand the basics. Most modern AI tools follow a simple flow:</p>
+          <ul class="article-bullets">
+            <li>Data goes in: the system learns from text, images, numbers, audio, or user behaviour.</li>
+            <li>Patterns are learned: the model finds relationships, similarities, and likely next steps.</li>
+            <li>A prompt or request is given: you ask a question, upload a document, or set a task.</li>
+            <li>An output is created: the tool responds with text, ideas, summaries, classifications, or predictions.</li>
+            <li>A human reviews the result: the best outcomes happen when a person checks accuracy, tone, and relevance.</li>
+          </ul>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>The three types of AI most people run into</h2>
+          <p>A lot of confusion comes from using one phrase, AI, to describe different tools. In real life, most people meet AI in three forms:</p>
+          <ul class="article-bullets">
+            <li>Automation tools: systems that follow rules to save time, such as scheduling, workflows, or sorting enquiries.</li>
+            <li>Predictive AI: systems that use past data to forecast what might happen next, such as fraud alerts, recommendations, or demand forecasts.</li>
+            <li>Generative AI: tools like ChatGPT that create new text, images, summaries, or drafts based on a prompt.</li>
+          </ul>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Where you already see AI every day</h2>
+          <p>AI is already woven into normal life, even for people who say they never use it. If your email filters spam, your phone predicts the next word, your bank flags unusual spending, or Netflix recommends what to watch, you are already seeing AI at work.</p>
+          <p>At work, AI shows up in meeting summaries, grammar tools, customer support chat, document search, image generation, analytics dashboards, and recruitment software. In business, it helps with content drafting, proposal writing, customer segmentation, stock forecasting, and admin tasks that used to eat up hours.</p>
+          <p>This matters because AI is no longer just a topic for tech companies. It is becoming part of how ordinary people search for jobs, do their jobs, and grow their businesses.</p>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>What AI is good at and where it still struggles</h2>
+          <p>AI is useful, but it is not trustworthy by default. The smartest way to use it is to know where it shines and where it can go badly wrong.</p>
+          <ul class="article-bullets">
+            <li>AI is strong at brainstorming, summarising, drafting, translating, categorising, comparing options, and speeding up repetitive work.</li>
+            <li>AI is weaker at deep context, emotional nuance, fact-checking, legal certainty, and understanding the full consequences of a decision.</li>
+            <li>AI can sound confident even when it is wrong, outdated, or missing important details.</li>
+            <li>The best users do not ask AI to think for them. They use it to think faster, then apply their own judgment.</li>
+          </ul>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Why AI matters for job seekers, professionals, and business owners</h2>
+          <p>For job seekers, AI can help turn a slow, frustrating search into a more strategic process. It can help tailor CVs, improve LinkedIn profiles, identify missing keywords in job adverts, prepare interview answers, and organise applications without starting from scratch every time.</p>
+          <p>For professionals, AI can help you learn a role faster, draft reports more clearly, prepare presentations, and handle repetitive admin with less stress. Used well, it helps you look sharper and move faster without cutting corners.</p>
+          <p>For business owners, AI can help with content planning, customer research, email drafting, process documentation, proposal writing, and automation. That does not mean replacing your team. It means helping your team spend more time on high-value work.</p>
+          <ul class="article-bullets">
+            <li>Job seekers use AI to improve applications and interview prep.</li>
+            <li>Employees use AI to learn faster, communicate better, and save time.</li>
+            <li>Business owners use AI to automate routine work and scale small teams more effectively.</li>
+          </ul>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>How to start using AI today without getting overwhelmed</h2>
+          <p>The biggest mistake beginners make is trying too many tools at once. A better approach is to start with one problem and one useful workflow.</p>
+          <ul class="article-bullets">
+            <li>Pick one real task you already do every week, such as writing emails, tailoring CVs, or summarising meetings.</li>
+            <li>Choose one tool and learn it properly before chasing the next shiny platform.</li>
+            <li>Give AI context in your prompt, including your goal, audience, tone, and any useful examples.</li>
+            <li>Edit the output so it sounds like you and fits the real situation.</li>
+            <li>Save your best prompts so you can reuse what works instead of starting from zero each time.</li>
+          </ul>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>The most important thing to remember</h2>
+          <p>AI is not a shortcut to avoiding effort. It is a multiplier for clear thinking. If you know what you want, what good looks like, and how to review the result, AI can make you much more effective.</p>
+          <p>That is why the people getting the best results with AI are not always the most technical. They are usually the people who understand their field, ask better questions, and treat AI as a practical assistant instead of a magic button.</p>
+          <p>If you remember one sentence from this guide, make it this: AI is a tool for better work, not a replacement for human judgment.</p>
+        </section>
+
+            <section class="article-section reveal" aria-label="Frequently asked questions">
+              <h2>Frequently asked questions</h2>
+              <div class="faq-grid">
+                <div class="faq-item">
+                  <h3>Is AI the same as ChatGPT?</h3>
+                  <p>No. ChatGPT is one example of generative AI, but AI is a wider category that also includes recommendation systems, image recognition, forecasting tools, spam filters, and automation systems.</p>
+                </div>
+                <div class="faq-item">
+                  <h3>Do I need to know how to code before I use AI?</h3>
+                  <p>No. Many of the most useful AI tools for job seekers, professionals, and small businesses are designed for non-technical users. The more important skill is learning how to ask clear questions and review the output properly.</p>
+                </div>
+                <div class="faq-item">
+                  <h3>Will AI replace jobs completely?</h3>
+                  <p>AI will change jobs more often than it removes them entirely. In many roles, the people who learn how to use AI well become more productive and more valuable than those who ignore it.</p>
+                </div>
+                <div class="faq-item">
+                  <h3>Can AI give wrong answers?</h3>
+                  <p>Yes. AI can be inaccurate, incomplete, biased, or overconfident. That is why it should support your work, not replace checking, critical thinking, or professional judgment.</p>
+                </div>
+                <div class="faq-item">
+                  <h3>What is the best first step for a beginner?</h3>
+                  <p>Start with one useful use case, like improving your CV, planning content, or summarising notes. Use the same tool for a week, refine your prompts, and review what saved you time or improved quality.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="article-cta reveal">
+              <h2>Ready to use AI for real results?</h2>
+              <p>If you want practical help using AI for job hunting, work, or business growth, start with a free 15-minute AI assessment or explore our courses.</p>
+              <div class="cta-row">
+                <a href="/#contact" class="btn btn-primary">Book Free Assessment</a>
+                <a href="/#courses" class="btn btn-secondary">Browse Courses</a>
+              </div>
+            </section>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <section class="footer-brand">
+          <h3>AI Vision Consulting Ltd</h3>
+          <p>Leading AI consultant and trainer helping people turn AI into jobs, productivity, and financial freedom.</p>
+        </section>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="/">Home</a>
+          <a href="/#courses">Courses</a>
+          <a href="/#about">About</a>
+          <a href="/#services">Services</a>
+          <a href="/#blog">Resources</a>
+          <a href="/#contact">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </nav>
+        <section>
+          <h3>Follow</h3>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/eric-nwankwo/" aria-label="LinkedIn" rel="noopener" target="_blank"><i data-lucide="linkedin"></i></a>
+            <a href="https://www.youtube.com/@EricExplainsAI" aria-label="YouTube" rel="noopener" target="_blank"><i data-lucide="youtube"></i></a>
+            <a href="https://www.instagram.com/aivisionconsulting/" aria-label="Instagram" rel="noopener" target="_blank"><i data-lucide="instagram"></i></a>
+            <a href="https://www.tiktok.com/@aivisionconsultingltd" aria-label="TikTok" rel="noopener" target="_blank"><i data-lucide="music-2"></i></a>
+            <a href="https://www.fiverr.com/kubblicious" aria-label="Fiverr" rel="noopener" target="_blank"><span class="fiverr-glyph">fi</span></a>
+          </div>
+        </section>
+        <section class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Weekly practical prompts, automation ideas, and job search strategies.</p>
+          <form class="form-grid" data-newsletter-form aria-label="Newsletter signup">
+            <div class="input-group">
+              <label for="nl-email-article">Email address</label>
+              <input id="nl-email-article" type="email" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+            <button class="btn btn-secondary" type="submit">Subscribe</button>
+          </form>
+        </section>
+      </div>
+      <div class="container footer-base">
+        <span>&copy; AI Vision Consulting Ltd. All rights reserved.</span>
+        <a href="/privacy-policy/">Privacy Policy</a>
+      </div>
+    </footer>
+
+    <script defer src="https://unpkg.com/lucide@0.461.0/dist/umd/lucide.min.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>

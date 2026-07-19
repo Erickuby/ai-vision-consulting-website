@@ -1,9 +1,32 @@
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
 
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  # Preserve former public URLs as permanent aliases.
+  RewriteRule ^about/?$ /about-eric-nwankwo/ [R=301,L]
+  RewriteRule ^services/?$ /ai-automation-consultant-newcastle/ [R=301,L]
+  RewriteRule ^courses/?$ /ai-training-newcastle/ [R=301,L]
+  RewriteRule ^blog/?$ /#resources [R=301,L,NE]
+  RewriteRule ^privacy\.html$ /privacy-policy/ [R=301,L]
+
+  # Canonicalise explicit index.html requests.
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  RewriteCond %{THE_REQUEST} \s/+(.+)/index\.html[\s?] [NC]
+  RewriteRule ^(.+)/index\.html$ /$1/ [R=301,L]
+
+  # The existing static blog uses clean URLs without a trailing slash.
+  RewriteRule ^blog/([A-Za-z0-9-]+)/$ /blog/$1 [R=301,L]
+
+  RewriteCond %{THE_REQUEST} \s/+blog/([A-Za-z0-9-]+)\.html[\s?] [NC]
+  RewriteRule ^blog/([A-Za-z0-9-]+)\.html$ /blog/$1 [R=301,L]
+
+  RewriteCond %{DOCUMENT_ROOT}/blog/$1.html -f
+  RewriteRule ^blog/([A-Za-z0-9-]+)$ /blog/$1.html [L]
 </IfModule>
+
+# There is deliberately no SPA catch-all. Physical route directories return
+# crawlable HTML; unknown paths retain a genuine HTTP 404 status.

@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Globe, Target } from 'lucide-react';
+import { MapPin, BookOpen, Globe, Target } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const credentials = [
-  { icon: Award, label: 'CPD Accreditation in progress' },
-  { icon: BookOpen, label: 'Community Educator' },
-  { icon: Globe, label: 'Portfolio Manager & AI Specialist' },
-  { icon: Target, label: '100+ Professionals Trained' },
+  { icon: MapPin, label: 'Based in Newcastle upon Tyne' },
+  { icon: BookOpen, label: 'Practical AI educator' },
+  { icon: Globe, label: 'Remote and in-person delivery' },
+  { icon: Target, label: 'Training and workflow support' },
 ];
 
 export function AboutUpgraded() {
@@ -63,7 +63,7 @@ export function AboutUpgraded() {
                       Eric Nwankwo
                     </div>
                     <div className="text-[13px] text-[#00D4FF]" style={{ marginTop: '4px' }}>
-                      Digital Portfolio Manager & AI Specialist
+                      Founder and AI Trainer
                     </div>
                   </div>
                 </motion.div>
@@ -84,9 +84,9 @@ export function AboutUpgraded() {
                   }}
                 >
                   <div className="font-display text-base font-bold text-[#00D4FF]" style={{ lineHeight: 1.1 }}>
-                    BlackTech NE
+                    Newcastle upon Tyne
                   </div>
-                  <div className="text-[11px] text-[#8899AA]" style={{ marginTop: '2px' }}>Training Partner</div>
+                  <div className="text-[11px] text-[#8899AA]" style={{ marginTop: '2px' }}>Serving organisations across the UK</div>
                 </motion.div>
               </div>
             </div>

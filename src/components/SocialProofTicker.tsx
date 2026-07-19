@@ -1,8 +1,8 @@
 const items = [
-  '✦ BlackTech North East Training Partner',
-  '✦ AI & Portfolio Management Specialist',
+  '✦ Newcastle-Based AI Training',
+  '✦ AI Workflow Consulting',
   '✦ Practical Hands-On Training',
-  '✦ Beginner to Expert Level Programmes',
+  '✦ Responsible AI Use',
   '✦ YouTube AI Education Channel',
   '✦ Community-Led AI Training',
 ];

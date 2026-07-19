@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -16,7 +16,8 @@ export default defineConfig({
     },
   },
   build: {
-    rollupOptions: {
+    emptyOutDir: !isSsrBuild,
+    rollupOptions: isSsrBuild ? undefined : {
       output: {
         manualChunks: {
           "three-vendor": ["three", "@react-three/fiber", "@react-three/drei"],
@@ -26,4 +27,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

@@ -7,27 +7,24 @@ const flagship = [
     color: '#00D4FF',
     gradient: 'linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,80,160,0.1))',
     title: 'AI-Powered Job Hunting',
-    desc: 'Land more interviews using AI for your CV, LinkedIn and interview prep.',
-    price: 'From £197',
-    href: 'courses',
+    desc: 'Use AI to research roles, tailor truthful applications and prepare for interviews.',
+    price: 'Scope on enquiry',
   },
   {
     icon: Bot,
     color: '#FFD700',
     gradient: 'linear-gradient(135deg, rgba(255,215,0,0.12), rgba(200,100,0,0.08))',
     title: 'Business Automation',
-    desc: 'Automate your workflows, content and operations using AI tools.',
-    price: 'From £297',
-    href: 'courses',
+    desc: 'Identify repetitive work and explore useful, controlled AI-assisted workflows.',
+    price: 'Scope on enquiry',
   },
   {
     icon: TrendingUp,
     color: '#00FF88',
     gradient: 'linear-gradient(135deg, rgba(0,255,136,0.12), rgba(0,150,80,0.08))',
-    title: 'AI Consultant Bootcamp',
-    desc: 'Build an AI consulting income stream and charge businesses for your skills.',
-    price: 'From £997',
-    href: 'courses',
+    title: 'AI Consulting Foundations',
+    desc: 'Learn how to discover needs, scope responsible solutions and communicate value clearly.',
+    price: 'Scope on enquiry',
   },
 ];
 
@@ -43,10 +40,6 @@ export function FlagshipCourses() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollTo = (href: string) => {
-    document.getElementById(href)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="section-wrapper" style={{ padding: '0 24px 80px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -55,9 +48,12 @@ export function FlagshipCourses() {
           className="reveal"
           style={{ textAlign: 'center', marginBottom: '40px' }}
         >
-          <p style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 600, color: '#00D4FF', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          <p style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 600, color: '#00D4FF', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px' }}>
             FLAGSHIP PROGRAMMES
           </p>
+          <h2 style={{ fontFamily: 'Space Grotesk', fontSize: 'clamp(28px, 5vw, 44px)', fontWeight: 700, color: '#F0F4FF' }}>
+            Practical programmes for work, careers and responsible AI delivery
+          </h2>
         </div>
 
         <div style={{
@@ -68,10 +64,11 @@ export function FlagshipCourses() {
           {flagship.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div
+              <a
                 key={item.title}
                 ref={el => { refs.current[i + 1] = el; }}
                 className="reveal"
+                href="/#courses"
                 style={{
                   background: item.gradient,
                   border: `1px solid ${item.color}25`,
@@ -80,8 +77,9 @@ export function FlagshipCourses() {
                   transition: 'all 0.35s ease',
                   cursor: 'pointer',
                   transitionDelay: `${i * 0.1}s`,
+                  color: 'inherit',
+                  textDecoration: 'none',
                 }}
-                onClick={() => scrollTo(item.href)}
                 onMouseEnter={e => {
                   const el = e.currentTarget;
                   el.style.transform = 'translateY(-6px)';
@@ -94,10 +92,7 @@ export function FlagshipCourses() {
                   el.style.borderColor = item.color + '25';
                   el.style.boxShadow = 'none';
                 }}
-                role="button"
-                tabIndex={0}
                 aria-label={`Learn more about ${item.title}`}
-                onKeyDown={e => { if (e.key === 'Enter') scrollTo(item.href); }}
               >
                 <div style={{
                   width: 52, height: 52,
@@ -129,7 +124,7 @@ export function FlagshipCourses() {
                     Explore <ArrowRight size={14} />
                   </span>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>

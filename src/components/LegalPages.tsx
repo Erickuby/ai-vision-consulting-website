@@ -167,10 +167,10 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
   },
 };
 
-const legalLinks: Array<{ label: string; href: `#/${LegalPageType}` }> = [
-  { label: 'Privacy Policy', href: '#/privacy-policy' },
-  { label: 'Terms of Service', href: '#/terms-of-service' },
-  { label: 'Cookie Policy', href: '#/cookie-policy' },
+const legalLinks: Array<{ label: string; href: `/${LegalPageType}/` }> = [
+  { label: 'Privacy Policy', href: '/privacy-policy/' },
+  { label: 'Terms of Service', href: '/terms-of-service/' },
+  { label: 'Cookie Policy', href: '/cookie-policy/' },
 ];
 
 export function LegalPage({ page }: { page: LegalPageType }) {
@@ -222,7 +222,7 @@ export function LegalPage({ page }: { page: LegalPageType }) {
         >
           {/* Logo + wordmark */}
           <a
-            href="#"
+            href="/"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -268,7 +268,7 @@ export function LegalPage({ page }: { page: LegalPageType }) {
           </a>
 
           <a
-            href="#"
+            href="/"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -310,6 +310,9 @@ export function LegalPage({ page }: { page: LegalPageType }) {
       >
         {/* Document hero */}
         <div style={{ marginBottom: '40px' }}>
+          <nav aria-label="Breadcrumb" style={{ display: 'flex', gap: '8px', marginBottom: '20px', color: '#8899AA', fontSize: '13px' }}>
+            <a href="/" style={{ color: '#00D4FF' }}>Home</a><span>/</span><span aria-current="page">{doc.title}</span>
+          </nav>
           <span
             style={{
               display: 'inline-block',
@@ -482,7 +485,7 @@ export function LegalPage({ page }: { page: LegalPageType }) {
           </p>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             {legalLinks.map((link) => {
-              const isActive = link.href === `#/${page}`;
+              const isActive = link.href === `/${page}/`;
               return (
                 <a
                   key={link.label}

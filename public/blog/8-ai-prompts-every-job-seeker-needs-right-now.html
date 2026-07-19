@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 AI Prompts for Job Seekers to Tailor CVs, Pass ATS and Land Interviews | AI Vision Consulting</title>
+    <meta name="description" content="Learn 8 detailed AI prompts job seekers can use to analyse job descriptions, rewrite CV bullets, improve ATS performance and build stronger job applications.">
+    <meta name="keywords" content="AI prompts for job seekers, ChatGPT prompts for CV writing, ATS CV prompts, career transition CV prompts, AI prompts for job applications, how to use AI for job search">
+    <meta name="author" content="Eric Nwankwo">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#0D1B2A">
+
+    <link rel="canonical" href="https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D1B2A'/%3E%3Cpath d='M9 22 L16 8 L23 22 M11.5 17 H20.5' stroke='%232EC4C7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/logo.png">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="AI Vision Consulting Ltd">
+    <meta property="og:title" content="8 AI Prompts for Job Seekers to Tailor CVs, Pass ATS and Land Interviews | AI Vision Consulting">
+    <meta property="og:description" content="Learn 8 detailed AI prompts job seekers can use to analyse job descriptions, rewrite CV bullets, improve ATS performance and build stronger job applications.">
+    <meta property="og:url" content="https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&amp;h=900&amp;fit=crop">
+    <meta property="og:locale" content="en_GB">
+    <meta property="article:published_time" content="2026-03-17">
+    <meta property="article:modified_time" content="2026-03-17">
+    <meta property="article:author" content="Eric Nwankwo">
+    <meta property="article:section" content="Practical Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="8 AI Prompts for Job Seekers to Tailor CVs, Pass ATS and Land Interviews | AI Vision Consulting">
+    <meta name="twitter:description" content="Learn 8 detailed AI prompts job seekers can use to analyse job descriptions, rewrite CV bullets, improve ATS performance and build stronger job applications.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&amp;h=900&amp;fit=crop">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      .article-hero { max-width: var(--container-narrow); margin-inline: auto; }
+      .article-hero h1 { font-size: var(--h1); margin-bottom: var(--sp-3); }
+      .article-hero .lede { color: var(--text-200); font-size: var(--body-lg); line-height: 1.7; margin-bottom: var(--sp-4); }
+      .article-byline { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; color: var(--text-300); font-size: var(--body-sm); margin-bottom: var(--sp-4); }
+      .article-byline strong { color: var(--text-100); font-family: 'Space Grotesk', sans-serif; }
+      .breadcrumb { display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: var(--label); color: var(--text-400); margin-bottom: var(--sp-3); }
+      .breadcrumb a { color: var(--text-300); text-decoration: none; }
+      .breadcrumb a:hover { color: var(--brand-cyan); }
+      .article-figure { max-width: var(--container-narrow); margin: var(--sp-5) auto; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-md); }
+      .article-figure img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+      .article-body-wrap { max-width: var(--container-narrow); margin-inline: auto; display: grid; gap: var(--sp-5); }
+      .article-summary { display: grid; gap: var(--sp-4); }
+      @media (min-width: 800px) { .article-summary { grid-template-columns: 1fr 1fr; } }
+      .article-summary .card h2 { font-size: var(--h4); margin-bottom: var(--sp-3); }
+      .article-summary .card p { margin-bottom: var(--sp-2); line-height: 1.75; }
+      .takeaway-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-2); }
+      .takeaway-list li { display: flex; gap: 0.6rem; align-items: flex-start; color: var(--text-200); font-size: var(--body-sm); line-height: 1.7; }
+      .takeaway-list li::before { content: '✓'; color: var(--brand-cyan); font-weight: 700; flex-shrink: 0; }
+      .article-section h2 { font-size: var(--h3); margin-bottom: var(--sp-3); }
+      .article-section p { color: var(--text-200); line-height: 1.85; margin-bottom: var(--sp-3); }
+      .article-bullets { list-style: none; padding: 0; margin: 0 0 var(--sp-3); display: grid; gap: var(--sp-2); }
+      .article-bullets li { position: relative; padding-left: 1.4rem; color: var(--text-200); line-height: 1.75; }
+      .article-bullets li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 8px; height: 8px; border-radius: 999px; background: var(--brand-cyan); box-shadow: 0 0 12px var(--accent-glow); }
+      .prompt-box { border: 1px solid rgba(244, 180, 0, 0.28); border-radius: var(--radius-md); overflow: hidden; background: linear-gradient(180deg, rgba(244,180,0,0.07), rgba(7,16,28,0.9)); margin-bottom: var(--sp-3); }
+      .prompt-box__label { padding: 0.6rem 1rem; border-bottom: 1px solid rgba(244,180,0,0.2); font-family: 'Space Grotesk', sans-serif; font-size: var(--label); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand-gold-2); }
+      .prompt-box pre { margin: 0; padding: 1rem; white-space: pre-wrap; word-break: break-word; color: var(--text-100); font-family: 'Inter', sans-serif; font-size: var(--body-sm); line-height: 1.8; }
+      .article-note { padding: 0.9rem 1rem; border-radius: var(--radius-sm); background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--text-200); font-size: var(--body-sm); line-height: 1.75; }
+      .faq-item { border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-900); padding: var(--sp-4); }
+      .faq-item h3 { font-size: var(--h4); margin-bottom: var(--sp-2); }
+      .faq-item p { color: var(--text-300); line-height: 1.75; margin: 0; }
+      .faq-grid { display: grid; gap: var(--sp-3); }
+      .article-cta { border: 1px solid var(--accent-border); border-radius: var(--radius-lg); padding: var(--sp-5); background: linear-gradient(135deg, var(--accent-dim), var(--bg-900)); }
+      .article-cta h2 { font-size: var(--h3); margin-bottom: var(--sp-2); }
+      .article-cta p { color: var(--text-200); line-height: 1.75; max-width: 60ch; margin-bottom: var(--sp-4); }
+      .cta-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+      .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--sp-3); }
+      .tag-chip { padding: 0.35rem 0.75rem; border-radius: var(--radius-pill); background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--text-200); font-size: var(--micro); font-weight: 600; }
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now#article",
+      "headline": "8 AI Prompts Every Job Seeker Needs Right Now",
+      "description": "Learn 8 detailed AI prompts job seekers can use to analyse job descriptions, rewrite CV bullets, improve ATS performance and build stronger job applications.",
+      "image": [
+        "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&h=900&fit=crop"
+      ],
+      "datePublished": "2026-03-17",
+      "dateModified": "2026-03-17",
+      "mainEntityOfPage": "https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now",
+      "inLanguage": "en-GB",
+      "author": {
+        "@type": "Person",
+        "name": "Eric Nwankwo",
+        "jobTitle": "Founder, AI Vision Consulting"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AI Vision Consulting Ltd",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aivisionconsulting.co.uk/logo.png"
+        }
+      },
+      "keywords": "AI prompts for job seekers, ChatGPT prompts for CV writing, ATS CV prompts, career transition CV prompts, AI prompts for job applications, how to use AI for job search",
+      "articleSection": "Practical Guide",
+      "url": "https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I use these prompts in ChatGPT for free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use these prompts in free and paid AI tools, although paid tools often handle longer CVs and longer job descriptions more reliably. The quality of your inputs still matters more than the tool itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will recruiters know if I used AI on my CV?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recruiters are more likely to notice poor AI use than good AI use. If your CV is truthful, specific, relevant, and written in a natural voice, AI can help improve it without making it feel fake."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use all eight prompts for every job application?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not always. If you already have a strong ATS-friendly base CV, you may use only the job-description analysis, evidence mapping, and final tailored CV prompts. But if you are career changing or rebuilding your CV from scratch, using all eight in sequence is usually worth it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I do not have metrics for my CV bullet points?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the AI to suggest realistic places where a metric might exist, then verify it yourself. If you cannot verify it, do not include it. Strong wording with honest evidence is better than inflated numbers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are these prompts only for project coordinator roles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. One example prompt mentions Project Coordinator, but the workflow applies to many roles. You can swap in the real job title and job description you are targeting and use the same process."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aivisionconsulting.co.uk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog & Resources",
+          "item": "https://aivisionconsulting.co.uk/resources.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "8 AI Prompts Every Job Seeker Needs Right Now",
+          "item": "https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.indoorgrowguides.com/js/pa-2aFU32hPmuxinXrEZIhIv.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  </head>
+  <body>
+    <!-- Cinematic background video + guide lines + headline noise filter -->
+    <div class="bg-video" aria-hidden="true">
+      <video muted loop playsinline autoplay
+        src="/bg-video.mp4"
+        poster="/bg-poster.jpg"></video>
+    </div>
+    <div class="guide-line guide-line--left" aria-hidden="true"></div>
+    <div class="guide-line guide-line--right" aria-hidden="true"></div>
+    <svg class="noise-defs" width="0" height="0" aria-hidden="true">
+      <filter id="avc-noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0" />
+        <feComposite in2="SourceGraphic" operator="in" result="noise" />
+        <feBlend in="SourceGraphic" in2="noise" mode="multiply" />
+      </filter>
+    </svg>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div data-drawer-backdrop class="mobile-drawer__backdrop" aria-hidden="true"></div>
+    <nav class="mobile-drawer" data-mobile-drawer aria-label="Mobile navigation">
+      <button class="drawer-close" data-drawer-close aria-label="Close menu">
+        <i data-lucide="x"></i>
+      </button>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#courses">Courses</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#blog" class="active">Resources</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <a href="/#contact" class="btn btn-primary drawer-cta">Book Free AI Assessment</a>
+    </nav>
+
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand" href="/" aria-label="AI Vision Consulting Ltd home">
+          AI Vision Consulting Ltd
+          <small>Newcastle upon Tyne, UK</small>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#courses">Courses</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#blog" class="active">Resources</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="/#contact" class="btn btn-primary header-cta">Book Free AI Assessment</a>
+        <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="section">
+      <div class="container">
+        <article>
+          <div class="article-hero">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="/">Home</a>
+              <span>/</span>
+              <a href="/#blog">Blog &amp; Resources</a>
+              <span>/</span>
+              <span>Practical Guide</span>
+            </nav>
+            <span class="badge badge--gold">Practical Guide</span>
+            <h1>8 AI Prompts Every Job Seeker Needs Right Now</h1>
+            <p class="lede">Use these 8 practical AI prompts to match your experience to jobs, rewrite your CV, beat ATS filters, and create a tailored application faster.</p>
+            <div class="article-byline">
+              <strong>Eric Nwankwo</strong>
+              <span>Founder, AI Vision Consulting</span>
+              <span>17 Mar 2026</span>
+              <span>12 min read</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag-chip">#AI Prompts</span>
+              <span class="tag-chip">#Job Search</span>
+              <span class="tag-chip">#CV Writing</span>
+              <span class="tag-chip">#ATS</span>
+              <span class="tag-chip">#Career Change</span>
+            </div>
+          </div>
+
+          <figure class="article-figure reveal">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&amp;h=900&amp;fit=crop" alt="A laptop, notebook, and coffee on a work desk for a jobseeker guide about AI prompts." width="1600" height="900" loading="eager" decoding="async">
+          </figure>
+
+          <div class="article-body-wrap">
+            <div class="article-summary reveal">
+              <div class="card">
+                <h2>In simple terms</h2>
+                <p>A lot of job seekers use AI in the wrong order. They open ChatGPT, ask it to write a CV from scratch, and end up with something that sounds polished but generic. That is why so many AI-assisted applications feel empty, repetitive, or obviously written by a bot.</p>
+                <p>A better approach is to use AI as a career strategy assistant instead of a writing machine. That means starting with job matching, then pulling out the right keywords, then rewriting bullet points truthfully, then testing for ATS issues, and only at the end generating a tailored CV for a specific role.</p>
+                <p>The eight prompts below are designed to follow that logic. They help career changers, job seekers, and professionals moving into a new role use AI more intelligently. If you use them in order, you can move from confusion to a targeted, evidence-based application that reads clearly and reflects your real experience.</p>
+              </div>
+              <div class="card">
+                <h2>Key takeaways</h2>
+                <ul class="takeaway-list">
+                  <li>Do not start by asking AI to write your whole CV from nothing. Start with job matching and keyword analysis first.</li>
+                  <li>The strongest AI job-search workflows are truthful, evidence-based, and tied to a specific job description.</li>
+                  <li>You can use these prompts to identify transferable skills, rewrite CV bullets, test ATS compatibility, and build a tailored final CV.</li>
+                  <li>AI should reframe your experience, not invent experience you do not have.</li>
+                  <li>Using these prompts in sequence creates a far better application than using random one-off prompts.</li>
+                </ul>
+              </div>
+            </div>
+
+        <section class="article-section reveal">
+          <h2>Why this article matters if you are applying for jobs in 2026</h2>
+          <p>Job searching is more competitive, more automated, and more keyword-driven than it used to be. Many employers now rely on Applicant Tracking Systems to sort CVs before a recruiter even sees them. At the same time, hiring managers still want evidence, clarity, and relevance. That creates a challenge for candidates who know they can do the job but struggle to present their experience in the right way.</p>
+          <p>This is where AI can help. Used well, it can speed up job analysis, highlight transferable skills, improve phrasing, clean up formatting, and turn a broad CV into a targeted application. Used badly, it creates vague language, fake sounding achievements, and keyword stuffing that weakens your credibility.</p>
+          <p>These eight prompts are built to help you use AI the right way. They are especially useful for career changers, people returning to work, professionals moving sectors, and applicants who know they have relevant experience but need help making that relevance obvious.</p>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>How to use these prompts without hurting your application</h2>
+          <p>Before you paste any prompt into ChatGPT or another AI tool, keep one rule in mind: the AI is there to organise, reframe, and sharpen your experience, not replace your judgment. Every output should be checked by you before it goes into a real application.</p>
+          <p>The most effective job seekers use AI as an editor and strategist. They paste in their genuine work history, job descriptions they really want, and keywords taken from real roles. They then review the result, correct anything inaccurate, and make sure the final wording still sounds human and honest.</p>
+          <ul class="article-bullets">
+            <li>Always paste real experience, not what you wish you had done.</li>
+            <li>Check any suggested metrics before you submit them.</li>
+            <li>Keep the final language natural so it still sounds like you.</li>
+            <li>Use one target role at a time for the best results.</li>
+          </ul>
+          <p class="article-note">The prompts below work best when you save your outputs in a document and build from one step to the next, rather than starting fresh every time.</p>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Prompt 1: Check your real match before you apply</h2>
+          <p>This first prompt is powerful because it stops you from guessing. Instead of blindly applying to roles that only partly fit, you ask AI to review your existing experience against multiple job descriptions and score the match based on transferable skills.</p>
+          <p>That matters most for career changers. A lot of candidates look at a job title, assume they are not qualified, and move on. In reality, they may already have the right evidence in a different setting. Organisation can become project coordination. Customer handling can become stakeholder management. Admin can become reporting, scheduling, and cross-team support.</p>
+          <p>Use this prompt before rewriting your CV. It helps you choose the strongest target role, spot the skills that already overlap, and identify role titles that may suit you even better.</p>
+          <ul class="article-bullets">
+            <li>Best for: career changers, people applying across multiple related roles, and job seekers unsure where they fit best.</li>
+            <li>Expected output: match scores, transferable skills, adjacent job titles, and practical next steps.</li>
+            <li>Why it helps: it gives your job search direction before you start editing your CV.</li>
+          </ul>
+          <div class="prompt-box">
+            <div class="prompt-box__label">Prompt 1</div>
+            <pre>Act as a career transition specialist. I have this current work experience: [PASTE YOUR CV BULLETS]. Here are 3 job descriptions I am interested in: [PASTE JOB DESCRIPTIONS].
+For each job:
+Give me a Match Score out of 100 based on transferable skills
+List the TOP 5 skills from the job description that already exist in my experience (even if phrased differently)
+Suggest 3 specific roles/titles at similar level that would be even better matches
+List 3 action steps showing how my current experience proves I can do this job
+Be brutally honest but focus on real transferable skills like organisation, stakeholder management, problem-solving, team coordination, reporting, working under pressure.</pre>
+          </div>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Prompt 2: Rewrite your best bullet points using the XYZ formula</h2>
+          <p>Once you know which role you are targeting, the next step is to rewrite your bullet points so they sound outcome-focused and ATS-friendly. The XYZ formula works well because it forces clarity: what you accomplished, how it was measured, and what you did to make it happen.</p>
+          <p>Most CV bullet points are too soft. They say someone supported a team, managed admin, or helped customers, but they do not show impact. This prompt helps you keep the truth while making the result more credible and more compelling.</p>
+          <p>It is also helpful because it encourages keyword usage without turning your CV into a copy-and-paste of the job description. That balance matters if you want to satisfy both ATS software and human recruiters.</p>
+          <ul class="article-bullets">
+            <li>Best for: improving weak CV bullets fast.</li>
+            <li>Expected output: stronger action-led bullets that reflect your real work.</li>
+            <li>Why it helps: it turns generic tasks into evidence of performance.</li>
+          </ul>
+          <div class="prompt-box">
+            <div class="prompt-box__label">Prompt 2</div>
+            <pre>Act as an elite CV writer specialising in career transitions. Here are my current CV bullet points: [PASTE BULLETS]. I am applying for this role: [PASTE JOB DESCRIPTION]. Rewrite each bullet using the XYZ formula: Accomplished X as measured by Y by doing Z. Naturally include these keywords from the job description: [PASTE TOP 5 KEYWORDS FROM YOUR DAY 2 MATCH]. Do not invent experience. Reframe what I genuinely did in the most impactful and ATS-friendly way. For any bullet where a metric is unclear, suggest a realistic estimate I can verify and adjust.</pre>
+          </div>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Prompt 3: Upgrade your full experience section across every role</h2>
+          <p>A common mistake is improving one recent role and leaving the rest of the CV weak. Recruiters do not read in isolation. They scan the whole document to see whether your career story holds together. That is why your full experience section needs consistency.</p>
+          <p>This prompt expands the previous step by applying the same logic to every role on your CV. It is especially useful when your older jobs still contain proof of planning, communication, reporting, or leadership, but the wording is too passive to help you.</p>
+          <p>The truthfulness instruction is important here. If the AI assumes a number or scale, it should flag that assumption for you to verify. That protects you from accidentally submitting inflated claims.</p>
+          <ul class="article-bullets">
+            <li>Best for: full CV rewrites before applying to several similar roles.</li>
+            <li>Expected output: consistent, impact-led bullet points across your whole career history.</li>
+            <li>Why it helps: it makes your CV feel coherent instead of patched together.</li>
+          </ul>
+          <div class="prompt-box">
+            <div class="prompt-box__label">Prompt 3</div>
+            <pre>Now I am going to share my complete work history below. For each role, rewrite all bullet points using the XYZ formula. Prioritise impact, metrics, and these keywords: [PASTE YOUR KEYWORD LIST FROM DAY 2]. Maintain truthfulness throughout. Flag any bullet where you have assumed a metric so I can verify it before submitting.</pre>
+          </div>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Prompt 4: Fix formatting problems that can break ATS parsing</h2>
+          <p>Even a well-written CV can fail if the layout is too fancy. Tables, text boxes, graphics, icons, sidebars, unusual fonts, and photo-heavy templates can all confuse Applicant Tracking Systems. If the system cannot read your content cleanly, your keywords and experience may never reach the recruiter properly.</p>
+          <p>This prompt is practical because it asks the AI to act like an ATS formatting reviewer. Instead of only improving language, it checks the structure itself and points out where data might be lost or scrambled.</p>
+          <p>For many job seekers, this is the missing piece. They assume they are being rejected because of experience, when the real problem is that their CV template is hard for software to parse correctly.</p>
+          <ul class="article-bullets">
+            <li>Best for: people using Canva templates, columns, sidebars, icons, or decorative formatting.</li>
+            <li>Expected output: a simplified single-column layout and a list of risky formatting choices.</li>
+            <li>Why it helps: it protects your CV from being unreadable to screening software.</li>
+          </ul>
+          <div class="prompt-box">
+            <div class="prompt-box__label">Prompt 4</div>
+            <pre>I need you to act as an Applicant Tracking System (ATS) parsing specialist. I will paste the text and describe the layout of my CV. Your job is to:
+Identify anything in my CV that could break ATS parsing (tables, columns, headers/footers, text boxes, icons, unusual fonts, graphics).
+Tell me what data might be lost or scrambled (contact details, dates, job titles, bullet points).
+Recommend a clean, ATS-friendly structure and formatting, including: font types, font sizes, headings, bullet styles, date format and file type.
+Rewrite my CV layout into a simple, single-column text version that preserves all content but removes risky formatting, ready for me to copy into Word/Google Docs.
+Be specific when you describe your layout. For example: Two columns, photo in top left, contact details in a coloured bar at the side, skills in a table, dates aligned on the right in a separate column.</pre>
+          </div>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Prompt 5: Test what an ATS would actually detect in your CV</h2>
+          <p>Prompt 4 focuses on layout risk. Prompt 5 goes one step further by asking AI to behave like a parser and tell you what information it can actually detect. This gives you a reality check before you submit your application.</p>
+          <p>You can use it to see whether your section headings are clear, whether important keywords from the job description are visible in the text, and whether there are any structural issues that might reduce your chances of making it through screening.</p>
+          <p>This prompt is especially useful if you have rewritten your CV and want a final ATS confidence check before applying.</p>
+          <ul class="article-bullets">
+            <li>Best for: final checks before you submit a CV.</li>
+            <li>Expected output: parsing feedback, keyword visibility, and structural warnings.</li>
+            <li>Why it helps: it shows you what the software is likely to see, not what you hope it sees.</li>
+          </ul>
+          <div class="prompt-box">
+            <div class="prompt-box__label">Prompt 5</div>
+            <pre>Act as an ATS parser. Here is my CV text. Tell me:
+How you would detect my name, contact details, job titles, companies and dates.
+Whether my section headings are clear enough (PROFILE, SKILLS, EXPERIENCE, EDUCATION).
+Which keywords from this target job description [PASTE JD] you can see in my CV text.
+Any technical issues that might cause parsing errors.</pre>
+          </div>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Prompt 6: Decode the job description like a hiring manager</h2>
+          <p>One of the biggest reasons applications fail is that the candidate never really understood the job description. They read it quickly, pull out a few obvious phrases, and miss the deeper themes that shape the hiring decision.</p>
+          <p>This prompt helps you slow down and read the role properly. It asks AI to list the core responsibilities in plain language, identify the most important keywords, group them into themes, and explain what kind of person the employer is really looking for.</p>
+          <p>That last part is key. Great job applications do more than repeat keywords. They show that you understand the shape of the role and can present yourself accordingly.</p>
+          <ul class="article-bullets">
+            <li>Best for: understanding what the employer actually values before tailoring your CV.</li>
+            <li>Expected output: plain-language responsibilities, keywords, themes, and a recruiter-style summary.</li>
+            <li>Why it helps: it gives you a clearer targeting strategy.</li>
+          </ul>
+          <div class="prompt-box">
+            <div class="prompt-box__label">Prompt 6</div>
+            <pre>I am applying for this job role attached here:
+Act as a hiring manager for this role and:
+List the top 10 responsibilities in plain language.
+List the top 10 skills/keywords that appear most often or seem most important.
+Group these into 3-4 themes (for example: Coordination and Scheduling, Stakeholder Communication, Reporting and Administration, Problem-solving and Initiative).
+Tell me, in 3-4 sentences, what kind of person they are really looking for.</pre>
+          </div>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Prompt 7: Pull out the strongest proof from your experience</h2>
+          <p>Now that you know the themes of the role, you need evidence. This prompt connects the employer themes to your actual experience. Instead of writing in broad claims, you make each theme visible through the strongest bullet points and roles you already have.</p>
+          <p>This is where many career changers gain confidence. They discover that they do not need identical job titles to prove fit. They need strong evidence tied to the right themes. If the role values coordination, reporting, and stakeholder communication, the question becomes: where have you already done that, even under a different title?</p>
+          <p>It also helps identify gaps. If one theme from the job description has weak evidence in your CV, you can address that in your profile, cover letter, or interview preparation.</p>
+          <ul class="article-bullets">
+            <li>Best for: mapping job-description themes to real evidence in your CV.</li>
+            <li>Expected output: strongest proof points, the best bullets to emphasise, and visible gaps.</li>
+            <li>Why it helps: it turns vague suitability into specific proof.</li>
+          </ul>
+          <div class="prompt-box">
+            <div class="prompt-box__label">Prompt 7</div>
+            <pre>Now here is my Experience section from my CV, attached here:
+Act as a career transition coach. For each of the themes you listed (for example Coordination, Stakeholder Communication, Reporting, Problem-solving):
+Pull out the strongest evidence from my Experience that proves I can do this.
+Suggest which job and which bullet point I should emphasise for each theme.
+Tell me if there are any themes from the job description that my CV does NOT currently support well.</pre>
+          </div>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Prompt 8: Build the final tailored CV for the exact role</h2>
+          <p>This is the final assembly prompt. By the time you use it, you should already know your match score, strongest keywords, strongest evidence, formatting risks, and role themes. That means the AI has context, and your final output is far more likely to be strong.</p>
+          <p>This prompt is powerful because it brings everything together into a focused, single-column, ATS-friendly CV. It also forces the profile and key-skills section to reflect the job description and the evidence in your experience, rather than generic claims.</p>
+          <p>Do not skip the earlier prompts and jump straight here. If you do, the CV will usually be weaker. This prompt works best when it is the last step, not the first.</p>
+          <ul class="article-bullets">
+            <li>Best for: creating the final role-specific CV version you will actually submit.</li>
+            <li>Expected output: a complete tailored CV in clean ATS-friendly format.</li>
+            <li>Why it helps: it combines strategy, keywords, evidence, and structure in one final draft.</li>
+          </ul>
+          <div class="prompt-box">
+            <div class="prompt-box__label">Prompt 8</div>
+            <pre>Using the job description and my Experience above, create a tailored CV for this specific role.
+Rules:
+Use an ATS-friendly single-column format.
+Sections: Name + Contact, Profile, Key Skills, Experience, Education, Certifications (if relevant).
+In the Profile, summarise me in 3-4 lines as a career-changer into Project Coordinator using the themes from the job description.
+In Key Skills, list 8-12 skills/keywords that match the job description and are genuinely supported by my Experience.
+In Experience, rewrite my bullet points using the XYZ formula (accomplished X, as measured by Y, by doing Z), prioritising evidence that proves I can do this specific role.
+Do NOT invent new experience. Only reframe what I have done.
+Use a simple, readable date format and clear role/company headings.</pre>
+          </div>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>The smartest order to use these eight prompts</h2>
+          <p>If you want the strongest result, do not use these prompts randomly. Treat them as a workflow. Start with job-match analysis, then move into bullet rewriting, then full experience optimisation, then formatting and ATS checks, then job-description analysis, then evidence mapping, and finally the tailored CV build.</p>
+          <p>That order works because each step improves the quality of the next one. By the time you reach the final prompt, the AI has a stronger understanding of your target role, your supporting evidence, your keywords, and your formatting needs.</p>
+          <ul class="article-bullets">
+            <li>Use Prompt 1 to choose the right role and identify transferable skills.</li>
+            <li>Use Prompts 2 and 3 to rewrite your bullet points truthfully and strategically.</li>
+            <li>Use Prompts 4 and 5 to make sure your CV is ATS-safe and readable.</li>
+            <li>Use Prompts 6 and 7 to connect the job description directly to your evidence.</li>
+            <li>Use Prompt 8 to produce the final tailored version for submission.</li>
+          </ul>
+        </section>
+
+        <section class="article-section reveal">
+          <h2>Common mistakes job seekers make when using AI prompts</h2>
+          <p>The first mistake is copying outputs without checking them. AI can make your CV look more professional, but it can also introduce vague claims, over-polished language, or made-up metrics if you are not paying attention.</p>
+          <p>The second mistake is using one generic prompt for every application. Strong applications are role-specific. The best outputs come when you give AI a real job description, your actual experience, and clear instructions about truthfulness and ATS formatting.</p>
+          <p>The third mistake is focusing only on wording. Better phrasing helps, but job search success also depends on targeting the right roles, understanding what employers care about, and using evidence that maps clearly to the job.</p>
+          <ul class="article-bullets">
+            <li>Do not let AI invent achievements or qualifications.</li>
+            <li>Do not keyword-stuff your CV until it sounds unnatural.</li>
+            <li>Do not apply the same tailored CV to ten very different roles.</li>
+            <li>Do not ignore formatting and ATS structure.</li>
+          </ul>
+        </section>
+
+            <section class="article-section reveal" aria-label="Frequently asked questions">
+              <h2>Frequently asked questions</h2>
+              <div class="faq-grid">
+                <div class="faq-item">
+                  <h3>Can I use these prompts in ChatGPT for free?</h3>
+                  <p>Yes, you can use these prompts in free and paid AI tools, although paid tools often handle longer CVs and longer job descriptions more reliably. The quality of your inputs still matters more than the tool itself.</p>
+                </div>
+                <div class="faq-item">
+                  <h3>Will recruiters know if I used AI on my CV?</h3>
+                  <p>Recruiters are more likely to notice poor AI use than good AI use. If your CV is truthful, specific, relevant, and written in a natural voice, AI can help improve it without making it feel fake.</p>
+                </div>
+                <div class="faq-item">
+                  <h3>Should I use all eight prompts for every job application?</h3>
+                  <p>Not always. If you already have a strong ATS-friendly base CV, you may use only the job-description analysis, evidence mapping, and final tailored CV prompts. But if you are career changing or rebuilding your CV from scratch, using all eight in sequence is usually worth it.</p>
+                </div>
+                <div class="faq-item">
+                  <h3>What if I do not have metrics for my CV bullet points?</h3>
+                  <p>Use the AI to suggest realistic places where a metric might exist, then verify it yourself. If you cannot verify it, do not include it. Strong wording with honest evidence is better than inflated numbers.</p>
+                </div>
+                <div class="faq-item">
+                  <h3>Are these prompts only for project coordinator roles?</h3>
+                  <p>No. One example prompt mentions Project Coordinator, but the workflow applies to many roles. You can swap in the real job title and job description you are targeting and use the same process.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="article-cta reveal">
+              <h2>Want help applying these prompts to your own CV?</h2>
+              <p>If you want practical support tailoring your CV, improving your ATS chances, or using AI more confidently in your job search, book a free 15-minute AI assessment or explore our AI job-focused training.</p>
+              <div class="cta-row">
+                <a href="/#contact" class="btn btn-primary">Book Free Assessment</a>
+                <a href="/#courses" class="btn btn-secondary">Browse Courses</a>
+              </div>
+            </section>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <section class="footer-brand">
+          <h3>AI Vision Consulting Ltd</h3>
+          <p>Leading AI consultant and trainer helping people turn AI into jobs, productivity, and financial freedom.</p>
+        </section>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="/">Home</a>
+          <a href="/#courses">Courses</a>
+          <a href="/#about">About</a>
+          <a href="/#services">Services</a>
+          <a href="/#blog">Resources</a>
+          <a href="/#contact">Contact</a>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </nav>
+        <section>
+          <h3>Follow</h3>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/eric-nwankwo/" aria-label="LinkedIn" rel="noopener" target="_blank"><i data-lucide="linkedin"></i></a>
+            <a href="https://www.youtube.com/@EricExplainsAI" aria-label="YouTube" rel="noopener" target="_blank"><i data-lucide="youtube"></i></a>
+            <a href="https://www.instagram.com/aivisionconsulting/" aria-label="Instagram" rel="noopener" target="_blank"><i data-lucide="instagram"></i></a>
+            <a href="https://www.tiktok.com/@aivisionconsultingltd" aria-label="TikTok" rel="noopener" target="_blank"><i data-lucide="music-2"></i></a>
+            <a href="https://www.fiverr.com/kubblicious" aria-label="Fiverr" rel="noopener" target="_blank"><span class="fiverr-glyph">fi</span></a>
+          </div>
+        </section>
+        <section class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Weekly practical prompts, automation ideas, and job search strategies.</p>
+          <form class="form-grid" data-newsletter-form aria-label="Newsletter signup">
+            <div class="input-group">
+              <label for="nl-email-article">Email address</label>
+              <input id="nl-email-article" type="email" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+            <button class="btn btn-secondary" type="submit">Subscribe</button>
+          </form>
+        </section>
+      </div>
+      <div class="container footer-base">
+        <span>&copy; AI Vision Consulting Ltd. All rights reserved.</span>
+        <a href="/privacy-policy/">Privacy Policy</a>
+      </div>
+    </footer>
+
+    <script defer src="https://unpkg.com/lucide@0.461.0/dist/umd/lucide.min.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
