@@ -41,12 +41,13 @@ const routes = [
     intro: 'AI training should connect directly to the work people already do. Sessions are designed around useful tasks, clear explanations and guided practice rather than technical jargon.',
     sections: [
       { heading: 'Training built around real work', paragraphs: ['Workshops can focus on everyday uses such as research, drafting, meeting preparation, document summarisation and process improvement. The aim is to help participants understand where AI is useful, where it is unreliable and how to review outputs with human judgement.', 'Content is scoped to the audience, existing confidence level and organisational context. Newcastle delivery can be discussed alongside remote options for teams elsewhere in the UK.'] },
-      { heading: 'What a session can cover', paragraphs: ['A discovery conversation identifies the tasks and questions that matter to your group. From there, training can combine demonstrations, guided exercises and reusable working practices.'], bullets: ['Plain-English foundations and common AI terminology', 'Writing clearer prompts and providing useful context', 'Checking accuracy, privacy and appropriate use', 'Turning repeatable tasks into documented AI-assisted workflows'] },
+      { heading: 'What a session can cover', paragraphs: ['A discovery conversation identifies the tasks and questions that matter to your group. From there, training can combine demonstrations, guided exercises and reusable working practices. Individuals can choose from twelve 90-minute topics, while organisations can select a focused workshop or a multi-session team programme.'], bullets: ['Choosing and using AI assistants effectively', 'Writing clearer prompts and providing useful context', 'Research, video, image and app-creation tools', 'AI agents, content systems, digital products and freelance services'] },
       { heading: 'Who this training is for', paragraphs: ['Training is suitable for businesses, public-facing teams, charities, community organisations and professionals who want a grounded introduction or a more focused practical session.', 'If your requirement spans several teams, the programme can be scoped in stages so that the material reflects different roles without cloning the same session for everyone.'] },
     ],
     faqs: [
       { question: 'Can AI training be delivered in Newcastle?', answer: 'Yes. In-person delivery in Newcastle can be discussed, alongside remote delivery for organisations elsewhere in the UK.' },
       { question: 'Do participants need technical experience?', answer: 'No. Sessions can start with the fundamentals and are scoped around the participants’ current confidence and work.' },
+      { question: 'How much does AI training cost?', answer: 'A personal 90-minute session is £125. Private small-group sessions start at £325, and corporate team workshops start at £750. Multi-session bundles are also available.' },
     ],
   },
   {
@@ -70,7 +71,7 @@ const routes = [
     sections: [
       { heading: 'From awareness to useful practice', paragraphs: ['Corporate sessions can begin with a common foundation and move into examples that reflect the work of the people in the room. Participants learn how to give AI useful context, review results and recognise tasks where it should not be relied upon.', 'The content can support an initial awareness session or a more focused programme for particular functions.'] },
       { heading: 'Topics shaped around your organisation', paragraphs: ['A scoping conversation establishes the audience, available tools and internal expectations. Training can then address relevant workflows without asking staff to share confidential information in unsuitable systems.'], bullets: ['Generative AI foundations in plain English', 'Prompting and structured review', 'Responsible use, privacy and human oversight', 'Role-specific exercises and reusable workflows'] },
-      { heading: 'Delivery and next steps', paragraphs: ['Sessions can be delivered remotely across the UK, with in-person delivery discussed where suitable. Follow-on support can focus on questions raised during training or on documenting selected workflows.', 'Programme format, group size and pricing are agreed through scoping rather than presented as a one-size-fits-all package.'] },
+      { heading: 'Delivery, formats and starting prices', paragraphs: ['Sessions can be delivered remotely across the UK, with in-person delivery discussed where suitable. A 90-minute team workshop starts at £750, a half-day workshop at £1,250 and a full-day workshop at £2,000.', 'Three-workshop team programmes start at £2,100 and six-workshop capability programmes at £3,900. Final pricing reflects group size, preparation, location, additional cohorts and any custom requirements.'] },
     ],
   },
   {
@@ -82,7 +83,7 @@ const routes = [
     sections: [
       { heading: 'Focus on useful, repeatable tasks', paragraphs: ['Common starting points include enquiry handling, internal notifications, document preparation, information capture and routine follow-up. Each process needs to be reviewed for exceptions, data sensitivity and points where a person should remain in control.', 'AI can support judgement-heavy steps, while conventional automation can handle predictable actions.'] },
       { heading: 'Keep the system manageable', paragraphs: ['A useful workflow should be documented so the business understands what triggers it, what data it uses and how to intervene. Tool choices should reflect the team’s capacity rather than add unnecessary complexity.'], bullets: ['Current-process mapping', 'Opportunity and risk assessment', 'Pilot workflow design', 'Testing, documentation and handover'] },
-      { heading: 'Scoped around your business', paragraphs: ['No two small businesses share exactly the same systems or priorities. A discovery call is used to understand your current workflow before any recommendation is made.', 'Consulting and implementation work is scoped separately. One-to-one consulting is available at the published hourly rate, while wider work is quoted according to requirements.'] },
+      { heading: 'Scoped around your business', paragraphs: ['No two small businesses share exactly the same systems or priorities. A discovery call is used to understand your current workflow before any recommendation is made.', 'A tailored 90-minute personal AI training session is £125. Consulting, automation discovery and implementation are separate services and are quoted according to the workflow, systems and support required.'] },
     ],
   },
   {
@@ -122,19 +123,21 @@ const routes = [
     ],
   },
   {
-    path: '/pricing/', kind: 'pricing', eyebrow: 'Clear starting point',
-    title: 'AI Consulting Pricing | AI Vision Consulting',
-    description: 'One-to-one AI consulting is £75 per hour. Team training, automation and wider programmes are scoped according to requirements.',
-    h1: 'AI training and consulting pricing',
-    intro: 'One-to-one consulting has a clear hourly rate. Training, workflow reviews and implementation vary by audience, scope and delivery requirements, so they are quoted after a discovery conversation.',
+    path: '/pricing/', kind: 'pricing', eyebrow: 'Clear packages · Sensible scope',
+    title: 'AI Training Prices & Corporate Packages | AI Vision Consulting',
+    description: 'Fixed prices for 1-to-1 AI training, with clear starting prices for private groups, corporate workshops and team programmes.',
+    h1: 'AI training prices for individuals and teams',
+    intro: 'Choose a focused 90-minute session, build a personalised learning bundle or commission practical team training. Fixed individual prices and clear team starting points make it easier to identify the right level.',
     sections: [
-      { heading: 'One-to-one AI consulting — £75 per hour', paragraphs: ['One-to-one consulting is available at £75 per hour. It can be used for practical AI guidance, workflow discussion or focused support with a defined question.', 'Before booking, use the contact page to explain what you need so the session can be prepared around a useful objective.'] },
-      { heading: 'Training and group sessions', paragraphs: ['Corporate, small-business and community training is scoped according to the audience, group size, session format, preparation and delivery location. A quote is provided once those requirements are understood.', 'No fixed package price is shown because the work should reflect the people and tasks involved.'] },
+      { heading: 'Personalised AI training', paragraphs: ['A focused 90-minute session is £125. Three-session bundles are £330, six-session bundles are £600 and the complete twelve-session programme is £1,080.', 'Each option is shaped around a defined learning goal and includes guided practice and relevant follow-up notes or resources.'] },
+      { heading: 'Private groups and corporate teams', paragraphs: ['A private 90-minute small-group session for up to six people starts at £325. Corporate workshops start at £750 for 90 minutes, £1,250 for a half day and £2,000 for a full day.', 'Three-workshop corporate programmes start at £2,100 and six-workshop programmes start at £3,900.'] },
       { heading: 'Automation and implementation', paragraphs: ['Automation work depends on the current process, systems, integrations, testing and documentation required. Discovery and implementation may be scoped as separate stages.', 'A free discovery call can establish whether a focused consultation or a wider scope is the sensible next step.'] },
     ],
     faqs: [
-      { question: 'How much is one-to-one AI consulting?', answer: 'One-to-one AI consulting is £75 per hour.' },
-      { question: 'How is team training priced?', answer: 'Team training is scoped according to the audience, group size, preparation, format and delivery requirements.' },
+      { question: 'Can I choose any training topic?', answer: 'Yes. A focused session can cover one of the twelve published topics. Bundles are combined into a personalised learning plan after a short goal check.' },
+      { question: 'Why do corporate prices say “from”?', answer: 'The starting prices cover the stated group size, scoping, tailored delivery and participant resources. Travel, extra cohorts, venue hire, third-party software and custom development are quoted separately.' },
+      { question: 'Can a small group book without a corporate package?', answer: 'Yes. A private 90-minute group session starts at £325 for up to six people working towards one shared outcome.' },
+      { question: 'Are community and employability programmes available?', answer: 'Yes. These programmes are scoped around the cohort, accessibility needs, delivery format and available funding.' },
     ],
   },
   {

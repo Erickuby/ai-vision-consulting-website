@@ -664,6 +664,302 @@ h1, h2, h3, h4, h5, h6 {
 
 .seo-not-found-links { max-width: 760px; }
 
+/* Training catalogue and pricing */
+html {
+  scroll-padding-top: 88px;
+}
+
+.pricing-section [id] {
+  scroll-margin-top: 88px;
+}
+
+.pricing-section {
+  position: relative;
+  padding: clamp(64px, 9vw, 112px) 0;
+}
+
+.pricing-section-tonal {
+  border-block: 1px solid rgba(0, 212, 255, 0.08);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(0, 212, 255, 0.07), transparent 28rem),
+    rgba(7, 16, 31, 0.5);
+}
+
+.pricing-section-heading {
+  max-width: 790px;
+  margin-bottom: 38px;
+}
+
+.pricing-section-heading h2,
+.pricing-scope-panel h2,
+.pricing-cta h2 {
+  margin: 9px 0 16px;
+  color: #f0f4ff;
+  font-size: clamp(2rem, 4.6vw, 3.45rem);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.pricing-section-heading > p,
+.pricing-heading-split > p,
+.pricing-scope-note,
+.pricing-cta p {
+  color: #9dabbc;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.pricing-kicker {
+  color: #00d4ff;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pricing-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.pricing-grid-four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pricing-grid-corporate { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.pricing-grid-corporate .pricing-card { grid-column: span 2; }
+.pricing-grid-corporate .pricing-card:nth-child(4) { grid-column: 2 / span 2; }
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 27px;
+  border: 1px solid rgba(0, 212, 255, 0.13);
+  border-radius: 20px;
+  background: linear-gradient(150deg, rgba(13, 27, 50, 0.92), rgba(7, 16, 31, 0.9));
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.16);
+}
+
+.pricing-card-featured {
+  border-color: rgba(255, 215, 0, 0.38);
+  background:
+    radial-gradient(circle at 100% 0, rgba(255, 215, 0, 0.12), transparent 13rem),
+    linear-gradient(150deg, rgba(17, 31, 52, 0.96), rgba(8, 18, 34, 0.94));
+}
+
+.pricing-card-badge {
+  align-self: flex-start;
+  margin-bottom: 18px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 215, 0, 0.28);
+  border-radius: 100px;
+  background: rgba(255, 215, 0, 0.08);
+  color: #f2cf58;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pricing-card h3 {
+  margin: 0 0 12px;
+  color: #f0f4ff;
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.pricing-card-price {
+  margin: 0;
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+  font-weight: 720;
+  letter-spacing: -0.045em;
+}
+
+.pricing-card-format {
+  min-height: 42px;
+  margin: 6px 0 16px;
+  color: #00d4ff;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.pricing-card-description {
+  min-height: 92px;
+  margin: 0 0 18px;
+  color: #98a7b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.pricing-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 26px;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  list-style: none;
+}
+
+.pricing-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #b7c4d2;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pricing-card li svg { flex: 0 0 auto; margin-top: 2px; color: #00d4ff; }
+
+.pricing-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+  color: #00d4ff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pricing-card-link:hover { color: #7ae9ff; }
+
+.training-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.training-category {
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid rgba(0, 212, 255, 0.13);
+  border-radius: 22px;
+  background: rgba(5, 13, 26, 0.68);
+}
+
+.training-category > h3 {
+  margin: 0 0 9px;
+  color: #f0f4ff;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.training-category > p {
+  min-height: 52px;
+  margin: 0 0 24px;
+  color: #8f9eaf;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.training-category ol { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+
+.training-category li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  padding: 17px 0;
+  border-top: 1px solid rgba(0, 212, 255, 0.09);
+}
+
+.training-session-number {
+  color: rgba(0, 212, 255, 0.63);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.training-category h4 { margin: 0 0 6px; color: #dce7f2; font-size: 14px; line-height: 1.4; }
+.training-category li p { margin: 0; color: #8494a6; font-size: 12.5px; line-height: 1.6; }
+
+.private-group-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  align-items: center;
+  gap: clamp(32px, 7vw, 90px);
+}
+
+.private-group-layout .pricing-section-heading { margin-bottom: 0; }
+
+.pricing-heading-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  align-items: end;
+  gap: 48px;
+  max-width: none;
+}
+
+.pricing-heading-split > p { margin-bottom: 9px; }
+
+.pricing-scope-panel {
+  padding: clamp(30px, 5vw, 56px);
+  border: 1px solid rgba(255, 215, 0, 0.18);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(255, 215, 0, 0.08), transparent 24rem),
+    rgba(9, 19, 36, 0.72);
+}
+
+.pricing-scope-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 26px 0;
+}
+
+.pricing-scope-grid div {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(0, 212, 255, 0.035);
+  color: #c2ceda;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.pricing-scope-grid svg { flex: 0 0 auto; margin-top: 2px; color: #00d4ff; }
+.pricing-scope-note { max-width: 920px; margin: 0; font-size: 14px; }
+
+.pricing-cta { padding: 38px 0 clamp(80px, 11vw, 130px); }
+
+.pricing-cta-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  padding: clamp(28px, 5vw, 50px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 24px;
+  background: linear-gradient(130deg, rgba(0, 212, 255, 0.09), rgba(10, 22, 42, 0.92));
+}
+
+.pricing-cta-inner > svg { color: #00d4ff; }
+.pricing-cta h2 { margin: 5px 0 8px; font-size: clamp(1.65rem, 3vw, 2.45rem); }
+.pricing-cta p { max-width: 660px; margin: 0; font-size: 14px; }
+.pricing-cta .btn-primary { white-space: nowrap; text-decoration: none; }
+
+@media (max-width: 1020px) {
+  .pricing-grid-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pricing-grid-corporate { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pricing-grid-corporate .pricing-card,
+  .pricing-grid-corporate .pricing-card:nth-child(4) { grid-column: auto; }
+  .training-category-grid { grid-template-columns: 1fr; }
+  .training-category > p { min-height: 0; }
+  .pricing-cta-inner { grid-template-columns: auto minmax(0, 1fr); }
+  .pricing-cta .btn-primary { grid-column: 2; justify-self: start; }
+}
+
 @media (max-width: 760px) {
   .seo-page { padding-top: 68px; }
   .seo-container { width: min(100% - 32px, 1120px); }
@@ -677,6 +973,15 @@ h1, h2, h3, h4, h5, h6 {
   .seo-actions { flex-direction: column; align-items: stretch; }
   .seo-actions a { justify-content: center; text-align: center; }
   .seo-link-panel { border-radius: 18px; }
+  .pricing-grid-four,
+  .pricing-grid-corporate,
+  .private-group-layout,
+  .pricing-heading-split,
+  .pricing-scope-grid { grid-template-columns: 1fr; }
+  .pricing-card-description,
+  .pricing-card-format { min-height: 0; }
+  .pricing-cta-inner { grid-template-columns: 1fr; }
+  .pricing-cta .btn-primary { grid-column: auto; justify-self: stretch; justify-content: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

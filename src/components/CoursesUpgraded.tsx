@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ArrowRight, Play, CheckCircle } from 'lucide-react';
+import { Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { allCourses, type Course } from '../data/courses';
 
@@ -61,20 +61,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
             </span>
           </div>
 
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            style={{
-              position: 'absolute', top: '12px', right: '12px',
-              width: '32px', height: '32px', borderRadius: '100%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer',
-              background: 'rgba(0,212,255,0.15)',
-              backdropFilter: 'blur(8px)',
-              border: '1px solid rgba(0,212,255,0.3)',
-            }}
-          >
-            <Play size={12} color="#00D4FF" fill="#00D4FF" />
-          </motion.div>
+
         </div>
 
         {/* Content */}
@@ -167,9 +154,9 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
                 cursor: 'pointer',
                 textDecoration: 'none',
               }}
-              aria-label={`Enrol in ${course.title}`}
+              aria-label={`View ${course.title} training package`}
             >
-              Enrol Now <ArrowRight size={13} />
+              View Package <ArrowRight size={13} />
             </motion.a>
           </div>
         </div>
@@ -239,6 +226,7 @@ export function CoursesUpgraded() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveTab(t.id)}
+              aria-pressed={activeTab === t.id}
               className={`filter-btn ${activeTab === t.id ? 'active' : ''}`}
             >
               {t.label}
@@ -260,39 +248,38 @@ export function CoursesUpgraded() {
 
           {activeTab === 'businesses' && (
             <Reveal>
-              <div className="glass-panel p-8 md:p-12 text-center" style={{ maxWidth: '800px', margin: '0 auto', borderRadius: '24px', border: '1px solid rgba(0,212,255,0.2)' }}>
+              <div className="glass-panel p-8 md:p-12 text-center" style={{ maxWidth: '980px', margin: '0 auto', borderRadius: '24px', border: '1px solid rgba(0,212,255,0.2)' }}>
                 <h3 className="font-display text-2xl md:text-3xl font-bold text-[#F0F4FF] mb-4">
-                  Bespoke Corporate AI Training
+                  Corporate and Team AI Training
                 </h3>
-                <p className="text-[#8899AA] text-lg mb-8 leading-relaxed">
-                  Tailored AI training workshops and staff development programmes scoped around the team's work, audience and objectives. Delivery can be online, on-site or hybrid.
+                <p className="text-[#8899AA] text-lg mb-8 leading-relaxed max-w-3xl mx-auto">
+                  Start with a focused workshop or build capability over several sessions. Every corporate option includes scoping, tailored delivery and participant resources.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto mb-10">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle size={18} className="text-[#00D4FF]" />
-                    <span className="text-[#8899AA]">Tailored to your industry and team size</span>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-10">
+                  <div className="rounded-xl border border-[rgba(0,212,255,0.16)] bg-[rgba(0,212,255,0.04)] p-5">
+                    <p className="text-[#F0F4FF] font-display font-bold mb-1">90-minute workshop</p>
+                    <p className="text-[#00D4FF] text-xl font-bold mb-2">From £750</p>
+                    <p className="text-[#8899AA] text-sm">Up to 15 people</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle size={18} className="text-[#00D4FF]" />
-                    <span className="text-[#8899AA]">Delivered online, on-site or hybrid</span>
+                  <div className="rounded-xl border border-[rgba(0,212,255,0.16)] bg-[rgba(0,212,255,0.04)] p-5">
+                    <p className="text-[#F0F4FF] font-display font-bold mb-1">Half-day workshop</p>
+                    <p className="text-[#00D4FF] text-xl font-bold mb-2">From £1,250</p>
+                    <p className="text-[#8899AA] text-sm">Up to 20 people</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle size={18} className="text-[#00D4FF]" />
-                    <span className="text-[#8899AA]">Includes team workbooks and resources</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle size={18} className="text-[#00D4FF]" />
-                    <span className="text-[#8899AA]">Post-training support available</span>
+                  <div className="rounded-xl border border-[rgba(255,215,0,0.22)] bg-[rgba(255,215,0,0.05)] p-5">
+                    <p className="text-[#F0F4FF] font-display font-bold mb-1">Three-workshop bundle</p>
+                    <p className="text-[#FFD700] text-xl font-bold mb-2">From £2,100</p>
+                    <p className="text-[#8899AA] text-sm">Up to 15 people</p>
                   </div>
                 </div>
-                <motion.button
+                <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => scrollTo('contact')}
+                  href="/pricing/#team-training"
                   className="btn-primary glow-cyan mx-auto flex items-center justify-center p-3 rounded"
                 >
-                  Request a Corporate Quote <ArrowRight className="ml-2" size={16} />
-                </motion.button>
+                  Compare Team Packages <ArrowRight className="ml-2" size={16} />
+                </motion.a>
               </div>
             </Reveal>
           )}

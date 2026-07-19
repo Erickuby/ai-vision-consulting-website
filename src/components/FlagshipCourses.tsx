@@ -29,7 +29,7 @@ const flagship = [
 ];
 
 export function FlagshipCourses() {
-  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const refs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

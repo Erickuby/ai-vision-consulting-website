@@ -10,25 +10,25 @@ const services = [
     description: 'Practical AI training for individuals, teams and community audiences.',
     points: ['Structured sessions and workshops', 'Content scoped around the audience', 'Online, in-person, or hybrid delivery'],
     cta: 'Learn More',
-    ctaHref: 'courses',
+    ctaHref: '/pricing/#catalogue-heading',
   },
   {
     icon: Cpu,
     color: '#FFD700',
-    title: '1:1 AI Consulting',
-    description: 'Personal AI setup sessions and workflow building at £75/hour.',
-    points: ['Focused sessions around a defined need', 'Practical recommendations for your goals', 'Further implementation support available'],
-    cta: 'Learn More',
-    ctaHref: 'contact',
+    title: 'Personal AI Training',
+    description: 'Tailored 90-minute sessions at £125, with three, six and twelve-session bundles.',
+    points: ['Choose from twelve practical topics', 'Personalised learning plan', 'Guided practice and action notes'],
+    cta: 'View Pricing',
+    ctaHref: '/pricing/',
   },
   {
     icon: Presentation,
     color: '#A78BFA',
     title: 'Corporate Workshops',
-    description: 'Bespoke full-day and multi-day AI staff training for organisations.',
-    points: ['Executive AI briefings', 'Team upskilling workshops', 'AI policy and readiness audits'],
-    cta: 'Learn More',
-    ctaHref: 'contact',
+    description: 'Practical team workshops from £750, plus half-day, full-day and multi-session programmes.',
+    points: ['Tailored to team roles and goals', 'Online, on-site or hybrid delivery', 'Participant resources included'],
+    cta: 'View Pricing',
+    ctaHref: '/pricing/',
   },
   {
     icon: HandshakeIcon,
@@ -37,15 +37,11 @@ const services = [
     description: 'Accessible AI skills sessions for employability providers and community organisations.',
     points: ['Employability-focused AI skills', 'Community seminars and workshops', 'Delivery scoped with each partner'],
     cta: 'Learn More',
-    ctaHref: 'contact',
+    ctaHref: '#contact',
   },
 ];
 
 export function Services() {
-  const scrollTo = (href: string) => {
-    document.getElementById(href)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="services" className="section-wrapper" style={{ padding: '100px 24px', position: 'relative' }}>
       {/* BG accent */}
@@ -130,9 +126,9 @@ export function Services() {
                     ))}
                   </ul>
 
-                  <motion.button
+                  <motion.a
                     whileHover={{ x: 4 }}
-                    onClick={() => scrollTo(service.ctaHref)}
+                    href={service.ctaHref}
                     style={{
                       display: 'flex', alignItems: 'center', gap: '8px',
                       fontFamily: 'Space Grotesk', fontSize: '14px', fontWeight: 600,
@@ -143,7 +139,7 @@ export function Services() {
                     aria-label={service.cta}
                   >
                     {service.cta} <ArrowRight size={15} />
-                  </motion.button>
+                  </motion.a>
                 </motion.div>
               </Reveal>
             );

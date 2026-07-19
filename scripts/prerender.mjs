@@ -97,13 +97,13 @@ function structuredData(route) {
       url: canonical,
       itemListElement: [{
         '@type': 'Offer',
-        name: 'One-to-one AI consulting',
-        price: '75',
+        name: 'Focused 90-minute personal AI training session',
+        price: '125',
         priceCurrency: 'GBP',
         url: canonical,
         itemOffered: {
           '@type': 'Service',
-          name: 'One-to-one AI consulting',
+          name: 'Focused 90-minute personal AI training session',
           provider: { '@id': `${server.SITE_URL}/#organisation` },
         },
       }],

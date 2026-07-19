@@ -19,6 +19,7 @@ import { Footer } from './components/Footer';
 import { StickyCTA } from './components/StickyCTA';
 import { LegalPage, type LegalPageType } from './components/LegalPages';
 import { NotFoundPage, SeoLandingPage } from './components/SeoLandingPage';
+import { PricingPage } from './components/PricingPage';
 import { getSiteRoute, normalizeRoutePath } from './data/routes';
 import { trackOutboundEnquiryLink } from './lib/leadCapture';
 
@@ -79,7 +80,7 @@ export function App({ pathname = '/' }: { pathname?: string }) {
     return (
       <SiteBackground>
         <Nav isHomePage={false} />
-        {route.kind === 'not-found' ? <NotFoundPage /> : <SeoLandingPage route={route} />}
+        {route.kind === 'not-found' ? <NotFoundPage /> : route.kind === 'pricing' ? <PricingPage route={route} /> : <SeoLandingPage route={route} />}
         <Footer />
       </SiteBackground>
     );

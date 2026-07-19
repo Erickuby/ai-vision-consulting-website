@@ -12,11 +12,11 @@ const navLinks = [
   { label: 'Contact', href: '/contact/' },
 ];
 
-const courses = [
-  'AI-Powered Job Hunting',
-  'AI for Small Business',
-  'AI Consulting Bootcamp',
-  'AI on the Job',
+const trainingLinks = [
+  { label: 'Personal AI Training', href: '/pricing/#individual-training' },
+  { label: 'Small-Group Sessions', href: '/pricing/#private-group-heading' },
+  { label: 'Corporate Workshops', href: '/pricing/#team-training' },
+  { label: 'Twelve-Session Catalogue', href: '/pricing/#catalogue-heading' },
 ];
 
 const socials = [
@@ -160,13 +160,13 @@ export function Footer() {
           {/* Courses */}
           <div>
             <h4 style={{ fontFamily: 'Space Grotesk', fontSize: '13px', fontWeight: 700, color: '#F0F4FF', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>
-              Our Courses
+              Training Options
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {courses.map(course => (
-                <li key={course}>
+              {trainingLinks.map(link => (
+                <li key={link.label}>
                   <a
-                    href="/#courses"
+                    href={link.href}
                     style={{
                       fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA',
                       padding: 0, transition: 'color 0.2s ease', textAlign: 'left', textDecoration: 'none',
@@ -174,7 +174,7 @@ export function Footer() {
                     onMouseEnter={e => { e.currentTarget.style.color = '#F0F4FF'; }}
                     onMouseLeave={e => { e.currentTarget.style.color = '#8899AA'; }}
                   >
-                    {course}
+                    {link.label}
                   </a>
                 </li>
               ))}
