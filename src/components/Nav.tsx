@@ -14,6 +14,7 @@ const socials = [
 const primaryLinks = [
   { label: 'Training', href: '/ai-training-newcastle/' },
   { label: 'Automation', href: '/ai-automation-consultant-newcastle/' },
+  { label: 'Fiverr Services', href: '/#fiverr-services' },
   { label: 'About', href: '/about-eric-nwankwo/' },
   { label: 'Case Studies', href: '/case-studies/' },
   { label: 'Pricing', href: '/pricing/' },

@@ -12,6 +12,7 @@ import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
 import { AboutUpgraded } from './components/AboutUpgraded';
 import { WhoThisIsFor } from './components/WhoThisIsFor';
 import { Services } from './components/Services';
+import { FiverrServices } from './components/FiverrServices';
 import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -138,6 +139,7 @@ export function App({ pathname = '/' }: { pathname?: string }) {
           <AboutUpgraded />
           <WhoThisIsFor />
           <Services />
+          <FiverrServices />
           <Blog />
           <Contact source="Homepage contact form" />
         </main>
