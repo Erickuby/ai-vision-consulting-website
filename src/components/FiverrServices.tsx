@@ -104,33 +104,33 @@ export function FiverrServices() {
             </article>
           </Reveal>
 
-          <div className="grid gap-6">
+          <div className="grid gap-6 lg:grid-rows-2">
             {[gigs.chatbot, gigs.avatar].map(gig => {
               const Icon = gig.icon;
               return (
-                <Reveal key={gig.title}>
-                  <article className="rounded-2xl border border-[rgba(167,139,250,0.18)] bg-[rgba(10,20,40,0.72)] p-6 sm:p-7">
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[rgba(167,139,250,0.22)] bg-[rgba(167,139,250,0.08)]">
-                        <Icon size={22} color="#B9A2FF" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#B9A2FF]">{gig.eyebrow}</p>
-                        <h3 className="mt-2 font-display text-xl font-bold text-[#F0F4FF]">{gig.title}</h3>
+                <Reveal key={gig.title} className="h-full">
+                  <article className="grid h-full grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 rounded-2xl border border-[rgba(167,139,250,0.18)] bg-[rgba(10,20,40,0.72)] p-6 sm:p-7">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(167,139,250,0.22)] bg-[rgba(167,139,250,0.08)]">
+                      <Icon size={22} color="#B9A2FF" aria-hidden="true" />
+                    </div>
+                    <div className="flex h-full min-w-0 flex-col">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#B9A2FF]">{gig.eyebrow}</p>
+                      <h3 className="mt-2 font-display text-xl font-bold text-[#F0F4FF]">{gig.title}</h3>
+                      <p className="my-5 text-sm leading-7 text-[#9AABBC]">{gig.description}</p>
+                      <ul className="mb-6 grid gap-2">
+                        {gig.points.map(point => (
+                          <li key={point} className="flex items-start gap-2 text-sm leading-6 text-[#C8D8E8]">
+                            <CheckCircle2 size={16} color="#B9A2FF" className="mt-1 shrink-0" aria-hidden="true" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-auto">
+                        <ExternalCTA href={gig.href} placement={`Fiverr ${gig.title}`}>
+                          {gig.cta}
+                        </ExternalCTA>
                       </div>
                     </div>
-                    <p className="my-5 text-sm leading-7 text-[#9AABBC]">{gig.description}</p>
-                    <ul className="mb-6 grid gap-2">
-                      {gig.points.map(point => (
-                        <li key={point} className="flex items-start gap-2 text-sm leading-6 text-[#C8D8E8]">
-                          <CheckCircle2 size={16} color="#B9A2FF" className="mt-1 shrink-0" aria-hidden="true" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <ExternalCTA href={gig.href} placement={`Fiverr ${gig.title}`}>
-                      {gig.cta}
-                    </ExternalCTA>
                   </article>
                 </Reveal>
               );

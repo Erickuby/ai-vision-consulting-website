@@ -11,14 +11,11 @@
   --border-subtle: rgba(0, 212, 255, 0.15);
 }
 
+/* Tailwind's base layer owns the element reset. Keep custom global rules
+   unlayered only when they must override utilities. */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
-
-/* Restore mx-auto centering — class specificity (0,1,0) beats universal reset (0,0,0) */
-.mx-auto { margin-left: auto; margin-right: auto; }
 
 html {
   scroll-behavior: smooth;
