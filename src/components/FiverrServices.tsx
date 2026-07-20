@@ -48,8 +48,6 @@ function ExternalCTA({ href, children, placement }: { href: string; children: st
 }
 
 export function FiverrServices() {
-  const WhatsAppIcon = gigs.whatsapp.icon;
-
   return (
     <section id="fiverr-services" aria-labelledby="fiverr-services-heading" className="section-wrapper relative px-6 py-16 md:py-24">
       <div
@@ -68,74 +66,62 @@ export function FiverrServices() {
           </p>
         </Reveal>
 
-        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <Reveal>
-            <article
-              className="flex h-full flex-col rounded-3xl border border-[rgba(0,212,255,0.22)] bg-[rgba(8,20,39,0.92)] p-7 sm:p-9"
-              style={{ boxShadow: '0 24px 70px rgba(0, 13, 30, 0.35)' }}
-            >
-              <div className="mb-8 flex items-start justify-between gap-5">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[rgba(0,212,255,0.25)] bg-[rgba(0,212,255,0.08)]">
-                  <WhatsAppIcon size={27} color="#00D4FF" aria-hidden="true" />
-                </div>
-                <span className="rounded-full border border-[rgba(0,212,255,0.18)] bg-[rgba(0,212,255,0.06)] px-3 py-1.5 text-xs font-semibold text-[#8CEEFF]">
-                  Best for service businesses
-                </span>
-              </div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {Object.values(gigs).map((gig, index) => {
+            const Icon = gig.icon;
+            const featured = index === 0;
 
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#00D4FF]">{gigs.whatsapp.eyebrow}</p>
-              <h3 className="mt-3 font-display text-2xl font-bold text-[#F0F4FF] sm:text-3xl">{gigs.whatsapp.title}</h3>
-              <p className="mt-4 max-w-2xl text-[15px] leading-7 text-[#9AABBC]">{gigs.whatsapp.description}</p>
-
-              <ul className="my-7 grid gap-3 sm:grid-cols-3">
-                {gigs.whatsapp.points.map(point => (
-                  <li key={point} className="flex items-start gap-2 text-sm leading-6 text-[#C8D8E8]">
-                    <CheckCircle2 size={17} color="#00D4FF" className="mt-1 shrink-0" aria-hidden="true" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto">
-                <ExternalCTA href={gigs.whatsapp.href} placement="Fiverr WhatsApp AI lead agent">
-                  {gigs.whatsapp.cta}
-                </ExternalCTA>
-              </div>
-            </article>
-          </Reveal>
-
-          <div className="grid gap-6 lg:grid-rows-2">
-            {[gigs.chatbot, gigs.avatar].map(gig => {
-              const Icon = gig.icon;
-              return (
-                <Reveal key={gig.title} className="h-full">
-                  <article className="grid h-full grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 rounded-2xl border border-[rgba(167,139,250,0.18)] bg-[rgba(10,20,40,0.72)] p-6 sm:p-7">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(167,139,250,0.22)] bg-[rgba(167,139,250,0.08)]">
-                      <Icon size={22} color="#B9A2FF" aria-hidden="true" />
+            return (
+              <Reveal key={gig.title} className="h-full">
+                <article
+                  className={`flex h-full flex-col rounded-3xl border p-7 ${
+                    featured
+                      ? 'border-[rgba(0,212,255,0.22)] bg-[rgba(8,20,39,0.92)]'
+                      : 'border-[rgba(167,139,250,0.18)] bg-[rgba(10,20,40,0.72)]'
+                  }`}
+                  style={featured ? { boxShadow: '0 24px 70px rgba(0, 13, 30, 0.35)' } : undefined}
+                >
+                  <div className="mb-7 flex min-h-14 items-start justify-between gap-3">
+                    <div
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${
+                        featured
+                          ? 'border-[rgba(0,212,255,0.25)] bg-[rgba(0,212,255,0.08)]'
+                          : 'border-[rgba(167,139,250,0.22)] bg-[rgba(167,139,250,0.08)]'
+                      }`}
+                    >
+                      <Icon size={24} color={featured ? '#00D4FF' : '#B9A2FF'} aria-hidden="true" />
                     </div>
-                    <div className="flex h-full min-w-0 flex-col">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#B9A2FF]">{gig.eyebrow}</p>
-                      <h3 className="mt-2 font-display text-xl font-bold text-[#F0F4FF]">{gig.title}</h3>
-                      <p className="my-5 text-sm leading-7 text-[#9AABBC]">{gig.description}</p>
-                      <ul className="mb-6 grid gap-2">
-                        {gig.points.map(point => (
-                          <li key={point} className="flex items-start gap-2 text-sm leading-6 text-[#C8D8E8]">
-                            <CheckCircle2 size={16} color="#B9A2FF" className="mt-1 shrink-0" aria-hidden="true" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="mt-auto">
-                        <ExternalCTA href={gig.href} placement={`Fiverr ${gig.title}`}>
-                          {gig.cta}
-                        </ExternalCTA>
-                      </div>
-                    </div>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
+                    {featured && (
+                      <span className="rounded-full border border-[rgba(0,212,255,0.18)] bg-[rgba(0,212,255,0.06)] px-3 py-1.5 text-right text-[11px] font-semibold leading-4 text-[#8CEEFF]">
+                        Best for service businesses
+                      </span>
+                    )}
+                  </div>
+
+                  <p className={`text-[11px] font-semibold uppercase tracking-[0.14em] ${featured ? 'text-[#00D4FF]' : 'text-[#B9A2FF]'}`}>
+                    {gig.eyebrow}
+                  </p>
+                  <h3 className="mt-3 font-display text-2xl font-bold leading-tight text-[#F0F4FF]">{gig.title}</h3>
+                  <p className="mt-5 text-sm leading-7 text-[#9AABBC]">{gig.description}</p>
+
+                  <ul className="mb-7 mt-6 grid gap-3">
+                    {gig.points.map(point => (
+                      <li key={point} className="flex items-start gap-2 text-sm leading-6 text-[#C8D8E8]">
+                        <CheckCircle2 size={16} color={featured ? '#00D4FF' : '#B9A2FF'} className="mt-1 shrink-0" aria-hidden="true" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-auto">
+                    <ExternalCTA href={gig.href} placement={`Fiverr ${gig.title}`}>
+                      {gig.cta}
+                    </ExternalCTA>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal>
