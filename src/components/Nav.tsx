@@ -94,8 +94,8 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
             <div className="hidden xl:flex items-center gap-1.5">
               {socials.map(({ icon: Icon, label, href }) => <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="flex items-center justify-center w-8 h-8 rounded-lg text-[#8899AA]" style={{ background: 'rgba(0,212,255,0.06)', border: '1px solid rgba(0,212,255,0.1)' }}><Icon size={14} /></a>)}
             </div>
-            <a href="/contact/" className="btn-primary hidden sm:inline-flex" style={{ padding: '10px 18px', fontSize: '13px' }}>Book Free Assessment</a>
-            <button ref={menuButtonRef} onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label="Open menu" className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg text-[#00D4FF]" style={{ border: '1.5px solid rgba(0,212,255,0.3)' }}><Menu size={20} /></button>
+            <a href="/contact/" className="btn-primary !hidden sm:!inline-flex" style={{ padding: '10px 18px', fontSize: '13px' }}>Book Free Assessment</a>
+            <button ref={menuButtonRef} onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label="Open menu" className="lg:hidden flex flex-shrink-0 items-center justify-center w-11 h-11 rounded-lg text-[#00D4FF]" style={{ border: '1.5px solid rgba(0,212,255,0.3)' }}><Menu size={20} /></button>
           </div>
         </div>
       </nav>

@@ -26,6 +26,22 @@ EXPECTED = {
     "what-to-automate-first-small-business",
     "whatsapp-lead-automation-small-business",
 }
+EXPECTED_PRIMARY_NAV = [
+    ("Training", "/ai-training-newcastle/"),
+    ("Automation", "/ai-automation-consultant-newcastle/"),
+    ("Fiverr Services", "/#fiverr-services"),
+    ("About", "/about-eric-nwankwo/"),
+    ("Case Studies", "/case-studies/"),
+    ("Pricing", "/pricing/"),
+]
+EXPECTED_MOBILE_NAV = [("Home", "/"), *EXPECTED_PRIMARY_NAV]
+EXPECTED_SOCIALS = [
+    ("LinkedIn", "https://www.linkedin.com/in/eric-nwankwo/"),
+    ("Instagram", "https://www.instagram.com/aivisionconsulting/"),
+    ("Facebook", "https://www.facebook.com/profile.php?id=61585002446584"),
+    ("YouTube", "https://www.youtube.com/@EricExplainsAI"),
+    ("TikTok", "https://www.tiktok.com/@aivisionconsultingltd"),
+]
 ERRORS: list[str] = []
 WARNINGS: list[str] = []
 
@@ -79,6 +95,26 @@ def visible_faqs(soup: BeautifulSoup) -> list[tuple[str, str]]:
 
 def main() -> int:
     styles = (ROOT / "public" / "styles.css").read_text(encoding="utf-8")
+    homepage_nav = (ROOT / "src" / "components" / "Nav.tsx").read_text(encoding="utf-8")
+    primary_block = homepage_nav.split("const primaryLinks = [", 1)[1].split("];", 1)[0]
+    homepage_primary = re.findall(r"label: '([^']+)', href: '([^']+)'", primary_block)
+    if homepage_primary != EXPECTED_PRIMARY_NAV:
+        fail("homepage-nav", f"primary links are {homepage_primary!r}; update the shared navigation contract")
+    social_block = homepage_nav.split("const socials = [", 1)[1].split("];", 1)[0]
+    homepage_socials = re.findall(r"label: '([^']+)', href: '([^']+)'", social_block)
+    if homepage_socials != EXPECTED_SOCIALS:
+        fail("homepage-nav", f"social links are {homepage_socials!r}; update the shared social contract")
+    mobile_trigger = re.search(
+        r'aria-label="Open menu"\s+className="([^"]*)"',
+        homepage_nav,
+    )
+    trigger_classes = mobile_trigger.group(1).split() if mobile_trigger else []
+    if "flex-shrink-0" not in trigger_classes:
+        fail("homepage-nav", "mobile menu trigger must not shrink out of view on narrow screens")
+    if "w-11" not in trigger_classes or "h-11" not in trigger_classes:
+        fail("homepage-nav", "mobile menu trigger must retain a minimum 44 by 44 pixel hit area")
+    if 'className="btn-primary !hidden sm:!inline-flex"' not in homepage_nav:
+        fail("homepage-nav", "header assessment CTA must remain hidden below the small-screen breakpoint")
     responsive_image_rule = re.search(r"img\s*\{[^}]*\bheight:\s*auto\s*;?[^}]*\}", styles, flags=re.S)
     if not responsive_image_rule:
         fail("styles", "base image rule must set height: auto so width/height attributes preserve their aspect ratio")
@@ -98,9 +134,61 @@ def main() -> int:
         html = path.read_text(encoding="utf-8")
         soup = BeautifulSoup(html, "html.parser")
         card = cards.get(slug, {})
-        stylesheet = soup.find("link", rel="stylesheet", href="/styles.css?v=article-image-contain-1")
+
+        favicon_links = [
+            str(link.get("href", ""))
+            for link in soup.find_all("link", rel=lambda value: value and "icon" in value)
+        ]
+        if favicon_links != ["/favicon.svg"]:
+            fail(slug, f"favicon links are {favicon_links!r}; expected only the homepage favicon")
+
+        brand = soup.select_one('.site-header .brand[href="/"]')
+        if not brand or not brand.select_one('img[src="/logo.svg"]'):
+            fail(slug, "header brand must use the homepage logo and link to Home")
+
+        mobile_drawer = soup.select_one('[data-mobile-drawer][role="dialog"][aria-modal="true"]')
+        if not mobile_drawer:
+            fail(slug, "mobile navigation must be an accessible dialog")
+        else:
+            mobile_links = [
+                (link.get_text(" ", strip=True), str(link.get("href", "")))
+                for link in mobile_drawer.select("nav a[href]")
+            ]
+            if mobile_links != EXPECTED_MOBILE_NAV:
+                fail(slug, f"mobile navigation is {mobile_links!r}; expected the current homepage navigation")
+
+            drawer_cta = mobile_drawer.select_one('.drawer-cta[href="/contact/"]')
+            if not drawer_cta or drawer_cta.get_text(" ", strip=True) != "Contact":
+                fail(slug, "mobile drawer contact CTA must match the homepage destination and label")
+
+            social_links = [
+                (str(link.get("aria-label", "")), str(link.get("href", "")))
+                for link in mobile_drawer.select(".drawer-social a[href]")
+            ]
+            if social_links != EXPECTED_SOCIALS:
+                fail(slug, f"social navigation is {social_links!r}; expected the homepage social links")
+
+        desktop_nav = soup.select_one('.site-header nav[aria-label="Primary navigation"]')
+        if not desktop_nav:
+            fail(slug, "desktop primary navigation is missing")
+        else:
+            desktop_links = [
+                (link.get_text(" ", strip=True), str(link.get("href", "")))
+                for link in desktop_nav.select("a[href]")
+            ]
+            if desktop_links != EXPECTED_PRIMARY_NAV:
+                fail(slug, f"desktop navigation is {desktop_links!r}; expected the current homepage navigation")
+
+            header_cta = soup.select_one('.header-cta[href="/contact/"]')
+            if not header_cta or header_cta.get_text(" ", strip=True) != "Book Free Assessment":
+                fail(slug, "desktop assessment CTA must match the homepage destination and label")
+
+        stylesheet = soup.find("link", rel="stylesheet", href="/styles.css?v=navigation-unified-2")
         if not stylesheet:
-            fail(slug, "shared stylesheet URL must use the current article-image cache version")
+            fail(slug, "shared stylesheet URL must use the current navigation cache version")
+        navigation_script = soup.find("script", src="/main.js?v=navigation-unified-2")
+        if not navigation_script:
+            fail(slug, "shared navigation script URL must use the current cache version")
         article_image_rule = re.search(r"\.article-figure\s+img\s*\{[^}]*\}", html, flags=re.S)
         if not article_image_rule:
             fail(slug, "article image rule is missing")

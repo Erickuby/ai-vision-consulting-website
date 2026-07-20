@@ -42,13 +42,19 @@
       drawer.classList.add('open');
       backdrop && backdrop.classList.add('visible');
       document.body.style.overflow = 'hidden';
+      drawer.style.visibility = 'visible';
       toggle.setAttribute('aria-expanded','true');
       var items = focusableItems();
-      if (items.length) items[0].focus();
+      if (items.length) {
+        window.setTimeout(function () {
+          if (drawer.classList.contains('open')) items[0].focus();
+        }, 50);
+      }
     }
 
     function close(restoreFocus) {
       drawer.classList.remove('open');
+      drawer.style.visibility = '';
       backdrop && backdrop.classList.remove('visible');
       document.body.style.overflow = '';
       toggle.setAttribute('aria-expanded','false');
