@@ -6,6 +6,14 @@ import { blogPosts, getBlogPostHref, isLiveBlogPost, type BlogPost } from '../da
 import { shouldHandleClientNavigation } from '../lib/navigation';
 import { submitWebsiteLead, trackConversion } from '../lib/leadCapture';
 
+function localAssetPath(url: string) {
+  try {
+    return new URL(url).pathname;
+  } catch {
+    return url;
+  }
+}
+
 function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
   const isLive = isLiveBlogPost(article);
   const articleHref = isLive ? getBlogPostHref(article) : '#contact';
@@ -29,14 +37,15 @@ function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
         className="blog-card"
         style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
       >
-        <div style={{ position: 'relative', overflow: 'hidden', height: '200px' }}>
+        <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '16 / 9', background: '#07101c' }}>
           <motion.img
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
-            src={article.image}
+            src={localAssetPath(article.image)}
             alt={article.imageAlt}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            width={1600}
+            height={900}
+            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
             loading="lazy"
+            decoding="async"
           />
           <div
             style={{
@@ -45,27 +54,7 @@ function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
               background: 'linear-gradient(180deg, transparent 50%, rgba(5,13,26,0.9) 100%)',
             }}
           />
-          <div style={{ position: 'absolute', top: '12px', left: '12px' }}>
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '5px',
-                padding: '4px 10px',
-                background: `${article.categoryColor}20`,
-                border: `1px solid ${article.categoryColor}40`,
-                color: article.categoryColor,
-                borderRadius: '100px',
-                fontSize: '11px',
-                fontWeight: 700,
-                fontFamily: 'Space Grotesk',
-                letterSpacing: '0.05em',
-              }}
-            >
-              <Tag size={10} />
-              {article.category}
-            </span>
-          </div>
+
           {article.comingSoon && (
             <div
               style={{
@@ -90,7 +79,10 @@ function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
         </div>
 
         <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '12px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontFamily: 'Space Grotesk', fontSize: '12px', fontWeight: 700, color: article.categoryColor }}>
+              <Tag size={11} /> {article.category}
+            </span>
             <span
               style={{
                 display: 'flex',
@@ -225,7 +217,7 @@ export function Blog() {
               Practical AI, <span className="gradient-text-cyan">clearly explained.</span>
             </h2>
             <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '16px', color: '#8899AA', maxWidth: '420px' }}>
-              Real guides, success stories, and tools you can use today, written in plain English for real people.
+              Practical guides and tools you can use today, written in plain English for real people.
             </p>
           </div>
 

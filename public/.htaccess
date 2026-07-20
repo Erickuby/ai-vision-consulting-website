@@ -8,8 +8,12 @@ ErrorDocument 404 /404.html
   RewriteRule ^about/?$ /about-eric-nwankwo/ [R=301,L]
   RewriteRule ^services/?$ /ai-automation-consultant-newcastle/ [R=301,L]
   RewriteRule ^courses/?$ /ai-training-newcastle/ [R=301,L]
-  RewriteRule ^blog/?$ /#resources [R=301,L,NE]
+  RewriteRule ^blog/?$ /#blog [R=301,L,NE]
   RewriteRule ^privacy\.html$ /privacy-policy/ [R=301,L]
+
+  # Replace dated or overly broad articles with focused evergreen guides.
+  RewriteRule ^blog/how-to-start-an-ai-side-hustle-from-scratch-in-2026(?:\.html)?/?$ /blog/how-to-start-an-ai-side-hustle [R=301,L]
+  RewriteRule ^blog/agentic-ai-and-automation-how-to-scale-your-business-career-work-and-life(?:\.html)?/?$ /blog/what-to-automate-first-small-business [R=301,L]
 
   # Canonicalise explicit index.html requests.
   RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]

@@ -49,9 +49,13 @@ Automation work begins with the current workflow rather than a predetermined too
 ## Articles
 
 - [What Is AI? A Plain-English Guide for Beginners](https://aivisionconsulting.co.uk/blog/what-is-ai)
-- [8 AI Prompts Every Job Seeker Needs Right Now](https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now)
-- [How to Start an AI Side Hustle From Scratch](https://aivisionconsulting.co.uk/blog/how-to-start-an-ai-side-hustle-from-scratch-in-2026)
-- [Agentic AI and Automation: How to Scale Your Business, Career, Work and Life](https://aivisionconsulting.co.uk/blog/agentic-ai-and-automation-how-to-scale-your-business-career-work-and-life)
+- [8 AI Prompts for a More Focused Job Search](https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now)
+- [How to Use AI in a Civil Service Application Without Losing Your Voice](https://aivisionconsulting.co.uk/blog/use-ai-civil-service-application)
+- [What AI Training Do Employees Actually Need?](https://aivisionconsulting.co.uk/blog/ai-training-for-employees)
+- [What Should a Small Business Automate First?](https://aivisionconsulting.co.uk/blog/what-to-automate-first-small-business)
+- [How to Automate WhatsApp Enquiries Without Losing the Human Touch](https://aivisionconsulting.co.uk/blog/whatsapp-lead-automation-small-business)
+- [Does Your Website Need an AI Chatbot?](https://aivisionconsulting.co.uk/blog/ai-chatbot-for-your-website)
+- [How to Start an AI Side Hustle Without Pretending to Be an Expert](https://aivisionconsulting.co.uk/blog/how-to-start-an-ai-side-hustle)
 
 ## Contact
 

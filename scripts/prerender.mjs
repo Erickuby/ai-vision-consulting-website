@@ -192,8 +192,12 @@ await rm(path.join(distDir, 'src'), { recursive: true, force: true });
 for (const slug of [
   'what-is-ai',
   '8-ai-prompts-every-job-seeker-needs-right-now',
-  'how-to-start-an-ai-side-hustle-from-scratch-in-2026',
-  'agentic-ai-and-automation-how-to-scale-your-business-career-work-and-life',
+  'use-ai-civil-service-application',
+  'ai-training-for-employees',
+  'what-to-automate-first-small-business',
+  'whatsapp-lead-automation-small-business',
+  'ai-chatbot-for-your-website',
+  'how-to-start-an-ai-side-hustle',
 ]) {
   try {
     await readFile(path.join(distDir, 'blog', `${slug}.html`), 'utf8');

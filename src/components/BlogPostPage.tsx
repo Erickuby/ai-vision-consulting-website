@@ -77,9 +77,15 @@ function restoreDefaultSeo() {
   upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description' }, defaultSeo.ogDescription);
   upsertLink('canonical', defaultSeo.canonical);
   removeMeta('meta[property="og:image"]');
+  removeMeta('meta[property="og:image:alt"]');
+  removeMeta('meta[property="og:image:width"]');
+  removeMeta('meta[property="og:image:height"]');
+  removeMeta('meta[property="og:image:type"]');
   removeMeta('meta[name="twitter:image"]');
+  removeMeta('meta[name="twitter:image:alt"]');
   removeMeta('meta[property="article:published_time"]');
   removeMeta('meta[property="article:modified_time"]');
+  removeMeta('meta[property="article:author"]');
   removeStructuredData('blog-post-schema');
   removeStructuredData('blog-faq-schema');
 }
@@ -93,18 +99,24 @@ function applyBlogSeo(post: BlogPost) {
 
   document.title = post.metaTitle;
   upsertMeta('meta[name="description"]', { name: 'description' }, post.metaDescription);
-  upsertMeta('meta[name="keywords"]', { name: 'keywords' }, post.keywords.join(', '));
+  removeMeta('meta[name="keywords"]');
   upsertMeta('meta[property="og:title"]', { property: 'og:title' }, post.metaTitle);
   upsertMeta('meta[property="og:description"]', { property: 'og:description' }, post.metaDescription);
   upsertMeta('meta[property="og:type"]', { property: 'og:type' }, 'article');
   upsertMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl);
   upsertMeta('meta[property="og:image"]', { property: 'og:image' }, post.image);
+  upsertMeta('meta[property="og:image:alt"]', { property: 'og:image:alt' }, post.imageAlt);
+  upsertMeta('meta[property="og:image:width"]', { property: 'og:image:width' }, '1600');
+  upsertMeta('meta[property="og:image:height"]', { property: 'og:image:height' }, '900');
+  upsertMeta('meta[property="og:image:type"]', { property: 'og:image:type' }, 'image/png');
   upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image');
   upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title' }, post.metaTitle);
   upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description' }, post.metaDescription);
   upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, post.image);
+  upsertMeta('meta[name="twitter:image:alt"]', { name: 'twitter:image:alt' }, post.imageAlt);
   upsertMeta('meta[property="article:published_time"]', { property: 'article:published_time' }, post.publishedAt);
   upsertMeta('meta[property="article:modified_time"]', { property: 'article:modified_time' }, post.updatedAt);
+  upsertMeta('meta[property="article:author"]', { property: 'article:author' }, `${siteUrl}/about-eric-nwankwo/`);
   upsertLink('canonical', canonicalUrl);
 
   upsertStructuredData('blog-post-schema', {
@@ -120,6 +132,7 @@ function applyBlogSeo(post: BlogPost) {
       '@type': 'Person',
       name: post.authorName,
       jobTitle: post.authorRole,
+      url: `${siteUrl}/about-eric-nwankwo/`,
     },
     publisher: {
       '@type': 'Organization',
