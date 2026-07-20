@@ -78,6 +78,11 @@ def visible_faqs(soup: BeautifulSoup) -> list[tuple[str, str]]:
 
 
 def main() -> int:
+    styles = (ROOT / "public" / "styles.css").read_text(encoding="utf-8")
+    responsive_image_rule = re.search(r"img\s*\{[^}]*\bheight:\s*auto\s*;?[^}]*\}", styles, flags=re.S)
+    if not responsive_image_rule:
+        fail("styles", "base image rule must set height: auto so width/height attributes preserve their aspect ratio")
+
     pages = {p.stem: p for p in BLOG.glob("*.html")}
     if set(pages) != EXPECTED:
         fail("catalogue", f"static pages are {sorted(pages)}, expected {sorted(EXPECTED)}")
