@@ -133,7 +133,7 @@ export function HeroUpgraded() {
           className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto"
           style={{ marginBottom: '40px' }}
         >
-          Build useful AI capability and improve real workflows through practical training and measured automation support — for Newcastle organisations, UK businesses, professionals, jobseekers and community partners.
+          Build useful AI capability and improve real workflows through practical training and measured automation support for Newcastle organisations, UK businesses, professionals, jobseekers and community partners.
         </motion.p>
 
         {/* CTAs */}

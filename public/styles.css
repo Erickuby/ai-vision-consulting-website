@@ -1,5 +1,5 @@
 /* ============================================================
-   AI Vision Consulting Ltd — Design System v2
+   AI Vision Consulting Ltd: Design System v2
    Brand palette: cyan #2EC4C7 · navy #0D1B2A · purple #5B2C83 · gold #F4B400
    Fonts: Space Grotesk (display) + Inter (body)
    ============================================================ */
@@ -44,7 +44,7 @@
   --border-mid:    rgba(180, 200, 230, 0.22);
   --border-glow:   rgba(46, 196, 199, 0.55);
 
-  /* Shadows — layered for depth */
+  /* Shadows: layered for depth */
   --shadow-xs:  0 1px 2px rgba(0,0,0,0.5);
   --shadow-sm:  0 4px 14px rgba(2,8,18,0.45);
   --shadow-md:  0 16px 36px -8px rgba(2,8,18,0.55), 0 6px 12px rgba(2,8,18,0.35);
@@ -116,7 +116,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Cinematic streaming background video — fixed behind everything */
+/* Cinematic streaming background video: fixed behind everything */
 .bg-video {
   position: fixed;
   inset: 0;
@@ -160,7 +160,7 @@ body {
   z-index: 2;
 }
 
-/* Dark blurred overlay for text contrast — heavier at the bottom
+/* Dark blurred overlay for text contrast: heavier at the bottom
    where the video's light streaks and baked-in labels sit */
 body::before {
   content: "";
@@ -196,7 +196,7 @@ body::before {
 
 .noise-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 
-/* Subtle film-grain — kills the flat-AI look */
+/* Subtle film-grain: kills the flat-AI look */
 body::after {
   content: "";
   position: fixed;
@@ -327,8 +327,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: var(--purple-dim);
 }
 
-/* Text gradient — hero headline */
-/* Shiny sweeping brand gradient — cinematic headline treatment */
+/* Text gradient: hero headline */
+/* Shiny sweeping brand gradient: cinematic headline treatment */
 .text-gradient {
   background-image: linear-gradient(to right,
     #8A4FBF 0%,
@@ -836,7 +836,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   mix-blend-mode: screen;
 }
 
-/* Fallback legacy class — hidden if shader exists */
+/* Fallback legacy class: hidden if shader exists */
 .neural-canvas { display: none; }
 
 .hero::before {
@@ -1244,7 +1244,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: block;
 }
 
-/* Kill drift particles — generic AI viz */
+/* Kill drift particles: generic AI viz */
 .particle { display: none; }
 
 /* ── Mission Banner ─────────────────────────────────────── */
@@ -1756,4 +1756,76 @@ ul { margin: 0; padding: 0; list-style: none; }
   .process-steps { grid-template-columns: repeat(4, 1fr); }
 
   .split-grid { grid-template-columns: 1.2fr 1fr; }
+}
+
+/* ── Related articles ───────────────────────────────────── */
+
+.related-posts {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+}
+.related-posts h2 { font-size: var(--h3); margin-bottom: var(--sp-2); }
+.related-posts > p { color: var(--text-300); font-size: var(--body-sm); margin-bottom: var(--sp-4); }
+
+.related-grid { display: grid; gap: var(--sp-3); }
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-900);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.related-card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+.related-card:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 3px;
+}
+.related-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-deepest);
+}
+.related-card__body {
+  display: grid;
+  gap: 0.5rem;
+  padding: var(--sp-3);
+}
+.related-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--micro);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-300);
+}
+.related-card__category { color: var(--brand-gold-2); font-weight: 700; }
+.related-card__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-100);
+}
+.related-card:hover .related-card__title { color: var(--brand-cyan-2); }
+.related-card__excerpt {
+  color: var(--text-300);
+  font-size: var(--body-sm);
+  line-height: 1.6;
+}
+
+@media (min-width: 720px) {
+  .related-grid { grid-template-columns: repeat(3, 1fr); }
 }

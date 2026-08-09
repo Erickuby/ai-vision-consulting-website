@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 import math
 import random
+import sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W, H = 1600, 900
@@ -18,8 +19,30 @@ CYAN = (46, 196, 199)
 GOLD = (212, 168, 83)
 WHITE = (240, 244, 255)
 MUTED = (155, 175, 194)
-FONT = "/usr/share/fonts/truetype/ubuntu/UbuntuSans[wdth,wght].ttf"
-FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+# The artwork was first produced on Linux. Keep those paths first so existing
+# images stay byte-identical there, and fall back to equivalents elsewhere.
+FONT_CANDIDATES = [
+    "/usr/share/fonts/truetype/ubuntu/UbuntuSans[wdth,wght].ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    str(Path(sys.prefix) / "Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf"),
+    "C:/Windows/Fonts/segoeui.ttf",
+]
+FONT_BOLD_CANDIDATES = [
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    str(Path(sys.prefix) / "Lib/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf"),
+    "C:/Windows/Fonts/segoeuib.ttf",
+]
+
+
+def first_existing(candidates: list[str]) -> str:
+    for candidate in candidates:
+        if Path(candidate).exists():
+            return candidate
+    raise SystemExit(f"No usable font found among {candidates}")
+
+
+FONT = first_existing(FONT_CANDIDATES)
+FONT_BOLD = first_existing(FONT_BOLD_CANDIDATES)
 
 ARTICLES = [
     ("what-is-ai", "AI FUNDAMENTALS", "What is AI?", "A plain-English guide", "network"),
@@ -30,6 +53,9 @@ ARTICLES = [
     ("whatsapp-lead-automation-small-business", "LEAD HANDLING", "Automate the routine.", "Keep judgement human.", "messages"),
     ("ai-chatbot-for-your-website", "WEBSITE CHATBOTS", "Does your website", "need an AI chatbot?", "chatbot"),
     ("how-to-start-an-ai-side-hustle", "FREELANCING", "Start with a problem.", "Build one useful service.", "service"),
+    ("north-east-ai-growth-zone-small-business", "GROWTH ZONE", "The AI Growth Zone", "and your small business", "region"),
+    ("get-found-in-ai-search-local-business", "AI SEARCH", "Get found when", "customers ask an assistant", "aisearch"),
+    ("ai-courses-newcastle", "AI COURSES", "Learn AI in Newcastle", "free, funded or paid", "courses"),
 ]
 
 
@@ -123,6 +149,16 @@ def motif_civil(draw, layer):
     draw.arc((1330,260,1510,610),80,280,fill=(*GOLD,170),width=5)
 
 
+def star(draw, centre, radius, colour):
+    cx, cy = centre
+    points = []
+    for i in range(10):
+        r = radius if i % 2 == 0 else radius * 0.44
+        angle = math.radians(-90 + i * 36)
+        points.append((cx + r * math.cos(angle), cy + r * math.sin(angle)))
+    draw.polygon(points, fill=colour)
+
+
 def person(draw,x,y,s,colour):
     draw.ellipse((x-34*s,y-95*s,x+34*s,y-27*s),fill=colour)
     draw.rounded_rectangle((x-58*s,y-20*s,x+58*s,y+100*s),radius=int(36*s),fill=colour)
@@ -192,7 +228,70 @@ def motif_service(draw, layer):
     draw.ellipse((1340,340,1430,430),fill=(*GOLD,230))
     draw.arc((1320,410,1450,520),200,340,fill=(*WHITE,220),width=12)
 
-MOTIFS={"network":motif_network,"prompts":motif_prompts,"civil":motif_civil,"training":motif_training,"workflow":motif_workflow,"messages":motif_messages,"chatbot":motif_chatbot,"service":motif_service}
+def motif_region(draw, layer):
+    outline=[(905,215),(1090,168),(1292,200),(1424,300),(1466,470),(1386,640),(1180,718),(1000,662),(898,500),(872,352)]
+    draw.polygon(outline,fill=(12,35,58,225))
+    draw.line(outline+[outline[0]],fill=(*CYAN,150),width=3)
+    draw.line((898,470,1030,508,1152,470,1292,522,1424,494),fill=(*TEAL,190),width=6)
+    rounded(draw,(1136,258,1336,392),(19,54,70,248),(*GOLD,175),3,22)
+    for x in range(1164,1310,34):
+        draw.rounded_rectangle((x,290,x+22,360),radius=6,fill=(*GOLD,185))
+    for box in [(902,548,1058,662),(1214,556,1370,670)]:
+        rounded(draw,box,(12,35,58,248),(*CYAN,135),2,20)
+        x1,y1,x2,_=box
+        draw.ellipse((x1+20,y1+22,x1+58,y1+60),fill=(*TEAL,225))
+        draw.rounded_rectangle((x1+20,y1+76,x2-32,y1+88),radius=6,fill=(*MUTED,150))
+    draw.line((1180,392,1180,470,980,470,980,548),fill=(*CYAN,160),width=4)
+    draw.line((1290,392,1290,556),fill=(*CYAN,160),width=4)
+    for p in [(1090,232),(1400,392),(1116,700),(930,392)]:
+        glow_dot(layer,p,CYAN,10)
+        draw.ellipse((p[0]-10,p[1]-10,p[0]+10,p[1]+10),fill=(*WHITE,242))
+    glow_dot(layer,(1236,258),GOLD,14)
+
+
+def motif_aisearch(draw, layer):
+    rounded(draw,(862,180,1476,600),(9,27,47,252),(*CYAN,130),4,30)
+    draw.rounded_rectangle((912,232,1186,254),radius=11,fill=(*WHITE,205))
+    draw.rounded_rectangle((912,278,1058,294),radius=8,fill=(*CYAN,180))
+    for y,w in [(324,486),(360,404),(396,288)]:
+        draw.rounded_rectangle((912,y,912+w,y+14),radius=7,fill=(*MUTED,150))
+    rounded(draw,(912,432,1424,552),(19,54,70,250),(*GOLD,165),3,22)
+    draw.ellipse((950,462,1006,518),fill=(*TEAL,235))
+    draw.rounded_rectangle((1032,462,1290,480),radius=9,fill=(*WHITE,215))
+    for i in range(5):
+        star(draw,(1045+i*42,517),15,(*GOLD,235))
+    draw.line((912,610,1476,610),fill=(*CYAN,70),width=2)
+    pin=(1372,676)
+    draw.ellipse((pin[0]-52,pin[1]-92,pin[0]+52,pin[1]+12),fill=(*CYAN,235))
+    draw.polygon([(pin[0]-30,pin[1]-4),(pin[0]+30,pin[1]-4),(pin[0],pin[1]+62)],fill=(*CYAN,235))
+    draw.ellipse((pin[0]-20,pin[1]-60,pin[0]+20,pin[1]-20),fill=(9,27,47,255))
+    glow_dot(layer,(pin[0],pin[1]-40),GOLD,12)
+    for x,y in [(930,676),(1050,706),(1170,668)]:
+        draw.rounded_rectangle((x,y,x+96,y+14),radius=7,fill=(*MUTED,120))
+
+
+def motif_courses(draw, layer):
+    rounded(draw,(862,172,1478,604),(12,33,54,250),(*CYAN,115),3,26)
+    labels=[(898,220,1078,556,TEAL),(1080,220,1260,556,CYAN),(1262,220,1442,556,GOLD)]
+    for i,(x1,y1,x2,y2,colour) in enumerate(labels):
+        rounded(draw,(x1+12,y1+12,x2-12,y2-12),(11,30,52,250),(*colour,165),3,22)
+        draw.rounded_rectangle((x1+34,y1+44,x2-34,y1+70),radius=13,fill=(*colour,225))
+        for row,w in [(0,0.72),(1,0.56),(2,0.40)]:
+            top=y1+118+row*44
+            draw.rounded_rectangle((x1+34,top,x1+34+int((x2-x1-68)*w),top+13),radius=7,fill=(*MUTED,145))
+        cx,cy=x1+((x2-x1)//2),y2-64
+        if i==0:
+            draw.line((cx-30,cy,cx-6,cy+22),fill=(*WHITE,235),width=11)
+            draw.line((cx-6,cy+22,cx+34,cy-32),fill=(*WHITE,235),width=11)
+        else:
+            draw.ellipse((cx-22,cy-22,cx+22,cy+22),fill=(*colour,215))
+        glow_dot(layer,((x1+x2)//2,y1+26),colour,9)
+    person(draw,940,760,0.78,(*CYAN,235))
+    draw.line((994,700,1080,634),fill=(*GOLD,165),width=5)
+    glow_dot(layer,(1080,634),GOLD,13)
+
+
+MOTIFS={"network":motif_network,"prompts":motif_prompts,"civil":motif_civil,"training":motif_training,"workflow":motif_workflow,"messages":motif_messages,"chatbot":motif_chatbot,"service":motif_service,"region":motif_region,"aisearch":motif_aisearch,"courses":motif_courses}
 
 
 def make_image(index, slug, category, line1, line2, motif):
@@ -222,5 +321,10 @@ def make_image(index, slug, category, line1, line2, motif):
     print(path, path.stat().st_size)
 
 if __name__ == "__main__":
-    for idx,record in enumerate(ARTICLES):
-        make_image(idx,*record)
+    # Pass slugs to regenerate a subset. Existing artwork is left untouched so a
+    # different host font never silently rewrites the published images.
+    wanted = set(sys.argv[1:])
+    for idx, record in enumerate(ARTICLES):
+        if wanted and record[0] not in wanted:
+            continue
+        make_image(idx, *record)

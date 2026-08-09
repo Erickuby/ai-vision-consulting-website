@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Tag, Mail } from 'lucide-react';
+import { ArrowRight, ChevronDown, Clock, Tag, Mail } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { blogPosts, getBlogPostHref, isLiveBlogPost, type BlogPost } from '../data/blog';
 import { shouldHandleClientNavigation } from '../lib/navigation';
@@ -148,7 +148,13 @@ function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
   );
 }
 
+// The homepage leads with the three newest articles; the rest stay one click away.
+const FEATURED_ARTICLE_COUNT = 3;
+
 export function Blog() {
+  const sortedArticles = [...blogPosts].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  const latestArticles = sortedArticles.slice(0, FEATURED_ARTICLE_COUNT);
+  const olderArticles = sortedArticles.slice(FEATURED_ARTICLE_COUNT);
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [newsletterError, setNewsletterError] = useState('');
@@ -291,12 +297,27 @@ export function Blog() {
             gap: '24px',
           }}
         >
-          {[...blogPosts]
-            .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-            .map((article, index) => (
-              <ArticleCard key={article.slug} article={article} index={index} />
-            ))}
+          {latestArticles.map((article, index) => (
+            <ArticleCard key={article.slug} article={article} index={index} />
+          ))}
         </div>
+
+        {olderArticles.length > 0 && (
+          // A native disclosure keeps every article link in the served HTML and
+          // still works with JavaScript unavailable.
+          <details className="blog-archive">
+            <summary aria-label={`Show ${olderArticles.length} more articles`}>
+              <span className="blog-archive__more">More articles ({olderArticles.length})</span>
+              <span className="blog-archive__less">Show fewer articles</span>
+              <ChevronDown size={16} className="blog-archive__chevron" aria-hidden="true" />
+            </summary>
+            <div className="blog-archive__grid">
+              {olderArticles.map((article, index) => (
+                <ArticleCard key={article.slug} article={article} index={index} />
+              ))}
+            </div>
+          </details>
+        )}
       </div>
     </section>
   );

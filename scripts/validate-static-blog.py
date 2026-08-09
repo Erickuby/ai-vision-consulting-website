@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the eight static blog pages and their homepage catalogue metadata."""
+"""Validate the static blog pages and their homepage catalogue metadata."""
 from __future__ import annotations
 
 import json
@@ -25,6 +25,9 @@ EXPECTED = {
     "use-ai-civil-service-application",
     "what-to-automate-first-small-business",
     "whatsapp-lead-automation-small-business",
+    "north-east-ai-growth-zone-small-business",
+    "get-found-in-ai-search-local-business",
+    "ai-courses-newcastle",
 }
 EXPECTED_PRIMARY_NAV = [
     ("Training", "/ai-training-newcastle/"),
@@ -183,10 +186,10 @@ def main() -> int:
             if not header_cta or header_cta.get_text(" ", strip=True) != "Book Free Assessment":
                 fail(slug, "desktop assessment CTA must match the homepage destination and label")
 
-        stylesheet = soup.find("link", rel="stylesheet", href="/styles.css?v=navigation-unified-2")
+        stylesheet = soup.find("link", rel="stylesheet", href="/styles.css?v=related-posts-1")
         if not stylesheet:
             fail(slug, "shared stylesheet URL must use the current navigation cache version")
-        navigation_script = soup.find("script", src="/main.js?v=navigation-unified-2")
+        navigation_script = soup.find("script", src="/main.js?v=related-posts-1")
         if not navigation_script:
             fail(slug, "shared navigation script URL must use the current cache version")
         article_image_rule = re.search(r"\.article-figure\s+img\s*\{[^}]*\}", html, flags=re.S)
@@ -317,7 +320,8 @@ def main() -> int:
     expected_urls = {f"{BASE}/blog/{slug}" for slug in EXPECTED}
     missing = expected_urls - sitemap_urls
     if missing: fail("sitemap", f"missing article URLs: {sorted(missing)}")
-    if len(sitemap_urls) != 21: fail("sitemap", f"contains {len(sitemap_urls)} URLs, expected 21")
+    expected_total = 13 + len(EXPECTED)
+    if len(sitemap_urls) != expected_total: fail("sitemap", f"contains {len(sitemap_urls)} URLs, expected {expected_total}")
 
     htaccess = (ROOT / "public" / ".htaccess").read_text(encoding="utf-8")
     for old in ("how-to-start-an-ai-side-hustle-from-scratch-in-2026", "agentic-ai-and-automation-how-to-scale-your-business-career-work-and-life"):
@@ -327,7 +331,7 @@ def main() -> int:
         print("BLOG VALIDATION FAILED")
         for issue in ERRORS: print(f"- {issue}")
         return 1
-    print(f"BLOG VALIDATION PASSED: {len(EXPECTED)} articles, 8 social images, {len(sitemap_urls)} sitemap URLs")
+    print(f"BLOG VALIDATION PASSED: {len(EXPECTED)} articles, {len(EXPECTED)} social images, {len(sitemap_urls)} sitemap URLs")
     return 0
 
 

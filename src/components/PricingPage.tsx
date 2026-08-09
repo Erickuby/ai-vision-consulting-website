@@ -20,7 +20,7 @@ function PriceCard({ item }: { item: TrainingPackage }) {
       <ul>
         {item.features.map((feature) => <li key={feature}><Check size={15} aria-hidden="true" />{feature}</li>)}
       </ul>
-      <a href="/contact/" className="pricing-card-link" data-conversion-placement={`Pricing — ${item.name}`}>
+      <a href="/contact/" className="pricing-card-link" data-conversion-placement={`Pricing: ${item.name}`}>
         Discuss this option <ArrowRight size={15} aria-hidden="true" />
       </a>
     </article>
@@ -139,7 +139,7 @@ export function PricingPage({ route }: { route: SiteRoute }) {
         <div className="seo-container pricing-cta-inner">
           <Users size={28} aria-hidden="true" />
           <div><span className="pricing-kicker">Not sure where to start?</span><h2 id="pricing-cta-heading">Choose the outcome before the package</h2><p>Explain who the training is for and what you want people to do differently afterwards. We will recommend the smallest useful option.</p></div>
-          <a className="btn-primary" href="https://cal.com/eric-nwankwo/ai-discovery-call" target="_blank" rel="noopener noreferrer" data-conversion-placement="Pricing — discovery call"><Calendar size={16} />Book a discovery call</a>
+          <a className="btn-primary" href="https://cal.com/eric-nwankwo/ai-discovery-call" target="_blank" rel="noopener noreferrer" data-conversion-placement="Pricing: discovery call"><Calendar size={16} />Book a discovery call</a>
         </div>
       </section>
     </main>
