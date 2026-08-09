@@ -56,6 +56,7 @@ ARTICLES = [
     ("north-east-ai-growth-zone-small-business", "GROWTH ZONE", "The AI Growth Zone", "and your small business", "region"),
     ("get-found-in-ai-search-local-business", "AI SEARCH", "Get found when", "customers ask an assistant", "aisearch"),
     ("ai-courses-newcastle", "AI COURSES", "Learn AI in Newcastle", "free, funded or paid", "courses"),
+    ("ai-hallucination-and-rag", "AI SAFETY", "Why AI makes things up", "and how grounding helps", "grounding"),
 ]
 
 
@@ -291,7 +292,29 @@ def motif_courses(draw, layer):
     glow_dot(layer,(1080,634),GOLD,13)
 
 
-MOTIFS={"network":motif_network,"prompts":motif_prompts,"civil":motif_civil,"training":motif_training,"workflow":motif_workflow,"messages":motif_messages,"chatbot":motif_chatbot,"service":motif_service,"region":motif_region,"aisearch":motif_aisearch,"courses":motif_courses}
+def motif_grounding(draw, layer):
+    rounded(draw,(872,176,1466,436),(9,27,47,252),(*CYAN,140),4,28)
+    draw.rounded_rectangle((916,214,1190,236),radius=11,fill=(*WHITE,205))
+    for y,w in [(268,470),(304,392)]:
+        draw.rounded_rectangle((916,y,916+w,y+14),radius=7,fill=(*MUTED,150))
+    for i in range(3):
+        x=916+i*178
+        rounded(draw,(x,352,x+150,398),(19,54,70,250),(*CYAN,175),2,22)
+        draw.rectangle((x+18,366,x+40,384),fill=(*CYAN,235))
+        draw.rounded_rectangle((x+52,370,x+130,380),radius=5,fill=(*WHITE,205))
+        glow_dot(layer,(x+29,375),CYAN,7)
+    rounded(draw,(872,476,1466,700),(26,18,8,250),(*GOLD,150),3,28)
+    draw.rounded_rectangle((916,514,1150,536),radius=11,fill=(*WHITE,180))
+    for y,w in [(568,440),(604,360)]:
+        draw.rounded_rectangle((916,y,916+w,y+14),radius=7,fill=(*MUTED,130))
+    tx,ty=1330,600
+    draw.polygon([(tx,ty-46),(tx-52,ty+40),(tx+52,ty+40)],fill=(*GOLD,235))
+    draw.rectangle((tx-6,ty-24,tx+6,ty+10),fill=(26,18,8,255))
+    draw.ellipse((tx-7,ty+18,tx+7,ty+32),fill=(26,18,8,255))
+    glow_dot(layer,(tx,ty-46),GOLD,10)
+
+
+MOTIFS={"network":motif_network,"prompts":motif_prompts,"civil":motif_civil,"training":motif_training,"workflow":motif_workflow,"messages":motif_messages,"chatbot":motif_chatbot,"service":motif_service,"region":motif_region,"aisearch":motif_aisearch,"courses":motif_courses,"grounding":motif_grounding}
 
 
 def make_image(index, slug, category, line1, line2, motif):

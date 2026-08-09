@@ -148,8 +148,8 @@ function ArticleCard({ article, index }: { article: BlogPost; index: number }) {
   );
 }
 
-// The homepage leads with the three newest articles; the rest stay one click away.
-const FEATURED_ARTICLE_COUNT = 3;
+// The homepage leads with the four newest articles; the rest stay one click away.
+const FEATURED_ARTICLE_COUNT = 4;
 
 export function Blog() {
   const sortedArticles = [...blogPosts].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));

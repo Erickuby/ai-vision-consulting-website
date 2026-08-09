@@ -59,6 +59,7 @@ Automation work begins with the current workflow rather than a predetermined too
 - [What the North East AI Growth Zone Means for Small Businesses](https://aivisionconsulting.co.uk/blog/north-east-ai-growth-zone-small-business)
 - [How to Get Your Local Business Found in AI Search](https://aivisionconsulting.co.uk/blog/get-found-in-ai-search-local-business)
 - [AI Courses in Newcastle: Free, Funded and Paid Options](https://aivisionconsulting.co.uk/blog/ai-courses-newcastle)
+- [Why AI Makes Things Up, and How to Ground It in Your Own Documents](https://aivisionconsulting.co.uk/blog/ai-hallucination-and-rag)
 
 ## Contact
 

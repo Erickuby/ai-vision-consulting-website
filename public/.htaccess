@@ -32,5 +32,25 @@ ErrorDocument 404 /404.html
   RewriteRule ^blog/([A-Za-z0-9-]+)$ /blog/$1.html [L]
 </IfModule>
 
+# Every HTML page here is prerendered and republished on each deploy, so a
+# proxy holding one must revalidate rather than serve a stale copy. Assets are
+# content-hashed, so those stay immutable and long-lived.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header always set Cache-Control "public, max-age=0, must-revalidate, s-maxage=0"
+  </FilesMatch>
+
+  # Build output carries a content hash in the filename, so it never changes.
+  <FilesMatch "-[A-Za-z0-9_-]{8}\.(js|css)$">
+    Header always set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Logos, article images and video keep their names when replaced, so they
+  # must revalidate rather than pin an old file in somebody's browser.
+  <FilesMatch "\.(png|jpe?g|svg|webp|gif|ico|mp4|woff2?)$">
+    Header always set Cache-Control "public, max-age=86400, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
 # There is deliberately no SPA catch-all. Physical route directories return
 # crawlable HTML; unknown paths retain a genuine HTTP 404 status.

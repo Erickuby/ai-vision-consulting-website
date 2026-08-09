@@ -28,6 +28,7 @@ EXPECTED = {
     "north-east-ai-growth-zone-small-business",
     "get-found-in-ai-search-local-business",
     "ai-courses-newcastle",
+    "ai-hallucination-and-rag",
 }
 EXPECTED_PRIMARY_NAV = [
     ("Training", "/ai-training-newcastle/"),
