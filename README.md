@@ -1,6 +1,6 @@
 # AI Vision Consulting Website
 
-A production-ready marketing website for AI Vision Consulting Ltd, built with React, TypeScript, Vite, Tailwind CSS, Framer Motion, and Three.js (React Three Fiber).
+A production-ready marketing website for AI Vision Consulting, built with React, TypeScript, Vite, Tailwind CSS, Framer Motion, and Three.js (React Three Fiber).
 
 The site is designed as a high-impact, animated single-page experience with a 3D neural background, conversion-focused sections, and an EmailJS-powered contact form.
 

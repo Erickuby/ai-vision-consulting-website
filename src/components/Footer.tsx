@@ -92,7 +92,7 @@ export function Footer() {
                   AI Vision
                 </div>
                 <div style={{ fontFamily: 'Space Grotesk', fontWeight: 400, fontSize: '10px', color: '#00D4FF', letterSpacing: '0.08em', lineHeight: 1, marginTop: 2 }}>
-                  CONSULTING LTD
+                  CONSULTING
                 </div>
               </div>
             </div>
@@ -261,7 +261,7 @@ export function Footer() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px'
         }}>
           <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: '#8899AA' }}>
-            © AI Vision Consulting Ltd. All rights reserved.
+            © AI Vision Consulting. Eric Nwankwo trading as AI Vision Consulting.
           </p>
           <div style={{ display: 'flex', gap: '20px' }}>
             {legalLinks.map((item) => (

@@ -32,8 +32,8 @@ EXPECTED = {
 }
 EXPECTED_PRIMARY_NAV = [
     ("Training", "/ai-training-newcastle/"),
+    ("Corporate Training", "/corporate-ai-training-uk/"),
     ("Automation", "/ai-automation-consultant-newcastle/"),
-    ("Fiverr Services", "/#fiverr-services"),
     ("About", "/about-eric-nwankwo/"),
     ("Case Studies", "/case-studies/"),
     ("Pricing", "/pricing/"),
@@ -184,8 +184,8 @@ def main() -> int:
                 fail(slug, f"desktop navigation is {desktop_links!r}; expected the current homepage navigation")
 
             header_cta = soup.select_one('.header-cta[href="/contact/"]')
-            if not header_cta or header_cta.get_text(" ", strip=True) != "Book Free Assessment":
-                fail(slug, "desktop assessment CTA must match the homepage destination and label")
+            if not header_cta or header_cta.get_text(" ", strip=True) != "Discuss a Workshop":
+                fail(slug, "desktop workshop CTA must match the homepage destination and label")
 
         stylesheet = soup.find("link", rel="stylesheet", href="/styles.css?v=related-posts-1")
         if not stylesheet:

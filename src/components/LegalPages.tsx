@@ -24,7 +24,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
       {
         title: '1. Who We Are',
         paragraphs: [
-          'AI Vision Consulting Ltd is responsible for processing your personal data when you use this website, contact us, or engage our services.',
+          'Eric Nwankwo, trading as AI Vision Consulting, is responsible for processing your personal data when you use this website, contact us, or engage our services.',
           'If you have any privacy questions, contact us at eric@aivisionconsulting.co.uk.',
         ],
       },
@@ -74,7 +74,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
     title: 'Terms of Service',
     badge: 'Legal Agreement',
     summary:
-      'These terms govern your use of this website and related services provided by AI Vision Consulting Ltd.',
+      'These terms govern your use of this website and related services provided by AI Vision Consulting.',
     lastUpdated: '24 February 2026',
     sections: [
       {
@@ -86,7 +86,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
       {
         title: '2. Services',
         paragraphs: [
-          'AI Vision Consulting Ltd provides AI education, advisory, and related resources. Service details, availability, and pricing may change at any time.',
+          'AI Vision Consulting provides AI education, advisory, and related resources. Service details, availability, and pricing may change at any time.',
         ],
       },
       {
@@ -99,7 +99,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
       {
         title: '4. Intellectual Property',
         paragraphs: [
-          'All website content, branding, and materials are owned by or licensed to AI Vision Consulting Ltd unless otherwise stated.',
+          'All website content, branding, and materials are owned by or licensed to AI Vision Consulting unless otherwise stated.',
           'You may not copy, redistribute, or commercially exploit content without prior written permission.',
         ],
       },
@@ -114,7 +114,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
         title: '6. Disclaimers and Liability',
         paragraphs: [
           'Content is provided for general information and education. It is not legal, tax, or financial advice.',
-          'To the fullest extent permitted by law, AI Vision Consulting Ltd is not liable for indirect, incidental, or consequential losses arising from use of this website or services.',
+          'To the fullest extent permitted by law, AI Vision Consulting is not liable for indirect, incidental, or consequential losses arising from use of this website or services.',
         ],
       },
       {
@@ -262,7 +262,7 @@ export function LegalPage({ page }: { page: LegalPageType }) {
                   marginTop: '2px',
                 }}
               >
-                CONSULTING LTD
+                CONSULTING
               </div>
             </div>
           </a>
@@ -537,7 +537,7 @@ export function LegalPage({ page }: { page: LegalPageType }) {
             lineHeight: 1.7,
           }}
         >
-          © 2026 AI Vision Consulting Ltd. Registered in England &amp; Wales.
+          © 2026 Eric Nwankwo trading as AI Vision Consulting. Newcastle upon Tyne, England.
           Informational content only. Not legal advice.
         </p>
       </main>

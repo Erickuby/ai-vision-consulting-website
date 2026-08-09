@@ -7,6 +7,7 @@ import { FlagshipCourses } from './components/FlagshipCourses';
 import { AnnouncementBanner } from './components/AnnouncementBanner';
 import { WhatsAppCommunity } from './components/WhatsAppCommunity';
 import { AIJourney } from './components/AIJourney';
+import { PracticalUseCases } from './components/PracticalUseCases';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
 import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
 import { AboutUpgraded } from './components/AboutUpgraded';
@@ -129,16 +130,17 @@ export function App({ pathname = '/' }: { pathname?: string }) {
         <main id="main-content">
           <HeroUpgraded />
           <SocialProofTicker />
+          <TestimonialsUpgraded />
+          <PracticalUseCases />
+          <Services />
           <FlagshipCourses />
-          <WhatsAppCommunity />
-          <AIJourney />
           <div className="max-w-6xl mx-auto px-6"><div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" /></div>
           <CoursesUpgraded />
-          <TestimonialsUpgraded />
           <div className="max-w-6xl mx-auto px-6"><div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" /></div>
           <AboutUpgraded />
           <WhoThisIsFor />
-          <Services />
+          <AIJourney />
+          <WhatsAppCommunity />
           <FiverrServices />
           <Blog />
           <Contact source="Homepage contact form" />

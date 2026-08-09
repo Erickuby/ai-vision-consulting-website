@@ -220,7 +220,7 @@ def build_schema(meta: dict[str, str], faqs: list[dict[str, str]]) -> dict:
         {
             "@type": "Organization",
             "@id": f"{SITE_URL}/#organisation",
-            "name": "AI Vision Consulting Ltd",
+            "name": "AI Vision Consulting",
             "url": f"{SITE_URL}/",
             "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/logo.svg"},
         },

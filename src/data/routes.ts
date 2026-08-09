@@ -99,14 +99,14 @@ const routes = [
     ],
   },
   {
-    path: '/about-eric-nwankwo/', kind: 'company', eyebrow: 'Founder of AI Vision Consulting Ltd',
+    path: '/about-eric-nwankwo/', kind: 'company', eyebrow: 'Founder of AI Vision Consulting',
     title: 'About Eric Nwankwo | AI Vision Consulting',
-    description: 'Meet Eric Nwankwo, founder of Newcastle-based AI Vision Consulting Ltd, providing practical AI training and automation support.',
+    description: 'Meet Eric Nwankwo, founder of Newcastle-based AI Vision Consulting, providing practical AI training and automation support.',
     h1: 'About Eric Nwankwo and AI Vision Consulting',
-    intro: 'Eric Nwankwo founded AI Vision Consulting Ltd to make practical AI learning and workflow support easier to understand for organisations, professionals and communities.',
+    intro: 'Eric Nwankwo runs AI Vision Consulting to make practical AI learning and workflow support easier to understand for organisations, professionals and communities.',
     sections: [
       { heading: 'A practical approach to AI', paragraphs: ['The focus is not on hype or abstract demonstrations. It is on helping people understand what a tool can do, apply it to a real task and keep the human judgement needed to review the result.', 'That approach connects training with process improvement: teams learn the foundations, then identify where a repeatable workflow may be worth documenting or automating.'] },
-      { heading: 'Based in Newcastle, working across the UK', paragraphs: ['AI Vision Consulting Ltd is Newcastle-based and supports wider UK audiences through remote delivery. Local in-person work can be discussed according to the engagement.', 'Audiences include businesses, corporate teams, professionals, jobseekers and community or employability organisations.'] },
+      { heading: 'Based in Newcastle, working across the UK', paragraphs: ['AI Vision Consulting is Newcastle-based and supports wider UK audiences through remote delivery. Local in-person work can be discussed according to the engagement.', 'Audiences include businesses, corporate teams, professionals, jobseekers and community or employability organisations.'] },
       { heading: 'Start with a conversation', paragraphs: ['A discovery call is a chance to explain your audience, workflow or training requirement. If there is a suitable next step, the work can then be scoped around the real requirement.', 'You can also explore the service pages to compare team training, automation consulting and community-focused delivery.'] },
     ],
   },
@@ -151,7 +151,7 @@ const routes = [
     ],
   },
   {
-    path: '/privacy-policy/', kind: 'legal', eyebrow: 'Your data', title: 'Privacy Policy | AI Vision Consulting', description: 'Privacy policy for AI Vision Consulting Ltd, including personal data use, retention and data protection rights.', h1: 'Privacy Policy', intro: '', sections: []
+    path: '/privacy-policy/', kind: 'legal', eyebrow: 'Your data', title: 'Privacy Policy | AI Vision Consulting', description: 'Privacy policy for AI Vision Consulting, including personal data use, retention and data protection rights.', h1: 'Privacy Policy', intro: '', sections: []
   },
   {
     path: '/terms-of-service/', kind: 'legal', eyebrow: 'Legal agreement', title: 'Terms of Service | AI Vision Consulting', description: 'Terms governing use of the AI Vision Consulting website, enquiries, bookings and the delivery of agreed training or consulting services.', h1: 'Terms of Service', intro: '', sections: []

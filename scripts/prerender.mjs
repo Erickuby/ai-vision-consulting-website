@@ -24,7 +24,7 @@ function structuredData(route) {
     {
       '@type': 'Organization',
       '@id': `${server.SITE_URL}/#organisation`,
-      name: 'AI Vision Consulting Ltd',
+      name: 'AI Vision Consulting',
       url: `${server.SITE_URL}/`,
       logo: `${server.SITE_URL}/logo.svg`,
       email: 'eric@aivisionconsulting.co.uk',
@@ -49,7 +49,7 @@ function structuredData(route) {
       '@type': 'WebSite',
       '@id': `${server.SITE_URL}/#website`,
       url: `${server.SITE_URL}/`,
-      name: 'AI Vision Consulting Ltd',
+      name: 'AI Vision Consulting',
       publisher: { '@id': `${server.SITE_URL}/#organisation` },
     },
   ];
@@ -126,7 +126,7 @@ function structuredData(route) {
 
 function createHead(route) {
   const canonical = server.routeCanonical(route);
-  const image = `${server.SITE_URL}/og-image.jpg`;
+  const image = `${server.SITE_URL}/og-image-v2.png`;
   return [
     `<title>${escapeHtml(route.title)}</title>`,
     `<meta name="description" content="${escapeHtml(route.description)}" />`,

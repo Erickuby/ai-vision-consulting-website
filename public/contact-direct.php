@@ -8,7 +8,7 @@ $formspreeEndpoint = 'https://formspree.io/f/mpqyoypl';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Direct Contact | AI Vision Consulting Ltd</title>
+    <title>Direct Contact | AI Vision Consulting</title>
     <meta name="robots" content="noindex,nofollow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -297,7 +297,7 @@ $formspreeEndpoint = 'https://formspree.io/f/mpqyoypl';
           <img src="/logo.svg" alt="AI Vision Consulting logo" />
           <div>
             <strong>AI Vision</strong>
-            <span>CONSULTING LTD</span>
+            <span>CONSULTING</span>
           </div>
         </a>
         <a class="home-link" href="/">Back to Homepage</a>

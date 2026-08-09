@@ -36,8 +36,11 @@ ErrorDocument 404 /404.html
 # proxy holding one must revalidate rather than serve a stale copy. Assets are
 # content-hashed, so those stay immutable and long-lived.
 <IfModule mod_headers.c>
+  # SiteGround's dynamic cache stores pages for 12 hours by default and honours
+  # no-cache and private to skip them. Every page here is prerendered and
+  # republished on each deploy, so the server must never hold its own copy.
   <FilesMatch "\.html$">
-    Header always set Cache-Control "public, max-age=0, must-revalidate, s-maxage=0"
+    Header always set Cache-Control "private, no-cache, must-revalidate"
   </FilesMatch>
 
   # Build output carries a content hash in the filename, so it never changes.

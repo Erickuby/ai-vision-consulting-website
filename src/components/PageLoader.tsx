@@ -86,7 +86,7 @@ export function PageLoader({ onDone }: { onDone: () => void }) {
               fontFamily: 'Space Grotesk', fontSize: 11, fontWeight: 400,
               color: '#00D4FF', letterSpacing: '0.12em', marginTop: 3,
             }}>
-              CONSULTING LTD
+              CONSULTING
             </div>
           </div>
 

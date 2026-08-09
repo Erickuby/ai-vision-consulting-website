@@ -1,36 +1,40 @@
 import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
+import { ExternalLink, Star } from 'lucide-react';
 import { Reveal } from './Reveal';
 
-const principles = [
+const reviews = [
   {
-    title: 'Start with the real task',
-    text: 'Training and consulting begin with the work people actually need to complete, not a generic list of AI tools.',
+    name: 'Tolulola Adebiyi',
+    text: 'Well equipped to train people in the use of AI.',
   },
   {
-    title: 'Keep people in control',
-    text: 'Participants learn to review outputs, protect sensitive information and recognise decisions that require human judgement.',
+    name: 'Toluwalope Opadeyi',
+    text: 'Lovely session and well explained. Thanks Eric.',
   },
   {
-    title: 'Measure before scaling',
-    text: 'Automation opportunities are scoped around evidence, ownership and a clear way to judge whether the change is useful.',
+    name: 'Alexandrai Ishiekwene',
+    text: 'Thank you for your selfless teachings Eric.',
   },
 ];
 
 export function TestimonialsUpgraded() {
   return (
-    <section className="relative z-10" style={{ padding: '80px 24px' }} aria-label="How we work">
+    <section className="relative z-10" style={{ padding: '72px 24px' }} aria-label="Google reviews">
       <div className="max-w-6xl mx-auto">
         <Reveal style={{ textAlign: 'center', marginBottom: '56px' }}>
-          <span className="badge badge-cyan" style={{ marginBottom: '16px', display: 'inline-block' }}>How We Work</span>
+          <span className="badge badge-cyan" style={{ marginBottom: '16px', display: 'inline-block' }}>Client Feedback</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0F4FF] tracking-tight">
-            Practical delivery without <span className="gradient-text-cyan">inflated promises</span>
+            Trusted for clear, <span className="gradient-text-cyan">practical teaching</span>
           </h2>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginTop: '18px', color: '#FFD700' }}>
+            <span aria-hidden="true" style={{ display: 'inline-flex', gap: 2 }}>{[0, 1, 2, 3, 4].map((item) => <Star key={item} size={18} fill="currentColor" />)}</span>
+            <span style={{ color: '#D7E2ED', fontWeight: 700 }}>Rated 5.0 on Google</span>
+          </div>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {principles.map((principle, index) => (
-            <Reveal key={principle.title} delay={0.12 + index * 0.08}>
+          {reviews.map((review, index) => (
+            <Reveal key={review.name} delay={0.12 + index * 0.08}>
               <motion.div
                 whileHover={{ y: -6, scale: 1.01 }}
                 transition={{ type: 'spring', stiffness: 280, damping: 22 }}
@@ -42,17 +46,22 @@ export function TestimonialsUpgraded() {
                   boxShadow: '0 20px 56px rgba(0,0,0,0.2)',
                 }}
               >
-                <CheckCircle size={22} color="#00D4FF" style={{ marginBottom: '20px' }} />
+                <div aria-hidden="true" style={{ display: 'flex', gap: 3, color: '#FFD700', marginBottom: '20px' }}>{[0, 1, 2, 3, 4].map((item) => <Star key={item} size={16} fill="currentColor" />)}</div>
                 <h3 className="font-display" style={{ fontSize: '19px', fontWeight: 700, color: '#F0F4FF', marginBottom: '12px' }}>
-                  {principle.title}
+                  {review.name}
                 </h3>
                 <p style={{ fontSize: '15px', color: '#D7E2ED', lineHeight: 1.8 }}>
-                  {principle.text}
+                  “{review.text}”
                 </p>
               </motion.div>
             </Reveal>
           ))}
         </div>
+        <Reveal style={{ textAlign: 'center', marginTop: '32px' }}>
+          <a href="https://www.google.com/search?q=AI+Vision+Consulting+Newcastle" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+            Read Google Reviews <ExternalLink size={15} />
+          </a>
+        </Reveal>
       </div>
     </section>
   );

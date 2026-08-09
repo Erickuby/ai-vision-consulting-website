@@ -41,14 +41,15 @@ function MagneticButton({ children, onClick, className, ariaLabel }: {
 }
 
 const trustSignals = [
-  'Newcastle-based AI training',
-  'Remote support for UK organisations',
+  'Rated 5.0 on Google',
+  'Online and in-person delivery',
+  'Newcastle-based, working across the UK',
 ];
 
 const stats = [
-  { value: 'Practical', label: 'Training built around real work' },
-  { value: 'Measured', label: 'Automation scoped before implementation' },
-  { value: 'Responsible', label: 'Human review and safe AI use' },
+  { value: 'Role-specific', label: 'Exercises shaped around the work people do' },
+  { value: 'Beginner-friendly', label: 'Clear teaching without unnecessary jargon' },
+  { value: 'Responsible', label: 'Privacy, accuracy and human review built in' },
 ];
 
 function TiltCard({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {
@@ -120,9 +121,9 @@ export function HeroUpgraded() {
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
           style={{ color: '#F0F4FF', marginBottom: '24px' }}
         >
-          Practical AI Training and{' '}
-          <span className="gradient-text-gold-shimmer">Automation</span>{' '}
-          for Newcastle and UK Organisations
+          Practical AI training for{' '}
+          <span className="gradient-text-gold-shimmer">real work</span>{' '}
+          across Newcastle and the UK
         </motion.h1>
 
         {/* Subheadline */}
@@ -133,7 +134,7 @@ export function HeroUpgraded() {
           className="text-base sm:text-lg md:text-xl text-[#8899AA] leading-relaxed max-w-2xl mx-auto"
           style={{ marginBottom: '40px' }}
         >
-          Build useful AI capability and improve real workflows through practical training and measured automation support for Newcastle organisations, UK businesses, professionals, jobseekers and community partners.
+          Hands-on workshops for teams, professionals and community programmes. Learn to use tools such as ChatGPT, Claude and Copilot for everyday work, with clear guidance on accuracy, privacy and human oversight.
         </motion.p>
 
         {/* CTAs */}
@@ -146,17 +147,17 @@ export function HeroUpgraded() {
           <MagneticButton
             onClick={() => scrollTo('contact')}
             className="btn-primary glow-gold"
-            ariaLabel="Book Free AI Assessment"
+            ariaLabel="Discuss an AI workshop"
           >
             <Sparkles size={16} />
-            Book Free AI Assessment
+            Discuss an AI Workshop
           </MagneticButton>
           <MagneticButton
             onClick={() => scrollTo('courses')}
             className="btn-secondary"
-            ariaLabel="Browse Courses"
+            ariaLabel="View training options"
           >
-            Browse Courses
+            View Training Options
             <ArrowRight size={16} />
           </MagneticButton>
         </motion.div>

@@ -66,7 +66,7 @@ export function StickyCTA() {
             >
               <Sparkles size={16} />
             </motion.div>
-            Book Free Assessment
+            Discuss a Workshop
           </motion.button>
         </motion.div>
       )}

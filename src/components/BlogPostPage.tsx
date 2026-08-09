@@ -8,11 +8,11 @@ import { navigateToPath, shouldHandleClientNavigation } from '../lib/navigation'
 const siteUrl = 'https://aivisionconsulting.co.uk';
 
 const defaultSeo = {
-  title: 'AI Vision Consulting Ltd | AI Skills for Jobs, Business & Financial Freedom',
+  title: 'AI Vision Consulting | Practical AI Training & Automation',
   description:
-    'Newcastle-based AI training and consulting. Practical AI skills for jobseekers, small business owners, and community groups. Book your free AI assessment today.',
+    'Newcastle-based practical AI training and automation support for teams, professionals, small businesses and community organisations across the UK.',
   keywords: 'AI training Newcastle, AI skills jobseekers, AI consulting UK, AI for small business, career change AI',
-  ogTitle: 'AI Vision Consulting Ltd | AI Skills for Financial Freedom',
+  ogTitle: 'AI Vision Consulting | Practical AI Training',
   ogDescription:
     'Practical AI training for jobseekers, small businesses, and communities in Newcastle and across the UK.',
   canonical: `${siteUrl}/`,
@@ -136,7 +136,7 @@ function applyBlogSeo(post: BlogPost) {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'AI Vision Consulting Ltd',
+      name: 'AI Vision Consulting',
       logo: {
         '@type': 'ImageObject',
         url: `${siteUrl}/logo.svg`,
