@@ -1029,14 +1029,41 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto !important; }
-  *, *::before, *::after {
+  html:not([data-motion-enabled]) { scroll-behavior: auto !important; }
+  html:not([data-motion-enabled]) *,
+  html:not([data-motion-enabled]) *::before,
+  html:not([data-motion-enabled]) *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
-  .motion-decorative { display: none !important; }
+  html:not([data-motion-enabled]) .motion-decorative { display: none !important; }
+}
+
+.motion-preference-control {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 180;
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(5, 13, 26, 0.92);
+  color: #d7e2ed;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+}
+
+.motion-preference-control:hover,
+.motion-preference-control:focus-visible {
+  border-color: rgba(0, 212, 255, 0.7);
+  color: #ffffff;
 }
 
 .skip-link {

@@ -24,16 +24,35 @@ import { PricingPage } from './components/PricingPage';
 import { getSiteRoute, normalizeRoutePath } from './data/routes';
 import { trackOutboundEnquiryLink } from './lib/leadCapture';
 
+const MOTION_PREFERENCE_KEY = 'avc-motion-preference';
+
+function motionIsEnabled() {
+  if (typeof window === 'undefined') return false;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  return !reducedMotion || window.localStorage.getItem(MOTION_PREFERENCE_KEY) === 'enabled';
+}
+
 function ClientDecoration() {
   const [Decoration, setDecoration] = useState<ComponentType | null>(null);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const desktopPointer = window.matchMedia('(min-width: 900px) and (hover: hover) and (pointer: fine)').matches;
-    const hardwareThreads = navigator.hardwareConcurrency ?? 8;
-    const deviceMemory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 8;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setEnabled(motionIsEnabled());
+    update();
+    media.addEventListener('change', update);
+    window.addEventListener('avc-motion-change', update);
+    return () => {
+      media.removeEventListener('change', update);
+      window.removeEventListener('avc-motion-change', update);
+    };
+  }, []);
 
-    if (reducedMotion || !desktopPointer || hardwareThreads <= 4 || deviceMemory < 4) return;
+  useEffect(() => {
+    if (!enabled || !window.matchMedia('(min-width: 768px)').matches) {
+      setDecoration(null);
+      return;
+    }
 
     let cancelled = false;
     const loadDecoration = () => {
@@ -61,9 +80,49 @@ function ClientDecoration() {
       if (usedIdleCallback) idleWindow.cancelIdleCallback!(handle);
       else window.clearTimeout(handle);
     };
-  }, []);
+  }, [enabled]);
 
   return Decoration ? <Decoration /> : null;
+}
+
+function MotionPreferenceControl() {
+  const [visible, setVisible] = useState(false);
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => {
+      const override = window.localStorage.getItem(MOTION_PREFERENCE_KEY) === 'enabled';
+      setVisible(media.matches);
+      setEnabled(override);
+      document.documentElement.toggleAttribute('data-motion-enabled', override);
+    };
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  if (!visible) return null;
+
+  const toggleMotion = () => {
+    const next = !enabled;
+    if (next) window.localStorage.setItem(MOTION_PREFERENCE_KEY, 'enabled');
+    else window.localStorage.removeItem(MOTION_PREFERENCE_KEY);
+    document.documentElement.toggleAttribute('data-motion-enabled', next);
+    setEnabled(next);
+    window.dispatchEvent(new Event('avc-motion-change'));
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={toggleMotion}
+      className="motion-preference-control"
+      aria-pressed={enabled}
+    >
+      {enabled ? 'Pause animations' : 'Enable animations'}
+    </button>
+  );
 }
 
 function SiteBackground({ children }: { children: ReactNode }) {
@@ -72,6 +131,7 @@ function SiteBackground({ children }: { children: ReactNode }) {
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <ScrollProgress />
       <ClientDecoration />
+      <MotionPreferenceControl />
       {children}
     </div>
   );
