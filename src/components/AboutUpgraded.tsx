@@ -58,9 +58,11 @@ export function AboutUpgraded() {
                   <div
                     className="absolute bottom-0 left-0 right-0 flex flex-col justify-end"
                     style={{
-                      padding: '24px',
-                      paddingTop: '64px',
-                      background: 'linear-gradient(to top, rgba(5,13,26,0.95) 20%, transparent)',
+                      minHeight: '104px',
+                      padding: '20px 24px 18px',
+                      background: 'rgba(5,13,26,0.98)',
+                      borderTop: '1px solid rgba(0,212,255,0.12)',
+                      boxShadow: '0 -14px 30px rgba(5,13,26,0.42)',
                     }}
                   >
                     <div className="font-display text-lg font-bold text-[#F0F4FF]">
