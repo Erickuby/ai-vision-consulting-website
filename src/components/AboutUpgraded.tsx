@@ -46,10 +46,10 @@ export function AboutUpgraded() {
                   }}
                 >
                   <img
-                    src="/profile.png"
+                    src="/profile-clean-v2.png"
                     alt="Eric Nwankwo"
-                    width={397}
-                    height={400}
+                    width={1254}
+                    height={1254}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-auto object-cover"
@@ -58,11 +58,9 @@ export function AboutUpgraded() {
                   <div
                     className="absolute bottom-0 left-0 right-0 flex flex-col justify-end"
                     style={{
-                      minHeight: '104px',
-                      padding: '20px 24px 18px',
-                      background: 'rgba(5,13,26,0.98)',
-                      borderTop: '1px solid rgba(0,212,255,0.12)',
-                      boxShadow: '0 -14px 30px rgba(5,13,26,0.42)',
+                      minHeight: '132px',
+                      padding: '64px 24px 22px',
+                      background: 'linear-gradient(to top, rgba(5,13,26,0.97) 0%, rgba(5,13,26,0.78) 42%, rgba(5,13,26,0.28) 72%, transparent 100%)',
                     }}
                   >
                     <div className="font-display text-lg font-bold text-[#F0F4FF]">
