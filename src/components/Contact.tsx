@@ -289,6 +289,12 @@ export function Contact({ source = 'Homepage contact form' }: { source?: string 
                   <h3 style={{ fontFamily: 'Space Grotesk', fontSize: '20px', fontWeight: 700, color: '#F0F4FF', marginBottom: '24px' }}>
                     Send us a message
                   </h3>
+                  <p style={{
+                    fontFamily: 'Plus Jakarta Sans', fontSize: '13.5px', color: '#A9B9C9', lineHeight: 1.6,
+                    marginTop: '-14px', marginBottom: '22px', paddingLeft: '12px', borderLeft: '2px solid #00D4FF',
+                  }}>
+                    We respond to business and partnership enquiries within one working day.
+                  </p>
 
                   <div className="contact-name-email-grid" style={{ display: 'grid', gap: '16px', marginBottom: '16px' }}>
                     <div>

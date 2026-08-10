@@ -1079,3 +1079,8 @@ html {
   font-weight: 700;
 }
 .skip-link:focus { transform: translateY(0); }
+@media (max-width: 767px) {
+  .engagement-process-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
