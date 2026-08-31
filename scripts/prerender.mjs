@@ -28,7 +28,7 @@ function structuredData(route) {
       url: `${server.SITE_URL}/`,
       logo: `${server.SITE_URL}/logo.svg`,
       image: `${server.SITE_URL}/og-image-v2.png`,
-      email: 'eric@aivisionconsulting.co.uk',
+      email: 'eric.nwankwo@aivisionconsulting.co.uk',
       telephone: '+447341183915',
       priceRange: '££',
       address: {

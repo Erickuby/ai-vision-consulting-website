@@ -317,10 +317,10 @@ $formspreeEndpoint = 'https://formspree.io/f/mpqyoypl';
           <div class="card">
             <h2>Quick contact options</h2>
             <div class="options">
-              <a class="option-link" href="mailto:eric@aivisionconsulting.co.uk?subject=Website%20Enquiry">
+              <a class="option-link" href="mailto:eric.nwankwo@aivisionconsulting.co.uk?subject=Website%20Enquiry">
                 <div>
                   <strong>Email directly</strong>
-                  <span>eric@aivisionconsulting.co.uk</span>
+                  <span>eric.nwankwo@aivisionconsulting.co.uk</span>
                 </div>
                 <span>Open mail app</span>
               </a>
@@ -346,7 +346,7 @@ $formspreeEndpoint = 'https://formspree.io/f/mpqyoypl';
             <p class="meta">
               Newcastle upon Tyne, UK<br />
               Serving the UK, remote and in person<br /><br />
-              Email: eric@aivisionconsulting.co.uk<br />
+              Email: eric.nwankwo@aivisionconsulting.co.uk<br />
               Phone: +44 7341 183915
             </p>
           </div>

@@ -99,7 +99,7 @@ $safeEmail = filter_var($email, FILTER_SANITIZE_EMAIL) ?: $email;
 $safeEnquiryType = preg_replace("/[\r\n]+/", ' ', $enquiryType) ?: $enquiryType;
 $safeMessage = preg_replace("/\r\n|\r|\n/", PHP_EOL, $message) ?: $message;
 
-$to = 'eric@aivisionconsulting.co.uk';
+$to = 'eric.nwankwo@aivisionconsulting.co.uk';
 $subject = 'New website enquiry: ' . $safeEnquiryType;
 $bodyLines = [
     'New contact form submission from aivisionconsulting.co.uk',

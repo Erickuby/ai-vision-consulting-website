@@ -87,7 +87,7 @@ export function trackOutboundEnquiryLink(href: string, label = '') {
     trackConversion('Discovery Call Click', { placement: label || 'website' });
   } else if (value.startsWith('https://wa.me/')) {
     trackConversion('WhatsApp Enquiry Click', { placement: label || 'website' });
-  } else if (value.startsWith('mailto:eric@aivisionconsulting.co.uk')) {
+  } else if (value.startsWith('mailto:eric.nwankwo@aivisionconsulting.co.uk')) {
     trackConversion('Direct Email Click', { placement: label || 'website' });
   } else if (value.includes('chat.whatsapp.com/')) {
     trackConversion('Community Join Click', { placement: label || 'website' });

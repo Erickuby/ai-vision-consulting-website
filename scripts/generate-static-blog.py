@@ -224,7 +224,7 @@ def build_schema(meta: dict[str, str], faqs: list[dict[str, str]]) -> dict:
             "url": f"{SITE_URL}/",
             "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/logo.svg"},
             "image": f"{SITE_URL}/og-image-v2.png",
-            "email": "eric@aivisionconsulting.co.uk",
+            "email": "eric.nwankwo@aivisionconsulting.co.uk",
             "telephone": "+447341183915",
             "priceRange": "££",
             "address": {

@@ -63,7 +63,7 @@ export function Contact({ source = 'Homepage contact form' }: { source?: string 
       setError(
         err instanceof Error
           ? err.message
-          : 'Something went wrong. Please try emailing us directly at eric@aivisionconsulting.co.uk'
+          : 'Something went wrong. Please try emailing us directly at eric.nwankwo@aivisionconsulting.co.uk'
       );
     } finally {
       setLoading(false);
@@ -147,7 +147,7 @@ export function Contact({ source = 'Homepage contact form' }: { source?: string 
                 </h3>
                 {[
                   { icon: MapPin, label: 'Newcastle upon Tyne, UK', sub: 'Serving the UK · Remote & In-Person' },
-                  { icon: Mail, label: 'eric@aivisionconsulting.co.uk', sub: 'Email for training and consulting enquiries' },
+                  { icon: Mail, label: 'eric.nwankwo@aivisionconsulting.co.uk', sub: 'Email for training and consulting enquiries' },
                   { icon: Phone, label: '+447341183915', sub: 'Call or WhatsApp' },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div key={label} style={{ display: 'flex', gap: '14px', marginBottom: '16px', alignItems: 'flex-start' }}>
@@ -394,7 +394,7 @@ export function Contact({ source = 'Homepage contact form' }: { source?: string 
                       }}
                     >
                       <a
-                        href="mailto:eric@aivisionconsulting.co.uk?subject=Website%20Enquiry"
+                        href="mailto:eric.nwankwo@aivisionconsulting.co.uk?subject=Website%20Enquiry"
                         style={{
                           padding: '12px 14px',
                           borderRadius: '12px',
