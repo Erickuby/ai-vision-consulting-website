@@ -359,6 +359,24 @@ export const blogPosts: BlogPost[] = [
     metaDescription: "Copilot Notebooks hold a project's context and Memory personalises replies. How to use both so you stop explaining your work again at the start of every chat.",
     keywords: ['Copilot Notebooks', 'Copilot memory personalisation', 'Microsoft 365 Copilot context'],
   },
+  {
+    slug: 'copilot-oversharing-data-readiness',
+    title: 'What Copilot Can See: Fixing Oversharing Before You Switch It On',
+    excerpt: 'Copilot does not break your permissions, it exposes them. A practical guide to finding overshared content and tightening it before the tool makes it easy to find.',
+    image: 'https://aivisionconsulting.co.uk/images/blog/copilot-oversharing-data-readiness.png',
+    imageAlt: 'A folder shared with everyone being narrowed to a named group before an assistant can reach it.',
+    category: 'Responsible AI',
+    categoryColor: '#FFD700',
+    readTime: '9 min read',
+    date: '31 Aug 2026',
+    publishedAt: '2026-08-31',
+    updatedAt: '2026-08-31',
+    ...author,
+    tags: ['Microsoft 365 Copilot', 'Responsible AI', 'Data Governance'],
+    metaTitle: 'What Copilot Can See: Fix Oversharing Before Rollout',
+    metaDescription: 'Copilot works within existing permissions, so years of broad SharePoint sharing become instantly searchable. How to find the exposure and close it before rollout.',
+    keywords: ['Copilot oversharing', 'SharePoint permissions Copilot', 'Microsoft 365 Copilot data security'],
+  },
 ];
 
 export function getBlogPostBySlug(slug: string) {

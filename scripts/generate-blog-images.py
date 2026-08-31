@@ -62,6 +62,7 @@ ARTICLES = [
     ("copilot-cowork-and-credits", "COPILOT COWORK", "Whole tasks, delivered", "and billed by difficulty", "service"),
     ("why-copilot-rollouts-stall", "COPILOT ROLLOUT", "Licences do not", "create the return, use does", "training"),
     ("copilot-notebooks-and-memory", "COPILOT MEMORY", "Stop explaining yourself", "at the start of every chat", "grounding"),
+    ("copilot-oversharing-data-readiness", "DATA READINESS", "What can Copilot see?", "Fix sharing before rollout", "civil"),
 ]
 
 

@@ -34,6 +34,7 @@ EXPECTED = {
     "copilot-cowork-and-credits",
     "why-copilot-rollouts-stall",
     "copilot-notebooks-and-memory",
+    "copilot-oversharing-data-readiness",
 }
 EXPECTED_PRIMARY_NAV = [
     ("Training", "/ai-training-newcastle/"),
