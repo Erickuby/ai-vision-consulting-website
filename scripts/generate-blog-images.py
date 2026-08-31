@@ -57,6 +57,11 @@ ARTICLES = [
     ("get-found-in-ai-search-local-business", "AI SEARCH", "Get found when", "customers ask an assistant", "aisearch"),
     ("ai-courses-newcastle", "AI COURSES", "Learn AI in Newcastle", "free, funded or paid", "courses"),
     ("ai-hallucination-and-rag", "AI SAFETY", "Why AI makes things up", "and how grounding helps", "grounding"),
+    ("copilot-agent-mode-word-excel-powerpoint", "AGENT MODE", "Copilot edits the file", "instead of advising you", "workflow"),
+    ("copilot-researcher-and-analyst-agents", "COPILOT AGENTS", "Researcher and Analyst", "and when they earn their keep", "aisearch"),
+    ("copilot-cowork-and-credits", "COPILOT COWORK", "Whole tasks, delivered", "and billed by difficulty", "service"),
+    ("why-copilot-rollouts-stall", "COPILOT ROLLOUT", "Licences do not", "create the return, use does", "training"),
+    ("copilot-notebooks-and-memory", "COPILOT MEMORY", "Stop explaining yourself", "at the start of every chat", "grounding"),
 ]
 
 

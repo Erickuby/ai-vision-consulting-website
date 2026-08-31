@@ -29,6 +29,11 @@ EXPECTED = {
     "get-found-in-ai-search-local-business",
     "ai-courses-newcastle",
     "ai-hallucination-and-rag",
+    "copilot-agent-mode-word-excel-powerpoint",
+    "copilot-researcher-and-analyst-agents",
+    "copilot-cowork-and-credits",
+    "why-copilot-rollouts-stall",
+    "copilot-notebooks-and-memory",
 }
 EXPECTED_PRIMARY_NAV = [
     ("Training", "/ai-training-newcastle/"),
