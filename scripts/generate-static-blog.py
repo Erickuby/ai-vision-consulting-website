@@ -218,11 +218,35 @@ def build_schema(meta: dict[str, str], faqs: list[dict[str, str]]) -> dict:
     canonical = f"{SITE_URL}/blog/{meta['slug']}"
     graph: list[dict] = [
         {
-            "@type": "Organization",
+            "@type": ["ProfessionalService", "Organization"],
             "@id": f"{SITE_URL}/#organisation",
             "name": "AI Vision Consulting",
             "url": f"{SITE_URL}/",
             "logo": {"@type": "ImageObject", "url": f"{SITE_URL}/logo.svg"},
+            "image": f"{SITE_URL}/og-image-v2.png",
+            "email": "eric@aivisionconsulting.co.uk",
+            "telephone": "+447341183915",
+            "priceRange": "££",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Newcastle upon Tyne",
+                "addressRegion": "Tyne and Wear",
+                "addressCountry": "GB",
+            },
+            "areaServed": [
+                {"@type": "City", "name": "Newcastle upon Tyne"},
+                {"@type": "City", "name": "Gateshead"},
+                {"@type": "City", "name": "Sunderland"},
+                {"@type": "AdministrativeArea", "name": "North East England"},
+                {"@type": "Country", "name": "United Kingdom"},
+            ],
+            "sameAs": [
+                "https://www.linkedin.com/in/eric-nwankwo/",
+                "https://www.instagram.com/aivisionconsulting/",
+                "https://www.youtube.com/@EricExplainsAI",
+                "https://www.tiktok.com/@aivisionconsultingltd",
+                "https://www.facebook.com/profile.php?id=61585002446584",
+            ],
         },
         {
             "@type": "Person",

@@ -46,7 +46,7 @@ export function AboutUpgraded() {
                   }}
                 >
                   <img
-                    src="/profile-clean-v2.png"
+                    src="/profile-clean-v2.webp"
                     alt="Eric Nwankwo"
                     width={1254}
                     height={1254}

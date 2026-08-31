@@ -22,18 +22,40 @@ function structuredData(route) {
         : 'WebPage';
   const graph = [
     {
-      '@type': 'Organization',
+      '@type': ['ProfessionalService', 'Organization'],
       '@id': `${server.SITE_URL}/#organisation`,
       name: 'AI Vision Consulting',
       url: `${server.SITE_URL}/`,
       logo: `${server.SITE_URL}/logo.svg`,
+      image: `${server.SITE_URL}/og-image-v2.png`,
       email: 'eric@aivisionconsulting.co.uk',
       telephone: '+447341183915',
-      areaServed: { '@type': 'Country', name: 'United Kingdom' },
+      priceRange: '££',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Newcastle upon Tyne',
+        addressRegion: 'Tyne and Wear',
+        addressCountry: 'GB',
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Newcastle upon Tyne' },
+        { '@type': 'City', name: 'Gateshead' },
+        { '@type': 'City', name: 'Sunderland' },
+        { '@type': 'AdministrativeArea', name: 'North East England' },
+        { '@type': 'Country', name: 'United Kingdom' },
+      ],
+      knowsAbout: [
+        'Practical AI training',
+        'AI workflow automation',
+        'Microsoft Copilot training',
+        'Employability and jobseeker AI skills',
+      ],
       sameAs: [
         'https://www.linkedin.com/in/eric-nwankwo/',
         'https://www.instagram.com/aivisionconsulting/',
         'https://www.youtube.com/@EricExplainsAI',
+        'https://www.tiktok.com/@aivisionconsultingltd',
+        'https://www.facebook.com/profile.php?id=61585002446584',
       ],
     },
     {
