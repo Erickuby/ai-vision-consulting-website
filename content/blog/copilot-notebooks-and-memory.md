@@ -2,7 +2,7 @@
 slug: copilot-notebooks-and-memory
 title: "Copilot Notebooks and Memory: Stop Explaining Yourself Every Morning"
 meta_title: "Copilot Notebooks and Memory: Keep Your Context"
-meta_description: "Copilot Notebooks hold a project's context and Memory personalises replies. How to use both so you stop re-explaining your work at the start of every chat."
+meta_description: "Copilot Notebooks hold a project's context and Memory personalises replies. How to use both so you stop explaining your work again at the start of every chat."
 excerpt: "Most Copilot time is wasted rebuilding context the tool forgot. Notebooks and Memory fix that, if you set them up deliberately rather than by accident."
 category: "AI Productivity"
 image: "https://aivisionconsulting.co.uk/images/blog/copilot-notebooks-and-memory.png"
@@ -30,7 +30,7 @@ Used together, they turn Copilot from a tool with amnesia into something that kn
 
 ## Key takeaways
 
-- Most Copilot time is lost re-establishing context, not writing prompts.
+- Most Copilot time is lost rebuilding context, not writing prompts.
 - Notebooks hold a project's chats, outputs and references in one workspace.
 - Grounding an agent on a Notebook keeps its answers inside that project.
 - Memory personalises replies from your history and is controllable in settings.
@@ -42,7 +42,7 @@ Used together, they turn Copilot from a tool with amnesia into something that kn
 
 ### The problem it solves
 
-A significant project generates dozens of Copilot conversations across weeks. Each one starts cold. You paste the same brief, re-explain the same constraints, remind it of the same audience. That preamble is often longer than the actual question.
+A significant project generates dozens of Copilot conversations across weeks. Each one starts cold. You paste the same brief, explain the same constraints again, remind it of the same audience. That preamble is often longer than the actual question.
 
 A Notebook holds that context once. It brings together the chats you have had, the outputs Copilot produced, and the reference material the work depends on. When you return, the background is already there.
 

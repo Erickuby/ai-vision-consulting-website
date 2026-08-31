@@ -356,7 +356,7 @@ export const blogPosts: BlogPost[] = [
     ...author,
     tags: ['Microsoft 365 Copilot', 'AI Productivity', 'Copilot Notebooks'],
     metaTitle: 'Copilot Notebooks and Memory: Keep Your Context',
-    metaDescription: "Copilot Notebooks hold a project's context and Memory personalises replies. How to use both so you stop re-explaining your work at the start of every chat.",
+    metaDescription: "Copilot Notebooks hold a project's context and Memory personalises replies. How to use both so you stop explaining your work again at the start of every chat.",
     keywords: ['Copilot Notebooks', 'Copilot memory personalisation', 'Microsoft 365 Copilot context'],
   },
 ];
