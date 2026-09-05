@@ -17,6 +17,7 @@ const trainingLinks = [
   { label: 'Small-Group Sessions', href: '/pricing/#private-group-heading' },
   { label: 'Corporate Workshops', href: '/pricing/#team-training' },
   { label: 'Twelve-Session Catalogue', href: '/pricing/#catalogue-heading' },
+  { label: 'Microsoft 365 Copilot', href: '/pricing/#copilot-training' },
 ];
 
 const socials = [

@@ -1194,6 +1194,22 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
   .reviews-toggle { margin-top: 16px; }
   .review-quote { padding-inline: 24px; }
 }
+.topic-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 44px; }
+.topic-list li { display: block; padding: 22px 0; border-top: 1px solid #263b4b; }
+.topic-choice { display: flex; align-items: flex-start; gap: 14px; cursor: pointer; }
+.topic-choice input { width: 19px; height: 19px; margin-top: 4px; flex-shrink: 0; accent-color: #70c9c4; }
+.topic-choice strong { display: block; font-size: 18px; line-height: 1.45; color: #eef4f8; font-weight: 600; }
+.topic-choice span span { display: block; margin-top: 10px; font-size: 14px; color: #a5b3c1; line-height: 1.8; }
+.topic-choice small { display: block; color: #a7ded9; margin-top: 12px; font-size: 12px; line-height: 1.7; }
+.copilot-catalogue { padding-top: 70px; scroll-margin-top: 100px; }
+.catalogue-guidance, .training-shortlist { border-top: 1px solid #314550; padding: 36px 0; margin-top: 28px; }
+.catalogue-guidance h3, .training-shortlist h2 { font-size: 24px; margin: 18px 0; letter-spacing: -.02em; }
+.catalogue-guidance p, .training-shortlist p { max-width: 800px; color: #a5b3c1; line-height: 1.8; margin-bottom: 16px; font-size: 15px; }
+.training-shortlist ul { list-style: disc; padding-left: 22px; margin: 18px 0; color: #c5d3de; line-height: 1.9; }
+.training-shortlist label { display: block; margin: 24px 0 12px; }
+.training-shortlist select { display: block; padding: 13px 18px; border: 1px solid #577777; background: #0c1826; color: #eef4f8; width: min(100%, 400px); border-radius: 4px; }
+.training-shortlist .shortlist-total { color: #a7ded9; font-size: 20px; margin-top: 20px; }
+@media(max-width: 767px) { .topic-list { grid-template-columns: 1fr; } }
 .service-editorial { max-width: 1200px; margin: auto; padding: 84px 28px; }
 .service-editorial h2 { font-size: clamp(2rem, 3vw, 2.8rem); letter-spacing: -.035em; margin-bottom: 36px; }
 .service-row { display: grid; grid-template-columns: 36px 1fr 1.1fr; gap: 28px; border-top: 1px solid #2a3c47; padding: 32px 0; }

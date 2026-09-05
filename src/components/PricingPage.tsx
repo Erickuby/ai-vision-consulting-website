@@ -1,10 +1,10 @@
+import { TrainingCatalogue } from './TrainingCatalogue';
 import { ArrowRight, Calendar, Check, Users } from 'lucide-react';
 import type { SiteRoute } from '../data/routes';
 import {
   corporateTrainingPackages,
   individualTrainingPackages,
   privateGroupPackage,
-  trainingCategories,
   type TrainingPackage,
 } from '../data/training';
 import { Breadcrumbs } from './SeoLandingPage';
@@ -43,8 +43,8 @@ export function PricingPage({ route }: { route: SiteRoute }) {
           <h1>{route.h1}</h1>
           <p className="seo-lead">{route.intro}</p>
           <div className="seo-actions">
-            <a className="btn-primary" href="#individual-training">View individual training <ArrowRight size={16} /></a>
-            <a className="btn-secondary" href="#team-training">View team pricing</a>
+            <a className="btn-primary" href="#individual-training">View individual prices <ArrowRight size={16} /></a>
+            <a className="btn-secondary" href="#catalogue-heading">Browse course topics</a><a className="hero-text-link" href="#team-training">Company pricing from £995 →</a>
           </div>
           </div><PageHeroArtwork path={route.path} /></div>
         </div>
@@ -55,7 +55,7 @@ export function PricingPage({ route }: { route: SiteRoute }) {
           <div className="pricing-section-heading">
             <span className="pricing-kicker">For individuals</span>
             <h2 id="individual-heading">Personalised 1-to-1 AI training</h2>
-            <p>Each session lasts 90 minutes and is tailored to a practical goal. Choose one topic or combine several into a structured learning plan.</p>
+            <p>Each individual session lasts one hour. Choose Practical AI, Microsoft 365 Copilot for Work or a mix. Discounted bundles give you more time to practise.</p>
           </div>
           <div className="pricing-grid pricing-grid-four">
             {individualTrainingPackages.map((item) => <PriceCard item={item} key={item.name} />)}
@@ -63,31 +63,7 @@ export function PricingPage({ route }: { route: SiteRoute }) {
         </div>
       </section>
 
-      <section className="pricing-section pricing-section-tonal" aria-labelledby="catalogue-heading">
-        <div className="seo-container">
-          <div className="pricing-section-heading">
-            <span className="pricing-kicker">Twelve practical sessions</span>
-            <h2 id="catalogue-heading">Build a programme around what you need</h2>
-            <p>Sessions are selected after a short goal check. The plan can start with foundations, focus on a specific tool or connect several skills into one practical workflow.</p>
-          </div>
-          <div className="training-category-grid">
-            {trainingCategories.map((category) => (
-              <article className="training-category" key={category.title}>
-                <h3>{category.title}</h3>
-                <p>{category.strapline}</p>
-                <ol>
-                  {category.sessions.map((session) => (
-                    <li key={session.number}>
-                      <span className="training-session-number">{String(session.number).padStart(2, '0')}</span>
-                      <div><h4>{session.title}</h4><p>{session.description}</p></div>
-                    </li>
-                  ))}
-                </ol>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TrainingCatalogue />
 
       <section className="pricing-section" aria-labelledby="private-group-heading">
         <div className="seo-container private-group-layout">
@@ -107,7 +83,7 @@ export function PricingPage({ route }: { route: SiteRoute }) {
               <span className="pricing-kicker">For organisations</span>
               <h2 id="team-heading">Corporate and team AI training</h2>
             </div>
-            <p>These starting prices include a scoping conversation, tailored delivery and participant resources. Programmes can be delivered remotely across the UK or in person where suitable.</p>
+            <p>Choose Microsoft 365 Copilot, Practical AI or a mixed agenda. These per-workshop starting prices include a scoping conversation, tailored delivery and participant resources. Programmes can be delivered remotely across the UK or in person where suitable.</p>
           </div>
           <div className="pricing-grid pricing-grid-corporate">
             {corporateTrainingPackages.map((item) => <PriceCard item={item} key={item.name} />)}

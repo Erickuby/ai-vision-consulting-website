@@ -28,7 +28,7 @@ export const trainingCategories: TrainingCategory[] = [
       {
         number: 1,
         title: 'Choosing the right AI tools',
-        description: 'Compare tools such as ChatGPT, Claude and Gemini, then choose the right assistant for each task.',
+        description: 'Compare ChatGPT, Claude, Gemini, Qwen and DeepSeek against your tasks, privacy needs and budget.',
       },
       {
         number: 2,
@@ -37,7 +37,7 @@ export const trainingCategories: TrainingCategory[] = [
       },
       {
         number: 3,
-        title: 'AI-assisted coding for non-coders',
+        title: 'Claude Code for non-coders',
         description: 'Use tools such as Claude Code to create simple websites, mini-apps and useful business tools.',
       },
       {
@@ -69,7 +69,7 @@ export const trainingCategories: TrainingCategory[] = [
       {
         number: 8,
         title: 'Build simple apps with AI',
-        description: 'Turn an idea into a working webpage, internal tool or simple app through guided AI-assisted development.',
+        description: 'Prototype a simple webpage or app with AI. Learn how to test it and recognise when technical help is needed.',
       },
     ],
   },
@@ -103,36 +103,62 @@ export const trainingCategories: TrainingCategory[] = [
 
 export const individualTrainingPackages: TrainingPackage[] = [
   {
-    name: 'Focused session',
-    price: '£125',
-    format: 'One 90-minute session',
-    description: 'Choose one topic and apply it to a clear work, business or personal goal.',
-    features: ['Pre-session goal check', 'Live guided practice', 'Personalised action notes'],
+    "name": "Focused session",
+    "price": "£75",
+    "format": "One 60-minute session",
+    "description": "Choose one focused task or an introduction to a topic.",
+    "features": [
+      "Personal goal check",
+      "Live guided practice",
+      "Relevant prompts and action notes"
+    ]
   },
   {
-    name: 'Starter bundle',
-    price: '£330',
-    format: 'Three 90-minute sessions',
-    description: 'Build a useful foundation across three topics selected around your priorities.',
-    features: ['Save £45 against single sessions', 'Personalised learning plan', 'Practice tasks between sessions'],
-    badge: 'Best starting point',
+    "name": "Two-session bundle",
+    "price": "£140",
+    "format": "Two 60-minute sessions · £70 per hour",
+    "description": "Explore two priorities or build on your first session.",
+    "features": [
+      "Save £10 against single sessions",
+      "Mix Practical AI and Copilot topics",
+      "Practice between sessions"
+    ]
   },
   {
-    name: 'Growth bundle',
-    price: '£600',
-    format: 'Six 90-minute sessions',
-    description: 'Develop broader confidence and connect several tools into a practical way of working.',
-    features: ['Save £150 against single sessions', 'Progress reviews', 'Reusable prompts and workflow notes'],
-    highlight: true,
-    badge: 'Broader development',
+    "name": "Three-session bundle",
+    "price": "£195",
+    "format": "Three 60-minute sessions · £65 per hour",
+    "description": "Build confidence through three linked sessions shaped around your work.",
+    "features": [
+      "Save £30 against single sessions",
+      "Personal learning plan",
+      "Review your own examples"
+    ],
+    "badge": "A useful starting point"
   },
   {
-    name: 'Complete programme',
-    price: '£1,080',
-    format: 'All twelve sessions · 18 hours',
-    description: 'Work through the complete programme from AI foundations to creating and selling practical services.',
-    features: ['Save £420 against single sessions', 'Structured learning roadmap', 'Final implementation review'],
+    "name": "Six-session bundle",
+    "price": "£360",
+    "format": "Six 60-minute sessions · £60 per hour",
+    "description": "Develop wider skills or spend more time on complex tasks.",
+    "features": [
+      "Save £90 against single sessions",
+      "Mix topics from either route",
+      "Progress review"
+    ],
+    "highlight": true
   },
+  {
+    "name": "Twelve-session programme",
+    "price": "£720",
+    "format": "Twelve 60-minute sessions · £60 per hour",
+    "description": "Follow all twelve Practical AI topics, or agree a personalised mix with Copilot.",
+    "features": [
+      "Save £180 against single sessions",
+      "Twelve hours of guided learning",
+      "Personal implementation review"
+    ]
+  }
 ];
 
 export const privateGroupPackage: TrainingPackage = {
@@ -182,4 +208,46 @@ export const corporateTrainingPackages: TrainingPackage[] = [
     description: 'A structured programme that moves a team from shared foundations into selected role-specific workflows.',
     features: ['Six tailored workshops', 'Reusable working resources', 'Final action and adoption review'],
   },
+];
+export const copilotSessions: TrainingSession[] = [
+  {
+    "number": 1,
+    "title": "Copilot essentials and better prompts",
+    "description": "Understand your available tools. Practise a brief with goal, context, sources and expectations, then check the answer."
+  },
+  {
+    "number": 2,
+    "title": "Outlook and Teams: email, meetings and actions",
+    "description": "Summarise threads, draft replies and turn meeting material into actions. Meeting features depend on permissions, settings and transcript availability."
+  },
+  {
+    "number": 3,
+    "title": "Word: useful documents and clear summaries",
+    "description": "Turn approved source material into a report or briefing. Check quotations, missing information and unsupported claims."
+  },
+  {
+    "number": 4,
+    "title": "Excel: make sense of your data",
+    "description": "Explore formulas, trends, charts or trackers using a sample workbook. Check totals, exclusions and a worked example by hand."
+  },
+  {
+    "number": 5,
+    "title": "PowerPoint: from a brief to a presentation",
+    "description": "Create an outline and first-draft slides from an approved document. Improve structure and accuracy before sharing."
+  },
+  {
+    "number": 6,
+    "title": "Research, files and Copilot Notebooks",
+    "description": "Organise relevant documents and ask evidence-based questions. Review citations and spot gaps or outdated information."
+  },
+  {
+    "number": 7,
+    "title": "Reusable instructions, agents and repeat tasks",
+    "description": "Explore a bounded assistant or reusable prompt for one recurring job, with permissions and human review. Availability and usage charges vary."
+  },
+  {
+    "number": 8,
+    "title": "Your personal Copilot workflow",
+    "description": "Bring one approved workplace task. Connect the steps, test the output and leave with a repeatable routine and checking checklist."
+  }
 ];

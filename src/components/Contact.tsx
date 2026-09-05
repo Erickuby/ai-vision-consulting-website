@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Phone, Mail, Calendar, CheckCircle, AlertCircle, Linkedin, Instagram, Facebook, Youtube } from 'lucide-react';
 import { TikTokIcon } from './TikTokIcon';
@@ -21,6 +21,11 @@ export function Contact({ source = 'Homepage contact form' }: { source?: string 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    const shortlist = new URLSearchParams(window.location.search).get('training');
+    if (shortlist) setForm(current => ({ ...current, enquiryType: 'professional', message: shortlist.slice(0, 4000) }));
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(f => ({ ...f, [e.target.name]: e.target.value }));
