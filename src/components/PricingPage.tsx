@@ -13,10 +13,13 @@ import { PageHeroArtwork } from './PageHeroArtwork';
 function PriceCard({ item }: { item: TrainingPackage }) {
   return (
     <article className={`pricing-card${item.highlight ? ' pricing-card-featured' : ''}`}>
+      <div className="pricing-option-summary">
       {item.badge && <span className="pricing-card-badge">{item.badge}</span>}
       <h3>{item.name}</h3>
       <p className="pricing-card-price">{item.price}</p>
       <p className="pricing-card-format">{item.format}</p>
+      </div>
+      <div className="pricing-option-detail">
       <p className="pricing-card-description">{item.description}</p>
       <ul>
         {item.features.map((feature) => <li key={feature}><Check size={15} aria-hidden="true" />{feature}</li>)}
@@ -24,6 +27,7 @@ function PriceCard({ item }: { item: TrainingPackage }) {
       <a href="/contact/" className="pricing-card-link" data-conversion-placement={`Pricing: ${item.name}`}>
         Discuss this option <ArrowRight size={15} aria-hidden="true" />
       </a>
+      </div>
     </article>
   );
 }

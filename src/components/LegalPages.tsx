@@ -404,14 +404,12 @@ export function LegalPage({ page }: { page: LegalPageType }) {
 
         {/* Sections */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          {doc.sections.map((section, i) => (
+          {doc.sections.map((section) => (
             <div
               key={section.title}
               style={{
-                padding: '28px 32px',
-                borderRadius: '16px',
-                background: i % 2 === 0 ? 'rgba(10,20,40,0.5)' : 'transparent',
-                border: i % 2 === 0 ? '1px solid rgba(0,212,255,0.07)' : '1px solid transparent',
+                padding: '28px 0',
+                borderBottom: '1px solid #263b4b',
                 marginBottom: '4px',
               }}
             >
@@ -467,10 +465,8 @@ export function LegalPage({ page }: { page: LegalPageType }) {
         <div
           style={{
             marginTop: '56px',
-            padding: '32px',
-            borderRadius: '18px',
-            background: 'rgba(10,20,40,0.6)',
-            border: '1px solid rgba(0,212,255,0.1)',
+            padding: '32px 0',
+            borderTop: '1px solid #263b4b',
           }}
         >
           <p

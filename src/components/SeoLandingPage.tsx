@@ -42,10 +42,9 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
         </div>
       </section>
 
-      {route.sections.map((section, index) => (
+      {route.sections.map((section) => (
         <section className="seo-content-section" key={section.heading}>
-          <div className="seo-container seo-copy-card">
-            <span className="seo-section-number">0{index + 1}</span>
+          <div className="seo-container seo-article-copy">
             <h2>{section.heading}</h2>
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}

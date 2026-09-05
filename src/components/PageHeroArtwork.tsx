@@ -1,15 +1,15 @@
 const artwork: Record<string, [string, string]> = {
-  '/ai-training-newcastle/': ['training', 'An open learning notebook: learn, practise and check your work'],
-  '/corporate-ai-training-uk/': ['corporate', 'A team workshop board organised around briefing, practice and review'],
-  '/ai-automation-consultant-newcastle/': ['automation', 'A workflow connecting input, processing and delivery with human approval'],
-  '/small-business-ai-automation/': ['business', 'Enquiries, bookings and follow-up organised into a manageable workflow'],
-  '/community-employability-ai-training/': ['community', 'Shared learning connected to job applications and workplace skills'],
-  '/case-studies/': ['evidence', 'Workshop notes documenting a clear brief, guided practice and human review'],
-  '/pricing/': ['pricing', 'Three levels of support: a session, a workshop and a programme'],
-  '/contact/': ['contact', 'A conversation about what you would like to improve'],
-  '/privacy-policy/': ['privacy', 'A document and shield representing care for personal information'],
-  '/terms-of-service/': ['terms', 'A working agreement with clear expectations'],
-  '/cookie-policy/': ['cookies', 'Website preference controls with essential settings and optional choices'],
+  '/ai-training-newcastle/': ['training', 'Illustrative learning workspace with a laptop and open notebook'],
+  '/corporate-ai-training-uk/': ['corporate', 'Illustrative team learning table with laptops and notebooks'],
+  '/ai-automation-consultant-newcastle/': ['automation', 'Illustrative workspace with a workflow on a monitor'],
+  '/small-business-ai-automation/': ['automation', 'Illustrative workspace for organising business workflows'],
+  '/community-employability-ai-training/': ['community', 'Illustrative shared learning table with notebooks and laptops'],
+  '/case-studies/': ['corporate', 'Illustrative workshop setting, not a photograph of a client session'],
+  '/pricing/': ['planning', 'Illustrative training planning desk with notebook and calculator'],
+  '/contact/': ['contact', 'Illustrative setting for a conversation, with two chairs and a notebook'],
+  '/privacy-policy/': ['legal', 'Illustrative document folder and key representing privacy'],
+  '/terms-of-service/': ['legal', 'Illustrative folder for business documents'],
+  '/cookie-policy/': ['legal', 'Illustrative document folder and key representing data protection'],
 };
 
 export function PageHeroArtwork({ path }: { path: string }) {
@@ -17,7 +17,7 @@ export function PageHeroArtwork({ path }: { path: string }) {
   const [asset, alt] = artwork[path] || ['contact', 'Find the right next step with AI Vision Consulting'];
   return (
     <figure className={`page-hero-artwork${isAbout ? ' page-hero-portrait' : ''}`}>
-      <img src={isAbout ? '/profile-clean-v2.webp' : `/images/heroes/${asset}.svg`} alt={isAbout ? 'Eric Nwankwo, founder and AI trainer' : alt} width={isAbout ? 1254 : 720} height={isAbout ? 1254 : 600} fetchPriority="high" />
+      <img src={isAbout ? '/profile-clean-v2.webp' : `/images/heroes/${asset}-editorial.webp`} alt={isAbout ? 'Eric Nwankwo, founder and AI trainer' : alt} width={isAbout ? 1254 : 1200} height={isAbout ? 1254 : 800} fetchPriority="high" />
       {isAbout && <figcaption><strong>Eric Nwankwo</strong><span>Founder and AI Trainer</span></figcaption>}
     </figure>
   );

@@ -1,71 +1,42 @@
-import { motion } from 'framer-motion';
-import { ExternalLink, Star } from 'lucide-react';
-import { Reveal } from './Reveal';
+import { useState } from 'react';
 
 const reviews = [
-  {
-    name: 'Carl Bromilow',
-    text: 'Eric was very knowledgeable, thank you',
-  },
-  {
-    name: 'Tolulola Adebiyi',
-    text: 'Well equipped to train people in the use of AI.',
-  },
-  {
-    name: 'Toluwalope Opadeyi',
-    text: 'Lovely session and well explained. Thanks Eric.',
-  },
-  {
-    name: 'Alexandrai Ishiekwene',
-    text: 'Thank you for your selfless teachings Eric.',
-  },
+  { name: 'Carl Bromilow', text: 'Eric was very knowledgeable, thank you' },
+  { name: 'Tolulola Adebiyi', text: 'Had my first session with them and it was good to see they are well equipped to train people in the use of AI' },
+  { name: 'Toluwalope Opadeyi', text: 'Lovely session and well explained. Thanks Eric' },
+  { name: 'Alexandrai Ishiekwene', text: 'Thank you for your selfless teachings Eric.' },
 ];
 
 export function TestimonialsUpgraded() {
+  const [paused, setPaused] = useState(false);
   return (
-    <section className="relative z-10" style={{ padding: '72px 24px' }} aria-label="Google reviews">
-      <div className="max-w-6xl mx-auto">
-        <Reveal style={{ textAlign: 'center', marginBottom: '56px' }}>
-          <span className="badge badge-cyan" style={{ marginBottom: '16px', display: 'inline-block' }}>Client Feedback</span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0F4FF] tracking-tight">
-            Trusted for clear, <span className="gradient-text-cyan">practical teaching</span>
-          </h2>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginTop: '18px', color: '#FFD700' }}>
-            <span aria-hidden="true" style={{ display: 'inline-flex', gap: 2 }}>{[0, 1, 2, 3, 4].map((item) => <Star key={item} size={18} fill="currentColor" />)}</span>
-            <span style={{ color: '#D7E2ED', fontWeight: 700 }}>Rated 5.0 on Google</span>
-          </div>
-        </Reveal>
-
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {reviews.map((review, index) => (
-            <Reveal key={review.name} delay={0.12 + index * 0.08}>
-              <motion.div
-                whileHover={{ y: -6, scale: 1.01 }}
-                transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-                className="testimonial-card relative overflow-hidden"
-                style={{
-                  height: '100%',
-                  background: 'linear-gradient(180deg, rgba(10,20,40,0.82) 0%, rgba(7,15,30,0.92) 100%)',
-                  border: '1px solid rgba(0,212,255,0.14)',
-                  boxShadow: '0 20px 56px rgba(0,0,0,0.2)',
-                }}
-              >
-                <div aria-hidden="true" style={{ display: 'flex', gap: 3, color: '#FFD700', marginBottom: '20px' }}>{[0, 1, 2, 3, 4].map((item) => <Star key={item} size={16} fill="currentColor" />)}</div>
-                <h3 className="font-display" style={{ fontSize: '19px', fontWeight: 700, color: '#F0F4FF', marginBottom: '12px' }}>
-                  {review.name}
-                </h3>
-                <p style={{ fontSize: '15px', color: '#D7E2ED', lineHeight: 1.8 }}>
-                  “{review.text}”
-                </p>
-              </motion.div>
-            </Reveal>
+    <section className="reviews-section" aria-labelledby="reviews-heading">
+      <div className="seo-container reviews-heading">
+        <div>
+          <p className="eyebrow">Client feedback · Rated 5.0 on Google</p>
+          <h2 id="reviews-heading">Trusted for clear, practical teaching.</h2>
+        </div>
+        <button className="reviews-toggle" onClick={() => setPaused(value => !value)} aria-pressed={paused} aria-controls="reviews-strip">
+          {paused ? 'Resume scrolling' : 'Pause scrolling'}
+        </button>
+      </div>
+      <div id="reviews-strip" className="reviews-viewport" tabIndex={0} role="region" aria-label="Customer reviews. Focus or hover to pause; scroll sideways to read." data-paused={paused}>
+        <div className="reviews-track">
+          {[false, true].map(duplicate => (
+            <div className="reviews-group" key={String(duplicate)} aria-hidden={duplicate || undefined}>
+              {reviews.map(review => (
+                <figure className="review-quote" key={review.name}>
+                  <div className="review-stars" aria-label="5 out of 5 stars">{'★★★★★'}</div>
+                  <blockquote>“{review.text}”</blockquote>
+                  <figcaption>{review.name}<span>Google review</span></figcaption>
+                </figure>
+              ))}
+            </div>
           ))}
         </div>
-        <Reveal style={{ textAlign: 'center', marginTop: '32px' }}>
-          <a href="https://www.google.com/search?q=AI+Vision+Consulting+Newcastle" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-            Read Google Reviews <ExternalLink size={15} />
-          </a>
-        </Reveal>
+      </div>
+      <div className="seo-container reviews-footer">
+        <a className="hero-text-link" href="https://www.google.com/maps/place/AI+Vision+Consulting/data=!4m2!3m1!1s0x0:0xd1dfe04eff31d12b" target="_blank" rel="noopener noreferrer">Read reviews on Google <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   );
