@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import { copilotSessions, individualTrainingPackages, trainingCategories, type TrainingSession } from '../data/training';
-
-const sessionCounts = [1, 2, 3, 6, 12];
+import { copilotSessions, trainingCategories, type TrainingSession } from '../data/training';
+import { trainingTotal, trainingBookingUrl } from '../data/trainingSelection';
 
 export function TrainingCatalogue() {
   const [selected, setSelected] = useState<string[]>([]);
-  const [packageIndex, setPackageIndex] = useState(0);
-  const chosenPackage = individualTrainingPackages[packageIndex];
+  const total = trainingTotal(selected.length);
+  const price = '£' + total.toLocaleString('en-GB');
   const toggle = (title: string) => setSelected(current => current.includes(title) ? current.filter(item => item !== title) : [...current, title]);
   const topic = (item: TrainingSession, prefix: string) => {
     const title = prefix + item.title;
     return <li key={title}><label className="topic-choice"><input type="checkbox" checked={selected.includes(title)} onChange={() => toggle(title)} /><span><strong>{item.title}</strong><span>{item.description}</span><small>Individual: £75 for a focused one-hour session, or use a bundle.</small></span></label></li>;
   };
-  const enquiry = `I am interested in ${sessionCounts[packageIndex]} one-hour individual session(s), ${chosenPackage.price} total. Topics to discuss: ${selected.length ? selected.join('; ') : 'Please help me choose'}. My main goal is: `;
+  const enquiry = selected.length ? `Individual AI training enquiry\n\nSelected courses:\n${selected.map((title, index) => `${index + 1}. ${title}`).join('\n')}\n\n${selected.length} one-hour sessions (one per selected topic).\nTotal: ${price}, including applicable bundle discounts.\nScope and dates to agree during the free discovery call.\n\nMy main goal is: ` : 'I would like help choosing AI training topics. My main goal is: ';
+  const bookingUrl = trainingBookingUrl(enquiry);
   return (
     <section className="pricing-section" aria-labelledby="catalogue-heading">
       <div className="seo-container">
@@ -20,7 +20,7 @@ export function TrainingCatalogue() {
           <p className="pricing-kicker">Choose your learning route</p>
           <h2 id="catalogue-heading">Practical AI: twelve topics to pick from</h2>
           <p>Choose a topic, repeat it for more practice or mix routes. Each individual session is 60 minutes. A session covers one agreed task or introduction, not mastery of a whole subject.</p>
-          <p>Select any topics that interest you, then send your shortlist below. You do not have to decide before your discovery call.</p>
+          <p>Tick the topics you want to learn. Each adds one hour of individual training. Your selected courses and total update automatically, with bundle discounts applied. You can discuss or adjust the plan during a free discovery call.</p>
           <a className="hero-text-link" href="#copilot-training">Looking for Microsoft 365 Copilot? Go to workplace topics →</a>
           <p><a className="hero-text-link" href="#shortlist-heading">Review your shortlist and session total →</a></p>
         </div>
@@ -34,15 +34,15 @@ export function TrainingCatalogue() {
           <h2 id="shortlist-heading">Your individual training shortlist</h2>
           <p aria-live="polite">{selected.length ? selected.length + ' topic(s) selected for discussion.' : 'Nothing selected yet. Browse above, or let us help you choose.'}</p>
           {selected.length > 0 && <ul>{selected.map(title => <li key={title}>{title}</li>)}</ul>}
-          <label htmlFor="session-package">How many one-hour sessions are you considering?</label>
-          <select id="session-package" value={packageIndex} onChange={event => setPackageIndex(Number(event.target.value))}>{individualTrainingPackages.map((item, index) => <option key={item.name} value={index}>{sessionCounts[index]} session{index === 0 ? '' : 's'} · {item.price} total</option>)}</select>
-          <p className="shortlist-total" aria-live="polite">{chosenPackage.price} total for {sessionCounts[packageIndex]} hour{packageIndex === 0 ? '' : 's'} of individual training.</p>
-          <p>Topic choices are a shortlist, not a promise to cover them all in the chosen hours. We agree the scope, dates and payment arrangements before booking. There is no payment taken here.</p>
-          <div className="hero-actions"><a className="btn-primary" href={'/contact/?training=' + encodeURIComponent(enquiry) + '#contact'}>Enquire with this shortlist</a><a className="hero-text-link" href="https://cal.com/eric-nwankwo/ai-discovery-call" target="_blank" rel="noopener noreferrer">Book a free discovery call →</a>{selected.length > 0 && <button className="hero-text-link" onClick={() => setSelected([])}>Clear selection</button>}</div>
-          <p>Booking directly through the calendar? Mention your preferred topics during the call; the shortlist is not sent to the calendar automatically.</p>
+          <p className="shortlist-total" aria-live="polite">{price} total for {selected.length} one-hour session{selected.length === 1 ? '' : 's'}.</p>
+          {selected.length > 0 && <p>Save £{selected.length * 75 - total} compared with separate £75 sessions. We combine the published bundles to give your selection the lowest total.</p>}
+          <p>One session introduces a topic or focuses on one agreed task. More complex goals may need extra practice. We agree the scope, dates and payment arrangements before confirming training. No payment is taken here.</p>
+          <div className="hero-actions"><a className="btn-primary" href={bookingUrl} target="_blank" rel="noopener noreferrer">Discuss my courses on a free call</a><a className="hero-text-link" href={'/contact/?training=' + encodeURIComponent(enquiry) + '#contact'}>Send an enquiry instead →</a>{selected.length > 0 && <button className="hero-text-link" onClick={() => setSelected([])}>Clear selection</button>}</div>
+          <p>Your course list, session count and total are added to the booking notes. Review them and add your goal before confirming the call.</p>
         </div>
         <div className="catalogue-guidance"><h3>Booking for a company?</h3><p>Corporate training starts at £995 per workshop. Choose a Copilot-focused agenda, a Practical AI workshop or a combination. We scope the roles, licences, examples and group size with you.</p><a className="hero-text-link" href="#team-training">See company workshop formats and prices →</a></div>
       </div>
+      {selected.length > 0 && <aside className="selection-bar" aria-label="Selected training summary"><span aria-live="polite">{selected.length} course{selected.length === 1 ? '' : 's'} · {selected.length} hour{selected.length === 1 ? '' : 's'} · <strong>{price}</strong></span><a href="#shortlist-heading">View selected courses</a><a href={bookingUrl} target="_blank" rel="noopener noreferrer">Discuss on a free call →</a></aside>}
     </section>
   );
 }

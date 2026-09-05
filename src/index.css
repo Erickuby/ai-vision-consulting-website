@@ -1209,6 +1209,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
 .training-shortlist label { display: block; margin: 24px 0 12px; }
 .training-shortlist select { display: block; padding: 13px 18px; border: 1px solid #577777; background: #0c1826; color: #eef4f8; width: min(100%, 400px); border-radius: 4px; }
 .training-shortlist .shortlist-total { color: #a7ded9; font-size: 20px; margin-top: 20px; }
+.selection-bar { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); z-index: 45; width: min(940px, calc(100% - 24px)); display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 24px; background: #102331; border: 1px solid #577777; box-shadow: 0 8px 28px #0008; color: #eef4f8; font-size: 14px; }
+.selection-bar a { color: #a7ded9; text-decoration: underline; text-underline-offset: 4px; }
+.training-shortlist { scroll-margin-top: 100px; padding-bottom: 100px; }
+@media (max-width: 600px) { .selection-bar { flex-wrap: wrap; gap: 12px; padding: 14px 16px; font-size: 13px; } .selection-bar > span { width: 100%; } }
 @media(max-width: 767px) { .topic-list { grid-template-columns: 1fr; } }
 .service-editorial { max-width: 1200px; margin: auto; padding: 84px 28px; }
 .service-editorial h2 { font-size: clamp(2rem, 3vw, 2.8rem); letter-spacing: -.035em; margin-bottom: 36px; }
