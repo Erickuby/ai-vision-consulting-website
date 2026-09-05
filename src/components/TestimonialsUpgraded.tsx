@@ -4,6 +4,10 @@ import { Reveal } from './Reveal';
 
 const reviews = [
   {
+    name: 'Carl Bromilow',
+    text: 'Eric was very knowledgeable, thank you',
+  },
+  {
     name: 'Tolulola Adebiyi',
     text: 'Well equipped to train people in the use of AI.',
   },
@@ -32,7 +36,7 @@ export function TestimonialsUpgraded() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {reviews.map((review, index) => (
             <Reveal key={review.name} delay={0.12 + index * 0.08}>
               <motion.div

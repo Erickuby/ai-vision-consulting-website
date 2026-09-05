@@ -146,7 +146,7 @@ export const privateGroupPackage: TrainingPackage = {
 export const corporateTrainingPackages: TrainingPackage[] = [
   {
     name: 'Team essentials workshop',
-    price: 'From £750',
+    price: 'From £995',
     format: '90 minutes · up to 15 people',
     description: 'A focused introduction or role-relevant workshop designed around one agreed team objective.',
     features: ['Scoping call', 'Tailored examples', 'Slides and participant resources'],

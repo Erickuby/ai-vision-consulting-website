@@ -8,6 +8,7 @@ import {
   type TrainingPackage,
 } from '../data/training';
 import { Breadcrumbs } from './SeoLandingPage';
+import { PageHeroArtwork } from './PageHeroArtwork';
 
 function PriceCard({ item }: { item: TrainingPackage }) {
   return (
@@ -33,6 +34,7 @@ export function PricingPage({ route }: { route: SiteRoute }) {
       <section className="seo-hero">
         <div className="seo-container">
           <Breadcrumbs current={route.h1} />
+          <div className="page-hero-layout"><div className="page-hero-copy">
           <span className="badge badge-cyan">{route.eyebrow}</span>
           <h1>{route.h1}</h1>
           <p className="seo-lead">{route.intro}</p>
@@ -40,6 +42,7 @@ export function PricingPage({ route }: { route: SiteRoute }) {
             <a className="btn-primary" href="#individual-training">View individual training <ArrowRight size={16} /></a>
             <a className="btn-secondary" href="#team-training">View team pricing</a>
           </div>
+          </div><PageHeroArtwork path={route.path} /></div>
         </div>
       </section>
 

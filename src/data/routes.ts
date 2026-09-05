@@ -47,7 +47,7 @@ const routes = [
     faqs: [
       { question: 'Can AI training be delivered in Newcastle?', answer: 'Yes. In-person delivery in Newcastle can be discussed, alongside remote delivery for organisations elsewhere in the UK.' },
       { question: 'Do participants need technical experience?', answer: 'No. Sessions can start with the fundamentals and are scoped around the participants’ current confidence and work.' },
-      { question: 'How much does AI training cost?', answer: 'A personal 90-minute session is £125. Private small-group sessions start at £325, and corporate team workshops start at £750. Multi-session bundles are also available.' },
+      { question: 'How much does AI training cost?', answer: 'A personal 90-minute session is £125. Private small-group sessions start at £325, and corporate team workshops start at £995. Multi-session bundles are also available.' },
     ],
   },
   {
@@ -71,7 +71,7 @@ const routes = [
     sections: [
       { heading: 'From awareness to useful practice', paragraphs: ['Corporate sessions can begin with a common foundation and move into examples that reflect the work of the people in the room. Participants learn how to give AI useful context, review results and recognise tasks where it should not be relied upon.', 'The content can support an initial awareness session or a more focused programme for particular functions.'] },
       { heading: 'Topics shaped around your organisation', paragraphs: ['A scoping conversation establishes the audience, available tools and internal expectations. Training can then address relevant workflows without asking staff to share confidential information in unsuitable systems.'], bullets: ['Generative AI foundations in plain English', 'Prompting and structured review', 'Responsible use, privacy and human oversight', 'Role-specific exercises and reusable workflows'] },
-      { heading: 'Delivery, formats and starting prices', paragraphs: ['Sessions can be delivered remotely across the UK, with in-person delivery discussed where suitable. A 90-minute team workshop starts at £750, a half-day workshop at £1,250 and a full-day workshop at £2,000.', 'Three-workshop team programmes start at £2,100 and six-workshop capability programmes at £3,900. Final pricing reflects group size, preparation, location, additional cohorts and any custom requirements.'] },
+      { heading: 'Delivery, formats and starting prices', paragraphs: ['Sessions can be delivered remotely across the UK, with in-person delivery discussed where suitable. A 90-minute team workshop starts at £995, a half-day workshop at £1,250 and a full-day workshop at £2,000.', 'Three-workshop team programmes start at £2,100 and six-workshop capability programmes at £3,900. Final pricing reflects group size, preparation, location, additional cohorts and any custom requirements.'] },
     ],
   },
   {
@@ -131,7 +131,7 @@ const routes = [
     intro: 'Choose a focused 90-minute session, build a personalised learning bundle or commission practical team training. Fixed individual prices and clear team starting points make it easier to identify the right level.',
     sections: [
       { heading: 'Personalised AI training', paragraphs: ['A focused 90-minute session is £125. Three-session bundles are £330, six-session bundles are £600 and the complete twelve-session programme is £1,080.', 'Each option is shaped around a defined learning goal and includes guided practice and relevant follow-up notes or resources.'] },
-      { heading: 'Private groups and corporate teams', paragraphs: ['A private 90-minute small-group session for up to six people starts at £325. Corporate workshops start at £750 for 90 minutes, £1,250 for a half day and £2,000 for a full day.', 'Three-workshop corporate programmes start at £2,100 and six-workshop programmes start at £3,900.'] },
+      { heading: 'Private groups and corporate teams', paragraphs: ['A private 90-minute small-group session for up to six people starts at £325. Corporate workshops start at £995 for 90 minutes, £1,250 for a half day and £2,000 for a full day.', 'Three-workshop corporate programmes start at £2,100 and six-workshop programmes start at £3,900.'] },
       { heading: 'Automation and implementation', paragraphs: ['Automation work depends on the current process, systems, integrations, testing and documentation required. Discovery and implementation may be scoped as separate stages.', 'A free discovery call can establish whether a focused consultation or a wider scope is the sensible next step.'] },
     ],
     faqs: [

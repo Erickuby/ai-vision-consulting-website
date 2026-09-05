@@ -8,7 +8,6 @@ import { WhatsAppCommunity } from './components/WhatsAppCommunity';
 import { PracticalUseCases } from './components/PracticalUseCases';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
 import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
-import { AboutUpgraded } from './components/AboutUpgraded';
 import { WhoThisIsFor } from './components/WhoThisIsFor';
 import { Services } from './components/Services';
 import { EngagementProcess } from './components/EngagementProcess';
@@ -194,7 +193,6 @@ export function App({ pathname = '/' }: { pathname?: string }) {
           <div className="max-w-6xl mx-auto px-6"><div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" /></div>
           <CoursesUpgraded />
           <div className="max-w-6xl mx-auto px-6"><div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" /></div>
-          <AboutUpgraded />
           <WhoThisIsFor />
           <WhatsAppCommunity />
           <FiverrServices />

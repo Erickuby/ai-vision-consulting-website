@@ -1,6 +1,7 @@
 import { ArrowRight, Calendar } from 'lucide-react';
 import type { SiteRoute } from '../data/routes';
 import { Contact } from './Contact';
+import { PageHeroArtwork } from './PageHeroArtwork';
 
 const serviceLinks = [
   ['/ai-training-newcastle/', 'AI training Newcastle'],
@@ -26,6 +27,7 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
       <section className="seo-hero">
         <div className="seo-container">
           <Breadcrumbs current={route.h1} />
+          <div className="page-hero-layout"><div className="page-hero-copy">
           <span className="badge badge-cyan">{route.eyebrow}</span>
           <h1>{route.h1}</h1>
           <p className="seo-lead">{route.intro}</p>
@@ -36,6 +38,7 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
             </a>
             {route.path !== '/pricing/' && <a className="btn-secondary" href="/pricing/">View pricing</a>}
           </div>
+          </div><PageHeroArtwork path={route.path} /></div>
         </div>
       </section>
 
@@ -87,6 +90,7 @@ export function NotFoundPage() {
         <span className="badge badge-cyan">404 error</span>
         <h1>Page not found</h1>
         <p className="seo-lead">The page may have moved or the address may be incorrect. Choose a useful destination below.</p>
+        <PageHeroArtwork path="/404.html" />
         <div className="seo-actions"><a className="btn-primary" href="/">Return home</a><a className="btn-secondary" href="/contact/">Contact us</a></div>
         <div className="seo-link-grid seo-not-found-links">
           {serviceLinks.slice(0, 3).map(([href, label]) => <a href={href} key={href}>{label}<ArrowRight size={15} /></a>)}

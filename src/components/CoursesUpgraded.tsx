@@ -258,7 +258,7 @@ export function CoursesUpgraded() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-10">
                   <div className="rounded-xl border border-[rgba(0,212,255,0.16)] bg-[rgba(0,212,255,0.04)] p-5">
                     <p className="text-[#F0F4FF] font-display font-bold mb-1">90-minute workshop</p>
-                    <p className="text-[#00D4FF] text-xl font-bold mb-2">From £750</p>
+                    <p className="text-[#00D4FF] text-xl font-bold mb-2">From £995</p>
                     <p className="text-[#8899AA] text-sm">Up to 15 people</p>
                   </div>
                   <div className="rounded-xl border border-[rgba(0,212,255,0.16)] bg-[rgba(0,212,255,0.04)] p-5">

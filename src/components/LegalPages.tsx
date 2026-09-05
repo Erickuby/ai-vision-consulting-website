@@ -1,3 +1,5 @@
+import { PageHeroArtwork } from './PageHeroArtwork';
+
 type LegalPageType = 'privacy-policy' | 'terms-of-service' | 'cookie-policy';
 
 interface LegalSection {
@@ -309,7 +311,8 @@ export function LegalPage({ page }: { page: LegalPageType }) {
         }}
       >
         {/* Document hero */}
-        <div style={{ marginBottom: '40px' }}>
+        <div className="legal-illustrated-hero" style={{ marginBottom: '40px' }}>
+          <PageHeroArtwork path={`/${page}/`} />
           <nav aria-label="Breadcrumb" style={{ display: 'flex', gap: '8px', marginBottom: '20px', color: '#8899AA', fontSize: '13px' }}>
             <a href="/" style={{ color: '#00D4FF' }}>Home</a><span>/</span><span aria-current="page">{doc.title}</span>
           </nav>
