@@ -80,7 +80,7 @@ export function Contact({ source = 'Homepage contact form' }: { source?: string 
             fontFamily: 'Space Grotesk', fontSize: 'clamp(2rem, 4vw, 3rem)',
             fontWeight: 700, color: '#F0F4FF', letterSpacing: '-0.02em', marginBottom: '16px'
           }}>
-            Your AI journey starts with a <span className="gradient-text-gold">conversation</span>
+            Tell us what you want to <span className="gradient-text-gold">work on.</span>
           </h2>
           <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '17px', color: '#8899AA', maxWidth: '520px', margin: '0 auto' }}>
             Book your free 20-minute AI discovery call or send us a message. No hard sell, just honest advice on where AI can help you most.
@@ -119,7 +119,7 @@ export function Contact({ source = 'Homepage contact form' }: { source?: string 
                   </div>
                 </div>
                 <p style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '14px', color: '#8899AA', marginBottom: '20px', lineHeight: 1.7 }}>
-                  Spend 20 focused minutes with our AI specialist. We'll identify your biggest opportunity and map out the most practical next step.
+                  Talk through your training needs or a task you want to improve. Eric will help you decide whether a session, workshop or workflow review is a useful next step.
                 </p>
                 <motion.a
                   whileHover={{ scale: 1.02 }}

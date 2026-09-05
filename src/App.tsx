@@ -2,11 +2,9 @@ import { useEffect, useState, type ComponentType, type ReactNode } from 'react';
 import { Nav } from './components/Nav';
 import { ScrollProgress } from './components/ScrollProgress';
 import { HeroUpgraded } from './components/HeroUpgraded';
-import { SocialProofTicker } from './components/SocialProofTicker';
-import { FlagshipCourses } from './components/FlagshipCourses';
+import { WorkshopEvidence } from './components/WorkshopEvidence';
 import { AnnouncementBanner } from './components/AnnouncementBanner';
 import { WhatsAppCommunity } from './components/WhatsAppCommunity';
-import { AIJourney } from './components/AIJourney';
 import { PracticalUseCases } from './components/PracticalUseCases';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
 import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
@@ -18,7 +16,6 @@ import { FiverrServices } from './components/FiverrServices';
 import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { StickyCTA } from './components/StickyCTA';
 import { LegalPage, type LegalPageType } from './components/LegalPages';
 import { NotFoundPage, SeoLandingPage } from './components/SeoLandingPage';
 import { PricingPage } from './components/PricingPage';
@@ -185,23 +182,20 @@ export function App({ pathname = '/' }: { pathname?: string }) {
   return (
     <>
       <SiteBackground>
-        <StickyCTA />
         <Nav />
         <AnnouncementBanner />
         <main id="main-content">
           <HeroUpgraded />
-          <SocialProofTicker />
+          <WorkshopEvidence />
           <TestimonialsUpgraded />
           <PracticalUseCases />
           <Services />
           <EngagementProcess />
-          <FlagshipCourses />
           <div className="max-w-6xl mx-auto px-6"><div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" /></div>
           <CoursesUpgraded />
           <div className="max-w-6xl mx-auto px-6"><div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" /></div>
           <AboutUpgraded />
           <WhoThisIsFor />
-          <AIJourney />
           <WhatsAppCommunity />
           <FiverrServices />
           <Blog />

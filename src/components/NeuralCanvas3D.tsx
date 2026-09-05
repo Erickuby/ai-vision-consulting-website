@@ -307,7 +307,7 @@ export function NeuralCanvas3D() {
         height: '100%',
         pointerEvents: 'none',
         zIndex: 0,
-        opacity: 0.5,
+        opacity: 0.12,
       }}
       aria-hidden="true"
     >

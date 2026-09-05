@@ -14,9 +14,8 @@ export function ScrollProgress() {
         left: 0,
         right: 0,
         height: 2,
-        background: 'linear-gradient(90deg, #0066AA, #00D4FF, #FFD700)',
+        background: '#70c9c4',
         zIndex: 9998,
-        boxShadow: '0 0 8px rgba(0,212,255,0.6)',
         pointerEvents: 'none',
       }}
     />
