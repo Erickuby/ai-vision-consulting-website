@@ -3,7 +3,6 @@ import { Nav } from './components/Nav';
 import { ScrollProgress } from './components/ScrollProgress';
 import { HeroUpgraded } from './components/HeroUpgraded';
 import { WorkshopEvidence } from './components/WorkshopEvidence';
-import { AnnouncementBanner } from './components/AnnouncementBanner';
 import { WhatsAppCommunity } from './components/WhatsAppCommunity';
 import { PracticalUseCases } from './components/PracticalUseCases';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
@@ -182,7 +181,6 @@ export function App({ pathname = '/' }: { pathname?: string }) {
     <>
       <SiteBackground>
         <Nav />
-        <AnnouncementBanner />
         <main id="main-content">
           <HeroUpgraded />
           <WorkshopEvidence />

@@ -1090,9 +1090,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
 .badge { border-radius: 3px; letter-spacing: .12em; text-transform: uppercase; }
 .badge-gold, .badge-cyan { background: transparent; border-color: #324951; color: #a7ded9; }
 .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #a7ded9; margin-bottom: 22px; }
-.learning-note { padding: 84px 24px 14px; position: relative; z-index: 10; display: flex; justify-content: center; gap: 10px; font-size: 12px; color: #a5b3c1; border-bottom: 1px solid #20313e; }
-.learning-note a { color: #d9e9e8; text-decoration: underline; text-underline-offset: 4px; }
-.editorial-hero { max-width: 1200px; margin: auto; padding: 72px 28px 0; }
+.editorial-hero { max-width: 1200px; margin: auto; padding: 144px 28px 0; }
 .editorial-hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 78px; align-items: center; padding-bottom: 64px; }
 .editorial-hero h1 { font-size: clamp(2.6rem, 4.5vw, 4.3rem); font-weight: 600; line-height: 1.09; letter-spacing: -.045em; margin: 0 0 26px; }
 .editorial-hero h1 .hero-heading-accent { color: #70c9c4; }
@@ -1234,8 +1232,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
   @keyframes editorial-depth { to { transform: rotateY(4deg) rotateZ(-1deg) translateY(-5px); } }
 }
 @media (max-width: 767px) {
-  .learning-note { flex-wrap: wrap; gap: 5px 10px; font-size: 11px; }
-  .editorial-hero { padding: 42px 22px 0; }
+  .editorial-hero { padding: 104px 22px 0; }
   .editorial-hero-grid { grid-template-columns: 1fr; gap: 34px; padding-bottom: 34px; }
   .editorial-hero h1 { font-size: clamp(2.45rem, 9vw, 3.8rem); }
   .hero-intro { font-size: 16px; }
