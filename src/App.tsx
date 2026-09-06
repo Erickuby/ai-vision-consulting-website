@@ -3,6 +3,7 @@ import { Nav } from './components/Nav';
 import { ScrollProgress } from './components/ScrollProgress';
 import { HeroUpgraded } from './components/HeroUpgraded';
 import { WorkshopEvidence } from './components/WorkshopEvidence';
+import { AIInPractice } from './components/AIInPractice';
 import { WhatsAppCommunity } from './components/WhatsAppCommunity';
 import { PracticalUseCases } from './components/PracticalUseCases';
 import { CoursesUpgraded } from './components/CoursesUpgraded';
@@ -183,6 +184,7 @@ export function App({ pathname = '/' }: { pathname?: string }) {
         <Nav />
         <main id="main-content">
           <HeroUpgraded />
+          <AIInPractice />
           <WorkshopEvidence />
           <TestimonialsUpgraded />
           <PracticalUseCases />

@@ -1122,6 +1122,38 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
 .hero-fieldnote:hover strong { color: #70c9c4; }
 .hero-principles { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; border-top: 1px solid #2a3c47; padding: 22px 0; color: #9cabb8; font-size: 12px; }
 .hero-principles a { color: #cce3e0; }
+.ai-practice { padding: 80px 28px; background: #081421; color: #f0f4ff; }
+.ai-practice-inner { max-width: 1144px; margin: auto; }
+.ai-practice-intro { max-width: 740px; }
+.ai-practice h2 { font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.17; letter-spacing: -.035em; font-weight: 500; margin-bottom: 20px; }
+.ai-practice p { font-size: 15px; line-height: 1.8; color: #b7c5d1; }
+.ai-practice-choices { display: flex; flex-wrap: wrap; gap: 8px 28px; border-bottom: 1px solid #354957; margin: 28px 0 36px; }
+.ai-practice-choices button { padding: 14px 0; min-height: 48px; border-bottom: 2px solid transparent; color: #b7c5d1; font-size: 15px; cursor: pointer; }
+.ai-practice-choices button[aria-pressed="true"] { color: #91ded6; border-bottom-color: #91ded6; }
+.ai-practice button:hover { color: #fff; }
+.ai-practice button:focus-visible, .ai-practice a:focus-visible { outline: 2px solid #91ded6; outline-offset: 5px; }
+.ai-example { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; }
+.ai-example h3 { font-size: clamp(1.4rem, 2.4vw, 1.85rem); font-weight: 500; line-height: 1.3; margin: 0 0 12px; max-width: 28ch; }
+.ai-example p.ai-example-tool { font-size: 13px; color: #91ded6; margin: 0 0 30px; }
+.ai-example h4 { font-size: 15px; font-weight: 600; margin: 0 0 12px; }
+.ai-example .hero-text-link { display: inline-flex; align-items: center; gap: 12px; color: #91ded6; margin-top: 26px; }
+.ai-example-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 44px; margin-bottom: 12px; }
+.ai-example-toolbar h4 { margin: 0; }
+.ai-example-toolbar button, .ai-show-full { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #91ded6; font-size: 13px; cursor: pointer; text-underline-offset: 4px; }
+.ai-example-response { display: grid; border-block: 1px solid #354957; padding: 22px 0; }
+.ai-example-response > p { grid-area: 1 / 1; white-space: pre-wrap; margin: 0; }
+.ai-example-reserved { visibility: hidden; }
+.ai-example-response .ai-example-visible { color: #edf4fa; }
+.ai-example p.ai-example-lesson { margin-top: 22px; color: #91ded6; }
+.ai-example p.ai-example-disclosure { margin-top: 14px; font-size: 12px; line-height: 1.7; }
+.page-artwork-frame { overflow: hidden; }
+.evidence-artwork .evidence-artwork-note { padding: 12px 14px; color: #b7c5d1; font-size: 12px; line-height: 1.6; }
+@media (max-width: 767px) {
+  .ai-practice { padding: 54px 22px; }
+  .ai-example { grid-template-columns: 1fr; gap: 32px; }
+  .ai-practice-choices { gap: 4px 20px; }
+  .ai-example h3 { max-width: none; }
+}
 .workshop-evidence { background: #050d1a; color: #f0f4ff; padding: 80px 28px; border-block: 1px solid #263b4b; }
 .workshop-layout { max-width: 1144px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 88px; }
 .workshop-evidence .eyebrow { color: #a7ded9; }
