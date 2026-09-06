@@ -4,7 +4,7 @@ export function HeroUpgraded() {
       <div className="editorial-hero-grid">
         <div>
           <p className="eyebrow">Newcastle based · Training across the UK</p>
-          <h1>Practical AI skills.<br /><span>Put them to work.</span></h1>
+          <h1 aria-label="Practical AI skills. Put them to work."><DancingLetters text="Practical AI skills." /><DancingLetters text="Put them to work." className="hero-heading-accent" /></h1>
           <p className="hero-intro">Practical AI training for teams, professionals and people taking their next career step. Clear explanations, guided practice and tools you can use with confidence.</p>
           <div className="hero-actions">
             <a className="btn-primary" href="/contact/">Discuss a workshop <span aria-hidden="true">↗</span></a>
@@ -25,3 +25,4 @@ export function HeroUpgraded() {
     </section>
   );
 }
+import DancingLetters from './ui/dancing-letters';
