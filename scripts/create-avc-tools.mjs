@@ -143,9 +143,15 @@ function toolConfigs(calSecretId) {
             // The event type has required custom booking fields. Omitting one makes Cal.com
             // reject the whole booking with a 400, which the caller experiences as the
             // booking simply failing.
+            // Every required field on the event type must be present or Cal.com rejects the
+            // whole booking. It only ever names the FIRST missing field, so these were
+            // enumerated from the live booking form rather than discovered one 400 at a
+            // time. Required on the form: whatsapp, ai-goal, title (plus name and email,
+            // which are attendee fields above). Optional: current-barrier, notes,
+            // attendeePhoneNumber, guests.
             bookingFieldsResponses: {
               type: 'object',
-              description: 'Answers to the required custom booking questions.',
+              description: 'Answers to the event type\'s booking questions.',
               properties: {
                 whatsapp: {
                   type: 'string',
@@ -153,8 +159,31 @@ function toolConfigs(calSecretId) {
                     'The caller\'s WhatsApp number in full international format, starting with a '
                     + 'plus and the country code, e.g. +447700900123 for the UK. Required.',
                 },
+                'ai-goal': {
+                  type: 'string',
+                  description:
+                    'Answer to "What is the main outcome you want from AI?". One or two sentences '
+                    + 'in the caller\'s own words, from what they told you. Required.',
+                },
+                title: {
+                  type: 'string',
+                  description:
+                    'Answer to "What is this meeting about?". A short phrase, e.g. '
+                    + '"AI training for a small team". Required.',
+                },
+                'current-barrier': {
+                  type: 'string',
+                  description:
+                    'Answer to "What is currently getting in the way?". Only include it if they '
+                    + 'actually mentioned a blocker. Optional.',
+                },
+                notes: {
+                  type: 'string',
+                  description:
+                    'Anything else from the conversation that would help Eric prepare. Optional.',
+                },
               },
-              required: ['whatsapp'],
+              required: ['whatsapp', 'ai-goal', 'title'],
             },
           },
           required: ['start', 'attendee', 'bookingFieldsResponses'],
