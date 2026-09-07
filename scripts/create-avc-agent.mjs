@@ -147,6 +147,18 @@ function buildConfig(prompt, knowledge, toolIds) {
       },
       tts: {
         voice_id: VOICE_ID,
+        // Was eleven_flash_v2 at stability 0.5, which drifted in pitch mid sentence: the
+        // voice climbed high then dropped low again, which reads as unsteady rather than
+        // professional. Higher stability trades a little expressiveness for a level tone,
+        // which is the right trade for a business assistant. The conversational model is
+        // built for agent turns rather than narration and holds the voice together better.
+        model_id: 'eleven_v3_conversational',
+        stability: 0.75,
+        similarity_boost: 0.85,
+        speed: 0.97,
+        // 3 is the most aggressive latency setting and costs audio quality. 2 keeps the
+        // response quick enough for conversation without chopping the voice about.
+        optimize_streaming_latency: 2,
       },
       conversation: {
         max_duration_seconds: MAX_CALL_SECONDS,

@@ -16,6 +16,7 @@ import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { LegalPage, type LegalPageType } from './components/LegalPages';
+import { VoiceAgent } from './components/VoiceAgent';
 import { NotFoundPage, SeoLandingPage } from './components/SeoLandingPage';
 import { PricingPage } from './components/PricingPage';
 import { getSiteRoute, normalizeRoutePath } from './data/routes';
@@ -130,6 +131,7 @@ function SiteBackground({ children }: { children: ReactNode }) {
       <ClientDecoration />
       <MotionPreferenceControl />
       {children}
+      <VoiceAgent />
     </div>
   );
 }
