@@ -9,8 +9,9 @@
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "prerender": "node scripts/prerender.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "build": "python3 scripts/generate-static-blog.py && npm run generate:sitemap && npm run build:client && npm run build:ssr && npm run prerender",
-    "preview": "vite preview"
+    "build": "npm run clean && python3 scripts/generate-static-blog.py && npm run generate:sitemap && npm run build:client && npm run build:ssr && npm run prerender",
+    "preview": "vite preview",
+    "clean": "node scripts/clean-dist.mjs"
   },
   "dependencies": {
     "@elevenlabs/client": "^1.25.0",
