@@ -133,6 +133,11 @@ function buildConfig(prompt, knowledge, toolIds) {
         language: 'en',
         prompt: {
           prompt,
+          // Was gemini-2.5-flash, the account default. It repeatedly spoke its own planning
+          // aloud ("The user confirmed their email. Now I need to ask for...") and repeated
+          // whole sentences, and tightening the prompt did not stop it. Swapped for a model
+          // that keeps its reasoning to itself while staying fast enough for live voice.
+          llm: 'claude-haiku-4-5',
           knowledge_base: knowledge,
           // Restated on every run. Without this, a prompt-only update that rewrites the
           // prompt object risks detaching the booking tools, which fails silently: the
