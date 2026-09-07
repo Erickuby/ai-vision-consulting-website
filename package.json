@@ -11,7 +11,11 @@
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "build": "npm run clean && python3 scripts/generate-static-blog.py && npm run generate:sitemap && npm run build:client && npm run build:ssr && npm run prerender",
     "preview": "vite preview",
-    "clean": "node scripts/clean-dist.mjs"
+    "clean": "node scripts/clean-dist.mjs",
+    "agent:knowledge": "node scripts/build-agent-knowledge.mjs",
+    "agent:web": "node scripts/create-avc-agent.mjs",
+    "agent:whatsapp": "node scripts/sync-whatsapp-agent.mjs",
+    "agent:sync": "npm run agent:knowledge && npm run agent:web && npm run agent:whatsapp"
   },
   "dependencies": {
     "@elevenlabs/client": "^1.25.0",
