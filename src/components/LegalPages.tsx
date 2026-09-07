@@ -21,7 +21,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
     badge: 'Your Data',
     summary:
       'This policy explains what personal data we collect, how we use it, and your rights under applicable data protection law.',
-    lastUpdated: '24 February 2026',
+    lastUpdated: '7 September 2026',
     sections: [
       {
         title: '1. Who We Are',
@@ -34,6 +34,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
         title: '2. Data We Collect',
         paragraphs: [
           'We may collect your name, email address, enquiry details, and any information you submit through our contact form.',
+          'If you use the optional AI voice assistant, we also process what you say during the conversation and a written transcript of it. Section 6 explains this in full.',
           'We may also collect limited technical data required to run and secure the website, such as browser and device metadata.',
         ],
       },
@@ -53,19 +54,31 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
       {
         title: '5. Data Sharing and Retention',
         paragraphs: [
-          'We share data only with trusted service providers necessary for delivering website and communication functions (for example, form delivery providers).',
+          'We share data only with trusted service providers necessary for delivering website and communication functions (for example, form delivery providers, ElevenLabs for the AI voice assistant, and Cal.com for scheduling calls).',
           'We retain personal data only as long as reasonably necessary for the purpose collected, legal requirements, or dispute resolution.',
         ],
       },
       {
-        title: '6. Your Rights',
+        title: '6. AI Voice Assistant',
+        paragraphs: [
+          'This website offers an optional AI voice assistant called Joe. It is not a person and it is not Eric Nwankwo, although it speaks with a synthetic copy of his voice. It never starts on its own: a conversation only begins when you choose to start one and grant your browser microphone permission, and you can end it at any time.',
+          'During a conversation we process the audio of what you say for as long as the call is running, together with a written transcript of the conversation. If you ask to book a discovery call, we also process the details you give for that purpose, which are your name, email address, WhatsApp number, and what you tell us you want to achieve with AI.',
+          'Call audio is not recorded or stored. The written transcript is retained so that we can follow up on your enquiry and check the assistant is answering accurately.',
+          'The assistant is provided by ElevenLabs, which processes the audio and transcript on our behalf, using an underlying language model supplied through its platform. If you choose to book a call, your booking details are sent to Cal.com, which manages our calendar. These providers are located outside the United Kingdom, so this involves an international transfer of personal data, made under the safeguards in their respective data processing terms.',
+          'We rely on your consent for the conversation itself, since you choose to start it. Where you ask us to book a call or pass your details to us, we process that information to take steps at your request and to respond to your enquiry.',
+          'Please do not share confidential, financial or special category information with the assistant, and do not enter information belonging to your employer that you are not authorised to share. If you would rather not speak to an AI at all, you can email us, call us, or use the contact form instead, and you can ask the assistant for a human at any point.',
+          'You can ask us to delete a transcript at any time by emailing eric.nwankwo@aivisionconsulting.co.uk.',
+        ],
+      },
+      {
+        title: '7. Your Rights',
         paragraphs: [
           'Depending on your location and applicable law, you may have rights to access, correct, delete, restrict, or object to processing of your personal data.',
           'You may also have the right to withdraw consent and lodge a complaint with your local data protection authority.',
         ],
       },
       {
-        title: '7. Security',
+        title: '8. Security',
         paragraphs: [
           'We use appropriate technical and organizational safeguards to protect personal data. No internet transmission is completely secure, but we take reasonable steps to reduce risk.',
         ],
@@ -132,7 +145,7 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
     badge: 'Tracking & Storage',
     summary:
       'This policy explains how cookies and similar technologies are used on this website.',
-    lastUpdated: '24 February 2026',
+    lastUpdated: '7 September 2026',
     sections: [
       {
         title: '1. What Cookies Are',
@@ -144,23 +157,31 @@ const legalDocs: Record<LegalPageType, LegalDocument> = {
         title: '2. Cookies We Use',
         paragraphs: [
           'We use essential and functional technologies required for core website operation and user experience.',
-          'As of 24 February 2026, this site does not run third-party advertising cookies.',
+          'As of 7 September 2026, this site does not run third-party advertising cookies.',
         ],
       },
       {
-        title: '3. Third-Party Services',
+        title: '3. Browser Storage Used by the AI Voice Assistant',
+        paragraphs: [
+          'The optional AI voice assistant uses a small amount of browser storage rather than cookies. It remembers that you dismissed its prompt, so you are not asked twice, and it counts how many conversations you have started during a visit, so the assistant is not left running indefinitely.',
+          'This information stays in your own browser. It is not sent to us, it does not identify you, and clearing your browser storage removes it.',
+          'If you start a conversation, ElevenLabs, which provides the assistant, may also set its own storage in order to run the call. Our Privacy Policy explains what is processed during a conversation.',
+        ],
+      },
+      {
+        title: '4. Third-Party Services',
         paragraphs: [
           'When you follow external links or use third-party tools (for example, external booking or email services), those providers may set their own cookies under their own policies.',
         ],
       },
       {
-        title: '4. Managing Cookies',
+        title: '5. Managing Cookies',
         paragraphs: [
           'You can control or delete cookies through your browser settings. Disabling certain cookies may affect site functionality.',
         ],
       },
       {
-        title: '5. Updates to This Policy',
+        title: '6. Updates to This Policy',
         paragraphs: [
           'We may update this Cookie Policy from time to time. The latest version will always be published on this page with the updated date.',
         ],
