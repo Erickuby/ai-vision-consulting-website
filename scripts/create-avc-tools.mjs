@@ -122,19 +122,42 @@ function toolConfigs(calSecretId) {
               type: 'string',
               description: 'Exact slot start returned by check_availability, ISO 8601 UTC.',
             },
+            // constant_value is only injected for TOP LEVEL properties. Nested inside an
+            // object it is silently dropped, which a live call proved: eventTypeSlug and
+            // username arrived, attendee.timeZone and attendee.language did not. So every
+            // nested value has to be described and filled by the model instead.
             attendee: {
               type: 'object',
               description: 'The person booking.',
               properties: {
                 name: { type: 'string', description: 'Full name as they gave it.' },
                 email: { type: 'string', description: 'Email address, confirmed back to them.' },
-                timeZone: constant(TIMEZONE),
-                language: constant('en'),
+                timeZone: {
+                  type: 'string',
+                  description: 'Always exactly "Europe/London". Never any other value.',
+                },
+                language: { type: 'string', description: 'Always exactly "en".' },
               },
-              required: ['name', 'email'],
+              required: ['name', 'email', 'timeZone'],
+            },
+            // The event type has required custom booking fields. Omitting one makes Cal.com
+            // reject the whole booking with a 400, which the caller experiences as the
+            // booking simply failing.
+            bookingFieldsResponses: {
+              type: 'object',
+              description: 'Answers to the required custom booking questions.',
+              properties: {
+                whatsapp: {
+                  type: 'string',
+                  description:
+                    'The caller\'s WhatsApp number in full international format, starting with a '
+                    + 'plus and the country code, e.g. +447700900123 for the UK. Required.',
+                },
+              },
+              required: ['whatsapp'],
             },
           },
-          required: ['start', 'attendee'],
+          required: ['start', 'attendee', 'bookingFieldsResponses'],
         },
       },
     },
