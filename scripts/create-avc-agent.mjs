@@ -124,7 +124,7 @@ async function uploadKnowledge(key, ids) {
 // usage_mode 'prompt' puts every document in full context rather than retrieving chunks.
 // The whole knowledge base is about 13 KB, and for an agent quoting prices, full context
 // beats RAG: a retrieval miss on a price is worse than the tokens cost.
-function buildConfig(prompt, knowledge) {
+function buildConfig(prompt, knowledge, toolIds) {
   return {
     name: AGENT_NAME,
     conversation_config: {
@@ -134,6 +134,10 @@ function buildConfig(prompt, knowledge) {
         prompt: {
           prompt,
           knowledge_base: knowledge,
+          // Restated on every run. Without this, a prompt-only update that rewrites the
+          // prompt object risks detaching the booking tools, which fails silently: the
+          // agent keeps talking and just stops being able to book anything.
+          ...(toolIds.length > 0 ? { tool_ids: toolIds } : {}),
         },
       },
       tts: {
@@ -162,7 +166,8 @@ async function main() {
   console.log('knowledge base:');
   const knowledge = dryRun ? [] : await uploadKnowledge(key, ids);
 
-  const config = buildConfig(prompt, knowledge);
+  const toolIds = Object.values(ids.tools ?? {});
+  const config = buildConfig(prompt, knowledge, toolIds);
 
   if (dryRun) {
     console.log(JSON.stringify(config, null, 2));

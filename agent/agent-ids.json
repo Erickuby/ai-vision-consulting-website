@@ -6,5 +6,10 @@
     "04-course-topics.md": "tfVCwxLYuwle21VAzx4m",
     "05-faq.md": "Z3l4sfaVctDWTP6XEZSJ"
   },
-  "agentId": "agent_2001m1y24z6seht9sf1rgckgc85k"
+  "agentId": "agent_2001m1y24z6seht9sf1rgckgc85k",
+  "tools": {
+    "check_availability": "tool_0201m1y606q0fanvk46vs3s3x2nj",
+    "book_discovery_call": "tool_1601m1y60737eq1azs5c68hdd48n",
+    "capture_lead": "tool_9901m1y607etf1drq8ye6dgfvbny"
+  }
 }
