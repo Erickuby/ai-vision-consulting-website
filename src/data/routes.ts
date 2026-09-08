@@ -75,6 +75,81 @@ const routes = [
     ],
   },
   {
+    path: '/ai-voice-assistant/', kind: 'service', eyebrow: 'Working example on this page',
+    title: 'AI Voice Assistant for Your Website | AI Vision Consulting',
+    description: 'An AI assistant that answers customer questions in your own words and books real appointments into your calendar. Try the live one on this page. From £1,200 setup, then £150 per month.',
+    h1: 'AI voice assistants that answer questions and book appointments',
+    intro: 'Most websites sit there. A visitor arrives, reads a page, leaves, and you never know they came. An AI assistant answers their question in your own words, and books them in while they are still interested.',
+    sections: [
+      {
+        heading: 'Try it before you decide anything',
+        paragraphs: [
+          'There is an assistant in the corner of this page. It is not a demo video or a mock-up. It answers questions about this business using the prices published on this site, checks a real calendar, and books a real appointment.',
+          'Speak to it, ask what a session costs, then ask it to book you in. Whatever it does for AI Vision Consulting is what it can do for your organisation.',
+        ],
+      },
+      {
+        heading: 'What it does',
+        paragraphs: [
+          'The assistant is built from your existing material: your services, your prices, your opening hours and your frequently asked questions. It answers in your own words rather than generic marketing language.',
+          'When someone is ready, it collects their details, checks live availability and creates the booking. If they are interested but not ready, it captures the enquiry so nothing is lost.',
+        ],
+        bullets: [
+          'Answers questions about your services and prices',
+          'Checks live calendar availability',
+          'Books appointments and confirms by email',
+          'Captures enquiries when someone is not ready to book',
+          'Hands over to a person when asked',
+        ],
+      },
+      {
+        heading: 'What it will not do',
+        paragraphs: [
+          'This matters more than the feature list. An assistant that invents a price or promises an appointment that does not exist costs you more than having no assistant at all.',
+          'Yours is built to refuse. It states only prices you have published. It never quotes a starting price as if it were final. It never claims availability without checking the calendar. When it does not know, it says so and offers a human instead of guessing.',
+          'It also identifies itself as an AI on every conversation. Callers are told plainly that they are not speaking to a person.',
+        ],
+      },
+      {
+        heading: 'Where it can run',
+        paragraphs: [
+          'The website is the usual starting point, because visitors are already there and already interested. The same assistant can also answer on WhatsApp, or on a phone line, using your existing business number.',
+          'Each channel is scoped separately, because WhatsApp and telephony involve verification steps and per-message costs that a website widget does not.',
+        ],
+      },
+      {
+        heading: 'What it costs',
+        paragraphs: [
+          'Setup starts at £1,200 and covers scoping, building the assistant from your own content, connecting your calendar, testing it against real booking scenarios and putting it live on your site.',
+          'Ongoing support is £150 per month and covers hosting the assistant, monitoring conversations, keeping its knowledge in step with your prices and services, and adjusting how it answers as you learn what customers actually ask.',
+          'These are starting prices. The final figure depends on how many services you offer, which systems it connects to and how many channels you want it on. Third-party usage charges, for example voice minutes and messaging fees, are billed at cost and are separate.',
+        ],
+        bullets: [
+          'Setup from £1,200, one-off',
+          'Support and hosting £150 per month',
+          'Voice and messaging usage billed at cost',
+          'Additional channels quoted separately',
+        ],
+      },
+      {
+        heading: 'How the work runs',
+        paragraphs: [
+          'A discovery call establishes what your customers actually ask and what a useful outcome looks like. The assistant is then built from your published material and tested against real scenarios, including the awkward ones, before it goes anywhere near your visitors.',
+          'You see it working and approve it before it goes live. Nothing is switched on without you hearing it first.',
+        ],
+      },
+    ],
+    faqs: [
+      { question: 'Can I try it before committing?', answer: 'Yes. The assistant on this page is a working example, not a recording. Ask it about prices or ask it to book you a discovery call.' },
+      { question: 'Will it make up prices or promise appointments it cannot honour?', answer: 'No. It states only prices you have published, and it cannot confirm a booking until your calendar has accepted it. Where it does not know something, it says so and offers to pass the question to a person.' },
+      { question: 'Does it replace my staff?', answer: 'No. It handles the repetitive questions that arrive outside working hours or while your team is busy, and it hands over to a person whenever someone asks.' },
+      { question: 'What happens when it is wrong?', answer: 'It is built to decline rather than guess, and conversations are reviewable so anything it handles badly can be corrected. That is part of the monthly support.' },
+      { question: 'Do my customers know they are talking to an AI?', answer: 'Yes, and it says so at the start of every conversation. Anything else would be misleading, and it breaks trust the moment somebody works it out.' },
+      { question: 'Can it work on WhatsApp or a phone line as well?', answer: 'Yes. The same assistant can answer on WhatsApp or a phone number. Those channels involve verification and per-message costs, so they are scoped and quoted separately.' },
+      { question: 'How long does it take to build?', answer: 'A straightforward website assistant is usually ready to review within a couple of weeks of the discovery call, depending on how quickly your content and calendar access are available.' },
+    ],
+  },
+  {
     path: '/small-business-ai-automation/', kind: 'service', eyebrow: 'Simple systems for busy teams',
     title: 'Small Business AI Automation | Practical UK Support',
     description: 'Practical AI automation support for UK small businesses: review repetitive admin, map workflows and choose manageable tools.',

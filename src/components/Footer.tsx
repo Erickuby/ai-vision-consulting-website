@@ -5,6 +5,7 @@ import { submitWebsiteLead, trackConversion } from '../lib/leadCapture';
 
 const navLinks = [
   { label: 'Home', href: '/' },
+  { label: 'AI Voice Assistants', href: '/ai-voice-assistant/' },
   { label: 'AI Training Newcastle', href: '/ai-training-newcastle/' },
   { label: 'AI Automation', href: '/ai-automation-consultant-newcastle/' },
   { label: 'Corporate Training', href: '/corporate-ai-training-uk/' },

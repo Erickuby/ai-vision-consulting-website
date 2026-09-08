@@ -4,6 +4,7 @@ import { Contact } from './Contact';
 import { PageHeroArtwork } from './PageHeroArtwork';
 
 const serviceLinks = [
+  ['/ai-voice-assistant/', 'AI voice assistants'],
   ['/ai-training-newcastle/', 'AI training Newcastle'],
   ['/ai-automation-consultant-newcastle/', 'AI automation consulting'],
   ['/corporate-ai-training-uk/', 'Corporate AI training'],
