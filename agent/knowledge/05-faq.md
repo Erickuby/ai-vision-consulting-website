@@ -17,6 +17,34 @@ No. Sessions can start with the fundamentals and are scoped around the participa
 
 A personal one-hour session is £75. Two sessions are £140 and three are £195. Private small-group sessions start at £325, and corporate team workshops start at £995. Multi-session bundles are also available.
 
+## Can I try it before committing?
+
+Yes. The assistant on this page is a working example, not a recording. Ask it about prices or ask it to book you a discovery call.
+
+## Will it make up prices or promise appointments it cannot honour?
+
+No. It states only prices you have published, and it cannot confirm a booking until your calendar has accepted it. Where it does not know something, it says so and offers to pass the question to a person.
+
+## Does it replace my staff?
+
+No. It handles the repetitive questions that arrive outside working hours or while your team is busy, and it hands over to a person whenever someone asks.
+
+## What happens when it is wrong?
+
+It is built to decline rather than guess, and conversations are reviewable so anything it handles badly can be corrected. That is part of the monthly support.
+
+## Do my customers know they are talking to an AI?
+
+Yes, and it says so at the start of every conversation. Anything else would be misleading, and it breaks trust the moment somebody works it out.
+
+## Can it work on WhatsApp or a phone line as well?
+
+Yes. The same assistant can answer on WhatsApp or a phone number. Those channels involve verification and per-message costs, so they are scoped and quoted separately.
+
+## How long does it take to build?
+
+A straightforward website assistant is usually ready to review within a couple of weeks of the discovery call, depending on how quickly your content and calendar access are available.
+
 ## Can I mix Practical AI and Copilot topics?
 
 Yes. Individual bundles can combine either route. Each session lasts one hour and covers one agreed focus. We check your goals and tool access before confirming the plan.

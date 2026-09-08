@@ -20,7 +20,12 @@ const tmpFile = join(root, 'node_modules', '.agent-data.mjs');
 // Site facts that live in components rather than data files. Keep this list short; if a
 // value here starts drifting, move it into src/data and read it like everything else.
 const CONTACT = {
-  company: 'AI Vision Consulting Ltd',
+  // NOT "Ltd". The business is a sole trader: the site footer and the privacy policy both
+  // say "Eric Nwankwo trading as AI Vision Consulting". Using "Limited" or "Ltd" for a
+  // business that is not incorporated is restricted under the Companies Act, and it would
+  // also contradict the legal pages on the same site.
+  company: 'AI Vision Consulting',
+  legalName: 'Eric Nwankwo trading as AI Vision Consulting',
   person: 'Eric Nwankwo',
   email: 'eric.nwankwo@aivisionconsulting.co.uk',
   phone: '+447341183915',
@@ -100,8 +105,11 @@ function docAbout() {
   const socials = Object.entries(CONTACT.socials).map(([k, v]) => `- ${k}: ${v}`).join('\n');
   return `# About ${CONTACT.company}
 
-${CONTACT.company} provides practical AI training and automation consulting. It is led by
+${CONTACT.company} provides practical AI training and automation consulting. It is run by
 ${CONTACT.person} and is based in ${CONTACT.base}. ${CONTACT.coverage}.
+
+The business trades as ${CONTACT.company}. Its full legal name is "${CONTACT.legalName}".
+It is a sole trader, not a limited company, so never describe it as "Ltd" or "Limited".
 
 ## How to reach a human
 - Email: ${CONTACT.email}
