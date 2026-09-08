@@ -40,8 +40,8 @@ const routes = [
   },
   {
     path: '/ai-training-newcastle/', kind: 'service', eyebrow: 'Local, practical AI learning',
-    title: 'AI Training Newcastle | Practical Workshops for Teams',
-    description: 'Practical AI training in Newcastle for businesses, teams and community organisations. Learn useful workflows, prompting and responsible adoption.',
+    title: 'AI Training Newcastle | Practical Workshops for Your Team',
+    description: 'In person and online AI training for Newcastle teams. Practical sessions on AI tools, prompting and safe adoption. Team workshops from £995.',
     h1: 'Practical AI training for Newcastle teams and organisations',
     intro: 'AI training should connect directly to the work people already do. Sessions are designed around useful tasks, clear explanations and guided practice rather than technical jargon.',
     sections: [
@@ -57,8 +57,8 @@ const routes = [
   },
   {
     path: '/ai-automation-consultant-newcastle/', kind: 'service', eyebrow: 'Workflow-first automation advice',
-    title: 'AI Automation Consultant Newcastle | Workflow Advice',
-    description: 'AI automation consulting in Newcastle for organisations that want to map processes, assess opportunities and implement sensible workflows.',
+    title: 'AI Automation Consultant Newcastle | Save Your Team Hours',
+    description: 'Newcastle based AI automation consultant. We map where your team loses hours, then build workflows that hold up. Free 20 minute discovery call.',
     h1: 'AI automation consulting for Newcastle organisations',
     intro: 'Good automation starts with a clear process, not a fashionable tool. Consulting helps you understand repetitive work, information hand-offs and practical opportunities before deciding what to build.',
     sections: [
@@ -69,8 +69,8 @@ const routes = [
   },
   {
     path: '/corporate-ai-training-uk/', kind: 'service', eyebrow: 'Practical capability for UK teams',
-    title: 'Corporate AI Training UK | Responsible, Practical Workshops',
-    description: 'Corporate AI training for UK teams, covering practical use, prompting, responsible adoption and role-relevant workflows.',
+    title: 'Corporate AI Training UK | Team Workshops from £995',
+    description: 'Corporate AI and Microsoft 365 Copilot training for UK teams. Half day, full day and multi workshop programmes, scoped to your objectives.',
     h1: 'Corporate AI training for UK teams',
     intro: 'Give colleagues a shared, practical understanding of AI while keeping the training relevant to their roles, responsibilities and organisational policies.',
     sections: [
@@ -82,7 +82,7 @@ const routes = [
   {
     path: '/ai-voice-assistant/', kind: 'service', eyebrow: 'Working example on this page',
     title: 'AI Voice Assistant for Your Website | AI Vision Consulting',
-    description: 'An AI assistant that answers customer questions in your own words and books real appointments into your calendar. Try the live one on this page. From £1,200 setup, then £150 per month.',
+    description: 'An AI assistant that answers customer questions in your words and books real appointments. Try the live one on this page. From £1,200 setup, £150 a month.',
     h1: 'AI voice assistants that answer questions and book appointments',
     intro: 'Most websites sit there. A visitor arrives, reads a page, leaves, and you never know they came. An AI assistant answers their question in your own words, and books them in while they are still interested.',
     sections: [
@@ -156,8 +156,8 @@ const routes = [
   },
   {
     path: '/small-business-ai-automation/', kind: 'service', eyebrow: 'Simple systems for busy teams',
-    title: 'Small Business AI Automation | Practical UK Support',
-    description: 'Practical AI automation support for UK small businesses: review repetitive admin, map workflows and choose manageable tools.',
+    title: 'Small Business AI Automation | Practical Help in the UK',
+    description: 'Practical AI automation for UK small businesses. Cut repetitive admin, enquiry handling and follow up without adding complexity. Free discovery call.',
     h1: 'Practical AI automation for small businesses',
     intro: 'Small businesses need automation that is understandable, maintainable and connected to a real operational need. The work begins by identifying where time is spent and which steps are safe to streamline.',
     sections: [
@@ -169,7 +169,7 @@ const routes = [
   {
     path: '/community-employability-ai-training/', kind: 'service', eyebrow: 'Accessible learning for communities',
     title: 'Community & Employability AI Training | UK Programmes',
-    description: 'Accessible AI training for community groups, employability programmes and jobseekers, focused on practical skills and responsible use.',
+    description: 'Accessible AI training for community groups, charities and employability programmes. Practical skills, responsible use, scoped around available funding.',
     h1: 'Community and employability AI training',
     intro: 'Accessible sessions help people understand how AI can support job searching, learning and everyday work without presenting it as a shortcut or a replacement for personal judgement.',
     sections: [
