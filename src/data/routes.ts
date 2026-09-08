@@ -26,8 +26,13 @@ export type SiteRoute = {
 const routes = [
   {
     path: '/', kind: 'home',
-    title: 'AI Training & Automation Newcastle | AI Vision Consulting',
-    description: 'Practical AI training and automation consulting for Newcastle organisations and UK businesses, with support for professionals, jobseekers and community groups.',
+    // Aimed at local and branded intent, not the generic "ai consulting" term. On that
+    // query the results page is four paid ads, an AI Overview citing McKinsey and EY, and
+    // big brands above us at position seven; no title wins that. On the "near me" searches
+    // we already rank one to two, so the job of these tags is to be the obvious local
+    // choice for someone who has decided to hire somebody nearby.
+    title: 'AI Consultant Newcastle | AI and Copilot Training for Teams',
+    description: 'Newcastle based AI consultant. Practical AI and Microsoft 365 Copilot training for teams, plus automation that saves hours. Book a free discovery call.',
     eyebrow: 'Newcastle-based · Serving organisations across the UK',
     h1: 'Practical AI training and automation for Newcastle organisations and UK businesses',
     intro: 'Build useful AI capability, identify sensible automation opportunities and give your people the confidence to use modern tools responsibly.',
