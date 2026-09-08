@@ -5,26 +5,43 @@
 // so the value only moves when the pages actually change.
 
 import { execFileSync } from 'node:child_process';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, rm } from 'node:fs/promises';
 import path from 'node:path';
+import { build } from 'esbuild';
 
 const root = process.cwd();
 const SITE_URL = 'https://aivisionconsulting.co.uk';
 
-const STATIC_PATHS = [
-  '/',
-  '/ai-training-newcastle/',
-  '/ai-automation-consultant-newcastle/',
-  '/corporate-ai-training-uk/',
-  '/small-business-ai-automation/',
-  '/community-employability-ai-training/',
-  '/about-eric-nwankwo/',
-  '/case-studies/',
-  '/pricing/',
-  '/contact/',
-];
+// Paths are derived from src/data/routes.ts, which is the same list the router and the
+// prerenderer use. They used to be a hardcoded array here, which meant a new page was
+// prerendered and linked but silently missing from the sitemap until somebody remembered
+// to edit this file too. That is a second source of truth, and it drifts.
+async function loadRoutes() {
+  const tmp = path.join(root, 'node_modules', '.sitemap-routes.mjs');
+  await build({
+    entryPoints: [path.join(root, 'src', 'data', 'routes.ts')],
+    bundle: true,
+    format: 'esm',
+    platform: 'node',
+    outfile: tmp,
+    logLevel: 'silent',
+  });
+  try {
+    const url = new URL(`file://${tmp.replace(/\\/g, '/')}`).href;
+    return await import(`${url}?t=${Date.now()}`);
+  } finally {
+    await rm(tmp, { force: true });
+  }
+}
 
-const LEGAL_PATHS = ['/privacy-policy/', '/terms-of-service/', '/cookie-policy/'];
+const { siteRoutes } = await loadRoutes();
+if (!Array.isArray(siteRoutes) || siteRoutes.length === 0) {
+  throw new Error('Could not load siteRoutes from src/data/routes.ts');
+}
+
+const indexable = siteRoutes.filter((r) => r.kind !== 'not-found' && !r.noindex);
+const STATIC_PATHS = indexable.filter((r) => r.kind !== 'legal').map((r) => r.path);
+const LEGAL_PATHS = indexable.filter((r) => r.kind === 'legal').map((r) => r.path);
 
 const MONTHS = {
   jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
