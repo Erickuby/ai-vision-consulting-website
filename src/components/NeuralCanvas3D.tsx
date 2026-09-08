@@ -312,6 +312,8 @@ export function NeuralCanvas3D() {
       aria-hidden="true"
     >
       <Canvas
+        // Canvas defaults to pointerEvents: auto, overriding the decorative wrapper.
+        style={{ pointerEvents: 'none' }}
         camera={{ position: [0, 0, 8], fov: 50 }}
         gl={{ alpha: true, antialias: false, powerPreference: 'high-performance' }}
         dpr={dpr}
