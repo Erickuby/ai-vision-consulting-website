@@ -72,6 +72,11 @@ export function VoiceAgent() {
   const [muted, setMuted] = useState(false);
   const [errorText, setErrorText] = useState('');
   const sessionRef = useRef<Session | null>(null);
+  const callAttemptRef = useRef(0);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const launcherRef = useRef<HTMLButtonElement>(null);
+  const wasPanelOpenRef = useRef(false);
+  const panelOpen = open || status === 'connected' || status === 'connecting' || status === 'error';
 
   useEffect(() => setMounted(true), []);
 
@@ -114,6 +119,8 @@ export function VoiceAgent() {
   }, []);
 
   const endCall = useCallback(async () => {
+    // Invalidate pending setup as well as an already connected call.
+    callAttemptRef.current += 1;
     try {
       await sessionRef.current?.endSession();
     } catch {
@@ -123,6 +130,29 @@ export function VoiceAgent() {
     setStatus('idle');
     setMuted(false);
   }, []);
+
+  const closePanel = useCallback(() => {
+    void endCall();
+    setOpen(false);
+  }, [endCall]);
+
+  useEffect(() => {
+    if (panelOpen) {
+      closeButtonRef.current?.focus({ preventScroll: true });
+    } else if (wasPanelOpenRef.current) {
+      launcherRef.current?.focus({ preventScroll: true });
+    }
+    wasPanelOpenRef.current = panelOpen;
+
+    if (!panelOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      closePanel();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [panelOpen, closePanel]);
 
   const startCall = useCallback(async () => {
     if (!AGENT_ID) {
@@ -137,6 +167,8 @@ export function VoiceAgent() {
     }
 
     setStatus('connecting');
+    const attempt = ++callAttemptRef.current;
+    const cancelled = () => attempt !== callAttemptRef.current;
     setErrorText('');
     trackConversion('Voice Agent Call Started', { placement: window.location.pathname });
 
@@ -144,10 +176,14 @@ export function VoiceAgent() {
       // Imported here, not at the top of the file, so the SDK is a lazy chunk that only
       // visitors who actually click ever download.
       const { Conversation } = await import('@elevenlabs/client');
+      if (cancelled()) return;
 
       // Asking only now means the browser prompt is clearly tied to their click, which is
       // both better manners and far more likely to be granted.
-      await navigator.mediaDevices.getUserMedia({ audio: true });
+      const permissionStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      // The SDK owns the call's microphone stream; release this permission check's stream.
+      permissionStream.getTracks().forEach((track) => track.stop());
+      if (cancelled()) return;
 
       const session = await Conversation.startSession({
         agentId: AGENT_ID,
@@ -157,24 +193,35 @@ export function VoiceAgent() {
           page_path: window.location.pathname,
         },
         onStatusChange: ({ status: next }) => {
+          if (cancelled()) return;
           if (next === 'connected') setStatus('connected');
           if (next === 'disconnected') setStatus('idle');
         },
-        onModeChange: ({ mode: next }) => setMode(next === 'speaking' ? 'speaking' : 'listening'),
+        onModeChange: ({ mode: next }) => {
+          if (!cancelled()) setMode(next === 'speaking' ? 'speaking' : 'listening');
+        },
         onDisconnect: () => {
+          if (cancelled()) return;
           sessionRef.current = null;
           setStatus('idle');
         },
         onError: (message: string) => {
+          if (cancelled()) return;
           setErrorText(message || 'The call dropped.');
           setStatus('error');
         },
       });
 
+      if (cancelled()) {
+        await session.endSession();
+        return;
+      }
+
       sessionRef.current = session as unknown as Session;
       bumpCallCount();
       setStatus('connected');
     } catch (error) {
+      if (cancelled()) return;
       const message = error instanceof Error ? error.message : '';
       const denied = /permission|denied|notallowed/i.test(message);
       setErrorText(
@@ -193,13 +240,14 @@ export function VoiceAgent() {
     setMuted(next);
   }, [muted]);
 
-  useEffect(() => () => void sessionRef.current?.endSession().catch(() => {}), []);
+  useEffect(() => () => {
+    callAttemptRef.current += 1;
+    void sessionRef.current?.endSession().catch(() => {});
+  }, []);
 
   // Rendering nothing on the server keeps the prerender clean, and an unconfigured agent id
   // means the whole thing stays out of the DOM rather than shipping a broken button.
   if (!mounted || !AGENT_ID) return null;
-
-  const panelOpen = open || status === 'connected' || status === 'connecting' || status === 'error';
 
   return (
     <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3 print:hidden">
@@ -216,11 +264,11 @@ export function VoiceAgent() {
               type="button"
               onClick={dismissNudge}
               aria-label="Dismiss"
-              className="absolute right-2 top-2 text-white/40 hover:text-white"
+              className="absolute right-0 top-0 flex h-11 w-11 items-center justify-center rounded-lg text-white/75 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
             >
               <X size={14} />
             </button>
-            <p className="pr-4">Questions about the training? You can talk to our assistant.</p>
+            <p className="pr-7">Questions about the training? You can talk to Joe, our AI assistant.</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -233,23 +281,29 @@ export function VoiceAgent() {
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             role="dialog"
             aria-label="Voice assistant"
+            aria-describedby="voice-assistant-description"
             className="w-[min(20rem,calc(100vw-3rem))] rounded-2xl border p-4 shadow-2xl backdrop-blur-md"
             style={{ background: 'rgba(10,20,40,0.96)', borderColor: 'rgba(0,212,255,0.25)', color: '#F0F4FF' }}
           >
             <div className="mb-3 flex items-start justify-between gap-2">
               <div>
                 <p className="text-sm font-semibold" style={{ fontFamily: 'Space Grotesk' }}>Joe</p>
-                <p className="text-xs text-white/50">AI assistant, AI Vision Consulting</p>
+                <p className="text-xs text-white/75">AI assistant, AI Vision Consulting</p>
               </div>
               <button
                 type="button"
-                onClick={() => { void endCall(); setOpen(false); }}
+                ref={closeButtonRef}
+                onClick={closePanel}
                 aria-label="Close assistant"
-                className="text-white/40 hover:text-white"
+                className="-mr-2 -mt-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white/75 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
               >
                 <X size={16} />
               </button>
             </div>
+
+            <p id="voice-assistant-description" className="mb-3 text-sm leading-relaxed text-white/80">
+              Ask Joe about AI training, prices or booking a discovery call.
+            </p>
 
             {status === 'connected' && (
               <p className="mb-3 text-sm text-white/80">
@@ -319,7 +373,7 @@ export function VoiceAgent() {
               </div>
             )}
 
-            <p className="text-[11px] leading-snug text-white/45">
+            <p className="text-[13px] leading-relaxed text-white/75">
               Joe is an AI assistant, not a person. Calls are processed by ElevenLabs and a
               transcript is kept. No audio is stored.{' '}
               <a href="/privacy-policy/" className="underline">Privacy</a>
@@ -331,6 +385,9 @@ export function VoiceAgent() {
       {!panelOpen && (
         <motion.button
           type="button"
+          ref={launcherRef}
+          aria-haspopup="dialog"
+          aria-expanded={false}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => { dismissNudge(); setOpen(true); }}
@@ -338,7 +395,7 @@ export function VoiceAgent() {
           style={{ background: '#00D4FF', color: '#050D1A', fontFamily: 'Space Grotesk' }}
           data-conversion-placement="Voice agent launcher"
         >
-          <Mic size={16} /> Talk to us
+          <Mic size={16} /> Talk to our AI assistant
         </motion.button>
       )}
     </div>
