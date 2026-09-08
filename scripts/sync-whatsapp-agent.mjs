@@ -150,14 +150,26 @@ async function main() {
   node.parameters = node.parameters ?? {};
   node.parameters.options = { ...(node.parameters.options ?? {}), systemMessage };
 
-  // The n8n public API rejects read-only fields, so send only what it accepts.
+  // The n8n public API rejects read-only fields, so send only what it accepts. That
+  // includes settings: n8n stores keys of its own (availableInMCP, callerPolicy) that it
+  // then refuses to accept back, failing the whole PUT with "settings must NOT have
+  // additional properties". Send only the documented set.
+  const ALLOWED_SETTINGS = [
+    'executionOrder', 'saveDataErrorExecution', 'saveDataSuccessExecution',
+    'saveManualExecutions', 'saveExecutionProgress', 'executionTimeout',
+    'errorWorkflow', 'timezone',
+  ];
+  const settings = Object.fromEntries(
+    Object.entries(workflow.settings ?? {}).filter(([k]) => ALLOWED_SETTINGS.includes(k)),
+  );
+
   await api(base, key, `/workflows/${WORKFLOW_ID}`, {
     method: 'PUT',
     json: {
       name: workflow.name,
       nodes: workflow.nodes,
       connections: workflow.connections,
-      settings: workflow.settings ?? {},
+      settings,
     },
   });
 
