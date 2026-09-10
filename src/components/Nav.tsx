@@ -12,7 +12,7 @@ const socials = [
 ];
 
 const primaryLinks = [
-  { label: 'Courses', href: '/pricing/#catalogue-heading' },
+  { label: 'Voice Assistants', href: '/ai-voice-assistant/' },
   { label: 'Corporate Training', href: '/corporate-ai-training-uk/' },
   { label: 'Automation', href: '/ai-automation-consultant-newcastle/' },
   { label: 'About', href: '/about-eric-nwankwo/' },
