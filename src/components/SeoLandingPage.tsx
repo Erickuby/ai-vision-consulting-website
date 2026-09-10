@@ -20,6 +20,9 @@ export function Breadcrumbs({ current }: { current: string }) {
   );
 }
 
+const sectionId = (heading: string) =>
+  heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
 export function SeoLandingPage({ route }: { route: SiteRoute }) {
   const showContact = route.kind === 'contact';
 
@@ -37,14 +40,14 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
               {showContact ? <Calendar size={16} /> : null}{showContact ? 'Book on Cal.com' : 'Discuss your requirement'}
               {!showContact ? <ArrowRight size={16} /> : null}
             </a>
-            {route.path !== '/pricing/' && <a className="btn-secondary" href="/pricing/">View pricing</a>}
+            {route.path !== '/pricing/' && <a className="btn-secondary" href={route.pricingHref ?? '/pricing/'}>View pricing</a>}
           </div>
           </div><PageHeroArtwork path={route.path} /></div>
         </div>
       </section>
 
       {route.sections.map((section) => (
-        <section className="seo-content-section" key={section.heading}>
+        <section className="seo-content-section" id={sectionId(section.heading)} key={section.heading}>
           <div className="seo-container seo-article-copy">
             <h2>{section.heading}</h2>
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}

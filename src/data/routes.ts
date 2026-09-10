@@ -19,6 +19,10 @@ export type SiteRoute = {
   h1: string;
   intro: string;
   sections: ContentSection[];
+  // Where the hero 'View pricing' button goes. Defaults to /pricing/, which is the course
+  // catalogue. A service that publishes its own figures on the page should point at that
+  // section instead, or the button sends a buyer to prices for a different product.
+  pricingHref?: string;
   faqs?: FaqItem[];
   noindex?: boolean;
 };
@@ -81,6 +85,7 @@ const routes = [
   },
   {
     path: '/ai-voice-assistant/', kind: 'service', eyebrow: 'Working example on this page',
+    pricingHref: '#what-it-costs',
     title: 'AI Voice Assistant for Your Website | AI Vision Consulting',
     description: 'An AI assistant that answers customer questions in your words and books real appointments. Try the live one on this page. From £1,200 setup, £150 a month.',
     h1: 'AI voice assistants that answer questions and book appointments',
