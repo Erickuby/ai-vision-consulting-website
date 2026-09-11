@@ -1,0 +1,406 @@
+{
+  "release": "f01f32cb96608bc128a931e9385c48505dc8f0ce",
+  "base_url": "https://aivisionconsulting.co.uk",
+  "checked": 66,
+  "passed": 66,
+  "failures": [],
+  "note": "Verified through browser fetches; initial five timeouts all passed on retry. Text compared using SHA-256 after newline normalisation.",
+  "results": [
+    {
+      "path": "/404.html",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/about-eric-nwankwo/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/ai-automation-consultant-newcastle/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/ai-training-newcastle/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/ai-voice-assistant/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/8-ai-prompts-every-job-seeker-needs-right-now",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/ai-chatbot-for-your-website",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/ai-courses-newcastle",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/ai-hallucination-and-rag",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/ai-training-for-employees",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/copilot-agent-mode-word-excel-powerpoint",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/copilot-cowork-and-credits",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/copilot-notebooks-and-memory",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/copilot-oversharing-data-readiness",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/copilot-researcher-and-analyst-agents",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/get-found-in-ai-search-local-business",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/how-to-start-an-ai-side-hustle",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/north-east-ai-growth-zone-small-business",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/use-ai-civil-service-application",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/what-is-ai",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/what-to-automate-first-small-business",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/whatsapp-lead-automation-small-business",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/blog/why-copilot-rollouts-stall",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/case-studies/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/community-employability-ai-training/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/contact/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/cookie-policy/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/corporate-ai-training-uk/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/free-ai-training-north-east/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/pricing/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/privacy-policy/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/small-business-ai-automation/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/terms-of-service/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/services/ai-policy-and-governance/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/services/ai-workflow-audit/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/agent-365-governance/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/ai-agents-and-workflow-automation/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/ai-avatars-and-presenter-videos/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/ai-image-generation/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/ai-video-creation/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/build-simple-apps-with-ai/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/build-working-tool/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/building-an-ai-powered-freelance-service/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/choosing-ai-tools/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/connecting-ai-tools/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/content-creation-and-social-media-systems/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/copilot-costs/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/copilot-cowork-agent-mode/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/copilot-essentials-and-better-prompts/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/creating-digital-products-with-ai/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/excel-make-sense-of-your-data/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/notebooklm-for-research-and-knowledge-work/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/outlook-and-teams-email-meetings-and-actions/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/powerpoint-from-a-brief-to-a-presentation/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/prompting-for-better-results/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/research-files-and-copilot-notebooks/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/reusable-instructions-agents-and-repeat-tasks/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/word-useful-documents-and-clear-summaries/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/courses/your-personal-copilot-workflow/",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/assets/index-ChrxTKw5.js",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/assets/index-D34Phs-c.js",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/assets/index-DwHkid1y.css",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/assets/NeuralCanvas3D-gdMlJ67I.js",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/content-metadata.json",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "matchesBuild": true,
+      "ok": true
+    }
+  ]
+}

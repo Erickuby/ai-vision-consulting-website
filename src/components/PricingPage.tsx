@@ -1,3 +1,5 @@
+import { VatNotice, FreeTrainingComparison } from './PricingContext';
+import { consultancyOffers } from '../data/serviceOffers';
 import { TrainingCatalogue } from './TrainingCatalogue';
 import { ArrowRight, Calendar, Check, Users } from 'lucide-react';
 import type { SiteRoute } from '../data/routes';
@@ -17,6 +19,7 @@ function PriceCard({ item }: { item: TrainingPackage }) {
       {item.badge && <span className="pricing-card-badge">{item.badge}</span>}
       <h3>{item.name}</h3>
       <p className="pricing-card-price">{item.price}</p>
+      <VatNotice />
       <p className="pricing-card-format">{item.format}</p>
       </div>
       <div className="pricing-option-detail">
@@ -24,8 +27,8 @@ function PriceCard({ item }: { item: TrainingPackage }) {
       <ul>
         {item.features.map((feature) => <li key={feature}><Check size={15} aria-hidden="true" />{feature}</li>)}
       </ul>
-      <a href="/contact/" className="pricing-card-link" data-conversion-placement={`Pricing: ${item.name}`}>
-        Discuss this option <ArrowRight size={15} aria-hidden="true" />
+      <a href={item.href ?? '/contact/'} className="pricing-card-link" data-conversion-placement={`Pricing: ${item.name}`}>
+        {item.href ? 'View service details' : 'Discuss this option'} <ArrowRight size={15} aria-hidden="true" />
       </a>
       </div>
     </article>
@@ -42,9 +45,10 @@ export function PricingPage({ route }: { route: SiteRoute }) {
           <span className="badge badge-cyan">{route.eyebrow}</span>
           <h1>{route.h1}</h1>
           <p className="seo-lead">{route.intro}</p>
+          <VatNotice full />
           <div className="seo-actions">
             <a className="btn-primary" href="#individual-training">View individual prices <ArrowRight size={16} /></a>
-            <a className="btn-secondary" href="#catalogue-heading">Browse course topics</a><a className="hero-text-link" href="#team-training">Company pricing from £995 →</a>
+            <a className="btn-secondary" href="#catalogue-heading">Browse course topics</a><a className="hero-text-link" href="#team-training">Company pricing from £995, no VAT added →</a>
           </div>
           </div><PageHeroArtwork path={route.path} /></div>
         </div>
@@ -55,14 +59,16 @@ export function PricingPage({ route }: { route: SiteRoute }) {
           <div className="pricing-section-heading">
             <span className="pricing-kicker">For individuals</span>
             <h2 id="individual-heading">Personalised 1-to-1 AI training</h2>
-            <p>Each individual session lasts one hour. Choose Practical AI, Microsoft 365 Copilot for Work or a mix. Discounted bundles give you more time to practise.</p>
+            <p>Single sessions are £95 for a focused hour, with no VAT added. Start with a free discovery call. If you are working towards something bigger, a bundle gives you a lower rate and a personalised learning plan.</p>
           </div>
           <div className="pricing-grid pricing-grid-four">
             {individualTrainingPackages.map((item) => <PriceCard item={item} key={item.name} />)}
           </div>
+          <p className="pricing-scope-note">Bundles include a personalised learning plan, session notes and a prompt library built around your own work. Sessions remain valid for twelve months from purchase. Mix individual Practical AI and Copilot topics or repeat a topic for more practice.</p>
         </div>
       </section>
 
+      <FreeTrainingComparison />
       <TrainingCatalogue />
 
       <section className="pricing-section" aria-labelledby="private-group-heading">
@@ -83,11 +89,24 @@ export function PricingPage({ route }: { route: SiteRoute }) {
               <span className="pricing-kicker">For organisations</span>
               <h2 id="team-heading">Corporate and team AI training</h2>
             </div>
-            <p>Choose Microsoft 365 Copilot, Practical AI or a mixed agenda. These per-workshop starting prices include a scoping conversation, tailored delivery and participant resources. Programmes can be delivered remotely across the UK or in person where suitable.</p>
+            <p>Choose Microsoft 365 Copilot, Practical AI or a mixed agenda. Single workshops and committed multi-session programmes have separate rates. These starting prices include a scoping conversation, tailored delivery and participant resources. Programmes can be delivered remotely across the UK or in person where suitable.</p>
           </div>
           <div className="pricing-grid pricing-grid-corporate">
             {corporateTrainingPackages.map((item) => <PriceCard item={item} key={item.name} />)}
           </div>
+          <div className="catalogue-guidance">
+            <h3>How our corporate pricing compares</h3>
+            <p>We publish prices so you can compare before booking a call. Our half day starts at £1,450 and our full day at £2,450, each for up to twenty people. No VAT is added.</p>
+            <p>For a specific North East comparison, <a href="https://www.theoxfordaischool.com/ai-training-north-east" target="_blank" rel="noopener noreferrer">The Oxford AI School</a> lists a half-day basics session at £1,499 + VAT virtually or £1,599 + VAT in person. Its full-day policy workshop is £2,499 + VAT virtually or £2,599 + VAT in person, for up to ten people. These are different programmes: compare the agenda, group cap, delivery format and final tax-inclusive quote, as well as the price. Checked September 2026.</p>
+            <p>Every corporate quote includes a discovery call, tailored materials and a written summary of recommended next steps. Travel outside Tyne and Wear and software licences are quoted separately.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="pricing-section" aria-labelledby="consultancy-heading">
+        <div className="seo-container">
+          <div className="pricing-section-heading"><span className="pricing-kicker">Focused consultancy</span><h2 id="consultancy-heading">Agree the rules or choose the first workflow</h2><p>Start with a scoped piece of work and a practical written output.</p></div>
+          <div className="pricing-grid">{consultancyOffers.map((item) => <PriceCard item={item} key={item.name} />)}</div>
         </div>
       </section>
 
@@ -103,7 +122,7 @@ export function PricingPage({ route }: { route: SiteRoute }) {
             <div><Check size={18} /><span>Live demonstrations and guided practice</span></div>
             <div><Check size={18} /><span>Relevant slides, prompts, exercises or action notes</span></div>
           </div>
-          <p className="pricing-scope-note">Individual training packages are fixed at the published prices. Private-group and corporate figures are starting points; the final quote depends on the audience, delivery location, preparation, group size and any custom materials required. Software subscriptions, venue hire, custom tool development and travel beyond Newcastle are quoted separately. Community and employability programmes can be scoped around cohort needs and available funding.</p>
+          <p className="pricing-scope-note">Individual training packages are fixed at the published prices. Private-group and corporate figures are starting points; the final quote depends on the audience, delivery location, preparation, group size and any custom materials required. Software subscriptions, venue hire, custom tool development and travel outside Tyne and Wear are quoted separately. Community and employability programmes can be scoped around cohort needs and available funding.</p>
         </div>
       </section>
 

@@ -13,6 +13,18 @@ const safeJson = (value) => JSON.stringify(value).replaceAll('<', '\\u003c');
 
 function structuredData(route) {
   const canonical = server.routeCanonical(route);
+  const offer = (name, price, starting = false) => ({
+    '@type': 'Offer', name, url: canonical,
+    price: String(price).replace(/[^0-9.]/g, ''), priceCurrency: 'GBP',
+    validFrom: server.pricingPolicy.validFrom,
+    description: `${starting ? 'Starting price; scope and final quote agreed before booking. ' : 'One focused individual hour. '}${server.pricingPolicy.vatStatement} Software and usage charges are separate.`,
+    seller: { '@id': `${server.SITE_URL}/#organisation` },
+    priceSpecification: {
+      '@type': 'PriceSpecification', price: String(price).replace(/[^0-9.]/g, ''),
+      priceCurrency: 'GBP', valueAddedTaxIncluded: true,
+      description: server.pricingPolicy.vatStatement,
+    },
+  });
   const pageType = route.kind === 'contact'
     ? 'ContactPage'
     : route.path === '/about-eric-nwankwo/'
@@ -97,6 +109,21 @@ function structuredData(route) {
         ? { '@type': 'City', name: 'Newcastle upon Tyne' }
         : { '@type': 'Country', name: 'United Kingdom' },
       url: canonical,
+      ...(route.serviceOffer ? { offers: offer(route.serviceOffer.name, route.serviceOffer.price, true) } : {}),
+    });
+  }
+
+  if (route.course) {
+    const price = route.course.corporateOnly ? server.corporateTrainingPackages[0].price : route.course.price;
+    graph.push({
+      '@type': 'Course', '@id': `${canonical}#course`, name: route.h1,
+      description: route.description, url: canonical, inLanguage: 'en-GB',
+      provider: { '@id': `${server.SITE_URL}/#organisation` },
+      offers: offer(route.h1, price, route.course.corporateOnly),
+      hasCourseInstance: {
+        '@type': 'CourseInstance', courseMode: 'Instructor-led',
+        courseWorkload: route.course.corporateOnly ? 'PT90M' : 'PT60M',
+      },
     });
   }
 
@@ -117,18 +144,27 @@ function structuredData(route) {
       '@type': 'OfferCatalog',
       name: 'AI training and consulting services',
       url: canonical,
-      itemListElement: [{
+      itemListElement: [...server.individualTrainingPackages, server.privateGroupPackage, ...server.corporateTrainingPackages, ...server.consultancyOffers].map((item) => ({
         '@type': 'Offer',
-        name: 'Focused 90-minute personal AI training session',
-        price: '125',
+        name: item.name,
+        description: `${/^from/i.test(item.price) ? 'Starting price; the final quote depends on scope. ' : ''}${item.format}. ${item.description} ${server.pricingPolicy.vatStatement}`,
+        price: item.price.replace(/[^0-9.]/g, ''),
         priceCurrency: 'GBP',
-        url: canonical,
+        validFrom: server.pricingPolicy.validFrom,
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          price: item.price.replace(/[^0-9.]/g, ''),
+          priceCurrency: 'GBP',
+          valueAddedTaxIncluded: true,
+          description: server.pricingPolicy.vatStatement,
+        },
+        url: item.href ? `${server.SITE_URL}${item.href}` : canonical,
         itemOffered: {
           '@type': 'Service',
-          name: 'Focused 90-minute personal AI training session',
+          name: item.name,
           provider: { '@id': `${server.SITE_URL}/#organisation` },
         },
-      }],
+      })),
     });
   }
 

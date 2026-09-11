@@ -80,5 +80,5 @@ the published FAQ answers quote, and what the generator reads.
 
 A second file, `src/data/courses.ts`, used to export a conflicting list (90 minute sessions
 at £125, bundles at £330, £600 and £1,080). Nothing imported it and Eric confirmed the
-60 minute £75 pricing in `training.ts` is the current one, so `courses.ts` was deleted.
+The original migration retained the 60-minute sessions in `training.ts` and removed `courses.ts`. The current prices are always generated from `training.ts`; the September 2026 draft uses a £95 single session.
 Do not reintroduce a second list.

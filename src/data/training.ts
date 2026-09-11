@@ -1,7 +1,12 @@
+import { detailedTopics } from './trainingDetails';
+import { courseContentFor, coursePathFor } from './courseContent';
+
 export type TrainingSession = {
   number: number;
   title: string;
   description: string;
+  coursePath?: string;
+  corporateOnly?: boolean;
 };
 
 export type TrainingCategory = {
@@ -18,6 +23,7 @@ export type TrainingPackage = {
   features: string[];
   highlight?: boolean;
   badge?: string;
+  href?: string;
 };
 
 export const trainingCategories: TrainingCategory[] = [
@@ -27,8 +33,7 @@ export const trainingCategories: TrainingCategory[] = [
     sessions: [
       {
         number: 1,
-        title: 'Choosing the right AI tools',
-        description: 'Compare ChatGPT, Claude, Gemini, Qwen and DeepSeek against your tasks, privacy needs and budget.',
+        ...detailedTopics['choosing-ai-tools'],
       },
       {
         number: 2,
@@ -37,14 +42,14 @@ export const trainingCategories: TrainingCategory[] = [
       },
       {
         number: 3,
-        title: 'Claude Code for non-coders',
-        description: 'Use tools such as Claude Code to create simple websites, mini-apps and useful business tools.',
+        ...detailedTopics['build-working-tool'],
       },
       {
         number: 4,
         title: 'AI agents and workflow automation',
         description: 'Identify repetitive work and design practical AI-assisted workflows with sensible human checks.',
       },
+      { number: 13, ...detailedTopics['connecting-ai-tools'] },
     ],
   },
   {
@@ -59,7 +64,7 @@ export const trainingCategories: TrainingCategory[] = [
       {
         number: 6,
         title: 'AI video creation',
-        description: 'Create useful videos for presentations, training, social media and internal communication.',
+        description: 'Create a short video with Google Veo 3.1, including native audio. Compare Runway Gen-4.5, Kling 3.0 and Seedance 2.0 for your task, budget and editing needs. Check the current plan, usage limits and commercial licence before choosing a tool.',
       },
       {
         number: 7,
@@ -101,69 +106,35 @@ export const trainingCategories: TrainingCategory[] = [
   },
 ];
 
-export const individualTrainingPackages: TrainingPackage[] = [
-  {
-    "name": "Focused session",
-    "price": "£75",
-    "format": "One 60-minute session",
-    "description": "Choose one focused task or an introduction to a topic.",
-    "features": [
-      "Personal goal check",
-      "Live guided practice",
-      "Relevant prompts and action notes"
-    ]
-  },
-  {
-    "name": "Two-session bundle",
-    "price": "£140",
-    "format": "Two 60-minute sessions · £70 per hour",
-    "description": "Explore two priorities or build on your first session.",
-    "features": [
-      "Save £10 against single sessions",
-      "Mix Practical AI and Copilot topics",
-      "Practice between sessions"
-    ]
-  },
-  {
-    "name": "Three-session bundle",
-    "price": "£195",
-    "format": "Three 60-minute sessions · £65 per hour",
-    "description": "Build confidence through three linked sessions shaped around your work.",
-    "features": [
-      "Save £30 against single sessions",
-      "Personal learning plan",
-      "Review your own examples"
-    ],
-    "badge": "A useful starting point"
-  },
-  {
-    "name": "Six-session bundle",
-    "price": "£360",
-    "format": "Six 60-minute sessions · £60 per hour",
-    "description": "Develop wider skills or spend more time on complex tasks.",
-    "features": [
-      "Save £90 against single sessions",
-      "Mix topics from either route",
-      "Progress review"
-    ],
-    "highlight": true
-  },
-  {
-    "name": "Twelve-session programme",
-    "price": "£720",
-    "format": "Twelve 60-minute sessions · £60 per hour",
-    "description": "Follow all twelve Practical AI topics, or agree a personalised mix with Copilot.",
-    "features": [
-      "Save £180 against single sessions",
-      "Twelve hours of guided learning",
-      "Personal implementation review"
-    ]
-  }
-];
+export const individualSessionRate = 95;
+export const individualRates = [
+  { sessions: 1, price: 95, name: 'Focused session' },
+  { sessions: 3, price: 270, name: 'Starter bundle' },
+  { sessions: 6, price: 510, name: 'Momentum bundle' },
+  { sessions: 12, price: 900, name: 'Complete programme' },
+] as const;
+
+export const individualTrainingPackages: TrainingPackage[] = individualRates.map((rate) => {
+  const saving = rate.sessions * individualSessionRate - rate.price;
+  const pounds = (value: number) => '£' + value.toLocaleString('en-GB');
+  return {
+    name: rate.name,
+    price: pounds(rate.price),
+    format: rate.sessions === 1 ? 'One 60-minute session' : `${rate.sessions} one-hour sessions · ${pounds(rate.price / rate.sessions)} per session`,
+    description: rate.sessions === 1
+      ? 'Choose one focused task or an introduction to a topic. Start with a free discovery call.'
+      : 'Build towards an agreed outcome with a personalised learning plan. Mix Practical AI and Copilot topics or repeat a topic for more practice.',
+    features: rate.sessions === 1
+      ? ['Personal goal check', 'Live guided practice', 'Relevant prompts and action notes']
+      : [`Save ${pounds(saving)} (approximately ${Math.round(saving / (rate.sessions * individualSessionRate) * 100)}%) against single sessions`, 'Personalised learning plan and session notes', 'Prompt library built around your own work', 'Use your sessions within twelve months of purchase'],
+    highlight: rate.sessions === 6,
+    ...(rate.sessions === 3 ? { badge: 'A useful starting point' } : {}),
+  };
+});
 
 export const privateGroupPackage: TrainingPackage = {
   name: 'Private small-group session',
-  price: 'From £325',
+  price: 'From £395',
   format: '90 minutes · up to six people',
   description: 'A practical session for founders, colleagues, friends or a small team choosing a topic from the training catalogue.',
   features: ['One shared topic and outcome', 'Guided group exercises', 'Shared follow-up resources'],
@@ -179,7 +150,7 @@ export const corporateTrainingPackages: TrainingPackage[] = [
   },
   {
     name: 'Half-day workshop',
-    price: 'From £1,250',
+    price: 'From £1,450',
     format: 'Up to 3.5 hours · up to 20 people',
     description: 'A deeper practical workshop combining shared foundations, demonstrations and guided exercises.',
     features: ['Role-relevant agenda', 'Interactive practice', 'Follow-up resource pack'],
@@ -187,26 +158,17 @@ export const corporateTrainingPackages: TrainingPackage[] = [
   },
   {
     name: 'Full-day workshop',
-    price: 'From £2,000',
+    price: 'From £2,450',
     format: 'Up to 7 hours · up to 20 people',
     description: 'A complete training day with time for practice, discussion and workflow planning.',
     features: ['Pre-workshop discovery', 'Multiple practical modules', 'Next-step recommendations'],
   },
   {
-    name: 'Team development bundle',
-    price: 'From £2,100',
-    format: 'Three 90-minute workshops · up to 15 people',
-    description: 'Build capability over time rather than trying to cover everything in one session.',
-    features: ['Three linked workshops', 'Between-session practice', 'Progress and priority review'],
-    highlight: true,
-    badge: 'Best for sustained adoption',
-  },
-  {
     name: 'AI capability programme',
-    price: 'From £3,900',
-    format: 'Six 90-minute workshops · up to 15 people',
+    price: 'From £4,800',
+    format: 'Committed programme: six 90-minute workshops · up to 15 people · £800 per workshop',
     description: 'A structured programme that moves a team from shared foundations into selected role-specific workflows.',
-    features: ['Six tailored workshops', 'Reusable working resources', 'Final action and adoption review'],
+    features: ['Save £1,170 against six separate Team essentials workshops', 'Six tailored workshops and reusable resources', 'Final action and adoption review'],
   },
 ];
 export const copilotSessions: TrainingSession[] = [
@@ -251,3 +213,16 @@ export const copilotSessions: TrainingSession[] = [
     "description": "Bring one approved workplace task. Connect the steps, test the output and leave with a repeatable routine and checking checklist."
   }
 ];
+
+copilotSessions.push(
+  { number: 9, ...detailedTopics['copilot-cowork-agent-mode'] },
+  { number: 10, ...detailedTopics['copilot-costs'] },
+  { number: 11, ...detailedTopics['agent-365-governance'] },
+);
+
+// The catalogue, detail pages and generated assistant notes share scope limits.
+for (const session of [...trainingCategories.flatMap(category => category.sessions), ...copilotSessions]) {
+  const content = courseContentFor(session, 'Practical AI');
+  session.coursePath = coursePathFor(session);
+  if (!session.description.includes(content.limitation)) session.description += ` ${content.limitation}`;
+}

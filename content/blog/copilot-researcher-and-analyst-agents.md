@@ -2,14 +2,14 @@
 slug: copilot-researcher-and-analyst-agents
 title: "Researcher and Analyst in Microsoft 365 Copilot: When They Earn Their Keep"
 meta_title: "Researcher and Analyst Agents in Microsoft 365 Copilot"
-meta_description: "Two Copilot agents handle deep research and data analysis at work. What each one is genuinely good at, when to use them, and how to check what comes back."
+meta_description: "Use Researcher and Analyst for focused workplace tasks, check sources and calculations, and explore practical Copilot training with clear review boundaries."
 excerpt: "Copilot ships two specialist agents for research and data work. A practical guide to what each is for, the questions worth giving them, and how to verify the output."
 category: "AI Productivity"
 image: "https://aivisionconsulting.co.uk/images/blog/copilot-researcher-and-analyst-agents.png"
 image_alt: "A research question branching into cited sources beside a dataset resolving into a clear chart."
 read_time: "9 min read"
 published_at: "2026-08-31"
-updated_at: "2026-08-31"
+updated_at: "2026-09-11"
 primary_cta_label: "Train your team on Copilot agents"
 primary_cta_href: "/corporate-ai-training-uk/"
 secondary_cta_label: "Explore AI training in Newcastle"
@@ -131,6 +131,10 @@ It is faster at the first pass and better at spotting things you were not lookin
 ### What if the answer is wrong?
 
 Assume it might be, and design for that. Open the citations, sanity check the numbers against something you already know, and never let an unverified figure become a commitment. An agent that saves you four hours and costs you one hour of checking is still an excellent trade.
+
+## Practise this with support
+
+For practical work with bounded agents, see [Copilot Cowork and Agent Mode in practice](/courses/copilot-cowork-agent-mode/). For organisation-wide ownership and controls, see the corporate workshop [Governing AI agents with Agent 365](/courses/agent-365-governance/).
 
 ## Author note
 

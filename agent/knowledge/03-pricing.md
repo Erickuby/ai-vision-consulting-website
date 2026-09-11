@@ -3,8 +3,7 @@
 
 # Prices
 
-Currency is pounds sterling. Say prices the way a person says them, for example "seventy
-five pounds", not "GBP 75".
+Currency is pounds sterling. Say prices the way a person says them, for example "ninety-five pounds", not "GBP 95".
 
 ## Individual one to one training
 Each individual session lasts one hour. Learners can choose Practical AI topics, Microsoft
@@ -12,43 +11,41 @@ Each individual session lasts one hour. Learners can choose Practical AI topics,
 
 ### Focused session
 
-- Price: £75 (FIXED, quote this exactly)
+- Price: £95 (FIXED, quote this exactly)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
 - Format: One 60-minute session
-- Choose one focused task or an introduction to a topic.
+- Choose one focused task or an introduction to a topic. Start with a free discovery call.
 - Includes: Personal goal check; Live guided practice; Relevant prompts and action notes
 
-### Two-session bundle
+### Starter bundle
 
-- Price: £140 (FIXED, quote this exactly)
-- Format: Two 60-minute sessions · £70 per hour
-- Explore two priorities or build on your first session.
-- Includes: Save £10 against single sessions; Mix Practical AI and Copilot topics; Practice between sessions
+- Price: £270 (FIXED, quote this exactly)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
+- Format: 3 one-hour sessions · £90 per session
+- Build towards an agreed outcome with a personalised learning plan. Mix Practical AI and Copilot topics or repeat a topic for more practice.
+- Includes: Save £15 (approximately 5%) against single sessions; Personalised learning plan and session notes; Prompt library built around your own work; Use your sessions within twelve months of purchase
 
-### Three-session bundle
+### Momentum bundle
 
-- Price: £195 (FIXED, quote this exactly)
-- Format: Three 60-minute sessions · £65 per hour
-- Build confidence through three linked sessions shaped around your work.
-- Includes: Save £30 against single sessions; Personal learning plan; Review your own examples
+- Price: £510 (FIXED, quote this exactly)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
+- Format: 6 one-hour sessions · £85 per session
+- Build towards an agreed outcome with a personalised learning plan. Mix Practical AI and Copilot topics or repeat a topic for more practice.
+- Includes: Save £60 (approximately 11%) against single sessions; Personalised learning plan and session notes; Prompt library built around your own work; Use your sessions within twelve months of purchase
 
-### Six-session bundle
+### Complete programme
 
-- Price: £360 (FIXED, quote this exactly)
-- Format: Six 60-minute sessions · £60 per hour
-- Develop wider skills or spend more time on complex tasks.
-- Includes: Save £90 against single sessions; Mix topics from either route; Progress review
-
-### Twelve-session programme
-
-- Price: £720 (FIXED, quote this exactly)
-- Format: Twelve 60-minute sessions · £60 per hour
-- Follow all twelve Practical AI topics, or agree a personalised mix with Copilot.
-- Includes: Save £180 against single sessions; Twelve hours of guided learning; Personal implementation review
+- Price: £900 (FIXED, quote this exactly)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
+- Format: 12 one-hour sessions · £75 per session
+- Build towards an agreed outcome with a personalised learning plan. Mix Practical AI and Copilot topics or repeat a topic for more practice.
+- Includes: Save £240 (approximately 21%) against single sessions; Personalised learning plan and session notes; Prompt library built around your own work; Use your sessions within twelve months of purchase
 
 ## Private small group
 ### Private small-group session
 
-- Price: From £325 (STARTING PRICE, final quote depends on scope)
+- Price: From £395 (STARTING PRICE, final quote depends on scope)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
 - Format: 90 minutes · up to six people
 - A practical session for founders, colleagues, friends or a small team choosing a topic from the training catalogue.
 - Includes: One shared topic and outcome; Guided group exercises; Shared follow-up resources
@@ -60,39 +57,53 @@ participant resources. Delivered remotely across the UK, or in person where suit
 ### Team essentials workshop
 
 - Price: From £995 (STARTING PRICE, final quote depends on scope)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
 - Format: 90 minutes · up to 15 people
 - A focused introduction or role-relevant workshop designed around one agreed team objective.
 - Includes: Scoping call; Tailored examples; Slides and participant resources
 
 ### Half-day workshop
 
-- Price: From £1,250 (STARTING PRICE, final quote depends on scope)
+- Price: From £1,450 (STARTING PRICE, final quote depends on scope)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
 - Format: Up to 3.5 hours · up to 20 people
 - A deeper practical workshop combining shared foundations, demonstrations and guided exercises.
 - Includes: Role-relevant agenda; Interactive practice; Follow-up resource pack
 
 ### Full-day workshop
 
-- Price: From £2,000 (STARTING PRICE, final quote depends on scope)
+- Price: From £2,450 (STARTING PRICE, final quote depends on scope)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
 - Format: Up to 7 hours · up to 20 people
 - A complete training day with time for practice, discussion and workflow planning.
 - Includes: Pre-workshop discovery; Multiple practical modules; Next-step recommendations
 
-### Team development bundle
-
-- Price: From £2,100 (STARTING PRICE, final quote depends on scope)
-- Format: Three 90-minute workshops · up to 15 people
-- Build capability over time rather than trying to cover everything in one session.
-- Includes: Three linked workshops; Between-session practice; Progress and priority review
-
 ### AI capability programme
 
-- Price: From £3,900 (STARTING PRICE, final quote depends on scope)
-- Format: Six 90-minute workshops · up to 15 people
+- Price: From £4,800 (STARTING PRICE, final quote depends on scope)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
+- Format: Committed programme: six 90-minute workshops · up to 15 people · £800 per workshop
 - A structured programme that moves a team from shared foundations into selected role-specific workflows.
-- Includes: Six tailored workshops; Reusable working resources; Final action and adoption review
+- Includes: Save £1,170 against six separate Team essentials workshops; Six tailored workshops and reusable resources; Final action and adoption review
 
-## What every published price includes
+## Focused consultancy
+### AI policy and governance package
+
+- Price: From £1,750 (STARTING PRICE, final quote depends on scope)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
+- Format: Scoped package · typically three to four weeks
+- Give a small organisation clear rules for AI use, an inventory of tools and risks, and practical staff training.
+- Includes: Plain-English policy and staff data note; Tool inventory, risk register and sign-off route; Role-based literacy training and final pack
+
+### AI readiness and workflow audit
+
+- Price: From £950 (STARTING PRICE, final quote depends on scope)
+- VAT: All prices shown are final. AI Vision Consulting is not currently VAT registered, so no VAT is added.
+- Format: Half-day discovery on site or online, followed by a written report
+- Map where time goes and choose the first workflow to improve using a scored shortlist and costed options.
+- Includes: Task inventory and estimated weekly time costs; Shortlist scored by time, risk and effort; Audit fee credited in full against a workshop or programme booked within 60 days
+
+## What every published training price includes
 - Pre session or pre programme scoping
 - Training tailored to agreed goals and confidence levels
 - Live demonstrations and guided practice
@@ -102,7 +113,7 @@ participant resources. Delivered remotely across the UK, or in person where suit
 - Software subscriptions, Microsoft licences and any AI agent usage charges
 - Venue hire
 - Custom tool development
-- Travel beyond Newcastle
+- Travel outside Tyne and Wear
 - Extra cohorts
 
 Individual training prices are fixed. Private group and corporate figures are starting

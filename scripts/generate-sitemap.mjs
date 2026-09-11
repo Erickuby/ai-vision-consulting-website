@@ -1,6 +1,6 @@
 // Regenerates public/sitemap.xml with truthful <lastmod> values.
 //
-// Blog URLs take the article's own publication date from src/data/blog.ts.
+// Blog URLs take the article's own update date from src/data/blog.ts.
 // Every other URL takes the last commit date that touched the site source,
 // so the value only moves when the pages actually change.
 
@@ -19,7 +19,7 @@ const SITE_URL = 'https://aivisionconsulting.co.uk';
 async function loadRoutes() {
   const tmp = path.join(root, 'node_modules', '.sitemap-routes.mjs');
   await build({
-    entryPoints: [path.join(root, 'src', 'data', 'routes.ts')],
+    stdin: { contents: "export { siteRoutes } from './src/data/routes'; export { blogPosts } from './src/data/blog';", resolveDir: root, loader: 'ts' },
     bundle: true,
     format: 'esm',
     platform: 'node',
@@ -34,13 +34,13 @@ async function loadRoutes() {
   }
 }
 
-const { siteRoutes } = await loadRoutes();
+const { siteRoutes, blogPosts } = await loadRoutes();
 if (!Array.isArray(siteRoutes) || siteRoutes.length === 0) {
   throw new Error('Could not load siteRoutes from src/data/routes.ts');
 }
 
 const indexable = siteRoutes.filter((r) => r.kind !== 'not-found' && !r.noindex);
-const STATIC_PATHS = indexable.filter((r) => r.kind !== 'legal').map((r) => r.path);
+const staticRoutes = indexable.filter((r) => r.kind !== 'legal');
 const LEGAL_PATHS = indexable.filter((r) => r.kind === 'legal').map((r) => r.path);
 
 const MONTHS = {
@@ -71,13 +71,7 @@ function lastCommitDate(...paths) {
   return out;
 }
 
-const blogSource = await readFile(path.join(root, 'src', 'data', 'blog.ts'), 'utf8');
-const posts = [];
-const entryPattern = /slug:\s*'([^']+)'[\s\S]*?date:\s*'([^']+)'/g;
-let match;
-while ((match = entryPattern.exec(blogSource)) !== null) {
-  posts.push({ slug: match[1], lastmod: isoFromPostDate(match[2]) });
-}
+const posts = blogPosts.map(post => ({ slug: post.slug, lastmod: post.updatedAt || post.publishedAt || isoFromPostDate(post.date) }));
 if (posts.length === 0) throw new Error('No blog posts parsed from src/data/blog.ts');
 
 const siteLastmod = lastCommitDate('src', 'index.html', 'scripts');
@@ -92,13 +86,14 @@ if (!legalMonth) throw new Error(`Unrecognised legal month: ${legalMatch[2]}`);
 const legalLastmod = `${legalMatch[3]}-${legalMonth}-${legalMatch[1].padStart(2, '0')}`;
 
 const entries = [
-  ...STATIC_PATHS.map((p) => ({ loc: `${SITE_URL}${p}`, lastmod: siteLastmod })),
+  ...staticRoutes.map((route) => ({ loc: `${SITE_URL}${route.path}`, lastmod: route.lastReviewed ?? siteLastmod })),
   ...posts.map((p) => ({ loc: `${SITE_URL}/blog/${p.slug}`, lastmod: p.lastmod })),
   ...LEGAL_PATHS.map((p) => ({ loc: `${SITE_URL}${p}`, lastmod: legalLastmod })),
 ];
 
 const seen = new Set();
 for (const entry of entries) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.lastmod)) throw new Error(`Invalid sitemap date: ${entry.loc}`);
   if (seen.has(entry.loc)) throw new Error(`Duplicate sitemap URL: ${entry.loc}`);
   seen.add(entry.loc);
 }

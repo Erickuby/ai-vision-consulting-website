@@ -10,6 +10,7 @@ import { CoursesUpgraded } from './components/CoursesUpgraded';
 import { TestimonialsUpgraded } from './components/TestimonialsUpgraded';
 import { WhoThisIsFor } from './components/WhoThisIsFor';
 import { Services } from './components/Services';
+import { NorthEastContext } from './components/NorthEastContext';
 import { EngagementProcess } from './components/EngagementProcess';
 import { FiverrServices } from './components/FiverrServices';
 import { Blog } from './components/Blog';
@@ -190,7 +191,8 @@ export function App({ pathname = '/' }: { pathname?: string }) {
           <WorkshopEvidence />
           <TestimonialsUpgraded />
           <PracticalUseCases />
-          <Services />
+            <Services />
+            <NorthEastContext />
           <EngagementProcess />
           <div className="max-w-6xl mx-auto px-6"><div className="h-px bg-gradient-to-r from-transparent via-[rgba(0,212,255,0.2)] to-transparent" /></div>
           <CoursesUpgraded />

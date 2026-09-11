@@ -2,14 +2,14 @@
 slug: copilot-agent-mode-word-excel-powerpoint
 title: "Copilot Agent Mode in Word, Excel and PowerPoint: What Actually Changes"
 meta_title: "Copilot Agent Mode in Word, Excel and PowerPoint"
-meta_description: "Agent Mode lets Copilot do the work inside your file instead of suggesting it. What it handles well, where it still fails, and how to check what it produced."
+meta_description: "Practise Copilot editing in Word, Excel and PowerPoint with human checks. Understand licence limits and find guided Agent Mode and Cowork training."
 excerpt: "Copilot now edits the document rather than advising you about it. A practical guide to what to hand over, what to keep, and how to check the result."
 category: "AI Productivity"
 image: "https://aivisionconsulting.co.uk/images/blog/copilot-agent-mode-word-excel-powerpoint.png"
 image_alt: "A document, a spreadsheet and a slide deck with a task list beside them showing completed steps."
 read_time: "10 min read"
 published_at: "2026-08-31"
-updated_at: "2026-08-31"
+updated_at: "2026-09-11"
 primary_cta_label: "Book Copilot training for your team"
 primary_cta_href: "/corporate-ai-training-uk/"
 secondary_cta_label: "See training options and prices"
@@ -31,9 +31,9 @@ What has not changed is accountability. Agent Mode produces finished looking wor
 ## Key takeaways
 
 - Agent Mode executes inside the file instead of suggesting from a side panel.
-- It is generally available and now the default behaviour in the desktop apps.
-- The visible step list is the most useful part, because it shows you the reasoning to check.
-- Excel is where the time saving is largest and the error risk is highest.
+- Availability depends on your subscription, app and organisation settings.
+- Inspect the proposed steps and actual edits; a plan is not proof that the result is correct.
+- Spreadsheet changes need checks against known totals and representative rows.
 - Vague goals produce confident, wrong work faster than they used to.
 - Never let Agent Mode output reach a client or a board without a named reviewer.
 - Teams that get value from it define what good looks like before they delegate.
@@ -60,13 +60,13 @@ Alongside Agent Mode in the apps, you can now pull the Word, Excel and PowerPoin
 
 ### Word
 
-Restructuring is where Word benefits most. Ask it to reorganise a rambling twelve page report around three clear arguments, apply consistent headings, and cut the length by a third, and it will do a competent job in one pass. Tone changes work well too: taking an internal technical note and rewriting it for a non specialist audience is genuinely faster than doing it yourself.
+Word can help draft, rewrite and restructure a document. Try one section first, with a defined audience and the facts that must remain. Check whether the changes preserve the meaning before applying the same approach to a longer report.
 
 It is weaker at anything requiring judgement about what matters. It will happily cut the one paragraph your director cares about, because nothing in the document tells it that paragraph is load bearing.
 
 ### Excel
 
-This is the biggest win and the biggest risk. Agent Mode will build formulas, construct pivot tables, clean inconsistent data, generate charts and reshape a table from a description of the output you want. Work that took a competent analyst forty minutes now takes four.
+Copilot can help build formulas, tables and charts and make changes in a workbook. The useful test is whether the result is correct and the total effort, including checking, is lower for your task. We do not claim a fixed time saving without a measured baseline.
 
 The risk is that a spreadsheet looks equally convincing whether the logic is right or wrong. A misread column header, a date parsed as text, a total that silently excludes blank rows: all of these produce a clean looking sheet with the wrong number in it. Treat every figure that will inform a decision as unverified until you have checked the calculation behind it.
 
@@ -133,11 +133,15 @@ Within the apps it is focused on the file you are in, though it can draw on cont
 
 ### How much time does it actually save?
 
-For structured, repeatable tasks with a clear standard, the saving is substantial and easy to measure. For ambiguous work the saving often disappears into review time. The honest answer is that it depends far more on how well you can describe the output than on the tool.
+Measure your own task before and after, including preparation, checking and correction. Some work may become quicker; other work may take longer once review is included. A generic improvement figure would not tell you whether it helps your team.
 
 ### What is the biggest mistake teams make with it?
 
 Trusting fluent output. Agent Mode produces work that looks finished, and finished looking work gets read less carefully than a rough draft does. Organisations that build a review habit early get the benefit. Those that do not eventually get an expensive surprise.
+
+## Practise this with support
+
+Practise one task with review checkpoints in [Copilot Cowork and Agent Mode in practice](/courses/copilot-cowork-agent-mode/). Check licences and usage separately with [What Copilot actually costs to run](/courses/copilot-costs/).
 
 ## Author note
 

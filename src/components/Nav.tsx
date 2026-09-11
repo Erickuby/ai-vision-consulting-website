@@ -12,12 +12,17 @@ const socials = [
 ];
 
 const primaryLinks = [
-  { label: 'Voice Assistants', href: '/ai-voice-assistant/' },
-  { label: 'Corporate Training', href: '/corporate-ai-training-uk/' },
-  { label: 'Automation', href: '/ai-automation-consultant-newcastle/' },
   { label: 'About', href: '/about-eric-nwankwo/' },
-  { label: 'Case Studies', href: '/case-studies/' },
+  { label: 'Case studies', href: '/case-studies/' },
   { label: 'Pricing', href: '/pricing/' },
+];
+
+const serviceMenuLinks = [
+  { label: 'Voice assistants', href: '/ai-voice-assistant/' },
+  { label: 'Corporate training', href: '/corporate-ai-training-uk/' },
+  { label: 'Automation consulting', href: '/ai-automation-consultant-newcastle/' },
+  { label: 'AI policy and governance', href: '/services/ai-policy-and-governance/' },
+  { label: 'AI readiness and workflow audit', href: '/services/ai-workflow-audit/' },
 ];
 
 export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
@@ -88,6 +93,7 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
             <div><div className="font-display font-bold text-[15px] text-[#F0F4FF] tracking-tight leading-none">AI Vision</div><div className="font-display text-[11px] text-[#00D4FF] tracking-[0.08em] leading-none mt-0.5">CONSULTING</div></div>
           </a>
           <div className="hidden lg:flex items-center gap-5 flex-1">
+            <details className="nav-services"><summary className="nav-link">Services</summary><div className="nav-services-panel">{serviceMenuLinks.map((item) => <a className="nav-link" key={item.href} href={item.href}>{item.label}</a>)}</div></details>
             {primaryLinks.map((item) => <a key={item.href} href={item.href} className="nav-link">{item.label}</a>)}
           </div>
           <div className="ml-auto flex items-center gap-3">
@@ -104,6 +110,7 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
           <motion.div ref={mobileDialogRef} id="mobile-navigation" key="mobile-menu" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[999] flex flex-col items-center justify-start gap-7 overflow-y-auto px-6 py-24" style={{ background: 'rgba(5,13,26,0.98)', backdropFilter: 'blur(20px)' }} role="dialog" aria-modal="true" aria-label="Navigation menu">
             <button onClick={() => setMenuOpen(false)} aria-label="Close menu" className="absolute top-5 right-6 flex items-center justify-center w-10 h-10 rounded-lg text-[#00D4FF]" style={{ border: '1.5px solid rgba(0,212,255,0.3)' }}><X size={20} /></button>
             <a href={homeHref} onClick={handleHomeClick} className="nav-link text-[21px] font-semibold text-[#F0F4FF]">Home</a>
+            <div className="mobile-services-group"><p className="pricing-kicker">Services</p>{serviceMenuLinks.map((item) => <a key={item.href} href={item.href} className="nav-link text-[18px]">{item.label}</a>)}</div>
             {primaryLinks.map((item) => <a key={item.href} href={item.href} className="nav-link text-[21px] font-semibold text-[#F0F4FF]">{item.label}</a>)}
             <a href="/contact/" className="btn-primary mt-2">Contact</a>
             <div className="flex items-center gap-3 mt-2">{socials.map(({ icon: Icon, label, href }) => <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="flex items-center justify-center w-10 h-10 rounded-lg text-[#8899AA]" style={{ background: 'rgba(0,212,255,0.08)', border: '1px solid rgba(0,212,255,0.15)' }}><Icon size={18} /></a>)}</div>

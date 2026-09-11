@@ -3,6 +3,22 @@
 
 # Services offered
 
+## AI policy and governance package
+
+Give a small organisation clear rules for AI use, an inventory of tools and risks, and practical staff training. From £1,750. No VAT added.
+
+- Plain-English policy and staff data note
+- Tool inventory, risk register and sign-off route
+- Role-based literacy training and final pack
+
+## AI readiness and workflow audit
+
+Map where time goes and choose the first workflow to improve using a scored shortlist and costed options. From £950. No VAT added.
+
+- Task inventory and estimated weekly time costs
+- Shortlist scored by time, risk and effort
+- Audit fee credited in full against a workshop or programme booked within 60 days
+
 ## AI Training Programmes
 
 Structured courses for jobseekers, career changers, and business owners. From beginner to practitioner. All levels welcome. Delivered online, in-person, or hybrid across Newcastle and the UK.
@@ -15,7 +31,7 @@ Structured courses for jobseekers, career changers, and business owners. From be
 
 Work directly with our AI specialist to solve your specific challenges. Whether it's a career pivot, a business automation project, or building an AI side income. We map a clear path forward.
 
-- 90-minute strategy sessions
+- Scoped discovery and advice
 - Custom AI roadmap for your goals
 - Ongoing support available
 

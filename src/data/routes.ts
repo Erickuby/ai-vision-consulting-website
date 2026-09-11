@@ -1,14 +1,22 @@
+import { clarifyVat } from './pricingPolicy';
+import { courseRoutes } from './courseRoutes';
+import { consultancyRoutes } from './serviceOffers';
+import { contentMetadata } from './contentMetadata';
+import { freeTrainingRoute } from './regional';
+import { buyerFaqs } from './buyerFaqs';
+
 export const SITE_URL = 'https://aivisionconsulting.co.uk';
 
 export type ContentSection = {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  links?: { href: string; label: string }[];
 };
 
 export type FaqItem = { question: string; answer: string };
 
-export type RouteKind = 'home' | 'service' | 'company' | 'pricing' | 'contact' | 'legal' | 'not-found';
+export type RouteKind = 'home' | 'service' | 'course' | 'company' | 'pricing' | 'contact' | 'legal' | 'not-found';
 
 export type SiteRoute = {
   path: string;
@@ -25,6 +33,10 @@ export type SiteRoute = {
   pricingHref?: string;
   faqs?: FaqItem[];
   noindex?: boolean;
+  lastReviewed?: string;
+  course?: { corporateOnly: boolean; price?: number };
+  relatedLinks?: { href: string; label: string }[];
+  serviceOffer?: { name: string; price: string; href: string };
 };
 
 const routes = [
@@ -36,7 +48,7 @@ const routes = [
     // we already rank one to two, so the job of these tags is to be the obvious local
     // choice for someone who has decided to hire somebody nearby.
     title: 'AI Consultant Newcastle | AI and Copilot Training for Teams',
-    description: 'Newcastle based AI consultant. Practical AI and Microsoft 365 Copilot training for teams, plus automation that saves hours. Book a free discovery call.',
+    description: 'Practical AI and Copilot training in Newcastle, workflow audits and AI policy support. Build useful team skills and explore free North East learning options.',
     eyebrow: 'Newcastle-based · Serving organisations across the UK',
     h1: 'Practical AI training and automation for Newcastle organisations and UK businesses',
     intro: 'Build useful AI capability, identify sensible automation opportunities and give your people the confidence to use modern tools responsibly.',
@@ -50,13 +62,13 @@ const routes = [
     intro: 'AI training should connect directly to the work people already do. Sessions are designed around useful tasks, clear explanations and guided practice rather than technical jargon.',
     sections: [
       { heading: 'Training built around real work', paragraphs: ['Workshops can focus on everyday uses such as research, drafting, meeting preparation, document summarisation and process improvement. The aim is to help participants understand where AI is useful, where it is unreliable and how to review outputs with human judgement.', 'Content is scoped to the audience, existing confidence level and organisational context. Newcastle delivery can be discussed alongside remote options for teams elsewhere in the UK.'] },
-      { heading: 'What a session can cover', paragraphs: ['A discovery conversation identifies the tasks and questions that matter to your group. From there, training can combine demonstrations, guided exercises and reusable working practices. Individuals can choose from twelve Practical AI topics in one-hour sessions, or a separate Microsoft 365 Copilot for Work route, while organisations can select a focused workshop or a multi-session team programme.'], bullets: ['Choosing and using AI assistants effectively', 'Writing clearer prompts and providing useful context', 'Research, video, image and app-creation tools', 'AI agents, content systems, digital products and freelance services'] },
+      { heading: 'What a session can cover', paragraphs: ['A discovery conversation identifies the tasks and questions that matter to your group. From there, training can combine demonstrations, guided exercises and reusable working practices. Individuals can choose from thirteen Practical AI topics in one-hour sessions, or a separate Microsoft 365 Copilot for Work route, while organisations can select a focused workshop or a multi-session team programme.'], bullets: ['Choosing and using AI assistants effectively', 'Writing clearer prompts and providing useful context', 'Research, video, image and app-creation tools', 'AI agents, content systems, digital products and freelance services'] },
       { heading: 'Who this training is for', paragraphs: ['Training is suitable for businesses, public-facing teams, charities, community organisations and professionals who want a grounded introduction or a more focused practical session.', 'If your requirement spans several teams, the programme can be scoped in stages so that the material reflects different roles without cloning the same session for everyone.'] },
     ],
     faqs: [
       { question: 'Can AI training be delivered in Newcastle?', answer: 'Yes. In-person delivery in Newcastle can be discussed, alongside remote delivery for organisations elsewhere in the UK.' },
       { question: 'Do participants need technical experience?', answer: 'No. Sessions can start with the fundamentals and are scoped around the participants’ current confidence and work.' },
-      { question: 'How much does AI training cost?', answer: 'A personal one-hour session is £75. Two sessions are £140 and three are £195. Private small-group sessions start at £325, and corporate team workshops start at £995. Multi-session bundles are also available.' },
+      { question: 'How much does AI training cost?', answer: 'A personal one-hour session is £95. Three sessions are £270, six are £510 and twelve are £900. Private small-group sessions start at £395, and corporate team workshops start at £995. Multi-session bundles are also available.' },
     ],
   },
   {
@@ -73,14 +85,14 @@ const routes = [
   },
   {
     path: '/corporate-ai-training-uk/', kind: 'service', eyebrow: 'Practical capability for UK teams',
-    title: 'Corporate AI Training UK | Team Workshops from £995',
+    title: 'Corporate AI Training UK | Practical Team Workshops',
     description: 'Corporate AI and Microsoft 365 Copilot training for UK teams. Half day, full day and multi workshop programmes, scoped to your objectives.',
     h1: 'Corporate AI training for UK teams',
     intro: 'Give colleagues a shared, practical understanding of AI while keeping the training relevant to their roles, responsibilities and organisational policies.',
     sections: [
       { heading: 'From awareness to useful practice', paragraphs: ['Corporate sessions can begin with a common foundation and move into examples that reflect the work of the people in the room. Participants learn how to give AI useful context, review results and recognise tasks where it should not be relied upon.', 'The content can support an initial awareness session or a more focused programme for particular functions.'] },
       { heading: 'Topics shaped around your organisation', paragraphs: ['A scoping conversation establishes the audience, available tools and internal expectations. Training can then address relevant workflows without asking staff to share confidential information in unsuitable systems.'], bullets: ['Generative AI foundations in plain English', 'Prompting and structured review', 'Responsible use, privacy and human oversight', 'Role-specific exercises and reusable workflows'] },
-      { heading: 'Delivery, formats and starting prices', paragraphs: ['Sessions can be delivered remotely across the UK, with in-person delivery discussed where suitable. A 90-minute team workshop starts at £995, a half-day workshop at £1,250 and a full-day workshop at £2,000.', 'Three-workshop team programmes start at £2,100 and six-workshop capability programmes at £3,900. Final pricing reflects group size, preparation, location, additional cohorts and any custom requirements.'] },
+      { heading: 'Delivery, formats and starting prices', paragraphs: ['Sessions can be delivered remotely across the UK, with in-person delivery discussed where suitable. A 90-minute team workshop starts at £995, a half-day workshop at £1,450 and a full-day workshop at £2,450.', 'Committed multi-session rates: six-workshop capability programmes start at £4,800 (£800 per workshop). These require booking the full programme. Final pricing reflects group size, preparation, location, additional cohorts and any custom requirements.'] },
     ],
   },
   {
@@ -168,7 +180,7 @@ const routes = [
     sections: [
       { heading: 'Focus on useful, repeatable tasks', paragraphs: ['Common starting points include enquiry handling, internal notifications, document preparation, information capture and routine follow-up. Each process needs to be reviewed for exceptions, data sensitivity and points where a person should remain in control.', 'AI can support judgement-heavy steps, while conventional automation can handle predictable actions.'] },
       { heading: 'Keep the system manageable', paragraphs: ['A useful workflow should be documented so the business understands what triggers it, what data it uses and how to intervene. Tool choices should reflect the team’s capacity rather than add unnecessary complexity.'], bullets: ['Current-process mapping', 'Opportunity and risk assessment', 'Pilot workflow design', 'Testing, documentation and handover'] },
-      { heading: 'Scoped around your business', paragraphs: ['No two small businesses share exactly the same systems or priorities. A discovery call is used to understand your current workflow before any recommendation is made.', 'A tailored one-hour personal AI or Microsoft 365 Copilot training session is £75. Consulting, automation discovery and implementation are separate services and are quoted according to the workflow, systems and support required.'] },
+      { heading: 'Scoped around your business', paragraphs: ['No two small businesses share exactly the same systems or priorities. A discovery call is used to understand your current workflow before any recommendation is made.', 'A tailored one-hour personal AI or Microsoft 365 Copilot training session is £95. Consulting, automation discovery and implementation are separate services and are quoted according to the workflow, systems and support required.'] },
     ],
   },
   {
@@ -198,8 +210,8 @@ const routes = [
   {
     path: '/case-studies/', kind: 'company', eyebrow: 'How practical engagements are structured',
     title: 'AI Training & Automation Case Studies | AI Vision Consulting',
-    description: 'Explore the types of AI training and automation work AI Vision Consulting supports. Named client case studies will only be published with permission.',
-    h1: 'AI training and automation engagement examples',
+    description: 'Explore delivered AI training and our case-study framework for measured task results. Client figures and quotations are published only with verified permission.',
+    h1: 'AI training and automation case studies',
     intro: 'A look at delivered training and the practical questions that shape our work. Client names, recordings and measured results are only shared with permission.',
     sections: [
       { heading: 'Delivered: Microsoft 365 Copilot workshop in Leeds', paragraphs: ['In September 2026, Eric delivered a workplace AI session covering Microsoft 365 Copilot. The session combined live demonstrations, guided exercises and reusable prompt resources.', 'Topics included giving Copilot useful context, working with source material, and exploring agents and notebooks. The closing discussion returned to accuracy, safe information sharing and human review.', 'This is a summary of training delivered, not a claim of measured business impact. The client and participants are not identified.'], bullets: ['Clear briefs: task, context, sources and output format', 'Practical exploration of prompts, agents and notebooks', 'Participant prompt resources and follow-along materials', 'Checking outputs against source information and organisational policy'] },
@@ -212,20 +224,21 @@ const routes = [
   {
     path: '/pricing/', kind: 'pricing', eyebrow: 'Clear packages · Sensible scope',
     title: 'AI & Copilot Courses and Prices | AI Vision Consulting',
-    description: 'Fixed prices for 1-to-1 AI training, with clear starting prices for private groups, corporate workshops and team programmes.',
+    description: 'AI and Copilot training from £95 per hour, bundles from £270 and team workshops from £995. Compare scope, free learning and consultancy before booking.',
     h1: 'AI and Copilot courses, with clear prices',
-    intro: 'Choose Practical AI or Microsoft 365 Copilot for Work. Individual sessions last one hour and start at £75, with discounted bundles, while corporate training starts at £995. Fixed individual prices and clear team starting points make it easier to identify the right level.',
+    intro: 'Choose Practical AI or Microsoft 365 Copilot for Work. Individual sessions last one hour and start at £95, with discounted bundles, while corporate training starts at £995. Fixed individual prices and clear team starting points make it easier to identify the right level.',
     sections: [
-      { heading: 'Personalised AI training', paragraphs: ['A focused one-hour session is £75. Two sessions are £140, three are £195, six are £360 and twelve are £720. Mix Practical AI and Microsoft 365 Copilot topics to suit your goals.', 'Each option is shaped around a defined learning goal and includes guided practice and relevant follow-up notes or resources.'] },
-      { heading: 'Private groups and corporate teams', paragraphs: ['A private 90-minute small-group session for up to six people starts at £325. Corporate workshops start at £995 for 90 minutes, £1,250 for a half day and £2,000 for a full day.', 'Three-workshop corporate programmes start at £2,100 and six-workshop programmes start at £3,900.'] },
+      { heading: 'Personalised AI training', paragraphs: ['A focused one-hour session is £95. Starter bundles are £270 for three hours, Momentum bundles are £510 for six hours and Complete programmes are £900 for twelve hours. Mix Practical AI and Microsoft 365 Copilot topics to suit your goals.', 'Each option is shaped around a defined learning goal and includes guided practice and relevant follow-up notes or resources.'] },
+      { heading: 'Private groups and corporate teams', paragraphs: ['A private 90-minute small-group session for up to six people starts at £395. Corporate workshops start at £995 for 90 minutes, £1,450 for a half day and £2,450 for a full day.', 'Committed multi-session rates: six-workshop programmes start at £4,800 (£800 per workshop). These require booking the full programme.'] },
       { heading: 'Automation and implementation', paragraphs: ['Automation work depends on the current process, systems, integrations, testing and documentation required. Discovery and implementation may be scoped as separate stages.', 'A free discovery call can establish whether a focused consultation or a wider scope is the sensible next step.'] },
     ],
     faqs: [
+      ...buyerFaqs,
       { question: 'Can I mix Practical AI and Copilot topics?', answer: 'Yes. Individual bundles can combine either route. Each session lasts one hour and covers one agreed focus. We check your goals and tool access before confirming the plan.' },
-      { question: 'Do I need to book all twelve topics?', answer: 'No. Start with one session for £75, two for £140 or three for £195. Six sessions are £360 and twelve are £720. You can repeat a topic for more practice rather than covering something new every time.' },
+      { question: 'Do I need to book a complete programme?', answer: 'No. Start with one session for £95. Three sessions are £270, six are £510 and twelve are £900. You can repeat a topic for more practice rather than covering something new every time.' },
       { question: 'Are software subscriptions included?', answer: 'No. Any paid AI tools, Microsoft licences or agent usage charges are separate. We check what you can access before agreeing the training. Use only tools and data approved by your employer.' },
       { question: 'Why do corporate prices say “from”?', answer: 'The starting prices cover the stated group size, scoping, tailored delivery and participant resources. Travel, extra cohorts, venue hire, third-party software and custom development are quoted separately.' },
-      { question: 'Can a small group book without a corporate package?', answer: 'Yes. A private 90-minute group session starts at £325 for up to six people working towards one shared outcome.' },
+      { question: 'Can a small group book without a corporate package?', answer: 'Yes. A private 90-minute group session starts at £395 for up to six people working towards one shared outcome.' },
       { question: 'Are community and employability programmes available?', answer: 'Yes. These programmes are scoped around the cohort, accessibility needs, delivery format and available funding.' },
     ],
   },
@@ -253,7 +266,18 @@ const routes = [
   },
 ] as const satisfies readonly SiteRoute[];
 
-export const siteRoutes: readonly SiteRoute[] = routes;
+export const siteRoutes: readonly SiteRoute[] = ([...routes, ...courseRoutes, ...consultancyRoutes, freeTrainingRoute] as SiteRoute[]).map((route) => ({
+  ...route,
+  lastReviewed: contentMetadata[route.path]?.['last-reviewed'] ?? route.lastReviewed,
+  description: clarifyVat(route.description),
+  intro: clarifyVat(route.intro),
+  sections: route.sections.map((section) => ({
+    ...section,
+    paragraphs: section.paragraphs.map(clarifyVat),
+    ...(section.bullets ? { bullets: section.bullets.map(clarifyVat) } : {}),
+  })),
+  ...(route.faqs ? { faqs: route.faqs.map((faq) => ({ ...faq, answer: clarifyVat(faq.answer) })) } : {}),
+}));
 export const prerenderRoutes = siteRoutes.map((route) => route.path);
 
 export function normalizeRoutePath(pathname: string) {

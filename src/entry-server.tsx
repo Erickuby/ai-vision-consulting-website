@@ -9,3 +9,6 @@ export function render(pathname: string) {
 
 export { getSiteRoute, routeCanonical, siteRoutes, SITE_URL };
 export type { SiteRoute };
+export { individualTrainingPackages, privateGroupPackage, corporateTrainingPackages } from './data/training';
+export { pricingPolicy } from './data/pricingPolicy';
+export { consultancyOffers } from './data/serviceOffers';

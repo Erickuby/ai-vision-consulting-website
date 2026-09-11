@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useSiteMotion } from '../lib/useSiteMotion';
 
 const artwork: Record<string, [string, string]> = {
+  '/services/ai-policy-and-governance/': ['legal', 'Illustrative policy documents and key representing responsible access'],
+  '/services/ai-workflow-audit/': ['automation', 'Illustrative workspace for reviewing a business process'],
   '/ai-training-newcastle/': ['training', 'Illustrative learning workspace with a laptop and open notebook'],
   '/corporate-ai-training-uk/': ['corporate', 'Illustrative team learning table with laptops and notebooks'],
   '/ai-automation-consultant-newcastle/': ['automation', 'Illustrative workspace with a workflow on a monitor'],
@@ -24,7 +26,7 @@ export function PageHeroArtwork({ path }: { path: string }) {
   const clipPath = useTransform(scrollYProgress, [0, 1], ['inset(0 6% 0 0)', 'inset(0 0% 0 0)']);
   const scale = useTransform(scrollYProgress, [0, 1], [1.035, 1]);
   const isAbout = path === '/about-eric-nwankwo/';
-  const [asset, alt] = artwork[path] || ['contact', 'Find the right next step with AI Vision Consulting'];
+  const [asset, alt] = artwork[path] || (path.startsWith('/courses/') ? ['training', 'Illustrative workspace for practical AI learning'] : ['contact', 'Find the right next step with AI Vision Consulting']);
   return (
     <figure ref={ref} className={`page-hero-artwork${isAbout ? ' page-hero-portrait' : ''}${reveal ? ' evidence-artwork' : ''}`}>
       <motion.div className="page-artwork-frame" style={reveal && enabled ? { clipPath } : undefined}>

@@ -1,5 +1,17 @@
 # AI Vision Consulting Website
 
+## Quarterly content review
+
+Review courses, service scope, prices, tool access, external links and funded-programme eligibility every quarter. Record the actual review date in `public/content-metadata.json` under the page path (`last-reviewed`, ISO date). Dates are rendered in each course and service footer; do not advance a date without reviewing the content.
+
+This JSON file is the shared per-page frontmatter for the route-based site. Course entries include `cpd-accredited`, initially false. Only set it true after that specific course receives an award, and supply `cpd-provider` plus an HTTPS `cpd-evidence-url`. The badge requires all three fields. Uploading the reviewed JSON file to `/content-metadata.json` updates dates and badges in browsers without rebuilding JavaScript. Keep the source copy in sync; rebuild later to refresh the static HTML and sitemap too. Provider approval alone does not establish course accreditation.
+
+Case-study inputs live in `src/data/caseStudies.ts`. All three drafts need Eric's sector, organisation size, delivery month, two problem sentences, three delivery sentences, measured task, before/after minutes, number trained, frequency, monthly hours, measurement method, honest limitation, quotation and publication permission. Do not estimate missing results. Monthly totals must agree with the frequency and measurement period. The template withholds results until required fields and permission are present.
+
+Eric confirmed on 11 September 2026 that AI Vision Consulting is not VAT registered and authorised publication. `src/data/pricingPolicy.ts` records `vatConfirmed: true`; displayed prices are final with no VAT added. Case studies retain clearly labelled placeholders until verified evidence and permission are supplied. Accreditation remains false until an actual award is documented. External agent sync is separate from website publication.
+
+On Windows, use the installed `python` command for `scripts/generate-static-blog.py` if `python3` is unavailable. Build in order: clean, generate static blog, generate sitemap, client build, server build, prerender, then generate agent knowledge. Check TypeScript and inspect the rendered pages before publication. Agent knowledge generation is local; agent sync updates external services.
+
 A production-ready marketing website for AI Vision Consulting, built with React, TypeScript, Vite, Tailwind CSS, Framer Motion, and Three.js (React Three Fiber).
 
 The site is designed as a high-impact, animated single-page experience with a 3D neural background, conversion-focused sections, and an EmailJS-powered contact form.

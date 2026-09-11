@@ -508,6 +508,23 @@ def generate() -> None:
     sources = sorted(CONTENT_DIR.glob("*.md"))
     if not sources:
         raise SystemExit("No Markdown articles found")
+    # Markdown frontmatter drives both static pages and React article cards.
+    # Preserve hand-authored catalogue tags and articles without Markdown.
+    generated_metadata = {}
+    mapping = {'title': 'title', 'excerpt': 'excerpt', 'image': 'image', 'image_alt': 'imageAlt',
+               'read_time': 'readTime', 'published_at': 'publishedAt', 'updated_at': 'updatedAt',
+               'meta_title': 'metaTitle', 'meta_description': 'metaDescription'}
+    for source in sources:
+        meta, _ = parse_frontmatter(source.read_text(encoding='utf-8'))
+        required(meta, source)
+        values = {target: meta[key] for key, target in mapping.items()}
+        values['date'] = format_date(meta['published_at'])
+        generated_metadata[meta['slug']] = values
+        if meta['slug'] not in catalogue:
+            raise ValueError(f"Article missing from catalogue: {meta['slug']}")
+        catalogue[meta['slug']].update(values)
+    (ROOT / 'src/data/generatedBlogMetadata.json').write_text(
+        json.dumps(generated_metadata, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     seen: set[str] = set()
     expected_outputs: set[Path] = set()
     for source in sources:

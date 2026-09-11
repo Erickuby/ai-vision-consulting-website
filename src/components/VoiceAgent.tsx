@@ -250,14 +250,14 @@ export function VoiceAgent() {
   if (!mounted || !AGENT_ID) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3 print:hidden">
+    <div className="voice-assistant fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3 print:hidden">
       <AnimatePresence>
         {nudging && !panelOpen && (
           <motion.div
             initial={{ opacity: 0, y: 12, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.96 }}
-            className="relative max-w-[16rem] rounded-2xl border px-4 py-3 text-sm shadow-2xl backdrop-blur-md"
+            className="voice-assistant-nudge relative max-w-[16rem] rounded-2xl border px-4 py-3 text-sm shadow-2xl backdrop-blur-md"
             style={{ background: 'rgba(10,20,40,0.92)', borderColor: 'rgba(0,212,255,0.25)', color: '#F0F4FF' }}
           >
             <button

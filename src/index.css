@@ -879,7 +879,7 @@ html {
   margin: 0 0 9px;
   color: #f0f4ff;
   font-size: 22px;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 .training-category > p {
@@ -1275,3 +1275,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
   .service-row { grid-template-columns: 25px 1fr; gap: 16px; }
   .service-row > div:last-child { grid-column: 2; }
 }
+
+/* Service navigation uses the existing colours, type and spacing. */
+.nav-services { position: relative; }
+.nav-services > summary { cursor: pointer; }
+.nav-services-panel { position: absolute; top: calc(100% + 1rem); left: 0; width: 18rem; padding: 1rem; display: grid; gap: 1rem; background: #050d1a; border: 1px solid rgba(0,212,255,.2); border-radius: .5rem; }
+.mobile-services-group { display: grid; justify-items: center; gap: 1rem; text-align: center; }
+
+/* Editorial metadata and measured case-study entries. */
+.content-review { padding-top: 1rem; padding-bottom: 2.5rem; color: #aebccd; font-size: .875rem; }
+.content-review p { margin: .5rem 0; }
+.case-study-card { padding: 1.5rem; margin: 1.5rem 0; border: 1px solid rgba(0,212,255,.2); border-radius: 18px; background: rgba(5,13,26,.68); }
+.case-study-card dt { font-weight: 600; color: #eef4ff; margin-top: 1rem; }
+.case-study-card dd { margin: .4rem 0 0; color: #aebccd; }
+body:has(.selection-bar) .voice-assistant { bottom: calc(var(--training-bar-height, 120px) + 24px); }
+body:has(.selection-bar) .voice-assistant-nudge { display: none; }
+body:has(.selection-bar) { padding-bottom: calc(var(--training-bar-height, 120px) + 24px); }

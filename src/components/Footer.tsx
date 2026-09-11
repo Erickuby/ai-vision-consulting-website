@@ -14,10 +14,11 @@ const navLinks = [
 ];
 
 const trainingLinks = [
+  { label: 'Free North East training', href: '/free-ai-training-north-east/' },
   { label: 'Personal AI Training', href: '/pricing/#individual-training' },
   { label: 'Small-Group Sessions', href: '/pricing/#private-group-heading' },
   { label: 'Corporate Workshops', href: '/pricing/#team-training' },
-  { label: 'Twelve-Session Catalogue', href: '/pricing/#catalogue-heading' },
+  { label: 'Practical AI topics', href: '/pricing/#catalogue-heading' },
   { label: 'Microsoft 365 Copilot', href: '/pricing/#copilot-training' },
 ];
 

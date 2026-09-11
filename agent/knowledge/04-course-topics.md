@@ -5,42 +5,46 @@
 
 Two routes are available. A learner can take either, or mix them across a bundle.
 
-# Route one: Practical AI (twelve topics)
+# Route one: Practical AI (13 topics)
 
 ## AI foundations
 
 Choose tools confidently and get consistently useful results.
 
-1. **Choosing the right AI tools** — Compare ChatGPT, Claude, Gemini, Qwen and DeepSeek against your tasks, privacy needs and budget.
-2. **Prompting for better results** — Write clear instructions for research, planning, writing, problem-solving and day-to-day work.
-3. **Claude Code for non-coders** — Use tools such as Claude Code to create simple websites, mini-apps and useful business tools.
-4. **AI agents and workflow automation** — Identify repetitive work and design practical AI-assisted workflows with sensible human checks.
+1. **Choosing the right AI tools** — Test AI tools against your own tasks, privacy needs and budget. Compare paid subscriptions, lower-cost tiers and open-weight models before choosing what to pay for. A focused hour produces a useful shortlist, not an exhaustive benchmark. Prices and features change, and a cheaper plan is only a recommendation when it meets your needs.
+2. **Prompting for better results** — Write clear instructions for research, planning, writing, problem-solving and day-to-day work. A clear prompt cannot guarantee a factual answer. You must verify claims and references before using the output.
+3. **Build a working tool without writing code** — Build and publish one tightly scoped tool, such as a calculator or checklist, with AI. Compare Claude Code, Lovable, Replit, Bolt and Base44 for the job. One hour is suitable for a small, pre-agreed tool with accounts ready. It does not cover a production database, payment system, security audit or complex integration. Platform terms and export options affect what you can move elsewhere.
+4. **AI agents and workflow automation** — Identify repetitive work and design practical AI-assisted workflows with sensible human checks. One hour covers a workflow plan and a small test. A reliable live integration needs separate setup, monitoring and permission checks.
+13. **Connecting AI to your other tools** — Connect one approved system through the Model Context Protocol and create a reusable skill file for a recurring task, with clear access and security checks. A focused hour covers one supported connection and one small skill. Custom connector development, organisation-wide deployment and security certification are separate work.
 
 ## AI power tools
 
 Research, create and turn ideas into working assets.
 
-5. **NotebookLM for research and knowledge work** — Work from your own documents, notes and trusted sources to understand information and develop ideas.
-6. **AI video creation** — Create useful videos for presentations, training, social media and internal communication.
-7. **AI image generation** — Create professional concepts, graphics, social visuals and other practical creative assets.
-8. **Build simple apps with AI** — Prototype a simple webpage or app with AI. Learn how to test it and recognise when technical help is needed.
+5. **NotebookLM for research and knowledge work** — Work from your own documents, notes and trusted sources to understand information and develop ideas. Answers can omit context or misread a source. Check citations in the original documents; a notebook is not an independent fact-checker.
+6. **AI video creation** — Create a short video with Google Veo 3.1, including native audio. Compare Runway Gen-4.5, Kling 3.0 and Seedance 2.0 for your task, budget and editing needs. Check the current plan, usage limits and commercial licence before choosing a tool. One hour covers a draft clip, not a finished campaign. Generation can fail or use extra credits; commercial rights depend on the plan and your source material.
+7. **AI image generation** — Create professional concepts, graphics, social visuals and other practical creative assets. Generated images can contain visual errors and cannot guarantee originality or rights clearance. Human review and permission checks are required.
+8. **Build simple apps with AI** — Prototype a simple webpage or app with AI. Learn how to test it and recognise when technical help is needed. A prototype is not a production service. Payments, private data, security review and ongoing hosting need separate work.
 
 ## Create, grow and monetise
 
 Apply AI to visibility, products and client services.
 
-9. **Content creation and social media systems** — Plan, draft, repurpose and organise content without losing your own judgement or voice.
-10. **Creating digital products with AI** — Develop an idea, create the product, prepare its sales page and build a practical launch plan.
-11. **AI avatars and presenter videos** — Create avatar-led and talking-head-style videos for training, communication and digital products.
-12. **Building an AI-powered freelance service** — Choose a valuable service, package the outcome, find suitable clients and define a responsible delivery process.
+9. **Content creation and social media systems** — Plan, draft, repurpose and organise content without losing your own judgement or voice. AI cannot supply your experience or guarantee reach. You must check facts, permissions and whether the draft sounds like you before publishing.
+10. **Creating digital products with AI** — Develop an idea, create the product, prepare its sales page and build a practical launch plan. One hour develops a product sample and plan, not a complete product business. AI cannot validate demand or guarantee sales.
+11. **AI avatars and presenter videos** — Create avatar-led and talking-head-style videos for training, communication and digital products. Use only a likeness and voice you have permission to use. Avatar output can mispronounce or misrepresent the script and needs review before sharing.
+12. **Building an AI-powered freelance service** — Choose a valuable service, package the outcome, find suitable clients and define a responsible delivery process. This session does not promise clients or income. You must validate demand, check your competence and protect client information.
 
-# Route two: Microsoft 365 Copilot for Work (eight topics)
+# Route two: Microsoft 365 Copilot for Work (11 topics; corporate-only topics are explicitly marked)
 
-1. **Copilot essentials and better prompts** — Understand your available tools. Practise a brief with goal, context, sources and expectations, then check the answer.
-2. **Outlook and Teams: email, meetings and actions** — Summarise threads, draft replies and turn meeting material into actions. Meeting features depend on permissions, settings and transcript availability.
-3. **Word: useful documents and clear summaries** — Turn approved source material into a report or briefing. Check quotations, missing information and unsupported claims.
-4. **Excel: make sense of your data** — Explore formulas, trends, charts or trackers using a sample workbook. Check totals, exclusions and a worked example by hand.
-5. **PowerPoint: from a brief to a presentation** — Create an outline and first-draft slides from an approved document. Improve structure and accuracy before sharing.
-6. **Research, files and Copilot Notebooks** — Organise relevant documents and ask evidence-based questions. Review citations and spot gaps or outdated information.
-7. **Reusable instructions, agents and repeat tasks** — Explore a bounded assistant or reusable prompt for one recurring job, with permissions and human review. Availability and usage charges vary.
-8. **Your personal Copilot workflow** — Bring one approved workplace task. Connect the steps, test the output and leave with a repeatable routine and checking checklist.
+1. **Copilot essentials and better prompts** — Understand your available tools. Practise a brief with goal, context, sources and expectations, then check the answer. Copilot features vary by licence and organisation settings. A fluent answer still needs checking against the source.
+2. **Outlook and Teams: email, meetings and actions** — Summarise threads, draft replies and turn meeting material into actions. Meeting features depend on permissions, settings and transcript availability. Meeting features depend on permissions, settings and transcript availability. Verify owners and deadlines; do not send a draft without review.
+3. **Word: useful documents and clear summaries** — Turn approved source material into a report or briefing. Check quotations, missing information and unsupported claims. Copilot can omit context or invent a detail. Verify statements and quotations against approved sources before distributing the document.
+4. **Excel: make sense of your data** — Explore formulas, trends, charts or trackers using a sample workbook. Check totals, exclusions and a worked example by hand. AI-generated formulas and charts can be wrong. Check totals and representative rows; a training example is not a financial audit.
+5. **PowerPoint: from a brief to a presentation** — Create an outline and first-draft slides from an approved document. Improve structure and accuracy before sharing. A first draft still needs factual, visual and accessibility review. Available generation and editing features depend on your licence and app.
+6. **Research, files and Copilot Notebooks** — Organise relevant documents and ask evidence-based questions. Review citations and spot gaps or outdated information. Research output may miss sources or repeat outdated information. Check citations, access permissions and dates before relying on it.
+7. **Reusable instructions, agents and repeat tasks** — Explore a bounded assistant or reusable prompt for one recurring job, with permissions and human review. Availability and usage charges vary. Agent access and usage charges vary. One session does not deliver organisation-wide deployment, and actions need explicit permission and review.
+8. **Your personal Copilot workflow** — Bring one approved workplace task. Connect the steps, test the output and leave with a repeatable routine and checking checklist. This covers one bounded workflow. Tool access, data quality and human checks limit what can be automated, and time savings must be measured in your work.
+9. **Copilot Cowork and Agent Mode in practice** — Run one multi-step workplace task with Copilot Cowork and practise editing in supported Microsoft 365 apps. Build in checkpoints before anyone uses the output. One hour covers one agreed task. It does not automate an entire role or remove the need to check facts, permissions and recipients. Software licences and usage credits are separate.
+10. **What Copilot actually costs to run** — Estimate monthly Copilot Credit usage for your team, separate licence charges from usage charges and set practical spending and review rules. The estimate is a planning model, not a guaranteed bill. Credit reporting and enforcement may be delayed, and a spending limit is not a substitute for controlling who can access a service.
+11. **Governing AI agents with Agent 365** — Review the agents in your organisation, their permissions and accountable owners. Draft an approval and review process with your IT and information-governance team. A scoped workshop covers the agreed tenant and available evidence. It is not a complete security audit, certification or automatic approval of every agent; gaps and follow-up actions are recorded. CORPORATE ONLY: do not quote the individual hourly rate or include in individual bundles.

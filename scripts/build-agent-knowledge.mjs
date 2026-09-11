@@ -66,6 +66,8 @@ async function loadSiteData() {
         export * from '../src/data/services';
         export * from '../src/data/training';
         export * from '../src/data/routes';
+        export * from '../src/data/pricingPolicy';
+        export * from '../src/data/serviceOffers';
       `,
       resolveDir: join(root, 'scripts'),
       loader: 'ts',
@@ -87,7 +89,7 @@ async function loadSiteData() {
 
 const bullets = (items) => items.map((item) => `- ${item}`).join('\n');
 
-function packageBlock(pkg) {
+function packageBlock(pkg, policy) {
   // "From £995" means the figure is a starting point, not a fixed price. The agent is told
   // to treat these two cases differently, so mark them explicitly here.
   const fixed = !/^from/i.test(pkg.price.trim());
@@ -95,6 +97,7 @@ function packageBlock(pkg) {
     `### ${pkg.name}`,
     ``,
     `- Price: ${pkg.price} (${fixed ? 'FIXED, quote this exactly' : 'STARTING PRICE, final quote depends on scope'})`,
+    `- VAT: ${policy.vatStatement}`,
     `- Format: ${pkg.format}`,
     `- ${pkg.description}`,
     `- Includes: ${pkg.features.join('; ')}`,
@@ -139,25 +142,27 @@ function docServices(data) {
 function docPricing(data) {
   return `# Prices
 
-Currency is pounds sterling. Say prices the way a person says them, for example "seventy
-five pounds", not "GBP 75".
+Currency is pounds sterling. Say prices the way a person says them, for example "ninety-five pounds", not "GBP 95".
 
 ## Individual one to one training
 Each individual session lasts one hour. Learners can choose Practical AI topics, Microsoft
 365 Copilot for Work topics, or a mix. These prices are fixed and published.
 
-${data.individualTrainingPackages.map(packageBlock).join('\n\n')}
+${data.individualTrainingPackages.map((pkg) => packageBlock(pkg, data.pricingPolicy)).join('\n\n')}
 
 ## Private small group
-${packageBlock(data.privateGroupPackage)}
+${packageBlock(data.privateGroupPackage, data.pricingPolicy)}
 
 ## Corporate and team training
 Starting prices cover the stated group size, a scoping conversation, tailored delivery and
 participant resources. Delivered remotely across the UK, or in person where suitable.
 
-${data.corporateTrainingPackages.map(packageBlock).join('\n\n')}
+${data.corporateTrainingPackages.map((pkg) => packageBlock(pkg, data.pricingPolicy)).join('\n\n')}
 
-## What every published price includes
+## Focused consultancy
+${data.consultancyOffers.map((pkg) => packageBlock(pkg, data.pricingPolicy)).join('\n\n')}
+
+## What every published training price includes
 - Pre session or pre programme scoping
 - Training tailored to agreed goals and confidence levels
 - Live demonstrations and guided practice
@@ -167,7 +172,7 @@ ${data.corporateTrainingPackages.map(packageBlock).join('\n\n')}
 - Software subscriptions, Microsoft licences and any AI agent usage charges
 - Venue hire
 - Custom tool development
-- Travel beyond Newcastle
+- Travel outside Tyne and Wear
 - Extra cohorts
 
 Individual training prices are fixed. Private group and corporate figures are starting
@@ -180,23 +185,23 @@ cohort needs and available funding.
 function docCatalogue(data) {
   const practical = data.trainingCategories
     .map((c) => `## ${c.title}\n\n${c.strapline}\n\n${c.sessions
-      .map((s) => `${s.number}. **${s.title}** — ${s.description}`)
+      .map((s) => `${s.number}. **${s.title}** — ${s.description}${s.corporateOnly ? " CORPORATE ONLY: do not quote the individual hourly rate or include in individual bundles." : ""}`)
       .join('\n')}`)
     .join('\n\n');
 
   const copilot = data.copilotSessions
-    .map((s) => `${s.number}. **${s.title}** — ${s.description}`)
+    .map((s) => `${s.number}. **${s.title}** — ${s.description}${s.corporateOnly ? " CORPORATE ONLY: do not quote the individual hourly rate or include in individual bundles." : ""}`)
     .join('\n');
 
   return `# Course topics
 
 Two routes are available. A learner can take either, or mix them across a bundle.
 
-# Route one: Practical AI (twelve topics)
+# Route one: Practical AI (${data.trainingCategories.reduce((total, category) => total + category.sessions.length, 0)} topics)
 
 ${practical}
 
-# Route two: Microsoft 365 Copilot for Work (eight topics)
+# Route two: Microsoft 365 Copilot for Work (${data.copilotSessions.length} topics; corporate-only topics are explicitly marked)
 
 ${copilot}
 `;

@@ -2,14 +2,14 @@
 slug: ai-training-for-employees
 title: "What Should Practical AI Training for Employees Include?"
 meta_title: "Practical AI Training for Employees: What to Include"
-meta_description: "Learn what practical employee AI training should cover, from role-based tasks and data handling to prompt skills, fact-checking, policy and measurement."
+meta_description: "Plan role-specific AI training for employees using approved tasks, clear human checks and practical follow-up. Compare team workshops and Copilot topics."
 excerpt: "A buyer's guide to AI training that helps employees practise useful tasks while handling data, risk and quality responsibly."
 category: "AI Training"
 image: "https://aivisionconsulting.co.uk/images/blog/ai-training-for-employees.png"
 image_alt: "A practical workplace AI training session with three employees."
 read_time: "8 min read"
 published_at: "2026-07-20"
-updated_at: "2026-07-20"
+updated_at: "2026-09-11"
 primary_cta_label: "Explore corporate AI training"
 primary_cta_href: "/corporate-ai-training-uk/"
 secondary_cta_label: "View training pricing"
@@ -190,6 +190,10 @@ Use a task-based assessment. Give participants a realistic brief, source materia
 ### What should managers do after AI training?
 
 Managers should agree suitable use cases, provide practice time, reinforce approved-tool rules and review the quality of complete workflows. They should invite questions and report recurring gaps to policy or training owners. They must also accept that not using AI can be the correct decision for a particular task.
+
+## Practise this with support
+
+Teams moving beyond introductory use can explore [Copilot Cowork and Agent Mode](/courses/copilot-cowork-agent-mode/), [Copilot running costs](/courses/copilot-costs/) and [Agent 365 governance](/courses/agent-365-governance/). We check roles, licences and approved examples before agreeing the workshop.
 
 ## Author note
 

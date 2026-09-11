@@ -18,6 +18,7 @@ import { cp, rm, readdir, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { build } from 'esbuild';
 
 const projectRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(projectRoot, 'dist');
@@ -47,6 +48,13 @@ async function sizeOf(path) {
 const mb = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 
 async function main() {
+  const policyBundle = await build({ entryPoints: [join(projectRoot, 'src/data/pricingPolicy.ts')], bundle: true, platform: 'node', format: 'esm', write: false, logLevel: 'silent' });
+  const { pricingPolicy } = await import(`data:text/javascript;base64,${Buffer.from(policyBundle.outputFiles[0].text).toString('base64')}`);
+  if (!pricingPolicy.vatConfirmed) {
+    const message = 'Publication pending: Eric must confirm VAT registration status and the site must be rebuilt with the confirmed treatment.';
+    if (!dryRun) throw new Error(message);
+    console.warn(message);
+  }
   if (!existsSync(dist)) {
     console.error('No dist/. Run npm run build first.');
     process.exit(1);

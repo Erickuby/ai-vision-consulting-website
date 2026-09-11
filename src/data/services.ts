@@ -1,4 +1,6 @@
 import { GraduationCap, Cpu, Presentation, HandshakeIcon, type LucideIcon } from 'lucide-react';
+import { consultancyOffers } from './serviceOffers';
+import { clarifyVat } from './pricingPolicy';
 
 export interface ServiceItem {
   icon: LucideIcon;
@@ -12,6 +14,7 @@ export interface ServiceItem {
 }
 
 export const servicesData: ServiceItem[] = [
+  ...consultancyOffers.map((offer) => ({ icon: HandshakeIcon, slug: offer.href.split('/').filter(Boolean).at(-1)!, color: '#00D4FF', title: offer.name, description: clarifyVat(`${offer.description} ${offer.price}.`), points: offer.features, cta: 'View service details', ctaHref: offer.href })),
   {
     icon: GraduationCap,
     slug: 'training',
@@ -28,7 +31,7 @@ export const servicesData: ServiceItem[] = [
     color: '#FFD700',
     title: '1:1 Consulting',
     description: "Work directly with our AI specialist to solve your specific challenges. Whether it's a career pivot, a business automation project, or building an AI side income. We map a clear path forward.",
-    points: ['90-minute strategy sessions', 'Custom AI roadmap for your goals', 'Ongoing support available'],
+    points: ['Scoped discovery and advice', 'Custom AI roadmap for your goals', 'Ongoing support available'],
     cta: 'Book a Call',
     ctaHref: 'contact',
   },

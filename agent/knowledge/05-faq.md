@@ -15,7 +15,7 @@ No. Sessions can start with the fundamentals and are scoped around the participa
 
 ## How much does AI training cost?
 
-A personal one-hour session is £75. Two sessions are £140 and three are £195. Private small-group sessions start at £325, and corporate team workshops start at £995. Multi-session bundles are also available.
+A personal one-hour session is £95. Three sessions are £270, six are £510 and twelve are £900. Private small-group sessions start at £395, and corporate team workshops start at £995. Multi-session bundles are also available. No VAT added.
 
 ## Can I try it before committing?
 
@@ -45,13 +45,29 @@ Yes. The same assistant can answer on WhatsApp or a phone number. Those channels
 
 A straightforward website assistant is usually ready to review within a couple of weeks of the discovery call, depending on how quickly your content and calendar access are available.
 
+## How much does AI training cost in Newcastle?
+
+Individual training is £95 for one focused hour. Bundles are £270 for three hours, £510 for six and £900 for twelve. Private groups start at £395 and corporate workshops at £995. Software and travel outside Tyne and Wear are separate. No VAT added.
+
+## Do I need to pay for AI training when the government offers it free?
+
+No. Start with free AI Skills Hub courses if you want general introductory skills. Paid support is useful when you need practice on your approved systems, role-specific tasks, a training record or a particular delivery date for your team.
+
+## What does Copilot Cowork cost to run?
+
+There is no single price for every task. Check the applicable licence and current Copilot Credit rates, then measure a bounded pilot. The /cost command reports approximate usage already incurred, not a price before you start. Credit-limit enforcement can be delayed, so administrators must also control access.
+
+## Do small businesses need an AI policy?
+
+If people use AI for work, clear rules help them choose approved tools, protect information and know who checks results. The appropriate controls depend on the work and risks. Our policy and governance package starts at £1,750 and is scoped before booking. No VAT added.
+
 ## Can I mix Practical AI and Copilot topics?
 
 Yes. Individual bundles can combine either route. Each session lasts one hour and covers one agreed focus. We check your goals and tool access before confirming the plan.
 
-## Do I need to book all twelve topics?
+## Do I need to book a complete programme?
 
-No. Start with one session for £75, two for £140 or three for £195. Six sessions are £360 and twelve are £720. You can repeat a topic for more practice rather than covering something new every time.
+No. Start with one session for £95. Three sessions are £270, six are £510 and twelve are £900. You can repeat a topic for more practice rather than covering something new every time. No VAT added.
 
 ## Are software subscriptions included?
 
@@ -63,8 +79,40 @@ The starting prices cover the stated group size, scoping, tailored delivery and 
 
 ## Can a small group book without a corporate package?
 
-Yes. A private 90-minute group session starts at £325 for up to six people working towards one shared outcome.
+Yes. A private 90-minute group session starts at £395 for up to six people working towards one shared outcome. No VAT added.
 
 ## Are community and employability programmes available?
 
 Yes. These programmes are scoped around the cohort, accessibility needs, delivery format and available funding.
+
+## How much does this training cost?
+
+A focused individual hour is £95. A free discovery call checks your goal and access first. Starter, Momentum and Complete bundles are also available. Software subscriptions and usage credits are separate. No VAT added.
+
+## Does this include vendor certification?
+
+No. This is independent practical training and does not provide vendor certification. Any awarded CPD accreditation would be identified separately on this page.
+
+## What does an AI policy package cost?
+
+The package starts at £1,750. We agree a fixed fee after discovery. Larger organisations and specialist regulatory or certification-alignment work need an individual quote. No VAT added.
+
+## Does this include certification?
+
+No. You receive a policy, supporting registers, staff guidance, role-based training and a sign-off process. This is not ISO certification or a guarantee of legal compliance.
+
+## How much does an AI workflow audit cost?
+
+The audit starts at £950 and includes a half-day review and written recommendations. Scope, travel outside Tyne and Wear and any extra requirements are agreed before booking. No VAT added.
+
+## How does the audit credit work?
+
+The audit fee is credited in full against any workshop or programme booked within 60 days of the audit. The quote records the credit and deadline so you can compare the total cost before committing.
+
+## Does the audit include building an automation?
+
+No. It provides a task inventory, scored shortlist, recommended workflow and costed options. Implementation is quoted separately after you choose what to proceed with.
+
+## Should we try free AI training before paying for an audit?
+
+Free courses are a useful start for general skills. An audit answers a different practical question: which of your actual workflows is worth changing, given its time cost, risks and implementation effort. We check whether that work is needed during the discovery call.

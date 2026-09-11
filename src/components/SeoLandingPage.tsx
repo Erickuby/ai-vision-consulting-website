@@ -1,7 +1,12 @@
+import { VatNotice, FreeTrainingComparison } from './PricingContext';
+import { pricingPolicy } from '../data/pricingPolicy';
+import { trainingBookingUrl } from '../data/trainingSelection';
 import { ArrowRight, Calendar } from 'lucide-react';
 import type { SiteRoute } from '../data/routes';
 import { Contact } from './Contact';
 import { PageHeroArtwork } from './PageHeroArtwork';
+import { ContentReview } from './ContentReview';
+import { CaseStudies } from './CaseStudies';
 
 const serviceLinks = [
   ['/ai-voice-assistant/', 'AI voice assistants'],
@@ -10,6 +15,8 @@ const serviceLinks = [
   ['/corporate-ai-training-uk/', 'Corporate AI training'],
   ['/small-business-ai-automation/', 'Small-business automation'],
   ['/community-employability-ai-training/', 'Community AI training'],
+  ['/services/ai-policy-and-governance/', 'AI policy and governance'],
+  ['/services/ai-workflow-audit/', 'AI readiness and workflow audit'],
 ] as const;
 
 export function Breadcrumbs({ current }: { current: string }) {
@@ -25,6 +32,7 @@ const sectionId = (heading: string) =>
 
 export function SeoLandingPage({ route }: { route: SiteRoute }) {
   const showContact = route.kind === 'contact';
+  const courseBooking = route.course ? trainingBookingUrl(`Training enquiry: ${route.h1}. ${route.course.corporateOnly ? 'Corporate workshop: please help scope our requirements.' : `One focused hour: £${route.course.price}. ${pricingPolicy.vatShort}`} My goal is: `) : undefined;
 
   return (
     <main id="main-content" className="seo-page">
@@ -35,9 +43,11 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
           <span className="badge badge-cyan">{route.eyebrow}</span>
           <h1>{route.h1}</h1>
           <p className="seo-lead">{route.intro}</p>
+          {route.course && <p>{route.course.corporateOnly ? 'Corporate-only workshop. Scope and price agreed with your organisation.' : `£${route.course.price} for one focused hour. Free discovery call available.`}</p>}
+          {(route.kind === 'service' || route.course) && <VatNotice full />}
           <div className="seo-actions">
-            <a className="btn-primary" href={showContact ? 'https://cal.com/eric-nwankwo/ai-discovery-call' : '/contact/'} target={showContact ? '_blank' : undefined} rel={showContact ? 'noopener noreferrer' : undefined}>
-              {showContact ? <Calendar size={16} /> : null}{showContact ? 'Book on Cal.com' : 'Discuss your requirement'}
+            <a className="btn-primary" href={courseBooking ?? (showContact ? 'https://cal.com/eric-nwankwo/ai-discovery-call' : '/contact/')} target={showContact || courseBooking ? '_blank' : undefined} rel={showContact || courseBooking ? 'noopener noreferrer' : undefined}>
+              {showContact ? <Calendar size={16} /> : null}{courseBooking ? 'Discuss this session on a free call' : showContact ? 'Book on Cal.com' : 'Discuss your requirement'}
               {!showContact ? <ArrowRight size={16} /> : null}
             </a>
             {route.path !== '/pricing/' && <a className="btn-secondary" href={route.pricingHref ?? '/pricing/'}>View pricing</a>}
@@ -46,15 +56,22 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
         </div>
       </section>
 
-      {route.sections.map((section) => (
+      {route.course && !route.course.corporateOnly && <section className="seo-content-section"><div className="seo-container"><FreeTrainingComparison condensed /></div></section>}
+
+      {route.sections.filter(section => !route.course || section.heading !== 'You will leave with').map((section) => (
         <section className="seo-content-section" id={sectionId(section.heading)} key={section.heading}>
           <div className="seo-container seo-article-copy">
             <h2>{section.heading}</h2>
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
+            {section.links && <ul>{section.links.map(link => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}</ul>}
           </div>
         </section>
       ))}
+
+      {route.path === '/case-studies/' && <CaseStudies />}
+
+      {route.relatedLinks?.length ? <section className="seo-content-section"><div className="seo-container seo-article-copy"><h2>{route.course ? 'Read before your session' : 'Further reading'}</h2><ul>{route.relatedLinks.map((link) => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}</ul></div></section> : null}
 
       {route.faqs && route.faqs.length > 0 && (
         <section className="seo-content-section" aria-labelledby="faq-heading">
@@ -81,6 +98,8 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
           </div>
         </div>
       </section>
+      {route.course && route.sections.filter(section => section.heading === 'You will leave with').map(section => <section className="seo-content-section" key={section.heading}><div className="seo-container seo-article-copy"><h2>{section.heading}</h2><ul>{section.bullets?.map(bullet => <li key={bullet}>{bullet}</li>)}</ul></div></section>)}
+      {(route.kind === 'service' || route.kind === 'course') && <ContentReview path={route.path} />}
     </main>
   );
 }
