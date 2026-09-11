@@ -9,6 +9,7 @@ export function CaseStudies() {
       <h3>{study.title}</h3>
       {study.paragraphs.map(text => <p key={text}>{text}</p>)}
       {study.topics && <><h4>What the workshop covered</h4><ul>{study.topics.map(topic => <li key={topic}>{topic}</li>)}</ul></>}
+      {study.weeks && <><h4>The twelve weekly topics</h4><ol className="programme-weeks">{study.weeks.map(week => <li key={week.number}><a href={week.href}>{week.title}</a></li>)}</ol></>}
       {study.resources && <><h4>Practical resources</h4><p>{study.resources}</p></>}
     </article>)}
   </div></section>;

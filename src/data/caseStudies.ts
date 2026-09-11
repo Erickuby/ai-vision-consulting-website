@@ -1,9 +1,13 @@
+import { trainingCategories } from './training';
+import { coursePathFor } from './courseContent';
+
 export type CaseStudy = {
   id: string;
   title: string;
   delivery: string;
   paragraphs: string[];
   topics?: string[];
+  weeks?: ProgrammeWeek[];
   resources?: string;
   client?: typeof fdqClient;
 };
@@ -17,6 +21,21 @@ export const fdqClient = {
 };
 
 // Completed training confirmed by Eric for publication on 11 September 2026.
+export type ProgrammeWeek = { number: number; title: string; href: string };
+
+// The twelve weekly topics are sessions 1 to 12 of the Practical AI route, in the order
+// they were taught. Derived rather than retyped so renaming a session on the pricing page
+// updates the case study with it, and so the programme can never advertise a topic that is
+// no longer sold.
+//
+// Session 13, Connecting AI to your other tools, is deliberately excluded: it is a later
+// addition to the catalogue and was not part of the twelve weeks delivered.
+export const programmeWeeks: ProgrammeWeek[] = trainingCategories
+  .flatMap(category => category.sessions)
+  .filter(session => session.number <= 12)
+  .sort((a, b) => a.number - b.number)
+  .map(session => ({ number: session.number, title: session.title, href: coursePathFor(session) }));
+
 export const caseStudies: CaseStudy[] = [
   {
     id: 'fdq-microsoft-365-copilot',
@@ -44,6 +63,8 @@ export const caseStudies: CaseStudy[] = [
     paragraphs: [
       'Eric delivered a complete 12-week AI training course for the AI Vision Community.',
       'The live programme brought practical AI learning into a community setting, alongside Eric’s individual and corporate training.',
+      'One topic a week, in the order below. Each was taught as a live session with practice and questions, and each is available now as a standalone one-hour session or as part of a bundle.',
     ],
+    weeks: programmeWeeks,
   },
 ];

@@ -1286,6 +1286,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
 .content-review { padding-top: 1rem; padding-bottom: 2.5rem; color: #aebccd; font-size: .875rem; }
 .content-review p { margin: .5rem 0; }
 .case-study-card { padding: 1.5rem; margin: 1.5rem 0; border: 1px solid rgba(0,212,255,.2); border-radius: 18px; background: rgba(5,13,26,.68); }
+/* Ordered so the number carries the week, matching how the programme was taught. The
+   sibling ul rule does not apply to an ol, so spacing is restated here. */
+.programme-weeks { margin-top: 16px; padding-left: 22px; list-style: decimal; }
+.programme-weeks li { padding: 5px 0; }
+.programme-weeks li::marker { color: #00D4FF; font-weight: 600; }
+.programme-weeks a { color: #cfe4f5; text-decoration-color: rgba(0,212,255,.45); }
+.programme-weeks a:hover { color: #ffffff; }
 .case-study-card dt { font-weight: 600; color: #eef4ff; margin-top: 1rem; }
 .case-study-card dd { margin: .4rem 0 0; color: #aebccd; }
 body:has(.selection-bar) .voice-assistant { bottom: calc(var(--training-bar-height, 120px) + 24px); }
