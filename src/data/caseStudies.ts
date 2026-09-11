@@ -1,35 +1,49 @@
 export type CaseStudy = {
   id: string;
-  sector: string | null;
-  organisationSize: string | null;
-  delivered: string | null;
-  problem: string[];
-  work: string[];
-  task: string | null;
-  beforeMinutes: number | null;
-  afterMinutes: number | null;
-  peopleTrained: number | null;
-  frequency: string | null;
-  monthlyHoursReturned: number | null;
-  measurementMethod: string | null;
-  whatDidNotWork: string | null;
-  quote: string | null;
-  publicationApproved: boolean;
+  title: string;
+  delivery: string;
+  paragraphs: string[];
+  topics?: string[];
+  resources?: string;
+  client?: typeof fdqClient;
 };
 
-// PLACEHOLDER: Eric must supply measured facts and permission for each entry.
-export const caseStudies: CaseStudy[] = ['case-study-1', 'case-study-2', 'case-study-3'].map(id => ({
-  id, sector: null, organisationSize: null, delivered: null, problem: [], work: [],
-  task: null, beforeMinutes: null, afterMinutes: null, peopleTrained: null,
-  frequency: null, monthlyHoursReturned: null, measurementMethod: null,
-  whatDidNotWork: null, quote: null, publicationApproved: false,
-}));
+export const fdqClient = {
+  name: 'FDQ Limited',
+  description: 'Food and Drink Qualifications',
+  website: 'https://www.fdq.org.uk/',
+  logo: '/images/clients/fdq-logo.png',
+  logoAlt: 'FDQ Limited — Food and Drink Qualifications',
+};
 
-export function caseStudyReady(study: CaseStudy) {
-  const required = [study.sector, study.organisationSize, study.delivered, study.task, study.frequency, study.measurementMethod, study.whatDidNotWork, study.quote];
-  return study.publicationApproved && required.every(value => typeof value === 'string' && value.trim())
-    && study.problem.length === 2 && study.work.length === 3
-    && [...study.problem, ...study.work].every(value => value.trim())
-    && [study.beforeMinutes, study.afterMinutes, study.peopleTrained, study.monthlyHoursReturned].every(value => typeof value === 'number' && Number.isFinite(value) && value >= 0)
-    && Number.isInteger(study.peopleTrained) && study.peopleTrained! > 0;
-}
+// Completed training confirmed by Eric for publication on 11 September 2026.
+export const caseStudies: CaseStudy[] = [
+  {
+    id: 'fdq-microsoft-365-copilot',
+    title: 'Microsoft 365 Copilot training for FDQ Limited',
+    client: fdqClient,
+    delivery: 'Completed workshop · Leeds · 3 September 2026 · 90 minutes',
+    paragraphs: [
+      'FDQ Limited (Food and Drink Qualifications) is a Leeds-based awarding and end-point assessment organisation specialising in the food and drink industry.',
+      'Eric delivered “Practical AI for Everyday FDQ Work”, a 90-minute Microsoft 365 Copilot workshop on 3 September 2026. The session combined live demonstrations with guided practice using workplace examples from qualifications and assessment.',
+    ],
+    topics: [
+      'Writing clear prompts using goal, context, sources and expectations',
+      'Reusing custom instructions and building a prompt-writing agent',
+      'Working with email threads in Outlook and meeting actions in Teams',
+      'Using Copilot Notebooks with relevant documents and source references',
+      'Checking figures, spotting missing information and handling data safely',
+    ],
+    resources: 'Workshop resources included a follow-along pack, participant prompt pack and prompt-builder guide, with demonstration spreadsheets and an observation report.',
+
+  },
+  {
+    id: 'ai-vision-community-training',
+    title: 'A complete 12-week AI training course',
+    delivery: 'Completed programme · AI Vision Community',
+    paragraphs: [
+      'Eric delivered a complete 12-week AI training course for the AI Vision Community.',
+      'The live programme brought practical AI learning into a community setting, alongside Eric’s individual and corporate training.',
+    ],
+  },
+];

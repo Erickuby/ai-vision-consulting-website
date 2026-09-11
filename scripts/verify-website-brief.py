@@ -97,12 +97,14 @@ for slug, price in [('ai-policy-and-governance','1750'), ('ai-workflow-audit','9
     check(service.get('offers', {}).get('price') == price, f'{slug}: Service offer missing or incorrect')
     check(any(g['@type'] == 'FAQPage' for g in graph), f'{slug}: FAQ schema missing')
 
-cases = pages[DIST / 'case-studies/index.html'].select('.case-study-card')
-check(len(cases) == 3, 'Three case-study entries required')
+case_page = pages[DIST / 'case-studies/index.html']
+cases = case_page.select('.case-study-card')
+check(len(cases) == 2, 'Only the two confirmed completed trainings should appear')
+check('FDQ' in case_page.get_text() and '12-week' in case_page.get_text(), 'Confirmed FDQ and 12-week training missing')
+check(not re.search(r'awaiting|being prepared|nine.week|case.study framework', case_page.get_text(), re.I), 'Unfinished or superseded case-study copy remains')
 for case in cases:
-    check('awaiting verified details' in case.h3.get_text(), 'Case-study draft must be labelled')
-    check('What did not work' in case.get_text(), 'Case-study limitation missing')
-    check(not case.select('blockquote'), 'No client quote permitted before approval')
+    check(not case.select('blockquote'), 'No client quote supplied for completed training')
+
 
 for file in (ROOT / 'content/blog').glob('*.md'):
     source = file.read_text(encoding='utf-8')

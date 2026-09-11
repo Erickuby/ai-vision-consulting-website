@@ -1,5 +1,9 @@
 # September 2026 website update: review draft
 
+## Completed-training update, 11 September 2026
+
+Eric requested removal of all unfinished case-study content and confirmed FDQ Microsoft 365 Copilot training and the completed 12-week AI Vision Community course for publication. The site now contains only those two completed training entries. The three empty templates, prospective engagement descriptions and former nine-week wording have been removed. The homepage now names FDQ. No statistics or quotations have been invented. TypeScript, production builds and 3,432 rendered checks passed. Deployment commit: `51536b7`. The earlier review below is a historical record; references there to empty case-study templates are superseded by this update.
+
 The P0, P1 and P2 implementation passed local review checks. On 11 September 2026 Eric confirmed that AI Vision Consulting is not VAT registered and explicitly authorised publication. Displayed prices are final with no VAT added. Publication verification is recorded below when complete. External assistants have not been synchronised. The case-study entries deliberately contain placeholders, as requested; they do not contain invented results.
 
 ## What changed
