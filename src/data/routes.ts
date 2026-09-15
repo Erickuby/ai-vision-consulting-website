@@ -37,6 +37,21 @@ export type SiteRoute = {
   course?: { corporateOnly: boolean; price?: number };
   relatedLinks?: { href: string; label: string }[];
   serviceOffer?: { name: string; price: string; href: string };
+  // Clips filmed at completed training only. Each clip needs a poster and an ISO 8601 duration
+  // because the prerenderer turns them into VideoObject structured data.
+  videos?: RouteVideo[];
+  videosHeading?: string;
+};
+
+export type RouteVideo = {
+  src: string;
+  poster: string;
+  title: string;
+  description: string;
+  duration: string;
+  uploadDate: string;
+  width: number;
+  height: number;
 };
 
 const routes = [
@@ -59,16 +74,45 @@ const routes = [
     title: 'AI Training Newcastle | Practical Workshops for Your Team',
     description: 'In person and online AI training for Newcastle teams. Practical sessions on AI tools, prompting and safe adoption. Team workshops from £995.',
     h1: 'Practical AI training for Newcastle teams and organisations',
-    intro: 'AI training should connect directly to the work people already do. Sessions are designed around useful tasks, clear explanations and guided practice rather than technical jargon.',
+    intro: 'AI Vision Consulting provides practical AI and Microsoft 365 Copilot training for teams in Newcastle upon Tyne and across the North East, in person or online. Team workshops for up to 15 people start at £995 for 90 minutes, and every session uses real tasks such as drafting documents, summarising meetings and researching with source checks.',
     sections: [
       { heading: 'Training built around real work', paragraphs: ['Workshops can focus on everyday uses such as research, drafting, meeting preparation, document summarisation and process improvement. The aim is to help participants understand where AI is useful, where it is unreliable and how to review outputs with human judgement.', 'Content is scoped to the audience, existing confidence level and organisational context. Newcastle delivery can be discussed alongside remote options for teams elsewhere in the UK.'] },
-      { heading: 'What a session can cover', paragraphs: ['A discovery conversation identifies the tasks and questions that matter to your group. From there, training can combine demonstrations, guided exercises and reusable working practices. Individuals can choose from thirteen Practical AI topics in one-hour sessions, or a separate Microsoft 365 Copilot for Work route, while organisations can select a focused workshop or a multi-session team programme.'], bullets: ['Choosing and using AI assistants effectively', 'Writing clearer prompts and providing useful context', 'Research, video, image and app-creation tools', 'AI agents, content systems, digital products and freelance services'] },
+      { heading: 'What a session can cover', paragraphs: ['A discovery conversation identifies the tasks and questions that matter to your group. From there, training can combine demonstrations, guided exercises and reusable working practices. Individuals can choose from thirteen Practical AI topics in one-hour sessions, or a separate Microsoft 365 Copilot for Work route, while organisations can select a focused workshop or a multi-session team programme.'], bullets: ['Choosing and using AI assistants effectively', 'Writing clearer prompts and providing useful context', 'Research, video, image and app-creation tools', 'AI agents, content systems, digital products and freelance services'], links: [{ href: '/copilot-training-newcastle/', label: 'Microsoft 365 Copilot training for Newcastle teams' }] },
+      { heading: 'Training already delivered', paragraphs: ['In September 2026, Eric Nwankwo delivered a 90 minute Microsoft 365 Copilot workshop for FDQ Limited (Food and Drink Qualifications) in Leeds, combining live demonstrations, guided exercises and reusable prompt resources. He has also delivered a complete 12 week AI training course for the AI Vision Community.'], links: [{ href: '/case-studies/', label: 'Read about the completed training' }] },
       { heading: 'Who this training is for', paragraphs: ['Training is suitable for businesses, public-facing teams, charities, community organisations and professionals who want a grounded introduction or a more focused practical session.', 'If your requirement spans several teams, the programme can be scoped in stages so that the material reflects different roles without cloning the same session for everyone.'] },
     ],
     faqs: [
       { question: 'Can AI training be delivered in Newcastle?', answer: 'Yes. In-person delivery in Newcastle can be discussed, alongside remote delivery for organisations elsewhere in the UK.' },
       { question: 'Do participants need technical experience?', answer: 'No. Sessions can start with the fundamentals and are scoped around the participants’ current confidence and work.' },
       { question: 'How much does AI training cost?', answer: 'A personal one-hour session is £95. Three sessions are £270, six are £510 and twelve are £900. Private small-group sessions start at £395, and corporate team workshops start at £995. Multi-session bundles are also available.' },
+      { question: 'How many people can join a team workshop?', answer: 'A 90 minute team workshop and the six workshop programme take up to 15 people. Half day and full day workshops take up to 20 people. Larger organisations can book additional cohorts.' },
+    ],
+  },
+  {
+    path: '/copilot-training-newcastle/', kind: 'service', eyebrow: 'Microsoft 365 Copilot for teams',
+    pricingHref: '#workshop-formats-and-prices',
+    title: 'Copilot Training Newcastle | Microsoft 365 Team Workshops',
+    description: 'Microsoft 365 Copilot training for Newcastle and North East teams. Practical workshops for up to 15 people from £995, in person or online.',
+    h1: 'Microsoft 365 Copilot training for Newcastle teams',
+    intro: 'AI Vision Consulting runs practical Microsoft 365 Copilot training for teams in Newcastle upon Tyne and across the North East, in person or online. A 90 minute team workshop for up to 15 people starts at £995, and every session uses the real tasks your staff already do in Outlook, Teams, Word, Excel and PowerPoint.',
+    sections: [
+      { heading: 'What Copilot training covers', paragraphs: ['Sessions teach staff to hand Copilot clear, checkable work rather than simply chatting with it. Participants practise a four part brief built on goal, context, sources and expectations, then check the answer against the source before they use it.', 'Exercises are built around the Copilot apps your organisation has approved. We check your licences and employer approved access before the workshop, so nobody is shown a feature they cannot open.'], bullets: ['Writing briefs with goal, context, sources and expectations', 'Custom instructions and a reusable prompt writing agent', 'Email threads in Outlook and meeting actions in Teams', 'Copilot Notebooks grounded in your own documents', 'Checking figures, spotting missing information and handling data safely'] },
+      { heading: 'Delivered for FDQ Limited in September 2026', paragraphs: ['On 3 September 2026, Eric Nwankwo delivered a 90 minute Microsoft 365 Copilot workshop for FDQ Limited (Food and Drink Qualifications), a Leeds based awarding and end point assessment organisation. The session combined live demonstrations with guided practice using workplace examples from qualifications and assessment.', 'Participants received a follow along pack, a prompt pack and a prompt builder guide. The two clips below were filmed during that workshop.'], links: [{ href: '/case-studies/', label: 'Read the FDQ workshop overview' }] },
+      { heading: 'Workshop formats and prices', paragraphs: ['A 90 minute Team essentials workshop for up to 15 people starts at £995. A half day workshop for up to 20 people starts at £1,450, and a full day workshop for up to 20 people starts at £2,450. A committed programme of six 90 minute workshops for up to 15 people starts at £4,800, which is £800 per workshop.', 'Prices are per workshop, not per person, and are final because AI Vision Consulting is not VAT registered. Microsoft licences, travel outside Tyne and Wear and venue hire are separate.'] },
+      { heading: 'In person in Newcastle or live online', paragraphs: ['Workshops can run at your premises in Newcastle, Gateshead, Sunderland and elsewhere in the North East, or live online for teams anywhere in the UK.', 'A free 20 minute discovery call confirms your team size, the Copilot apps your staff can open and the tasks that matter most, before a format and price are agreed.'] },
+    ],
+    videosHeading: 'Filmed at the FDQ Copilot workshop',
+    videos: [
+      { src: '/videos/copilot-workshop-definition-of-done.mp4', poster: '/videos/copilot-workshop-definition-of-done.webp', title: 'Tell Copilot what done looks like.', description: 'Why a vague request such as “summarise this spreadsheet” skips vital rows, and what to say instead.', duration: 'PT28S', uploadDate: '2026-09-15', width: 1280, height: 720 },
+      { src: '/videos/copilot-workshop-goal-context-sources.mp4', poster: '/videos/copilot-workshop-goal-context-sources.webp', title: 'Goal and context come first.', description: 'Why giving Copilot enough context now matters more than clever prompt wording.', duration: 'PT26S', uploadDate: '2026-09-15', width: 1280, height: 720 },
+    ],
+    faqs: [
+      { question: 'How much does Copilot training cost in Newcastle?', answer: 'A 90 minute team workshop for up to 15 people starts at £995. Half day workshops start at £1,450 and full day workshops at £2,450, each for up to 20 people. Individual Copilot sessions are £95 for one hour. Prices are per workshop, not per person.' },
+      { question: 'How many people can join a Copilot workshop?', answer: 'Up to 15 people for a 90 minute workshop or the six workshop programme, and up to 20 people for a half day or full day workshop. Larger organisations can book additional cohorts.' },
+      { question: 'Do staff need a Microsoft 365 Copilot licence?', answer: 'Staff need access to the Copilot apps the session covers. We check which licences and employer approved tools your team can use before the workshop and build the exercises around them. Licences are not included in the price.' },
+      { question: 'Can Copilot training be delivered in person in Newcastle?', answer: 'Yes. Workshops can be delivered at your premises in Newcastle and across the North East, or live online for teams elsewhere in the UK.' },
+      { question: 'What will staff be able to do after the workshop?', answer: 'Write a clear brief using goal, context, sources and expectations, reuse instructions instead of retyping them, work with Outlook threads and Teams meeting actions, ground answers in their own documents with Notebooks, and check the output before it is shared.' },
+      { question: 'Do you offer AI training beyond Copilot?', answer: 'Yes. Practical AI training covers ChatGPT, Claude and other tools across 13 one hour topics, and corporate workshops can combine Copilot with Practical AI content.' },
     ],
   },
   {
@@ -88,11 +132,16 @@ const routes = [
     title: 'Corporate AI Training UK | Practical Team Workshops',
     description: 'Corporate AI and Microsoft 365 Copilot training for UK teams. Half day, full day and multi workshop programmes, scoped to your objectives.',
     h1: 'Corporate AI training for UK teams',
-    intro: 'Give colleagues a shared, practical understanding of AI while keeping the training relevant to their roles, responsibilities and organisational policies.',
+    intro: 'Corporate AI training from AI Vision Consulting gives UK teams practical, role specific skills with Microsoft 365 Copilot, ChatGPT and Claude. Workshops are priced per workshop, not per person: £995 for 90 minutes with up to 15 people, or £1,450 for a half day and £2,450 for a full day with up to 20 people.',
     sections: [
       { heading: 'From awareness to useful practice', paragraphs: ['Corporate sessions can begin with a common foundation and move into examples that reflect the work of the people in the room. Participants learn how to give AI useful context, review results and recognise tasks where it should not be relied upon.', 'The content can support an initial awareness session or a more focused programme for particular functions.'] },
       { heading: 'Topics shaped around your organisation', paragraphs: ['A scoping conversation establishes the audience, available tools and internal expectations. Training can then address relevant workflows without asking staff to share confidential information in unsuitable systems.'], bullets: ['Generative AI foundations in plain English', 'Prompting and structured review', 'Responsible use, privacy and human oversight', 'Role-specific exercises and reusable workflows'] },
-      { heading: 'Delivery, formats and starting prices', paragraphs: ['Sessions can be delivered remotely across the UK, with in-person delivery discussed where suitable. A 90-minute team workshop starts at £995, a half-day workshop at £1,450 and a full-day workshop at £2,450.', 'Committed multi-session rates: six-workshop capability programmes start at £4,800 (£800 per workshop). These require booking the full programme. Final pricing reflects group size, preparation, location, additional cohorts and any custom requirements.'] },
+      { heading: 'Delivery, formats and starting prices', paragraphs: ['Sessions can be delivered remotely across the UK, with in-person delivery discussed where suitable. A 90-minute team workshop for up to 15 people starts at £995, a half-day workshop for up to 20 people at £1,450 and a full-day workshop for up to 20 people at £2,450.', 'Committed multi-session rates: six-workshop capability programmes for up to 15 people start at £4,800 (£800 per workshop). These require booking the full programme. Final pricing reflects group size, preparation, location, additional cohorts and any custom requirements.'], links: [{ href: '/copilot-training-newcastle/', label: 'Microsoft 365 Copilot training for teams' }] },
+    ],
+    faqs: [
+      { question: 'How much does corporate AI training cost?', answer: 'A 90 minute team workshop starts at £995, a half day workshop at £1,450 and a full day workshop at £2,450. A committed programme of six 90 minute workshops starts at £4,800. Prices are per workshop, not per person.' },
+      { question: 'How many people can attend a corporate workshop?', answer: 'Up to 15 people for a 90 minute workshop or the six workshop programme, and up to 20 people for a half day or full day workshop. Additional cohorts can be booked for larger teams.' },
+      { question: 'Can corporate training focus on Microsoft 365 Copilot?', answer: 'Yes. Workshops can focus entirely on Microsoft 365 Copilot, cover ChatGPT and Claude, or combine them. In September 2026, AI Vision Consulting delivered a 90 minute Copilot workshop for FDQ Limited in Leeds.' },
     ],
   },
   {
@@ -203,6 +252,7 @@ const routes = [
     intro: 'Eric Nwankwo runs AI Vision Consulting to make practical AI learning and workflow support easier to understand for organisations, professionals and communities.',
     sections: [
       { heading: 'A practical approach to AI', paragraphs: ['The focus is not on hype or abstract demonstrations. It is on helping people understand what a tool can do, apply it to a real task and keep the human judgement needed to review the result.', 'That approach connects training with process improvement: teams learn the foundations, then identify where a repeatable workflow may be worth documenting or automating.'] },
+      { heading: 'Training Eric has delivered', paragraphs: ['In September 2026, Eric delivered a 90 minute Microsoft 365 Copilot workshop for FDQ Limited (Food and Drink Qualifications) in Leeds, covering prompt briefs, custom instructions, Outlook and Teams, Copilot Notebooks and safe data handling. He has also delivered a complete 12 week AI training course for the AI Vision Community, one practical topic each week.', 'Eric publishes practical AI explainers on the Eric Explains AI YouTube channel and shares workplace AI guidance on LinkedIn.'], links: [{ href: '/case-studies/', label: 'Completed training in detail' }, { href: '/copilot-training-newcastle/', label: 'Microsoft 365 Copilot training for teams' }] },
       { heading: 'Based in Newcastle, working across the UK', paragraphs: ['AI Vision Consulting is Newcastle-based and supports wider UK audiences through remote delivery. Local in-person work can be discussed according to the engagement.', 'Audiences include businesses, corporate teams, professionals, jobseekers and community or employability organisations.'] },
       { heading: 'Start with a conversation', paragraphs: ['A discovery call is a chance to explain your audience, workflow or training requirement. If there is a suitable next step, the work can then be scoped around the real requirement.', 'You can also explore the service pages to compare team training, automation consulting and community-focused delivery.'] },
     ],
@@ -223,7 +273,7 @@ const routes = [
     intro: 'Choose Practical AI or Microsoft 365 Copilot for Work. Individual sessions last one hour and start at £95, with discounted bundles, while corporate training starts at £995. Fixed individual prices and clear team starting points make it easier to identify the right level.',
     sections: [
       { heading: 'Personalised AI training', paragraphs: ['A focused one-hour session is £95. Starter bundles are £270 for three hours, Momentum bundles are £510 for six hours and Complete programmes are £900 for twelve hours. Mix Practical AI and Microsoft 365 Copilot topics to suit your goals.', 'Each option is shaped around a defined learning goal and includes guided practice and relevant follow-up notes or resources.'] },
-      { heading: 'Private groups and corporate teams', paragraphs: ['A private 90-minute small-group session for up to six people starts at £395. Corporate workshops start at £995 for 90 minutes, £1,450 for a half day and £2,450 for a full day.', 'Committed multi-session rates: six-workshop programmes start at £4,800 (£800 per workshop). These require booking the full programme.'] },
+      { heading: 'Private groups and corporate teams', paragraphs: ['A private 90-minute small-group session for up to six people starts at £395. Corporate workshops start at £995 for 90 minutes with up to 15 people, and £1,450 for a half day or £2,450 for a full day with up to 20 people.', 'Committed multi-session rates: six-workshop programmes start at £4,800 (£800 per workshop). These require booking the full programme.'] },
       { heading: 'Automation and implementation', paragraphs: ['Automation work depends on the current process, systems, integrations, testing and documentation required. Discovery and implementation may be scoped as separate stages.', 'A free discovery call can establish whether a focused consultation or a wider scope is the sensible next step.'] },
     ],
     faqs: [

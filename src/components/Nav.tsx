@@ -20,6 +20,7 @@ const primaryLinks = [
 const serviceMenuLinks = [
   { label: 'Voice assistants', href: '/ai-voice-assistant/' },
   { label: 'Corporate training', href: '/corporate-ai-training-uk/' },
+  { label: 'Copilot training', href: '/copilot-training-newcastle/' },
   { label: 'Automation consulting', href: '/ai-automation-consultant-newcastle/' },
   { label: 'AI policy and governance', href: '/services/ai-policy-and-governance/' },
   { label: 'AI readiness and workflow audit', href: '/services/ai-workflow-audit/' },

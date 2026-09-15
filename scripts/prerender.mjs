@@ -25,6 +25,7 @@ function structuredData(route) {
       description: server.pricingPolicy.vatStatement,
     },
   });
+  const personId = `${server.SITE_URL}/about-eric-nwankwo/#eric-nwankwo`;
   const pageType = route.kind === 'contact'
     ? 'ContactPage'
     : route.path === '/about-eric-nwankwo/'
@@ -43,6 +44,7 @@ function structuredData(route) {
       email: 'eric.nwankwo@aivisionconsulting.co.uk',
       telephone: '+447341183915',
       priceRange: '££',
+      founder: { '@id': personId },
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Newcastle upon Tyne',
@@ -78,6 +80,10 @@ function structuredData(route) {
       description: route.description,
       isPartOf: { '@id': `${server.SITE_URL}/#website` },
       about: { '@id': `${server.SITE_URL}/#organisation` },
+      inLanguage: 'en-GB',
+      // Mirrors the visible "Last reviewed" footer, which reads the same metadata.
+      ...(route.lastReviewed ? { dateModified: route.lastReviewed } : {}),
+      ...(route.kind !== 'legal' && route.kind !== 'not-found' ? { author: { '@id': personId } } : {}),
     },
     {
       '@type': 'WebSite',
@@ -127,15 +133,31 @@ function structuredData(route) {
     });
   }
 
-  if (route.path === '/about-eric-nwankwo/') {
+  // One Person node on every page, so the WebPage author and Organization founder
+  // references always resolve inside the same graph.
+  graph.push({
+    '@type': 'Person',
+    '@id': personId,
+    name: 'Eric Nwankwo',
+    jobTitle: 'Founder and AI Trainer',
+    worksFor: { '@id': `${server.SITE_URL}/#organisation` },
+    url: `${server.SITE_URL}/about-eric-nwankwo/`,
+    image: `${server.SITE_URL}/profile-clean-v2.webp`,
+    knowsAbout: ['Microsoft 365 Copilot training', 'Practical AI training', 'AI workflow automation', 'Responsible AI use'],
+    sameAs: ['https://www.linkedin.com/in/eric-nwankwo/', 'https://www.youtube.com/@EricExplainsAI'],
+  });
+
+  for (const video of route.videos ?? []) {
     graph.push({
-      '@type': 'Person',
-      '@id': `${server.SITE_URL}/about-eric-nwankwo/#eric-nwankwo`,
-      name: 'Eric Nwankwo',
-      jobTitle: 'Founder',
-      worksFor: { '@id': `${server.SITE_URL}/#organisation` },
-      url: canonical,
-      sameAs: ['https://www.linkedin.com/in/eric-nwankwo/'],
+      '@type': 'VideoObject',
+      name: video.title,
+      description: video.description,
+      thumbnailUrl: `${server.SITE_URL}${video.poster}`,
+      contentUrl: `${server.SITE_URL}${video.src}`,
+      uploadDate: video.uploadDate,
+      duration: video.duration,
+      inLanguage: 'en-GB',
+      publisher: { '@id': `${server.SITE_URL}/#organisation` },
     });
   }
 

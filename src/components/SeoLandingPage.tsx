@@ -11,6 +11,7 @@ import { CaseStudies } from './CaseStudies';
 const serviceLinks = [
   ['/ai-voice-assistant/', 'AI voice assistants'],
   ['/ai-training-newcastle/', 'AI training Newcastle'],
+  ['/copilot-training-newcastle/', 'Copilot training Newcastle'],
   ['/ai-automation-consultant-newcastle/', 'AI automation consulting'],
   ['/corporate-ai-training-uk/', 'Corporate AI training'],
   ['/small-business-ai-automation/', 'Small-business automation'],
@@ -68,6 +69,24 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
           </div>
         </section>
       ))}
+
+      {route.videos?.length ? (
+        <section className="seo-content-section" aria-labelledby="workshop-clips-heading">
+          <div className="seo-container">
+            <h2 id="workshop-clips-heading">{route.videosHeading ?? 'Clips from a delivered workshop'}</h2>
+            <div className="seo-video-grid">
+              {route.videos.map((video) => (
+                <figure className="seo-video" key={video.src}>
+                  <video controls preload="none" playsInline poster={video.poster} width={video.width} height={video.height}>
+                    <source src={video.src} type="video/mp4" />
+                  </video>
+                  <figcaption><strong>{video.title}</strong> {video.description}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {route.path === '/case-studies/' && <CaseStudies />}
 

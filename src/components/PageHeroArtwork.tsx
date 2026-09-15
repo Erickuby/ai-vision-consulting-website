@@ -7,6 +7,7 @@ const artwork: Record<string, [string, string]> = {
   '/services/ai-workflow-audit/': ['automation', 'Illustrative workspace for reviewing a business process'],
   '/ai-training-newcastle/': ['training', 'Illustrative learning workspace with a laptop and open notebook'],
   '/corporate-ai-training-uk/': ['corporate', 'Illustrative team learning table with laptops and notebooks'],
+  '/copilot-training-newcastle/': ['training', 'Illustrative workspace for Microsoft 365 Copilot team training'],
   '/ai-automation-consultant-newcastle/': ['automation', 'Illustrative workspace with a workflow on a monitor'],
   '/small-business-ai-automation/': ['automation', 'Illustrative workspace for organising business workflows'],
   '/community-employability-ai-training/': ['community', 'Illustrative shared learning table with notebooks and laptops'],

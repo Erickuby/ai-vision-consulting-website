@@ -1,26 +1,32 @@
 # AI Vision Consulting
 
-> Practical AI training and automation consulting for organisations, professionals, jobseekers and community groups. Based in Newcastle upon Tyne, with remote support available across the UK and local in-person delivery discussed where suitable.
+> Practical AI and Microsoft 365 Copilot training and automation consulting for organisations, professionals, jobseekers and community groups. Based in Newcastle upon Tyne, delivering online across the UK and in person in Newcastle and the North East. Founded by Eric Nwankwo. Rated 5.0 on Google.
+
+## Key Facts
+
+- Team workshops are priced per workshop, not per person: £995 for 90 minutes (up to 15 people), £1,450 for a half day (up to 20 people), £2,450 for a full day (up to 20 people), and £4,800 for a committed programme of six 90 minute workshops (up to 15 people, £800 per workshop).
+- Individual training: 13 Practical AI topics and a Microsoft 365 Copilot for Work route, in one hour sessions. £95 for one hour, £270 for three, £510 for six, £900 for twelve.
+- Private small group sessions start at £395 for 90 minutes with up to six people.
+- AI policy and governance package from £1,750. AI readiness and workflow audit from £950.
+- All prices are final. AI Vision Consulting is not VAT registered, so no VAT is added. Software licences and travel outside Tyne and Wear are separate.
+- Completed training: a 90 minute Microsoft 365 Copilot workshop for FDQ Limited (Food and Drink Qualifications), Leeds, 3 September 2026, and a complete 12 week AI training course for the AI Vision Community.
 
 ## What We Do
 
-- Practical AI training for individuals and teams
+- Microsoft 365 Copilot training for teams in Newcastle, the North East and online across the UK
+- Practical AI training for individuals and teams, covering ChatGPT, Claude and other tools
 - Corporate AI workshops and capability programmes
 - Workflow and automation discovery
-- Small-business AI automation support
+- Small business AI automation support
+- AI voice assistants that answer questions and book appointments
 - Community and employability AI training
-- Responsible-use guidance, including privacy, human review and output checking
+- Responsible use guidance, including privacy, human review and output checking
 
 ## Training
 
-Individual training is organised around twelve practical 90-minute topics covering:
+Copilot training teaches staff to write a clear brief with goal, context, sources and expectations, reuse custom instructions and a prompt writing agent, work with Outlook email threads and Teams meeting actions, ground answers in their own documents with Copilot Notebooks, and check figures and missing information before sharing results.
 
-- AI foundations, tool selection, prompting and AI-assisted coding
-- AI agents and workflow automation
-- Research, video, image and simple app creation
-- Content systems, digital products, avatars and freelance services
-
-Focused sessions and multi-session bundles are available. Private small-group sessions, corporate workshops and longer team programmes are also offered. See the pricing page for current prices, inclusions and scope.
+Practical AI training covers AI foundations and tool selection, prompting, AI agents and workflow automation, research, video, image and simple app creation, content systems, digital products, avatars and freelance services. Each individual session is one hour and covers one agreed focus.
 
 ## Consulting
 
@@ -37,6 +43,11 @@ Automation work begins with the current workflow rather than a predetermined too
 
 - [Home](https://aivisionconsulting.co.uk/)
 - [AI Training Newcastle](https://aivisionconsulting.co.uk/ai-training-newcastle/)
+- [Microsoft 365 Copilot Training Newcastle](https://aivisionconsulting.co.uk/copilot-training-newcastle/)
+- [AI Voice Assistants](https://aivisionconsulting.co.uk/ai-voice-assistant/)
+- [AI Policy and Governance](https://aivisionconsulting.co.uk/services/ai-policy-and-governance/)
+- [AI Readiness and Workflow Audit](https://aivisionconsulting.co.uk/services/ai-workflow-audit/)
+- [Free AI Training in the North East](https://aivisionconsulting.co.uk/free-ai-training-north-east/)
 - [AI Automation Consultant Newcastle](https://aivisionconsulting.co.uk/ai-automation-consultant-newcastle/)
 - [Corporate AI Training UK](https://aivisionconsulting.co.uk/corporate-ai-training-uk/)
 - [Small Business AI Automation](https://aivisionconsulting.co.uk/small-business-ai-automation/)
@@ -48,6 +59,12 @@ Automation work begins with the current workflow rather than a predetermined too
 
 ## Articles
 
+- [Why Microsoft 365 Copilot Rollouts Stall, and What Actually Fixes Them](https://aivisionconsulting.co.uk/blog/why-copilot-rollouts-stall)
+- [Copilot Agent Mode in Word, Excel and PowerPoint](https://aivisionconsulting.co.uk/blog/copilot-agent-mode-word-excel-powerpoint)
+- [Researcher and Analyst in Microsoft 365 Copilot](https://aivisionconsulting.co.uk/blog/copilot-researcher-and-analyst-agents)
+- [Copilot Notebooks and Memory](https://aivisionconsulting.co.uk/blog/copilot-notebooks-and-memory)
+- [What Copilot Can See: Fixing Oversharing Before You Switch It On](https://aivisionconsulting.co.uk/blog/copilot-oversharing-data-readiness)
+- [Copilot Cowork and Credits](https://aivisionconsulting.co.uk/blog/copilot-cowork-and-credits)
 - [What Is AI? A Plain-English Guide for Beginners](https://aivisionconsulting.co.uk/blog/what-is-ai)
 - [8 AI Prompts for a More Focused Job Search](https://aivisionconsulting.co.uk/blog/8-ai-prompts-every-job-seeker-needs-right-now)
 - [How to Use AI in a Civil Service Application Without Losing Your Voice](https://aivisionconsulting.co.uk/blog/use-ai-civil-service-application)
@@ -65,6 +82,8 @@ Automation work begins with the current workflow rather than a predetermined too
 
 - Website: https://aivisionconsulting.co.uk/
 - Email: eric.nwankwo@aivisionconsulting.co.uk
+- Phone and WhatsApp: +44 7341 183915
+- Free 20 minute discovery call: https://cal.com/eric-nwankwo/ai-discovery-call
 - Location: Newcastle upon Tyne, UK
 - [Book or send an enquiry](https://aivisionconsulting.co.uk/contact/)
 

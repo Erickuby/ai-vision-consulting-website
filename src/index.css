@@ -652,6 +652,39 @@ h1, h2, h3, h4, h5, h6 {
 
 .seo-faqs p { margin-top: 14px; margin-bottom: 0; font-size: 14px; }
 
+.seo-video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.seo-video {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid rgba(0, 212, 255, 0.13);
+  border-radius: 16px;
+  background: rgba(10, 20, 40, 0.66);
+}
+
+.seo-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  background: #08111d;
+}
+
+.seo-video figcaption {
+  margin-top: 12px;
+  color: #a9b9c9;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.seo-video figcaption strong { color: #edf4ff; }
+
 .seo-link-panel {
   margin-top: 26px;
   margin-bottom: clamp(60px, 9vw, 112px);
