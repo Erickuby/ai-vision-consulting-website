@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const reviews = [
   { name: 'Carl Bromilow', text: 'Eric was very knowledgeable, thank you' },
@@ -9,6 +9,11 @@ const reviews = [
 
 export function TestimonialsUpgraded() {
   const [paused, setPaused] = useState(false);
+  // The strip loops by translating a second copy of the reviews. Adding that copy only after
+  // hydration keeps the prerendered HTML to one set, so crawlers and AI answer engines read
+  // each review once. The first client render matches the server, then the copy appears.
+  const [looping, setLooping] = useState(false);
+  useEffect(() => { setLooping(true); }, []);
   return (
     <section className="reviews-section" aria-labelledby="reviews-heading">
       <div className="seo-container reviews-heading">
@@ -21,8 +26,8 @@ export function TestimonialsUpgraded() {
         </button>
       </div>
       <div id="reviews-strip" className="reviews-viewport" tabIndex={0} role="region" aria-label="Customer reviews. Focus or hover to pause; scroll sideways to read." data-paused={paused}>
-        <div className="reviews-track">
-          {[false, true].map(duplicate => (
+        <div className="reviews-track" data-looping={looping}>
+          {(looping ? [false, true] : [false]).map(duplicate => (
             <div className="reviews-group" key={String(duplicate)} aria-hidden={duplicate || undefined}>
               {reviews.map(review => (
                 <figure className="review-quote" key={review.name}>
