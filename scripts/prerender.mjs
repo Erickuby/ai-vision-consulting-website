@@ -147,6 +147,29 @@ function structuredData(route) {
     sameAs: ['https://www.linkedin.com/in/eric-nwankwo/', 'https://www.youtube.com/@EricExplainsAI'],
   });
 
+  // Books. A book exists as a work while it is being written, so the Book node is emitted
+  // from the day the page goes up. Anything that would claim it is on sale (an Amazon url,
+  // an ISBN, an offer) is only emitted once route.books carries it, which happens at launch.
+  for (const book of route.books ?? []) {
+    graph.push({
+      '@type': 'Book',
+      '@id': `${canonical}#${book.slug}`,
+      name: book.name,
+      ...(book.subtitle ? { alternativeHeadline: book.subtitle } : {}),
+      description: book.description,
+      author: { '@id': personId },
+      publisher: { '@id': `${server.SITE_URL}/#organisation` },
+      inLanguage: 'en-GB',
+      about: book.about,
+      ...(book.series ? { isPartOf: { '@type': 'BookSeries', name: book.series } } : {}),
+      ...(book.url ? { url: book.url, sameAs: book.url } : { url: canonical }),
+      ...(book.isbn ? { isbn: book.isbn } : {}),
+      ...(book.datePublished ? { datePublished: book.datePublished } : {}),
+      ...(book.bookFormat ? { bookFormat: book.bookFormat } : {}),
+      ...(book.numberOfPages ? { numberOfPages: book.numberOfPages } : {}),
+    });
+  }
+
   for (const video of route.videos ?? []) {
     graph.push({
       '@type': 'VideoObject',

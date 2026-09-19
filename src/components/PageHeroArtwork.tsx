@@ -12,6 +12,7 @@ const artwork: Record<string, [string, string]> = {
   '/small-business-ai-automation/': ['automation', 'Illustrative workspace for organising business workflows'],
   '/community-employability-ai-training/': ['community', 'Illustrative shared learning table with notebooks and laptops'],
   '/case-studies/': ['corporate', 'Illustrative workshop setting, not a photograph of a client session'],
+  '/books/': ['planning', 'Illustrative desk with a notebook and laptop, representing written guides'],
   '/pricing/': ['planning', 'Illustrative training planning desk with notebook and calculator'],
   '/contact/': ['contact', 'Illustrative setting for a conversation, with two chairs and a notebook'],
   '/privacy-policy/': ['legal', 'Illustrative document folder and key representing privacy'],

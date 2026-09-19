@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'AI Automation', href: '/ai-automation-consultant-newcastle/' },
   { label: 'Corporate Training', href: '/corporate-ai-training-uk/' },
   { label: 'About', href: '/about-eric-nwankwo/' },
+  { label: 'Books', href: '/books/' },
   { label: 'Contact', href: '/contact/' },
 ];
 

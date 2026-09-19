@@ -14,6 +14,7 @@ const socials = [
 const primaryLinks = [
   { label: 'About', href: '/about-eric-nwankwo/' },
   { label: 'Case studies', href: '/case-studies/' },
+  { label: 'Books', href: '/books/' },
   { label: 'Pricing', href: '/pricing/' },
 ];
 

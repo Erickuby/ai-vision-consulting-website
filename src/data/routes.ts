@@ -41,6 +41,24 @@ export type SiteRoute = {
   // because the prerenderer turns them into VideoObject structured data.
   videos?: RouteVideo[];
   videosHeading?: string;
+  // Books published, or being written, by AI Vision Consulting. The prerenderer turns these
+  // into Book structured data. Only add url, isbn, datePublished and numberOfPages once the
+  // book is actually live on Amazon, or the page claims something that is not true yet.
+  books?: RouteBook[];
+};
+
+export type RouteBook = {
+  slug: string;
+  name: string;
+  subtitle?: string;
+  description: string;
+  about: string[];
+  series?: string;
+  url?: string;
+  isbn?: string;
+  datePublished?: string;
+  bookFormat?: 'https://schema.org/EBook' | 'https://schema.org/Paperback';
+  numberOfPages?: number;
 };
 
 export type RouteVideo = {
@@ -264,6 +282,46 @@ const routes = [
     h1: 'AI training delivered in practice',
     intro: 'Completed training from AI Vision Consulting: Microsoft 365 Copilot for FDQ Limited in Leeds and a full 12-week AI course for the AI Vision Community.',
     sections: [],
+  },
+  {
+    // Books are written before they are published, so this page exists ahead of the first
+    // Amazon listing: a book with no page has nowhere to be linked from at launch, and a new
+    // page takes weeks to be indexed. Each book shows its real status. Nothing is described as
+    // available, priced or reviewed until it is live with an ASIN.
+    path: '/books/', kind: 'company', eyebrow: 'Practical guides, written from delivered training',
+    title: 'AI and Copilot Books by Eric Nwankwo | AI Vision Consulting',
+    description: 'Practical AI and Microsoft 365 Copilot books from Newcastle based trainer Eric Nwankwo. Copilot Prompts, 100 workplace prompts, is being written now.',
+    h1: 'Practical AI and Copilot books from AI Vision Consulting',
+    intro: 'AI Vision Consulting publishes short, practical guides for people who already have AI tools at work and are not yet getting much from them. They are written by Eric Nwankwo, a Newcastle based AI trainer, and built from workshops delivered to real teams. The first title, Copilot Prompts, is being written now and will be published on Amazon Kindle. This page lists each book and links to it as soon as it is live.',
+    sections: [
+      { heading: 'Copilot Prompts: 100 workplace prompts for Microsoft 365 Copilot', paragraphs: ['Status: in writing. The Amazon link will appear on this page on publication.', 'Most people type a few words into Copilot, get an average answer and go back to doing the job by hand. The tool is rarely the problem. This book teaches the four part brief used in AI Vision workshops, the check lines that catch quiet errors such as rows skipped in a spreadsheet, and then gives 100 prompts for the work people actually do.', 'Every prompt states when to use it, what to check before trusting the answer, one variation, and whether it works on the free Copilot Chat included with most business Microsoft 365 plans or needs the paid Microsoft 365 Copilot licence.'], bullets: ['Email and Outlook, meetings and Teams, Word, Excel and PowerPoint', 'Grounded research with Copilot Notebooks', 'Planning, reports, and managing people without putting personal data at risk', 'A practice spreadsheet with deliberate faults, so you can see what a careful prompt catches', 'A five day plan for you, and a first month plan for a team'], links: [{ href: '/copilot-training-newcastle/', label: 'Copilot training for teams in Newcastle' }] },
+      { heading: 'Written from training that was actually delivered', paragraphs: ['The material comes from workshops run for UK organisations, including a 90 minute Microsoft 365 Copilot workshop delivered for FDQ Limited in September 2026, and a 12 week practical AI course delivered for the AI Vision Community.', 'That is also why the books spend time on checking. In one workshop, Copilot summarised a 350 row spreadsheet and quietly left out a single record, because one date had been typed as text. Nothing was false and nothing was flagged. Knowing how to catch that is worth more than any clever wording.'], links: [{ href: '/case-studies/', label: 'Training delivered in practice' }] },
+      { heading: 'The AI Vision Practical Guides series', paragraphs: ['Each guide is short, plain English and built around real tasks rather than product tours. British English, UK workplaces, and no assumption that the reader has a technical background.', 'Further titles are planned on practical AI at work, AI for job seekers and AI for small businesses. Titles and dates are confirmed here when each book is written, not before.'] },
+      { heading: 'Hear when a book is published', paragraphs: ['There is no mailing list to join. Send a short message through the contact page with the word books and you will get one message when the first title goes live, and nothing else.', 'If your team needs more than a book, training is the faster route. Workshops run in person across the North East and live online anywhere in the UK, for up to 15 people in a 90 minute session.'], links: [{ href: '/contact/', label: 'Ask to hear when a book is published' }, { href: '/pricing/', label: 'Courses and prices' }] },
+    ],
+    faqs: [
+      { question: 'Where can I buy the books?', answer: 'On Amazon, as Kindle eBooks. The first title, Copilot Prompts, is still being written. A direct link will be added to this page on the day it is published.' },
+      { question: 'When is Copilot Prompts published?', answer: 'It is in writing now. The publication date is announced on this page rather than promised in advance, so nobody is waiting on a date that moves.' },
+      { question: 'Will there be a paperback?', answer: 'A print edition is planned once the eBook is live. It will be listed here when it exists.' },
+      { question: 'Do I need a paid Microsoft 365 Copilot licence to use the prompts?', answer: 'No, not for most of them. Around three quarters work with the free Copilot Chat included with most business Microsoft 365 plans, as long as you paste or upload the material yourself. Each prompt says which it needs.' },
+      { question: 'Is the book written for UK workplaces?', answer: 'Yes. British English, UK workplace examples, and a clear rule on what should never be put into an AI tool. The author is based in Newcastle upon Tyne and trains teams across the North East and the UK.' },
+      { question: 'Can you train my team instead?', answer: 'Yes. AI Vision Consulting runs Microsoft 365 Copilot and practical AI workshops for teams, in person in Newcastle and the North East or live online across the UK, starting at £995 for a 90 minute workshop for up to 15 people.' },
+    ],
+    relatedLinks: [
+      { href: '/copilot-training-newcastle/', label: 'Microsoft 365 Copilot training for teams' },
+      { href: '/about-eric-nwankwo/', label: 'About Eric Nwankwo' },
+      { href: '/case-studies/', label: 'Completed training' },
+    ],
+    books: [
+      {
+        slug: 'copilot-prompts',
+        name: 'Copilot Prompts',
+        subtitle: '100 Workplace Prompts for Microsoft 365 Copilot, Tested with UK Teams in the North East',
+        description: 'A practical guide to briefing Microsoft 365 Copilot at work: the four part brief, the check lines that catch missing data, and 100 prompts for Outlook, Teams, Word, Excel, PowerPoint, Copilot Notebooks, planning and reports.',
+        about: ['Microsoft 365 Copilot', 'Prompt writing', 'Workplace productivity', 'Practical artificial intelligence'],
+        series: 'AI Vision Practical Guides',
+      },
+    ],
   },
   {
     path: '/pricing/', kind: 'pricing', eyebrow: 'Clear packages · Sensible scope',

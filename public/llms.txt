@@ -10,6 +10,7 @@
 - AI policy and governance package from £1,750. AI readiness and workflow audit from £950.
 - All prices are final. AI Vision Consulting is not VAT registered, so no VAT is added. Software licences and travel outside Tyne and Wear are separate.
 - Completed training: a 90 minute Microsoft 365 Copilot workshop for FDQ Limited (Food and Drink Qualifications), Leeds, 3 September 2026, and a complete 12 week AI training course for the AI Vision Community.
+- Books: Eric Nwankwo is writing Copilot Prompts, 100 workplace prompts for Microsoft 365 Copilot, the first title in the AI Vision Practical Guides series. It is not yet published. The books page carries the current status and will carry the Amazon link at launch.
 
 ## What We Do
 
@@ -54,6 +55,7 @@ Automation work begins with the current workflow rather than a predetermined too
 - [Community and Employability AI Training](https://aivisionconsulting.co.uk/community-employability-ai-training/)
 - [About Eric Nwankwo](https://aivisionconsulting.co.uk/about-eric-nwankwo/)
 - [Case Studies and Engagement Examples](https://aivisionconsulting.co.uk/case-studies/)
+- [Books by Eric Nwankwo](https://aivisionconsulting.co.uk/books/)
 - [Pricing](https://aivisionconsulting.co.uk/pricing/)
 - [Contact](https://aivisionconsulting.co.uk/contact/)
 
