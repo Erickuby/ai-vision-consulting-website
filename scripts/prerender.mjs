@@ -161,6 +161,7 @@ function structuredData(route) {
       publisher: { '@id': `${server.SITE_URL}/#organisation` },
       inLanguage: 'en-GB',
       about: book.about,
+      ...(book.image ? { image: `${server.SITE_URL}${book.image}` } : {}),
       ...(book.series ? { isPartOf: { '@type': 'BookSeries', name: book.series } } : {}),
       ...(book.url ? { url: book.url, sameAs: book.url } : { url: canonical }),
       ...(book.isbn ? { isbn: book.isbn } : {}),

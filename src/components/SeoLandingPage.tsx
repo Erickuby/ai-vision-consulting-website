@@ -66,6 +66,11 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
             {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
             {section.links && <ul>{section.links.map(link => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}</ul>}
+            {section.image && (
+              <figure className="seo-section-figure">
+                <img src={section.image.src} alt={section.image.alt} width={section.image.width} height={section.image.height} loading="lazy" decoding="async" />
+              </figure>
+            )}
           </div>
         </section>
       ))}

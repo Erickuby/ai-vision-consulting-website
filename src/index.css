@@ -1337,3 +1337,18 @@ body:has(.selection-bar) { padding-bottom: calc(var(--training-bar-height, 120px
 /* Preserve the client logo colours and proportions against the dark site. */
 .client-logo { display: inline-block; width: 180px; max-width: 100%; padding: 12px 16px; margin-bottom: 1.25rem; border-radius: 10px; background: #fff; }
 .client-logo img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+/* Artwork inside a content section, currently the book covers on /books/. Capped
+   so a tall cover sits beside the copy rather than dominating the page. */
+.seo-section-figure { margin: 1.6rem 0 0; }
+.seo-section-figure img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+@media (min-width: 900px) {
+  .seo-section-figure img { max-width: 300px; }
+}
