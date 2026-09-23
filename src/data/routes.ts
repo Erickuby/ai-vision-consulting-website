@@ -62,7 +62,21 @@ export type RouteBook = {
   url?: string;
   isbn?: string;
   datePublished?: string;
-  bookFormat?: 'https://schema.org/EBook' | 'https://schema.org/Paperback';
+  bookFormat?: BookFormat;
+  numberOfPages?: number;
+  // One entry per edition that is on sale, each with its own Amazon page. The prerenderer
+  // emits these as workExample with an Offer, so only add an edition once it is live.
+  editions?: RouteBookEdition[];
+};
+
+type BookFormat = 'https://schema.org/EBook' | 'https://schema.org/Paperback';
+
+export type RouteBookEdition = {
+  bookFormat: BookFormat;
+  url: string;
+  price: string;
+  isbn?: string;
+  datePublished?: string;
   numberOfPages?: number;
 };
 
@@ -289,27 +303,27 @@ const routes = [
     sections: [],
   },
   {
-    // Books are written before they are published, so this page exists ahead of the first
-    // Amazon listing: a book with no page has nowhere to be linked from at launch, and a new
-    // page takes weeks to be indexed. Each book shows its real status. Nothing is described as
-    // available, priced or reviewed until it is live with an ASIN.
+    // Each book shows its real status. A book is only described as on sale, priced or linked
+    // to Amazon once it is live with an ASIN; until then it says it is in review.
     path: '/books/', kind: 'company', eyebrow: 'Practical guides, written from delivered training',
     title: 'AI and Copilot Books by Eric Nwankwo | AI Vision Consulting',
-    description: 'Practical AI and Microsoft 365 Copilot books from Newcastle based trainer Eric Nwankwo. Copilot Prompts, 100 workplace prompts, is being written now.',
+    description: 'Practical Microsoft 365 Copilot books from Newcastle based trainer Eric Nwankwo. Copilot Prompts is on Amazon now in Kindle and paperback, and Copilot for Excel is in review.',
     h1: 'Practical AI and Copilot books from AI Vision Consulting',
-    intro: 'AI Vision Consulting publishes short, practical guides for people who already have AI tools at work and are not yet getting much from them. They are written by Eric Nwankwo, a Newcastle based AI trainer, and built from workshops delivered to real teams. The first title, Copilot Prompts, is finished and with Amazon now, as a Kindle edition and a 99 page paperback. This page lists each book and links to it as soon as it is live.',
+    intro: 'AI Vision Consulting publishes short, practical guides for people who already have AI tools at work and are not yet getting much from them. They are written by Eric Nwankwo, a Newcastle based AI trainer, and built from workshops delivered to real teams. The first title, Copilot Prompts, is on sale on Amazon now as a Kindle eBook and a paperback. The second, Copilot for Excel, has been submitted to Amazon and is in review.',
     sections: [
-      { heading: 'Copilot Prompts: 100 workplace prompts for Microsoft 365 Copilot', image: { src: '/images/books/copilot-prompts-cover.jpg', alt: 'Front cover of Copilot Prompts by Eric Nwankwo, 100 workplace prompts for Microsoft 365 Copilot', width: 1000, height: 1600 }, paragraphs: ['Status: finished and submitted to Amazon. The Kindle edition is £4.99 and the paperback is £9.99 for 99 pages. Both are in review and go on sale within 72 hours of submission, and the direct links appear here the moment they are live.', 'Most people type a few words into Copilot, get an average answer and go back to doing the job by hand. The tool is rarely the problem. This book teaches the four part brief used in AI Vision workshops, the check lines that catch quiet errors such as rows skipped in a spreadsheet, and then gives 100 prompts for the work people actually do.', 'Every prompt states when to use it, what to check before trusting the answer, one variation, and whether it works on the free Copilot Chat included with most business Microsoft 365 plans or needs the paid Microsoft 365 Copilot licence.'], bullets: ['Email and Outlook, meetings and Teams, Word, Excel and PowerPoint', 'Grounded research with Copilot Notebooks', 'Planning, reports, and managing people without putting personal data at risk', 'A practice spreadsheet with deliberate faults, so you can see what a careful prompt catches', 'A five day plan for you, and a first month plan for a team'], links: [{ href: '/copilot-training-newcastle/', label: 'Copilot training for teams in Newcastle' }] },
+      { heading: 'Copilot Prompts: 100 workplace prompts for Microsoft 365 Copilot', image: { src: '/images/books/copilot-prompts-cover.jpg', alt: 'Front cover of Copilot Prompts by Eric Nwankwo, 100 workplace prompts for Microsoft 365 Copilot', width: 1000, height: 1600 }, paragraphs: ['On sale now on Amazon. The Kindle edition is £4.99 and is also included in Kindle Unlimited. The paperback is £9.99 for 99 pages.', 'Most people type a few words into Copilot, get an average answer and go back to doing the job by hand. The tool is rarely the problem. This book teaches the four part brief used in AI Vision workshops, the check lines that catch quiet errors such as rows skipped in a spreadsheet, and then gives 100 prompts for the work people actually do.', 'Every prompt states when to use it, what to check before trusting the answer, one variation, and whether it works on the free Copilot Chat included with most business Microsoft 365 plans or needs the paid Microsoft 365 Copilot licence.'], bullets: ['Email and Outlook, meetings and Teams, Word, Excel and PowerPoint', 'Grounded research with Copilot Notebooks', 'Planning, reports, and managing people without putting personal data at risk', 'A practice spreadsheet with deliberate faults, so you can see what a careful prompt catches', 'A five day plan for you, and a first month plan for a team'], links: [{ href: 'https://www.amazon.co.uk/dp/B0HKPSH4XB', label: 'Buy the Kindle edition on Amazon, £4.99' }, { href: 'https://www.amazon.co.uk/dp/B0HKRW9JPR', label: 'Buy the paperback on Amazon, £9.99' }, { href: '/copilot-training-newcastle/', label: 'Copilot training for teams in Newcastle' }] },
+      { heading: 'Copilot for Excel: 70 prompts for spreadsheets, data checks and monthly reports', image: { src: '/images/books/copilot-for-excel-cover.jpg', alt: 'Front cover of Copilot for Excel by Eric Nwankwo, 70 prompts for spreadsheets, data checks and monthly reports', width: 1000, height: 1600 }, paragraphs: ['Status: finished and submitted to Amazon in September 2026, as a Kindle eBook and an 86 page paperback. Both are in review. Amazon takes up to 72 hours to put a new title on sale, and the direct links appear here when they are live.', 'Written for the person who owns a spreadsheet other people depend on, and gets asked to explain the numbers. Copilot will restructure a sheet, write a formula and summarise the result in seconds. It will also do that on a date stored as text and hand back a confident answer that quietly misses a row. This book is built around catching that before a figure leaves your screen.'], bullets: ['What Copilot can see in a workbook, and how to keep it from editing until you have seen its plan', 'Making a file readable first: one header row, a real table, dates as dates', '70 prompts for inherited files, cleaning data, analysis, formulas, pivots, charts and honest forecasts', 'Turning a correct answer into monthly commentary a director will accept, then into a routine somebody else can run', 'A practice workbook with faults planted on purpose, building on the one from Copilot Prompts'] },
       { heading: 'Written from training that was actually delivered', paragraphs: ['The material comes from workshops run for UK organisations, including a 90 minute Microsoft 365 Copilot workshop delivered for FDQ Limited in September 2026, and a 12 week practical AI course delivered for the AI Vision Community.', 'That is also why the books spend time on checking. In one workshop, Copilot summarised a 350 row spreadsheet and quietly left out a single record, because one date had been typed as text. Nothing was false and nothing was flagged. Knowing how to catch that is worth more than any clever wording.'], links: [{ href: '/case-studies/', label: 'Training delivered in practice' }] },
       { heading: 'The AI Vision Practical Guides series', paragraphs: ['Each guide is short, plain English and built around real tasks rather than product tours. British English, UK workplaces, and no assumption that the reader has a technical background.', 'Further titles are planned on practical AI at work, AI for job seekers and AI for small businesses. Titles and dates are confirmed here when each book is written, not before.'] },
-      { heading: 'Hear when a book is published', paragraphs: ['There is no mailing list to join. Send a short message through the contact page with the word books and you will get one message when the first title goes live, and nothing else.', 'If your team needs more than a book, training is the faster route. Workshops run in person across the North East and live online anywhere in the UK, for up to 15 people in a 90 minute session.'], links: [{ href: '/contact/', label: 'Ask to hear when a book is published' }, { href: '/pricing/', label: 'Courses and prices' }] },
+      { heading: 'Buying for a team, or need more than a book', paragraphs: ['If your team needs more than a book, training is the faster route. Workshops run in person across the North East and live online anywhere in the UK, for up to 15 people in a 90 minute session.', 'For questions about the books, or to hear when a new title is published, send a short message through the contact page with the word books.'], links: [{ href: '/contact/', label: 'Contact AI Vision Consulting' }, { href: '/pricing/', label: 'Courses and prices' }] },
     ],
     faqs: [
-      { question: 'Where can I buy the books?', answer: 'On Amazon, as a Kindle eBook at £4.99 and a paperback at £9.99. The first title, Copilot Prompts, was submitted in September 2026 and is in review. A direct link is added to this page the day it goes on sale.' },
-      { question: 'When is Copilot Prompts published?', answer: 'It was submitted to Amazon in September 2026 and is in review. Amazon takes up to 72 hours to put a new title on sale, and this page is updated when that happens.' },
-      { question: 'Will there be a paperback?', answer: 'Yes. A 99 page paperback, 6 by 9 inches, at £9.99, submitted alongside the Kindle edition.' },
-      { question: 'Do I need a paid Microsoft 365 Copilot licence to use the prompts?', answer: 'No, not for most of them. Around three quarters work with the free Copilot Chat included with most business Microsoft 365 plans, as long as you paste or upload the material yourself. Each prompt says which it needs.' },
-      { question: 'Is the book written for UK workplaces?', answer: 'Yes. British English, UK workplace examples, and a clear rule on what should never be put into an AI tool. The author is based in Newcastle upon Tyne and trains teams across the North East and the UK.' },
+      { question: 'Where can I buy the books?', answer: 'On Amazon. Copilot Prompts is on sale now as a Kindle eBook at £4.99, also in Kindle Unlimited, and as a £9.99 paperback. Copilot for Excel was submitted in September 2026 and is in review, and its links are added to this page the day it goes on sale.' },
+      { question: 'Is Copilot Prompts in Kindle Unlimited?', answer: 'Yes. The Kindle edition is enrolled in Kindle Unlimited, so members can read it at no extra cost. It can also be bought outright for £4.99.' },
+      { question: 'Is there a paperback?', answer: 'Yes. Copilot Prompts is a 99 page paperback at £9.99, 6 by 9 inches. Copilot for Excel will be an 86 page paperback, in review now.' },
+      { question: 'When is Copilot for Excel published?', answer: 'It was submitted to Amazon in September 2026 and is in review. Amazon takes up to 72 hours to put a new title on sale, and this page is updated when that happens.' },
+      { question: 'Do I need a paid Microsoft 365 Copilot licence to use the prompts?', answer: 'No, not for most of them. Many work with the free Copilot Chat included with most business Microsoft 365 plans, as long as you paste or upload the material yourself. Each prompt says which it needs.' },
+      { question: 'Are the books written for UK workplaces?', answer: 'Yes. British English, UK workplace examples, and a clear rule on what should never be put into an AI tool. The author is based in Newcastle upon Tyne and trains teams across the North East and the UK.' },
       { question: 'Can you train my team instead?', answer: 'Yes. AI Vision Consulting runs Microsoft 365 Copilot and practical AI workshops for teams, in person in Newcastle and the North East or live online across the UK, starting at £995 for a 90 minute workshop for up to 15 people.' },
     ],
     relatedLinks: [
@@ -325,8 +339,21 @@ const routes = [
         description: 'A practical guide to briefing Microsoft 365 Copilot at work: the four part brief, the check lines that catch missing data, and 100 prompts for Outlook, Teams, Word, Excel, PowerPoint, Copilot Notebooks, planning and reports.',
         about: ['Microsoft 365 Copilot', 'Prompt writing', 'Workplace productivity', 'Practical artificial intelligence'],
         series: 'AI Vision Practical Guides',
-        numberOfPages: 99,
         image: '/images/books/copilot-prompts-cover.jpg',
+        datePublished: '2026-09-21',
+        editions: [
+          { bookFormat: 'https://schema.org/EBook', url: 'https://www.amazon.co.uk/dp/B0HKPSH4XB', price: '4.99', datePublished: '2026-09-22' },
+          { bookFormat: 'https://schema.org/Paperback', url: 'https://www.amazon.co.uk/dp/B0HKRW9JPR', isbn: '9798176008395', price: '9.99', datePublished: '2026-09-21', numberOfPages: 99 },
+        ],
+      },
+      {
+        slug: 'copilot-for-excel',
+        name: 'Copilot for Excel',
+        subtitle: '70 Prompts for Spreadsheets, Data Checks and Monthly Reports',
+        description: 'A practical guide to Microsoft 365 Copilot in Excel and the monthly reports spreadsheets feed: making a file readable, checking every answer, and 70 prompts for cleaning data, analysis, formulas, pivots, charts, forecasts and report commentary.',
+        about: ['Microsoft 365 Copilot', 'Microsoft Excel', 'Data quality', 'Business reporting'],
+        series: 'AI Vision Practical Guides',
+        image: '/images/books/copilot-for-excel-cover.jpg',
       },
     ],
   },

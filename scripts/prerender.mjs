@@ -168,6 +168,25 @@ function structuredData(route) {
       ...(book.datePublished ? { datePublished: book.datePublished } : {}),
       ...(book.bookFormat ? { bookFormat: book.bookFormat } : {}),
       ...(book.numberOfPages ? { numberOfPages: book.numberOfPages } : {}),
+      ...(book.editions?.length ? {
+        workExample: book.editions.map((edition) => ({
+          '@type': 'Book',
+          bookFormat: edition.bookFormat,
+          url: edition.url,
+          inLanguage: 'en-GB',
+          ...(edition.isbn ? { isbn: edition.isbn } : {}),
+          ...(edition.datePublished ? { datePublished: edition.datePublished } : {}),
+          ...(edition.numberOfPages ? { numberOfPages: edition.numberOfPages } : {}),
+          offers: {
+            '@type': 'Offer',
+            url: edition.url,
+            price: edition.price,
+            priceCurrency: 'GBP',
+            availability: 'https://schema.org/InStock',
+            seller: { '@type': 'Organization', name: 'Amazon.co.uk' },
+          },
+        })),
+      } : {}),
     });
   }
 
