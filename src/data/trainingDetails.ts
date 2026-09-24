@@ -22,7 +22,7 @@ export const detailedTopics: Record<string, DetailedTopic> = {
     prerequisites: 'Bring one or two representative tasks, your current subscriptions and your budget. Use public, fictional or approved anonymised material.',
     limitation: 'A focused hour produces a useful shortlist, not an exhaustive benchmark. Prices and features change, and a cheaper plan is only a recommendation when it meets your needs.',
     outcomes: ['A scored comparison against your own tasks', 'A subscription recommendation with the reasons and current costs recorded', 'A clear rule for information that must never go into a public tool'],
-    blog: { href: '/blog/what-is-ai.html', label: 'A plain-English introduction to AI' },
+    blog: { href: '/blog/what-is-ai', label: 'A plain-English introduction to AI' },
   },
   'build-working-tool': {
     title: 'Build a working tool without writing code',
@@ -33,7 +33,7 @@ export const detailedTopics: Record<string, DetailedTopic> = {
     prerequisites: 'Bring a scoped problem, sample inputs and an account on the agreed platform. Any hosting or platform subscription is separate from training.',
     limitation: 'One hour is suitable for a small, pre-agreed tool with accounts ready. It does not cover a production database, payment system, security audit or complex integration. Platform terms and export options affect what you can move elsewhere.',
     outcomes: ['A working small tool deployed to your agreed account', 'The prompts and available project files used to build it', 'A platform-choice and running-cost note, plus a basic test checklist'],
-    blog: { href: '/blog/how-to-start-an-ai-side-hustle.html', label: 'Build a useful AI-assisted service' },
+    blog: { href: '/blog/how-to-start-an-ai-side-hustle', label: 'Build a useful AI-assisted service' },
   },
   'connecting-ai-tools': {
     title: 'Connecting AI to your other tools',
@@ -44,7 +44,7 @@ export const detailedTopics: Record<string, DetailedTopic> = {
     prerequisites: 'A compatible AI application, an approved connector and permission to use the chosen system. Agree the connection before booking; start with a test account or low-risk data.',
     limitation: 'A focused hour covers one supported connection and one small skill. Custom connector development, organisation-wide deployment and security certification are separate work.',
     outcomes: ['One working connection to the agreed system', 'One reusable skill file for your recurring process', 'A security checklist for future connections'],
-    blog: { href: '/blog/what-to-automate-first-small-business.html', label: 'Choose what to automate first' },
+    blog: { href: '/blog/what-to-automate-first-small-business', label: 'Choose what to automate first' },
   },
   'copilot-cowork-agent-mode': {
     title: 'Copilot Cowork and Agent Mode in practice',
@@ -55,7 +55,7 @@ export const detailedTopics: Record<string, DetailedTopic> = {
     prerequisites: 'An eligible work account, enabled Cowork access and the required credit policy, plus suitable access to the Microsoft 365 apps used. Bring approved or anonymised examples; we check availability during the discovery call.',
     limitation: 'One hour covers one agreed task. It does not automate an entire role or remove the need to check facts, permissions and recipients. Software licences and usage credits are separate.',
     outcomes: ['A tested Cowork task using your approved material', 'A checkpoint checklist for reviewing intermediate and final output', 'A shortlist of recurring jobs that are suitable, and those to keep manual'],
-    blog: { href: '/blog/copilot-agent-mode-word-excel-powerpoint.html', label: 'How Agent Mode works in Microsoft 365 apps' },
+    blog: { href: '/blog/copilot-agent-mode-word-excel-powerpoint', label: 'How Agent Mode works in Microsoft 365 apps' },
   },
   'copilot-costs': {
     title: 'What Copilot actually costs to run',
@@ -66,7 +66,7 @@ export const detailedTopics: Record<string, DetailedTopic> = {
     prerequisites: 'Your actual licences and billing arrangement, the team size, a shortlist of recurring tasks and any available usage records. A finance or administration colleague may need to provide these.',
     limitation: 'The estimate is a planning model, not a guaranteed bill. Credit reporting and enforcement may be delayed, and a spending limit is not a substitute for controlling who can access a service.',
     outcomes: ['An estimated monthly credit-consumption model with assumptions', 'Internal usage and spending-review guidelines', 'A short finance briefing explaining the options and uncertainties'],
-    blog: { href: '/blog/copilot-cowork-and-credits.html', label: 'Understand Cowork and Copilot Credits' },
+    blog: { href: '/blog/copilot-cowork-and-credits', label: 'Understand Cowork and Copilot Credits' },
   },
   'agent-365-governance': {
     title: 'Governing AI agents with Agent 365',
@@ -77,6 +77,6 @@ export const detailedTopics: Record<string, DetailedTopic> = {
     prerequisites: 'Relevant administration access, suitable licensing and participation from the people responsible for IT, information governance and business ownership. Scope is agreed before the workshop.',
     limitation: 'A scoped workshop covers the agreed tenant and available evidence. It is not a complete security audit, certification or automatic approval of every agent; gaps and follow-up actions are recorded.',
     outcomes: ['An inventory of the agents reviewed and any coverage gaps', 'A draft agent approval, review and retirement process', 'A risk register distinguishing accepted risks from decisions still awaiting an owner'],
-    blog: { href: '/blog/copilot-oversharing-data-readiness.html', label: 'Review data access before expanding Copilot' },
+    blog: { href: '/blog/copilot-oversharing-data-readiness', label: 'Review data access before expanding Copilot' },
   },
 };

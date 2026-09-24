@@ -39,7 +39,7 @@ export const consultancyRoutes: SiteRoute[] = [
       { question: 'Does this include certification?', answer: 'No. You receive a policy, supporting registers, staff guidance, role-based training and a sign-off process. This is not ISO certification or a guarantee of legal compliance.' },
     ],
     relatedLinks: [
-      { href: '/blog/copilot-oversharing-data-readiness.html', label: 'Check data access before expanding AI use' },
+      { href: '/blog/copilot-oversharing-data-readiness', label: 'Check data access before expanding AI use' },
       { href: 'https://www.gov.uk/government/consultations/ai-management-essentials-tool/outcome/guidance-for-using-the-ai-management-essentials-tool-government-response', label: 'Government response on AI Management Essentials' },
       { href: 'https://digital-strategy.ec.europa.eu/en/policies/ai-talent-skills-and-literacy', label: 'European Commission guidance on AI literacy' },
     ],
@@ -64,6 +64,6 @@ export const consultancyRoutes: SiteRoute[] = [
       { question: 'Does the audit include building an automation?', answer: 'No. It provides a task inventory, scored shortlist, recommended workflow and costed options. Implementation is quoted separately after you choose what to proceed with.' },
       { question: 'Should we try free AI training before paying for an audit?', answer: 'Free courses are a useful start for general skills. An audit answers a different practical question: which of your actual workflows is worth changing, given its time cost, risks and implementation effort. We check whether that work is needed during the discovery call.' },
     ],
-    relatedLinks: [{ href: '/blog/what-to-automate-first-small-business.html', label: 'How to choose your first automation' }],
+    relatedLinks: [{ href: '/blog/what-to-automate-first-small-business', label: 'How to choose your first automation' }],
   },
 ];

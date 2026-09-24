@@ -1,7 +1,7 @@
 import { detailedTopics, type DetailedTopic } from './trainingDetails';
 
 type CourseSupplement = Pick<DetailedTopic, 'audience' | 'practice' | 'limitation' | 'outcomes' | 'blog'>;
-const reading = (slug: string, label: string) => ({ href: `/blog/${slug}.html`, label });
+const reading = (slug: string, label: string) => ({ href: `/blog/${slug}`, label });
 
 export const courseSupplements: Record<string, CourseSupplement> = {
   'Prompting for better results': {
