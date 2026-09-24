@@ -1,8 +1,8 @@
 ---
 slug: ai-training-for-employees
 title: "What Should Practical AI Training for Employees Include?"
-meta_title: "Practical AI Training for Employees: What to Include"
-meta_description: "Plan role-specific AI training for employees using approved tasks, clear human checks and practical follow-up. Compare team workshops and Copilot topics."
+meta_title: "AI Training for Employees: What It Should Include (UK)"
+meta_description: "What good AI training for employees covers: role based tasks, data rules, prompting, fact checking and manager follow up. A practical checklist for UK employers."
 excerpt: "A buyer's guide to AI training that helps employees practise useful tasks while handling data, risk and quality responsibly."
 category: "AI Training"
 image: "https://aivisionconsulting.co.uk/images/blog/ai-training-for-employees.png"

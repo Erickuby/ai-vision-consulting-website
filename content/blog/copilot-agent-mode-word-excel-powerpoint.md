@@ -1,8 +1,8 @@
 ---
 slug: copilot-agent-mode-word-excel-powerpoint
 title: "Copilot Agent Mode in Word, Excel and PowerPoint: What Actually Changes"
-meta_title: "Copilot Agent Mode in Word, Excel and PowerPoint"
-meta_description: "Practise Copilot editing in Word, Excel and PowerPoint with human checks. Understand licence limits and find guided Agent Mode and Cowork training."
+meta_title: "Copilot Agent Mode in Word, Excel and PowerPoint Explained"
+meta_description: "What Agent Mode lets Copilot do in Word, Excel and PowerPoint: carry out multi step work inside the file. What it does well, what it gets wrong and how to check it."
 excerpt: "Copilot now edits the document rather than advising you about it. A practical guide to what to hand over, what to keep, and how to check the result."
 category: "AI Productivity"
 image: "https://aivisionconsulting.co.uk/images/blog/copilot-agent-mode-word-excel-powerpoint.png"

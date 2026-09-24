@@ -1,8 +1,8 @@
 ---
 slug: copilot-oversharing-data-readiness
 title: "What Copilot Can See: Fixing Oversharing Before You Switch It On"
-meta_title: "What Copilot Can See: Fix Oversharing Before Rollout"
-meta_description: "Copilot works within existing permissions, so years of broad SharePoint sharing become instantly searchable. How to find the exposure and close it before rollout."
+meta_title: "Copilot Oversharing: Find and Fix It Before Rollout"
+meta_description: "Copilot oversharing explained: it can surface any file a user can already open. How to find overshared SharePoint content and close the gaps before your rollout."
 excerpt: "Copilot does not break your permissions, it exposes them. A practical guide to finding overshared content and tightening it before the tool makes it easy to find."
 category: "Responsible AI"
 image: "https://aivisionconsulting.co.uk/images/blog/copilot-oversharing-data-readiness.png"

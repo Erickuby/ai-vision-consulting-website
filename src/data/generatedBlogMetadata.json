@@ -43,8 +43,8 @@
     "readTime": "8 min read",
     "publishedAt": "2026-07-20",
     "updatedAt": "2026-09-11",
-    "metaTitle": "Practical AI Training for Employees: What to Include",
-    "metaDescription": "Plan role-specific AI training for employees using approved tasks, clear human checks and practical follow-up. Compare team workshops and Copilot topics.",
+    "metaTitle": "AI Training for Employees: What It Should Include (UK)",
+    "metaDescription": "What good AI training for employees covers: role based tasks, data rules, prompting, fact checking and manager follow up. A practical checklist for UK employers.",
     "date": "20 Jul 2026"
   },
   "copilot-agent-mode-word-excel-powerpoint": {
@@ -55,8 +55,8 @@
     "readTime": "10 min read",
     "publishedAt": "2026-08-31",
     "updatedAt": "2026-09-11",
-    "metaTitle": "Copilot Agent Mode in Word, Excel and PowerPoint",
-    "metaDescription": "Practise Copilot editing in Word, Excel and PowerPoint with human checks. Understand licence limits and find guided Agent Mode and Cowork training.",
+    "metaTitle": "Copilot Agent Mode in Word, Excel and PowerPoint Explained",
+    "metaDescription": "What Agent Mode lets Copilot do in Word, Excel and PowerPoint: carry out multi step work inside the file. What it does well, what it gets wrong and how to check it.",
     "date": "31 Aug 2026"
   },
   "copilot-cowork-and-credits": {
@@ -67,8 +67,8 @@
     "readTime": "9 min read",
     "publishedAt": "2026-08-31",
     "updatedAt": "2026-09-11",
-    "metaTitle": "Copilot Cowork and Credits: What It Costs to Run",
-    "metaDescription": "Check Copilot Cowork access, credit usage and spending controls before a pilot. Learn what /cost reports and how to measure the work after human review.",
+    "metaTitle": "Copilot Cowork Credits: How the Cost Is Worked Out",
+    "metaDescription": "What drives Copilot Cowork credit costs (model use, retrieval, tool calls and runtime), how to check the real credit record, and how to tell if a task is worth it.",
     "date": "31 Aug 2026"
   },
   "copilot-notebooks-and-memory": {
@@ -91,8 +91,8 @@
     "readTime": "9 min read",
     "publishedAt": "2026-08-31",
     "updatedAt": "2026-08-31",
-    "metaTitle": "What Copilot Can See: Fix Oversharing Before Rollout",
-    "metaDescription": "Copilot works within existing permissions, so years of broad SharePoint sharing become instantly searchable. How to find the exposure and close it before rollout.",
+    "metaTitle": "Copilot Oversharing: Find and Fix It Before Rollout",
+    "metaDescription": "Copilot oversharing explained: it can surface any file a user can already open. How to find overshared SharePoint content and close the gaps before your rollout.",
     "date": "31 Aug 2026"
   },
   "copilot-researcher-and-analyst-agents": {
@@ -103,8 +103,8 @@
     "readTime": "9 min read",
     "publishedAt": "2026-08-31",
     "updatedAt": "2026-09-11",
-    "metaTitle": "Researcher and Analyst Agents in Microsoft 365 Copilot",
-    "metaDescription": "Use Researcher and Analyst for focused workplace tasks, check sources and calculations, and explore practical Copilot training with clear review boundaries.",
+    "metaTitle": "Copilot Researcher vs Analyst: The Difference Explained",
+    "metaDescription": "Researcher builds a briefing from the web and your work files. Analyst turns messy spreadsheets into patterns and charts. When to use each, and how to check them.",
     "date": "31 Aug 2026"
   },
   "get-found-in-ai-search-local-business": {
@@ -187,8 +187,8 @@
     "readTime": "9 min read",
     "publishedAt": "2026-08-31",
     "updatedAt": "2026-08-31",
-    "metaTitle": "Why Microsoft 365 Copilot Rollouts Stall and How to Fix It",
-    "metaDescription": "Most Copilot licences go barely used. The reasons are organisational, not technical. A practical fix for the six failures that quietly kill adoption.",
+    "metaTitle": "Copilot Rollout: Why Adoption Stalls and How to Fix It",
+    "metaDescription": "Why Microsoft 365 Copilot adoption stalls after rollout: six organisational failures, from no use cases to no measurement, and a rollout sequence that works.",
     "date": "31 Aug 2026"
   }
 }

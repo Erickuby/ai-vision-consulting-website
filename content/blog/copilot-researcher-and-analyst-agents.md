@@ -1,8 +1,8 @@
 ---
 slug: copilot-researcher-and-analyst-agents
 title: "Researcher and Analyst in Microsoft 365 Copilot: When They Earn Their Keep"
-meta_title: "Researcher and Analyst Agents in Microsoft 365 Copilot"
-meta_description: "Use Researcher and Analyst for focused workplace tasks, check sources and calculations, and explore practical Copilot training with clear review boundaries."
+meta_title: "Copilot Researcher vs Analyst: The Difference Explained"
+meta_description: "Researcher builds a briefing from the web and your work files. Analyst turns messy spreadsheets into patterns and charts. When to use each, and how to check them."
 excerpt: "Copilot ships two specialist agents for research and data work. A practical guide to what each is for, the questions worth giving them, and how to verify the output."
 category: "AI Productivity"
 image: "https://aivisionconsulting.co.uk/images/blog/copilot-researcher-and-analyst-agents.png"

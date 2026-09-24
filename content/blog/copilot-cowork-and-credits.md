@@ -1,8 +1,8 @@
 ---
 slug: copilot-cowork-and-credits
 title: "Copilot Cowork and credits: check the task, cost and controls"
-meta_title: "Copilot Cowork and Credits: What It Costs to Run"
-meta_description: "Check Copilot Cowork access, credit usage and spending controls before a pilot. Learn what /cost reports and how to measure the work after human review."
+meta_title: "Copilot Cowork Credits: How the Cost Is Worked Out"
+meta_description: "What drives Copilot Cowork credit costs (model use, retrieval, tool calls and runtime), how to check the real credit record, and how to tell if a task is worth it."
 excerpt: "A practical guide to Cowork access, usage-based charges and human review, with a small pilot checklist and links to focused training."
 category: "AI for Business"
 image: "https://aivisionconsulting.co.uk/images/blog/copilot-cowork-and-credits.png"

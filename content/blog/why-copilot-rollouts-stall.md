@@ -1,8 +1,8 @@
 ---
 slug: why-copilot-rollouts-stall
 title: "Why Microsoft 365 Copilot Rollouts Stall, and What Actually Fixes Them"
-meta_title: "Why Microsoft 365 Copilot Rollouts Stall and How to Fix It"
-meta_description: "Most Copilot licences go barely used. The reasons are organisational, not technical. A practical fix for the six failures that quietly kill adoption."
+meta_title: "Copilot Rollout: Why Adoption Stalls and How to Fix It"
+meta_description: "Why Microsoft 365 Copilot adoption stalls after rollout: six organisational failures, from no use cases to no measurement, and a rollout sequence that works."
 excerpt: "Licences do not create value, use does. The six reasons Copilot rollouts stall in UK organisations, and the sequence that gets people actually using it."
 category: "AI Training"
 image: "https://aivisionconsulting.co.uk/images/blog/why-copilot-rollouts-stall.png"
