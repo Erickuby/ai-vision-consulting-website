@@ -65,7 +65,7 @@ function structuredData(route) {
         'Employability and jobseeker AI skills',
       ],
       sameAs: [
-        'https://www.linkedin.com/in/eric-nwankwo/',
+        'https://www.linkedin.com/company/ai-vision-consulting-uk/',
         'https://www.instagram.com/aivisionconsulting/',
         'https://www.youtube.com/@EricExplainsAI',
         'https://www.tiktok.com/@aivisionconsultingltd',

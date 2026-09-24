@@ -241,7 +241,7 @@ def build_schema(meta: dict[str, str], faqs: list[dict[str, str]]) -> dict:
                 {"@type": "Country", "name": "United Kingdom"},
             ],
             "sameAs": [
-                "https://www.linkedin.com/in/eric-nwankwo/",
+                "https://www.linkedin.com/company/ai-vision-consulting-uk/",
                 "https://www.instagram.com/aivisionconsulting/",
                 "https://www.youtube.com/@EricExplainsAI",
                 "https://www.tiktok.com/@aivisionconsultingltd",
