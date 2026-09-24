@@ -4,6 +4,11 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Send the www host to the main address, keeping the path and query string.
+  # SiteGround's Redirects tool cannot target www, so the rule lives here.
+  RewriteCond %{HTTP_HOST} ^www\.aivisionconsulting\.co\.uk$ [NC]
+  RewriteRule ^(.*)$ https://aivisionconsulting.co.uk/$1 [R=301,L]
+
   # Preserve former public URLs as permanent aliases.
   RewriteRule ^about/?$ /about-eric-nwankwo/ [R=301,L]
   RewriteRule ^services/?$ /ai-automation-consultant-newcastle/ [R=301,L]
