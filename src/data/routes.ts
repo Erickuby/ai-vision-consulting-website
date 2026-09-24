@@ -99,8 +99,8 @@ const routes = [
     // big brands above us at position seven; no title wins that. On the "near me" searches
     // we already rank one to two, so the job of these tags is to be the obvious local
     // choice for someone who has decided to hire somebody nearby.
-    title: 'AI Consultant Newcastle | AI and Copilot Training for Teams',
-    description: 'Practical AI and Microsoft 365 Copilot training in Newcastle and across the UK. Online or in person, from £95 for one hour. No VAT added.',
+    title: 'AI Consultant Newcastle | Copilot Training and AI Automation',
+    description: 'Newcastle AI consultancy for UK teams: Microsoft 365 Copilot training, AI policy and automation that saves hours. Book a free 20 minute discovery call.',
     eyebrow: 'Newcastle-based · Serving organisations across the UK',
     h1: 'Practical AI training and automation for Newcastle organisations and UK businesses',
     intro: 'Build useful AI capability, identify sensible automation opportunities and give your people the confidence to use modern tools responsibly.',

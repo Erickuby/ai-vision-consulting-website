@@ -97,7 +97,7 @@ If the senior team does not use Copilot in visible ways, everyone correctly read
 
 You should be able to name the specific tasks Copilot has taken over, say roughly how much time that represents, and point at people who would object if you took it away. You should also be able to name at least two things you tried that did not work, because an honest programme always has some.
 
-If instead you have a licence count, a usage percentage and a general sense that people quite like it, the rollout has not landed yet. That is recoverable, and it usually takes a targeted training effort rather than more licences.
+If instead you have a licence count, a usage percentage and a general sense that people quite like it, the rollout has not landed yet. That is recoverable, and it usually takes a targeted training effort rather than more licences. That is what our [Microsoft 365 Copilot training for teams](/copilot-training-newcastle/) and [corporate AI training programmes](/corporate-ai-training-uk/) are designed for.
 
 ## A note on cost
 

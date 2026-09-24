@@ -193,7 +193,7 @@ Managers should agree suitable use cases, provide practice time, reinforce appro
 
 ## Practise this with support
 
-Teams moving beyond introductory use can explore [Copilot Cowork and Agent Mode](/courses/copilot-cowork-agent-mode/), [Copilot running costs](/courses/copilot-costs/) and [Agent 365 governance](/courses/agent-365-governance/). We check roles, licences and approved examples before agreeing the workshop.
+For a first step with Microsoft 365, see [Microsoft 365 Copilot training for teams](/copilot-training-newcastle/), run in Newcastle, across the North East or online, with the team's own tasks. Teams moving beyond introductory use can explore [Copilot Cowork and Agent Mode](/courses/copilot-cowork-agent-mode/), [Copilot running costs](/courses/copilot-costs/) and [Agent 365 governance](/courses/agent-365-governance/). We check roles, licences and approved examples before agreeing the workshop.
 
 ## Author note
 

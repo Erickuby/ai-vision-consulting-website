@@ -121,7 +121,7 @@ Only if there is a specific recurring task with real hours attached to it. For m
 
 ## Practise with support
 
-For guided work on a bounded task, see [Copilot Cowork and Agent Mode in practice](/courses/copilot-cowork-agent-mode/). To work through usage and the business case, see [What Copilot actually costs to run](/courses/copilot-costs/).
+If your people are still learning the basics, begin with [Microsoft 365 Copilot training for teams](/copilot-training-newcastle/) before moving on to agents and credits. For guided work on a bounded task, see [Copilot Cowork and Agent Mode in practice](/courses/copilot-cowork-agent-mode/). To work through usage and the business case, see [What Copilot actually costs to run](/courses/copilot-costs/).
 
 For organisation-wide ownership and controls, see [Governing AI agents with Agent 365](/courses/agent-365-governance/), a corporate workshop scoped with IT and information governance.
 

@@ -134,7 +134,7 @@ Assume it might be, and design for that. Open the citations, sanity check the nu
 
 ## Practise this with support
 
-For practical work with bounded agents, see [Copilot Cowork and Agent Mode in practice](/courses/copilot-cowork-agent-mode/). For organisation-wide ownership and controls, see the corporate workshop [Governing AI agents with Agent 365](/courses/agent-365-governance/).
+If your team is new to Copilot, start with [Microsoft 365 Copilot training for teams](/copilot-training-newcastle/): a practical workshop in Newcastle or online, built around the tasks people already do in Outlook, Teams, Word and Excel. For practical work with bounded agents, see [Copilot Cowork and Agent Mode in practice](/courses/copilot-cowork-agent-mode/). For organisation-wide ownership and controls, see the corporate workshop [Governing AI agents with Agent 365](/courses/agent-365-governance/).
 
 ## Author note
 

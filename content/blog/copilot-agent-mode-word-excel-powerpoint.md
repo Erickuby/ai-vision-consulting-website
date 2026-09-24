@@ -141,7 +141,7 @@ Trusting fluent output. Agent Mode produces work that looks finished, and finish
 
 ## Practise this with support
 
-Practise one task with review checkpoints in [Copilot Cowork and Agent Mode in practice](/courses/copilot-cowork-agent-mode/). Check licences and usage separately with [What Copilot actually costs to run](/courses/copilot-costs/).
+New to Copilot as a team? Start with [Microsoft 365 Copilot training for teams](/copilot-training-newcastle/), then move on to Agent Mode. Practise one task with review checkpoints in [Copilot Cowork and Agent Mode in practice](/courses/copilot-cowork-agent-mode/). Check licences and usage separately with [What Copilot actually costs to run](/courses/copilot-costs/).
 
 ## Author note
 

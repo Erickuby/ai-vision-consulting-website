@@ -209,7 +209,7 @@ Ask only what changes routing, booking or the next human response. There is no u
 
 ## Build a practical WhatsApp lead workflow
 
-For a focused implementation, [get a WhatsApp AI lead agent for your service business](https://www.fiverr.com/kubblicious/build-a-whatsapp-ai-lead-agent-for-service-businesses). You can also explore [small business AI automation support](/small-business-ai-automation/) from AI Vision Consulting.
+For a focused implementation, [get a WhatsApp AI lead agent for your service business](https://www.fiverr.com/kubblicious/build-a-whatsapp-ai-lead-agent-for-service-businesses). You can also explore [small business AI automation support](/small-business-ai-automation/) from AI Vision Consulting, or work with a [Newcastle based AI automation consultant](/ai-automation-consultant-newcastle/) to map which enquiries to automate first.
 
 ## Author note
 

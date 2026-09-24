@@ -160,6 +160,8 @@ A chatbot can sound certain while being wrong. It may misunderstand questions, e
 
 Reduce risk with narrow scope, approved sources, disclosure, access controls, testing and human fallback. Do not make a general bot the final decision-maker for legal, medical, financial, employment or safety-critical matters. Keep essential journeys available without it.
 
+If you want help scoping a chatbot safely, an [AI automation consultant in Newcastle](/ai-automation-consultant-newcastle/) can map the enquiries worth automating and the ones that should stay with a person.
+
 ## Frequently asked questions
 
 ### Can a chatbot answer questions from PDFs and website pages?

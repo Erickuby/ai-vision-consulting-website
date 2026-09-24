@@ -115,6 +115,8 @@ That is perhaps twenty minutes of setup and ten minutes a month of maintenance, 
 
 The pattern is simple. These features reward continuity. If the work has a memory, giving Copilot one helps. If the task is finished in five minutes and never returns, the setup costs more than it saves.
 
+If you want your team to set up Notebooks and Memory properly from the start, [Microsoft 365 Copilot training for teams](/copilot-training-newcastle/) covers both with real work examples.
+
 ## Frequently asked questions
 
 ### Are Notebooks the same as Copilot Pages?
