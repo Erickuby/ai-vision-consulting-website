@@ -393,11 +393,15 @@ export function VoiceAgent() {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => { dismissNudge(); setOpen(true); }}
-          className="flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-bold shadow-2xl"
+          className="flex items-center gap-2 rounded-xl px-4 py-3 sm:px-5 text-sm font-bold shadow-2xl"
           style={{ background: '#00D4FF', color: '#050D1A', fontFamily: 'Space Grotesk' }}
           data-conversion-placement="Voice agent launcher"
+          aria-label="Talk to our AI assistant"
         >
-          <Mic size={16} /> Talk to our AI assistant
+          {/* At 375px the full label made this 218px wide, which collided with the
+              animations toggle in the opposite corner and covered the text behind it.
+              Below sm it is the microphone alone. */}
+          <Mic size={16} /> <span className="hidden sm:inline">Talk to our AI assistant</span>
         </motion.button>
       )}
     </div>
