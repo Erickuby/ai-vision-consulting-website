@@ -22,9 +22,15 @@ const API = 'https://api.elevenlabs.io';
 const AGENT_NAME = 'Joe — AI Vision Consulting';
 const VOICE_ID = 'FVsSqJuAtHOX7s21yLpE'; // "Best Voice", Eric's professional voice clone
 
-// Creator plan gives 275 agent minutes a month. A four minute ceiling keeps a runaway or
-// abandoned call from eating the budget; see agent/README.md for the arithmetic.
-const MAX_CALL_SECONDS = 240;
+// Creator plan gives 250 agent minutes a month. The ceiling exists so a runaway or
+// abandoned call cannot eat the budget; see agent/README.md for the arithmetic.
+//
+// Raised from 240 to 600 on 6 Oct 2026. At four minutes a real enquiry was cut off
+// mid booking, right after giving a name and email, and the booking never completed.
+// Measured usage was 41 minutes across the whole of the agent's first month, so ten
+// minutes a call still leaves room for about 25 full length calls before the budget is
+// a concern, and no booking conversation should ever hit the ceiling again.
+const MAX_CALL_SECONDS = 600;
 
 const ALLOWED_HOSTS = [
   'aivisionconsulting.co.uk',

@@ -33,6 +33,11 @@ const sectionId = (heading: string) =>
 
 export function SeoLandingPage({ route }: { route: SiteRoute }) {
   const showContact = route.kind === 'contact';
+  // Service pages sent every visitor to the contact form, so the highest intent pages on
+  // the site had no route to the calendar at all. That is a second step and a second
+  // decision in front of the one action worth having. The form stays, as a quieter option
+  // for people who would rather write than book.
+  const bookDirect = route.kind === 'service' || route.path === '/case-studies/';
   const courseBooking = route.course ? trainingBookingUrl(`Training enquiry: ${route.h1}. ${route.course.corporateOnly ? 'Corporate workshop: please help scope our requirements.' : `One focused hour: £${route.course.price}. ${pricingPolicy.vatShort}`} My goal is: `) : undefined;
 
   return (
@@ -47,11 +52,19 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
           {route.course && <p>{route.course.corporateOnly ? 'Corporate-only workshop. Scope and price agreed with your organisation.' : `£${route.course.price} for one focused hour. Free discovery call available.`}</p>}
           {(route.kind === 'service' || route.course) && <VatNotice full />}
           <div className="seo-actions">
-            <a className="btn-primary" href={courseBooking ?? (showContact ? 'https://cal.com/eric-nwankwo/ai-discovery-call' : '/contact/')} target={showContact || courseBooking ? '_blank' : undefined} rel={showContact || courseBooking ? 'noopener noreferrer' : undefined}>
-              {showContact ? <Calendar size={16} /> : null}{courseBooking ? 'Discuss this session on a free call' : showContact ? 'Book on Cal.com' : 'Discuss your requirement'}
-              {!showContact ? <ArrowRight size={16} /> : null}
+            <a
+              className="btn-primary"
+              href={courseBooking ?? (showContact || bookDirect ? 'https://cal.com/eric-nwankwo/ai-discovery-call' : '/contact/')}
+              target={showContact || bookDirect || courseBooking ? '_blank' : undefined}
+              rel={showContact || bookDirect || courseBooking ? 'noopener noreferrer' : undefined}
+              data-conversion-placement={`Hero: ${route.path}`}
+            >
+              {showContact || bookDirect ? <Calendar size={16} /> : null}
+              {courseBooking ? 'Discuss this session on a free call' : showContact ? 'Book on Cal.com' : bookDirect ? 'Book a free discovery call' : 'Discuss your requirement'}
+              {!showContact && !bookDirect ? <ArrowRight size={16} /> : null}
             </a>
             {route.path !== '/pricing/' && <a className="btn-secondary" href={route.pricingHref ?? '/pricing/'}>View pricing</a>}
+            {bookDirect && <a className="hero-text-link" href="/contact/">Rather write than talk? Send a brief →</a>}
           </div>
           </div><PageHeroArtwork path={route.path} /></div>
         </div>
@@ -105,6 +118,33 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
               {route.faqs.map((item) => (
                 <details key={item.question} open><summary>{item.question}</summary><p>{item.answer}</p></details>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* A visitor who reads a whole service page was previously offered nothing but more
+          links. This is the one action worth having, put where they finish reading. */}
+      {bookDirect && (
+        <section className="seo-content-section" aria-labelledby="book-call-heading">
+          <div className="seo-container seo-article-copy">
+            <h2 id="book-call-heading">Talk it through before you commit</h2>
+            <p>
+              Twenty minutes with Eric, free, and no obligation. Bring the work you want people to do
+              differently afterwards. You will get a straight answer on the smallest thing that would
+              help, even when that turns out not to be a workshop.
+            </p>
+            <div className="seo-actions">
+              <a
+                className="btn-primary"
+                href="https://cal.com/eric-nwankwo/ai-discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-conversion-placement={`Closing CTA: ${route.path}`}
+              >
+                <Calendar size={16} />Book a free discovery call
+              </a>
+              <a className="btn-secondary" href="/contact/">Send a brief instead</a>
             </div>
           </div>
         </section>
