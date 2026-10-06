@@ -1148,7 +1148,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
 .hero-person figcaption strong { font-size: 20px; font-family: 'Space Grotesk', sans-serif; }
 .hero-person figcaption span { font-size: 12px; line-height: 1.6; color: #a9bdc9; max-width: 30ch; }
 .portrait-depth { position: absolute; inset: 14px -16px -14px 16px; border: 1px solid #314f59; border-radius: 8px; transform: rotateY(-7deg) rotateZ(2deg); pointer-events: none; }
-.hero-fieldnote { display: flex; flex-direction: column; gap: 9px; padding: 22px 0 0; margin-top: 12px; position: relative; text-decoration: none; }
+/* Indented to the same 27px as the caption inside the portrait (1px border plus the
+   figcaption's 26px padding), so this block reads as part of the card above it rather
+   than starting at a line nothing else uses. */
+.hero-fieldnote { display: flex; flex-direction: column; gap: 9px; padding: 22px 0 0 27px; margin-top: 12px; position: relative; text-decoration: none; }
 .hero-fieldnote .eyebrow { margin: 0; font-size: 10px; }
 .hero-fieldnote strong { font-size: 17px; font-weight: 500; }
 .hero-fieldnote > span:last-child { font-size: 12px; color: #a9bdc9; }
