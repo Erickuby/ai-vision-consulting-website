@@ -47,8 +47,9 @@ export function PricingPage({ route }: { route: SiteRoute }) {
           <p className="seo-lead">{route.intro}</p>
           <VatNotice full />
           <div className="seo-actions">
-            <a className="btn-primary" href="#individual-training">View individual prices <ArrowRight size={16} /></a>
-            <a className="btn-secondary" href="#catalogue-heading">Browse course topics</a><a className="hero-text-link" href="#team-training">Company pricing from £995, no VAT added →</a>
+            <a className="btn-primary" href="https://cal.com/eric-nwankwo/ai-discovery-call" target="_blank" rel="noopener noreferrer" data-conversion-placement="Pricing: hero discovery call"><Calendar size={16} />Book a free discovery call</a>
+            <a className="btn-secondary" href="#individual-training">View individual prices <ArrowRight size={16} /></a>
+            <a className="hero-text-link" href="#team-training">Company pricing from £995, no VAT added →</a><a className="hero-text-link" href="#catalogue-heading">Browse course topics →</a>
           </div>
           </div><PageHeroArtwork path={route.path} /></div>
         </div>
@@ -99,6 +100,10 @@ export function PricingPage({ route }: { route: SiteRoute }) {
             <p>We publish prices so you can compare before booking a call. Our half day starts at £1,450 and our full day at £2,450, each for up to twenty people. No VAT is added.</p>
             <p>For a specific North East comparison, <a href="https://www.theoxfordaischool.com/ai-training-north-east" target="_blank" rel="noopener noreferrer">The Oxford AI School</a> lists a half-day basics session at £1,499 + VAT virtually or £1,599 + VAT in person. Its full-day policy workshop is £2,499 + VAT virtually or £2,599 + VAT in person, for up to ten people. These are different programmes: compare the agenda, group cap, delivery format and final tax-inclusive quote, as well as the price. Checked September 2026.</p>
             <p>Every corporate quote includes a discovery call, tailored materials and a written summary of recommended next steps. Travel outside Tyne and Wear and software licences are quoted separately.</p>
+            <div className="seo-actions">
+              <a className="btn-primary" href="https://cal.com/eric-nwankwo/ai-discovery-call" target="_blank" rel="noopener noreferrer" data-conversion-placement="Pricing: corporate discovery call"><Calendar size={16} />Book a discovery call</a>
+              <a className="btn-secondary" href="/contact/">Send a short brief instead</a>
+            </div>
           </div>
         </div>
       </section>
