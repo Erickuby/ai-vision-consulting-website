@@ -1,4 +1,4 @@
-import { Bot, NotebookPen, CalendarClock, Scale, BarChart3, Wrench } from 'lucide-react';
+import { Bot, NotebookPen, CalendarClock, Scale, BarChart3, LayoutDashboard } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 // These are the capabilities organisations actually pay for. Deliberately not "draft a
@@ -33,9 +33,9 @@ const useCases = [
     text: 'Clean an inherited spreadsheet, build the pivot, run the comparison, and apply the checks that catch a wrong total before it reaches a director.',
   },
   {
-    icon: Wrench,
-    title: 'Build working tools, not just documents',
-    text: 'Turn a manual process into a small internal tool, or a SharePoint site into an agent colleagues can question, so the knowledge stops living in one person’s head.',
+    icon: LayoutDashboard,
+    title: 'Interactive dashboards in PowerPoint and SharePoint',
+    text: 'Put a live Power BI report inside a slide and filter it while presenting, so the deck answers the question actually asked in the room. Build the same reporting into a SharePoint site as an agent colleagues can question.',
   },
 ];
 
