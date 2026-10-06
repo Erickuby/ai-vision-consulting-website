@@ -3,14 +3,15 @@ export function HeroUpgraded() {
     <section id="home" className="editorial-hero section-wrapper">
       <div className="editorial-hero-grid">
         <div>
-          <p className="eyebrow">Newcastle based · Training across the UK</p>
-          <h1 aria-label="Practical AI skills. Put them to work."><DancingLetters text="Practical AI skills." />{' '}<DancingLetters text="Put them to work." className="hero-heading-accent" /></h1>
-          <p className="hero-intro">Practical AI training for teams, professionals and people taking their next career step. Clear explanations, guided practice and tools you can use with confidence.</p>
+          <p className="eyebrow">Newcastle based · Corporate AI training across the UK</p>
+          <h1 aria-label="Your team has Copilot. Make it earn its keep."><DancingLetters text="Your team has Copilot." />{' '}<DancingLetters text="Make it earn its keep." className="hero-heading-accent" /></h1>
+          <p className="hero-intro">Microsoft 365 Copilot training for UK organisations, taught on your own work rather than on demo data. Teams leave able to build their own agents, ground answers in their own documents and hand the repeat work to a schedule. Workshops from £995, no VAT added.</p>
           <div className="hero-actions">
-            <a className="btn-primary" href="/contact/">Discuss a workshop <span aria-hidden="true">↗</span></a>
-            <a className="hero-text-link" href="/pricing/">Explore training & prices <span aria-hidden="true">→</span></a>
+            <a className="btn-primary" href="https://cal.com/eric-nwankwo/ai-discovery-call" target="_blank" rel="noopener noreferrer" data-conversion-placement="Home hero: discovery call">Book a free discovery call <span aria-hidden="true">↗</span></a>
+            <a className="hero-text-link" href="/corporate-ai-training-uk/">Corporate training <span aria-hidden="true">→</span></a>
+            <a className="hero-text-link" href="/pricing/#individual-training">Training for individuals <span aria-hidden="true">→</span></a>
           </div>
-          <p className="hero-delivery">Microsoft 365 Copilot · ChatGPT · Claude<br /><span>Online and in person. Built around the work you do.</span></p>
+          <p className="hero-delivery">Microsoft 365 Copilot · ChatGPT · Claude<br /><span>In person across the North East, live online anywhere in the UK.</span></p>
         </div>
         <div className="hero-person">
           <div className="portrait-depth" aria-hidden="true" />
