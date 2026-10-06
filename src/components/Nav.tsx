@@ -99,9 +99,10 @@ export function Nav({ isHomePage = true }: { isHomePage?: boolean }) {
             {primaryLinks.map((item) => <a key={item.href} href={item.href} className="nav-link">{item.label}</a>)}
           </div>
           <div className="ml-auto flex items-center gap-3">
-            <div className="hidden xl:flex items-center gap-1.5">
-              {socials.map(({ icon: Icon, label, href }) => <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="flex items-center justify-center w-8 h-8 rounded-lg text-[#8899AA]" style={{ background: 'rgba(0,212,255,0.06)', border: '1px solid rgba(0,212,255,0.1)' }}><Icon size={14} /></a>)}
-            </div>
+            {/* The five social icons that used to sit here were crowding the one action
+                this bar exists for, and every one of them is already in the footer, which
+                is where someone looks for them. Nothing was lost by taking them out of the
+                top bar; the mobile menu below still carries them. */}
             <a href="https://cal.com/eric-nwankwo/ai-discovery-call" target="_blank" rel="noopener noreferrer" data-conversion-placement="Nav: discovery call" className="btn-primary !hidden sm:!inline-flex" style={{ padding: '10px 18px', fontSize: '13px' }}>Book a discovery call</a>
             <button ref={menuButtonRef} onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label="Open menu" className="lg:hidden flex flex-shrink-0 items-center justify-center w-11 h-11 rounded-lg text-[#00D4FF]" style={{ border: '1.5px solid rgba(0,212,255,0.3)' }}><Menu size={20} /></button>
           </div>

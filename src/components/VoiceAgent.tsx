@@ -250,7 +250,9 @@ export function VoiceAgent() {
   if (!mounted || !AGENT_ID) return null;
 
   return (
-    <div className="voice-assistant fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3 print:hidden">
+    // Lifted off the bottom edge: at bottom-6 the pill sat on top of the last line of
+    // whatever card occupied the bottom right corner while scrolling.
+    <div className="voice-assistant fixed bottom-10 right-6 z-[60] flex flex-col items-end gap-3 print:hidden">
       <AnimatePresence>
         {nudging && !panelOpen && (
           <motion.div
