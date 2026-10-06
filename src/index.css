@@ -1155,6 +1155,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid #a7ded9; outline-offs
 .hero-fieldnote:hover strong { color: #70c9c4; }
 .hero-principles { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; border-top: 1px solid #2a3c47; padding: 22px 0; color: #9cabb8; font-size: 12px; }
 .hero-principles a { color: #cce3e0; }
+/* The voice assistant pill is fixed to the bottom right and lands on this row on a
+   first screen view, hiding the Google reviews link behind it. Keep the row clear of
+   that corner on the widths where both are on screen together. */
+@media (min-width: 1024px) { .hero-principles { padding-right: 250px; } }
 .ai-practice { padding: 80px 28px; background: #081421; color: #f0f4ff; }
 .ai-practice-inner { max-width: 1144px; margin: auto; }
 .ai-practice-intro { max-width: 740px; }
