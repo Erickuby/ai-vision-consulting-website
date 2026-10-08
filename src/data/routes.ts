@@ -40,6 +40,9 @@ export type SiteRoute = {
   lastReviewed?: string;
   course?: { corporateOnly: boolean; price?: number };
   relatedLinks?: { href: string; label: string }[];
+  // Other sessions in the same training track. Course pages were reachable from one
+  // place each, which left Google discovering them and then not bothering to crawl.
+  relatedCourses?: { href: string; label: string }[];
   serviceOffer?: { name: string; price: string; href: string };
   // Clips filmed at completed training only. Each clip needs a poster and an ISO 8601 duration
   // because the prerenderer turns them into VideoObject structured data.

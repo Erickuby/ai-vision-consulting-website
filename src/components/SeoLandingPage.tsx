@@ -110,6 +110,17 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
 
       {route.relatedLinks?.length ? <section className="seo-content-section"><div className="seo-container seo-article-copy"><h2>{route.course ? 'Read before your session' : 'Further reading'}</h2><ul>{route.relatedLinks.map((link) => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}</ul></div></section> : null}
 
+      {route.relatedCourses?.length ? (
+        <section className="seo-content-section" aria-labelledby="related-courses-heading">
+          <div className="seo-container seo-article-copy">
+            <h2 id="related-courses-heading">Other sessions in this track</h2>
+            <ul>
+              {route.relatedCourses.map((link) => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
       {route.faqs && route.faqs.length > 0 && (
         <section className="seo-content-section" aria-labelledby="faq-heading">
           <div className="seo-container">
