@@ -1347,7 +1347,7 @@ body:has(.selection-bar) { padding-bottom: calc(var(--training-bar-height, 120px
 
 /* Artwork inside a content section, currently the book covers on /books/. Capped
    so a tall cover sits beside the copy rather than dominating the page. */
-.seo-section-figure { margin: 1.6rem 0 0; }
+.seo-section-figure { margin: 1.2rem 0 1.6rem; }
 .seo-section-figure img {
   display: block;
   width: 100%;

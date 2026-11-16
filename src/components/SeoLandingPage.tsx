@@ -76,14 +76,14 @@ export function SeoLandingPage({ route }: { route: SiteRoute }) {
         <section className="seo-content-section" id={sectionId(section.heading)} key={section.heading}>
           <div className="seo-container seo-article-copy">
             <h2>{section.heading}</h2>
-            {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
-            {section.links && <ul>{section.links.map(link => <li key={link.href}><a href={link.href} {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{link.label}</a></li>)}</ul>}
             {section.image && (
               <figure className="seo-section-figure">
                 <img src={section.image.src} alt={section.image.alt} width={section.image.width} height={section.image.height} loading="lazy" decoding="async" />
               </figure>
             )}
+            {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
+            {section.links && <ul>{section.links.map(link => <li key={link.href}><a href={link.href} {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{link.label}</a></li>)}</ul>}
           </div>
         </section>
       ))}
