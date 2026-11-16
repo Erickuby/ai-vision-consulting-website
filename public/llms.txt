@@ -10,7 +10,7 @@
 - AI policy and governance package from £1,750. AI readiness and workflow audit from £950.
 - All prices are final. AI Vision Consulting is not VAT registered, so no VAT is added. Software licences and travel outside Tyne and Wear are separate.
 - Completed training: a 90 minute Microsoft 365 Copilot workshop for FDQ Limited (Food and Drink Qualifications), Leeds, 3 September 2026, and a complete 12 week AI training course for the AI Vision Community.
-- Books: Eric Nwankwo wrote Copilot Prompts, 100 workplace prompts for Microsoft 365 Copilot, the first title in the AI Vision Practical Guides series. It is on Amazon UK as a £4.99 Kindle eBook, also in Kindle Unlimited, and a £9.99 paperback. The second title, Copilot for Excel, 70 prompts for spreadsheets, data checks and monthly reports, has been on Amazon UK as a £4.99 Kindle eBook since 23 September 2026, also in Kindle Unlimited, and as an £8.99 paperback since 24 September 2026. The books page carries the current status and the Amazon links.
+- Books: Eric Nwankwo has written ten practical guides, all on Amazon UK as a £4.99 Kindle eBook, also in Kindle Unlimited, and as a paperback. Nine are in the AI Vision Practical Guides series: Copilot Prompts, Copilot for Excel, Copilot Agents, Copilot for Outlook and Teams, Copilot for Managers, AI for Small Business, Copilot for Finance Teams, Copilot for Word and PowerPoint, and Claude for UK Office Work. The tenth, Civil Service Applications with AI, is in the AI Vision Career Guides series. Paperbacks are £8.99, except Copilot Prompts and Civil Service Applications with AI at £9.99. The books page carries the current status and the Amazon links.
 
 ## What We Do
 
@@ -61,6 +61,7 @@ Automation work begins with the current workflow rather than a predetermined too
 
 ## Articles
 
+- [How to Choose an AI Automation Consultant in the UK](https://aivisionconsulting.co.uk/blog/how-to-choose-an-ai-automation-consultant)
 - [Why Microsoft 365 Copilot Rollouts Stall, and What Actually Fixes Them](https://aivisionconsulting.co.uk/blog/why-copilot-rollouts-stall)
 - [Copilot Agent Mode in Word, Excel and PowerPoint](https://aivisionconsulting.co.uk/blog/copilot-agent-mode-word-excel-powerpoint)
 - [Researcher and Analyst in Microsoft 365 Copilot](https://aivisionconsulting.co.uk/blog/copilot-researcher-and-analyst-agents)

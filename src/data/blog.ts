@@ -379,6 +379,24 @@ const articleCatalogue: BlogPost[] = [
     metaDescription: "Copilot oversharing explained: it can surface any file a user can already open. How to find overshared SharePoint content and close the gaps before your rollout.",
     keywords: ['Copilot oversharing', 'SharePoint permissions Copilot', 'Microsoft 365 Copilot data security'],
   },
+  {
+    slug: 'how-to-choose-an-ai-automation-consultant',
+    title: "How to Choose an AI Automation Consultant in the UK",
+    excerpt: "A practical UK buyer's guide to hiring help with automation: what a useful first engagement includes, questions to ask, and when training or a simple process change is enough.",
+    image: "https://aivisionconsulting.co.uk/images/blog/how-to-choose-an-ai-automation-consultant.png",
+    imageAlt: "A checklist of questions to ask before hiring an AI automation consultant.",
+    category: 'AI Automation',
+    categoryColor: '#00D4FF',
+    readTime: "12 min read",
+    date: "10 Nov 2026",
+    publishedAt: "2026-11-10",
+    updatedAt: "2026-11-10",
+    ...author,
+    tags: ['AI Automation', 'Small Business Automation', 'Workflow Design'],
+    metaTitle: "How to Choose an AI Automation Consultant in the UK",
+    metaDescription: "A UK guide to choosing an AI automation consultant: questions to ask, what a workflow audit should include, starting prices, and when training is enough.",
+    keywords: ['AI automation consultant UK', 'how to choose an AI consultant', 'AI workflow audit'],
+  },
 ];
 
 const currentMetadata: Record<string, Partial<BlogPost>> = generatedMetadata;
